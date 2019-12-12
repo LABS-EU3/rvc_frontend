@@ -114,14 +114,14 @@ Ejects hidden modules into `package.json`.
   src
   |
   ├── actions
-  |   ├── recipe.js
-  |   └── user.js
+  |   ├── recipe-actions.js
+  |   └── user-actions.js
   |
   ├── components
   |   ├── recipes
   |   |   ├── recipe.js
-  |   |   ├── recipes-styles.js
-  |   |   └── recipes.test.js
+  |   |   ├── recipe-styles.js
+  |   |   └── recipe.test.js
   |   |
   |   └── users
   |       ├── user.js
@@ -130,8 +130,8 @@ Ejects hidden modules into `package.json`.
   |
   ├── reducers
   |   ├── reducer.js
-      ├── recipes-reducer.js
-  |   └── users-reducer.js
+      ├── recipe-reducer.js
+  |   └── user-reducer.js
 
 ```
 
