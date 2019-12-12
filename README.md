@@ -1,5 +1,5 @@
 # Bravo Frontend
- You can find the deployed project at https://saybravo.io
+ You can find the deployed project at https://forkbook.co
 ## Team
 |                                       [James Eneh](https://github.com/erozonachi)                                        |                                       [Carnun Marcus-Page](https://github.com/CarnunMP)                                        |                                       [Chinedu Nwume](https://github.com/chineducn)                                        |                                       [Samuel Mpere Annor](https://github.com/mpereannor)                                        |                                       [Kiyani Bamba](https://github.com/KiyaniBamba)                                        |
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
@@ -15,7 +15,9 @@
 [Product Canvas](https://www.notion.so/EU3-Recipe-Version-Control-78e62a961eee4f059e1f02c7dcb6d73b) <br>
 [UX Design files](https://www.figma.com/file/rJzG4mFCWol5kJ0suycSfS/Forkbook?node-id=59%3A4) <br>
 
-Healthy office cultures often acknowledge good work from their coworkers and peers. Award your peers with acknowledgments that act like coins/points in Slack when they do awesome things - and never let the acknowledgment of their good work get lost in the shuffle again.
+Eating and by extension, cooking should be a fun activity. If cooking isn’t fun why eat?
+The aim of this project is to make cooking fun, seamless, and most importantly personal.
+
 ### Key Features
 Basic Features
 - User should be able to sign up and login
@@ -112,24 +114,24 @@ Ejects hidden modules into `package.json`.
   src
   |
   ├── actions
-  |   ├── Recipes.js
-  |   └── Users.js
+  |   ├── recipe.js
+  |   └── user.js
   |
   ├── components
-  |   ├── Recipes
-  |   |   ├── index.js
-  |   |   ├── recipes.styles.js
+  |   ├── recipes
+  |   |   ├── recipe.js
+  |   |   ├── recipes-styles.js
   |   |   └── recipes.test.js
   |   |
-  |   └── Users
-  |       ├── index.js
-  |       ├── user.styles.js
+  |   └── users
+  |       ├── user.js
+  |       ├── user-styles.js
   |       └── user.test.js
   |
   ├── reducers
-  |   ├── index.js
-      ├── recipesReducer.js
-  |   └── usersReducer.js
+  |   ├── reducer.js
+      ├── recipes-reducer.js
+  |   └── users-reducer.js
 
 ```
 
