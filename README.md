@@ -138,8 +138,9 @@ Ejects hidden modules into `package.json`.
   |
   ├── reducers
   |   ├── reducer.js
+  |   ├── reducer.js
       ├── recipe-reducer.js
-  |   └── user-reducer.js
+      └── user-reducer.js
 
 ```
 
