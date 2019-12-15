@@ -442,7 +442,7 @@ Remember that this project is licensed under the MIT license, and by submitting 
 
 
 ## Documentation
-See [Backend Documentation](https://github.com/bravolabs/bravo-be/blob/develop/README.md) for details on the backend of our project.
+See [Backend Documentation](https://github.com/LABS-EU3/rvc_backend/blob/develop/README.md) for details on the backend of our project.
 
 ## License
 
