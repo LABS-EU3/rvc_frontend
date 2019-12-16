@@ -13,13 +13,14 @@ function LoginForm(){
 }
 
 const FormikLoginForm = withFormik({
-mapPropsToValues ({username, password }) {
+mapPropsToValues ({ username, password }) {
     return {
         username: username || '',
         password: password || ''
     };
 },
 
+// Validation //
 
 handleSubmit(values){
     console.log(values);
