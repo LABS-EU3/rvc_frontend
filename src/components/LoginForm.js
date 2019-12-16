@@ -1,20 +1,25 @@
 import React from 'react';
-import { withFormik, Form, Field } from 'formik';
-// import FormTemplate from './Form';
+import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
+import { withFormik, Form, Field, Formik } from 'formik';
 import * as Yup from 'yup'; 
+import axios from 'axios';
 
-function FormTemplate (){
+function FormTemplate ({ touched, errors }){
     return (
         <Form>
+          <div>
+            {touched.username && errors.username && <p>errors.username}</p>}
             <Field type="text" name="username" placeholder="Username" />
+          </div>
+          <div>
+            {touched.password && errors.password && <p>errors.password}</p>}
             <Field type='password' name='password' placeholder='Password' />
-            {/* <Field type='email' name='email' placeholder='email' /> */}
-             <button> Add text </button>
+          </div>
+          <button>Sign in</button>
+          <p>Don't have an account? <Link to='/register'>Register</Link></p>
         </Form>
     );
 }
-
-
 const FormikLoginForm = withFormik({
 mapPropsToValues ({ username, password }) {
     return {
@@ -32,15 +37,16 @@ validationSchema: Yup.object().shape({
     .required("A password is required to have access to the kitchen")  
 }),
 
-
 handleSubmit(values){
-    console.log(values);
-    const { username, password } = values
+    const { username, password } = values;
+    axios 
+    .post('dummyApi', { username, password })
+    .then(res => { 
+      console.log(res.data)
+    })
+    .catch(error => { 
+      console.log(error.message)
+    })
 }
-
-
 }) (FormTemplate)
-
-
-
 export default FormikLoginForm;

@@ -1,20 +1,28 @@
 import React from 'react';
-import { withFormik, Form, Field } from 'formik';
-// import FormTemplate from './Form';
+import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
+import { withFormik, Form, Field, Formik } from 'formik';
 import * as Yup from 'yup'; 
-
-function FormTemplate (){
+import axios from 'axios';
+function FormTemplate ({ touched, errors }){
     return (
         <Form>
+          <div>
+            {touched.email && errors.email }
             <Field type='email' name='email' placeholder='email' />
+          </div>
+          <div>
+            {touched.username && errors.username }
             <Field type="text" name="username" placeholder="Username" />
+          </div>
+          <div>
+            {touched.password && errors.password }
             <Field type='password' name='password' placeholder='Password' />
-             <button> Add text </button>
+          </div>
+          <button>Register</button>
+          <p>Already have an account? <Link to='/login'>Log in</Link></p>
         </Form>
     );
 }
-
-
 const FormikRegisterForm = withFormik({
 mapPropsToValues ({ email, username, password }) {
     return {
@@ -23,26 +31,27 @@ mapPropsToValues ({ email, username, password }) {
         password: password || ''
     };
 },
-
 // Validation //
 validationSchema: Yup.object().shape({
     email: Yup.string()
     .email("An email is required")
     .required("Please, add an email"),
     username: Yup.string()
-    .username()
     .required("Username is required to have acess to the kitchen"),
     password: Yup.string()
     .min(6, "A safe kitchen should be protected by a 6 characters password. Try again.")
     .required("A password is required to have access to the kitchen")  
 }),
-
-
 handleSubmit(values){
-    console.log(values);
+  const { email, username, password } = values;
+  axios
+  .post('dummyRegisterApi', { email, username, password })
+  .then(res => { 
+    console.log(res.data)
+  })
+  .catch(error => { 
+    console.log(error.message)
+  })
 }
 }) (FormTemplate)
-
-
-
 export default FormikRegisterForm;
