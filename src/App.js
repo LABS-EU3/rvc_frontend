@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <FormikLoginForm />
       <FormikRegisterForm />
-      <h1 style={{ "fontSize": "1.8rem"}}> WELCOME TO FORKBOOK</h1>
+      <h1> WELCOME TO FORKBOOK</h1>
     </div>
   );
 }
