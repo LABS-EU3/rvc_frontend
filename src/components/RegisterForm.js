@@ -1,7 +1,18 @@
 import React from 'react';
-import { withFormik } from 'formik';
-import FormTemplate from './Form';
+import { withFormik, Form, Field } from 'formik';
+// import FormTemplate from './Form';
 import * as Yup from 'yup'; 
+
+function FormTemplate (){
+    return (
+        <Form>
+            <Field type='email' name='email' placeholder='email' />
+            <Field type="text" name="username" placeholder="Username" />
+            <Field type='password' name='password' placeholder='Password' />
+             <button> Add text </button>
+        </Form>
+    );
+}
 
 
 const FormikRegisterForm = withFormik({
