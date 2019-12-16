@@ -162,6 +162,8 @@ Example:
 - Only **one** index.js can exist and must be top level
 - `Async/Await` instead of `.then()` etc...
 - All component files should have the .jsx extension e.g login.jsx, signup.jsx.
+- Use relative units and values for example { fonts-size: 2rem; } instead of hard-coded pixels { fonts-size: 20px } etc
+- Use flexbox or percentages for layout instead of rems/ems/px
 
 
 ## Code Guidelines
