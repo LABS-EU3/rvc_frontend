@@ -1,8 +1,7 @@
 import React from 'react';
-import { withFormik, Form, Field } from 'formik';
-import * as Yup from 'yup'; 
+import { Form, Field } from 'formik';
 
-function Form(){
+function FormTemplate (){
     return (
         <Form>
             <Field type='text' name='username' placeholder='Username' />
@@ -14,4 +13,4 @@ function Form(){
 }
 
 
-export default Form;
+export default FormTemplate;
