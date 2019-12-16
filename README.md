@@ -161,6 +161,8 @@ Example:
 - Always name your files accordingly
 - Only **one** index.js can exist and must be top level
 - `Async/Await` instead of `.then()` etc...
+- All component files should have the .jsx extension e.g login.jsx, signup.jsx.
+
 
 ## Code Guidelines
 - TDD is preferable but Test as soon as possible once you finish something
