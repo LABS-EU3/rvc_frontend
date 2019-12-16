@@ -45,7 +45,7 @@ validationSchema: Yup.object().shape({
 handleSubmit(values){
   const { email, username, password } = values;
   axios
-  .post('dummyRegisterApi', { email, username, password })
+  .post('https://babaloki.herokuapp.com/api/users/register', { email, username, password })
   .then(res => { 
     console.log(res.data)
   })
