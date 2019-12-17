@@ -8,26 +8,23 @@ flex-direction: column;
 height: 100vh;
 justify-content: space-evenly;
 align-items: center;
+
 .title {
-  border: 1px solid white;
   h1 {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 }
 .logo-container {
-  border: 1px solid white;
   img {
     width: 50%;
   }
 }
 
 .slogan {
-  border: 1px solid white;
   h3{
     font-size: 2.4rem;
   }
 }
-
 `
 
 function Welcome (){
