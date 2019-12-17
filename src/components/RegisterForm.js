@@ -3,8 +3,16 @@ import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom'
 import { withFormik, Form, Field, Formik } from 'formik';
 import * as Yup from 'yup'; 
 import axios from 'axios';
+
+import { MainDiv, ButtonForm } from '../globals/form-styles';
+
 function FormTemplate ({ touched, errors }){
     return (
+        <MainDiv>
+            
+            <h1> Registration</h1>
+            <p> Create a profil, follow your favorites cooks, save delicious recipes and more </p>
+
         <Form>
           <div>
             {touched.email && errors.email }
@@ -18,9 +26,10 @@ function FormTemplate ({ touched, errors }){
             {touched.password && errors.password }
             <Field type='password' name='password' placeholder='Password' />
           </div>
-          <button>Register</button>
+          <ButtonForm>Register</ButtonForm>
           <p>Already have an account? <Link to='/login'>Log in</Link></p>
         </Form>
+        </MainDiv>
     );
 }
 const FormikRegisterForm = withFormik({

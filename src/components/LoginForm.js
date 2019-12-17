@@ -8,11 +8,11 @@ function FormTemplate ({ touched, errors }){
     return (
         <Form>
           <div>
-            {touched.username && errors.username && <p>errors.username}</p>}
+            {touched.username && errors.username }
             <Field type="text" name="username" placeholder="Username" />
           </div>
           <div>
-            {touched.password && errors.password && <p>errors.password}</p>}
+            {touched.password && errors.password }
             <Field type='password' name='password' placeholder='Password' />
           </div>
           <button>Sign in</button>
