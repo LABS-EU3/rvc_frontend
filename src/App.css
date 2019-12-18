@@ -74,6 +74,10 @@
   
 }
 
+.spaced-div {
+  margin-bottom: 7rem;
+}
+
 .register-button {
   width: 100%;
 background-color: #0AB38A;

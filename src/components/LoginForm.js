@@ -17,18 +17,16 @@ function FormTemplate ({ touched, errors }){
             <H1> Login</H1>
             <DescriptionForm> Create a profile, follow your favorites cooks, save delicious recipes and more </DescriptionForm>
 
-        <Form>
+        <Form className="formik-form">
           <div>
             {touched.username && errors.username }
             <Field type="text" name="username" class='input' placeholder="Username" />
           </div>
-          <div>
+          <div className="spaced-div">
             {touched.password && errors.password }
             <Field type='password' name='password' class='input' placeholder='Password' />
           </div>
-          <ButtonDiv>
-           <ButtonForm>Sign in</ButtonForm>
-          </ButtonDiv>
+          <button type="submit" className="register-button">Login</button>
         </Form>
           <FooterDiv>
           <p>Don't have an account? <Link to='/register' style={{ textDecoration: 'none' }}>
