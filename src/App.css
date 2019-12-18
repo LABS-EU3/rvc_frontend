@@ -43,3 +43,20 @@
     transform: rotate(360deg);
   }
 }
+
+.input {
+  /* margin-right: 15%; */
+  margin-left: 20%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #0AB28A;
+  box-sizing: border-box;
+  color: #0AB28A;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 30px;
+  outline: none !important;
+  opacity: .6;
+  padding-bottom: 15px;
+  width:270px;
+}

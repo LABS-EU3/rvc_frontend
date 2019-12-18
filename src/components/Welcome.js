@@ -3,9 +3,16 @@ import React from 'react';
 function Welcome (){
     return (
         <div>
-            <h1>WELCOME TO FORKBOOK</h1>
+            <div className='title'>
+              <h1>FORKBOOK</h1>
+            </div>
+            <div className='logo'>
+              <img/>
+            </div>
+            <div className='slogan'>
+              <h3>expand your taste</h3>
+            </div>
         </div>
-
     );
 }
 
