@@ -4,11 +4,7 @@ import styled from "styled-components";
 export const MainDiv = styled.div`
 display: flex;
 flex-direction: column;
-width: 411px;
 height: 739px;
-margin-right: 20%;
-margin-left: 20%;
-margin-top: 10%;
 border: 1px red solid;
 text-aign:center;
 font-family: Avenir Next;
@@ -16,16 +12,15 @@ justify-content: space-evenly;
 `
 
 export const Logo = styled.div`
-display:flex;
-width: 210px;
-height: 210px;
-align-item:center;
-margin-left:20%;
-margin-right:20%;
+img {
+  width: 50%;
+}
 `
 
 export const H1 =styled.h1`
   font-size: 36px;
+  margin-top: -18px;
+  margin-bottom: 0;
   margin-left:10%;
   margin-right:10%;
 `
@@ -38,16 +33,16 @@ line-height: 25px;
 text-align: center;
 margin-left:20%;
 margin-right:20%;
+margin-top: 0;
 `
 
 export const ButtonDiv = styled.div`
-margin-left:20%;
-margin-right:15%;
+width: 100%;
 `
 
 
 export const ButtonForm = styled.div`
-width: 305px;
+width: 100%;
 background-color: #0AB38A;
 border: 0;
 border-radius: 28px;
@@ -69,7 +64,6 @@ transition: box-shadow 150ms;
 export const Input = styled.input`
     display:block;
     height:50px;
-    width:90%;
     margin:0 auto;
     border:none;
     &::placeholder{
@@ -105,6 +99,11 @@ outline: none;
 text-decoration: none;
 list-style: none;
 font-weight: bold;
+display: inline;
+`;
+
+export const RegLink = styled.span`
+text-decoration: none;
 `;
 
 
