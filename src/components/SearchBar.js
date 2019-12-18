@@ -33,29 +33,32 @@ const SearchBar = ({ recipe }) => {
             // value={searchRecipe}
             // onChange={handleChange}
           />
-          <div>
-            <input type="checkbox" id="menyAvPaa" />
-            <label id="burger" for="menyAvPaa">
-              <div></div>
-              <div></div>
-              <div></div>
-            </label>
-            <div id="menuToggle">
-              <ul id="menu">
-                <a href="#">
-                  <li>Home</li>
-                </a>
-                <a href="#">
-                  <li>Login</li>
-                </a>
-                <a href="#">
-                  <li>Register</li>
-                </a>
-                <a href="#">
-                  <li>Logout</li>
-                </a>
-              </ul>
-            </div>
+          <div className="menu-container">
+            <nav role="navigation">
+              <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                  <a href="#">
+                    <li>Home</li>
+                  </a>
+                  <a href="#">
+                    <li>About</li>
+                  </a>
+                  <a href="#">
+                    <li>Info</li>
+                  </a>
+                  <a href="#">
+                    <li>Contact</li>
+                  </a>
+                  <a href="https://erikterwan.com/" target="_blank">
+                    <li>Show me more</li>
+                  </a>
+                </ul>
+              </div>
+            </nav>
           </div>
         </SearchBox>
       </div>
