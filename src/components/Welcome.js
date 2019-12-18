@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from 'styled-components'
-import logo_image from '../images/forkbook.png'
+import styles from 'styled-components';
+import logo_image from '../globals/design-elements/logo_white.png';
 
 const Div = styles.div`
 background: #0AB38A;
@@ -20,7 +20,7 @@ align-items: center;
    
   img {
     width: 50%;
-    background: white;      
+    // background: white;      
     
   }
 }
