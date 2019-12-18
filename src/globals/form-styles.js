@@ -12,7 +12,7 @@ margin-top: 10%;
 border: 1px red solid;
 text-aign:center;
 font-family: Avenir Next;
-space-between: 0px;
+justify-content: space-evenly; 
 `
 
 export const Logo = styled.div`

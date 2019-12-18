@@ -15,7 +15,7 @@ function FormTemplate ({ touched, errors }){
               <img src={logo} alt="Logo" />
             </Logo>
             <H1> Registration</H1>
-            <DescriptionForm> Create a profil, follow your favorites cooks, save delicious recipes and more </DescriptionForm>
+            <DescriptionForm> Create a profile, follow your favorites cooks, save delicious recipes and more </DescriptionForm>
 
         <Form>
           <div>
