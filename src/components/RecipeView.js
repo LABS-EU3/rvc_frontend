@@ -4,13 +4,14 @@ import axios from 'axios';
 import styled from 'styled-components';
 import waterfall from '../waterfall';
 import Recipe from './Recipe';
+import SearchBar from './SearchBar'
+
 
 const recipesApi = 'http://localhost:3333/recipes';
 
 const RecipeView = props => { 
   const [recipes, setRecipes] = useState([])
 
-  const  [addRecipes, setAddRecipes] = useState({})
   useEffect(() => { 
     const getRecipes = () => { 
       axios
@@ -26,8 +27,12 @@ const RecipeView = props => {
   }, []);
 
   return(
-    <div className='recipe-view columns'>
-      {/* <div>Search bar component</div> */}
+    <div>
+      {/* <div>
+        {recipes.map(recipe=> (
+          <SearchBar key={recipe.id} filterRecipe={recipe['recipe_title']}/>
+        ))} */}
+      {/* </div> */}
       <div className='waterfall'>
         {recipes.map(recipe => (
         <Recipe key={recipe.id} recipe={recipe}/>
