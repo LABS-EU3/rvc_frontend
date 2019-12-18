@@ -1,11 +1,10 @@
-:root {
-  font-size: 62.5%;
-}
 #root {
   max-width: 550px;
   height: 100vh;
-  margin: 0 auto;  
+  margin: 0 auto;
+  font-size: 62.5%;
 }
+
 .App {
   text-align: center;
 }
@@ -45,57 +44,19 @@
   }
 }
 
-
-.columns {
-	column-width: 320px;
-	column-gap: 15px;
-  width: 90%;
-	max-width: 1100px;
-	margin: 50px auto;
-}
-
-.img-columns figure {
-	background: #fefefe;
-	border: 2px solid #fcfcfc;
-	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
-	margin: 0 2px 15px;
-	padding: 15px;
-	padding-bottom: 10px;
-	transition: opacity .4s ease-in-out;
-  display: inline-block;
-}
-
-.img-columns figure img {
-	width: 100%; height: auto;
-	border-bottom: 1px solid #ccc;
-	padding-bottom: 15px;
-	margin-bottom: 5px;
-}
-
-.img-columns figure figcaption {
-  font-size: .9rem;
-	color: #444;
-  line-height: 1.5;
-}
-
-.img-columns small { 
-  font-size: 1rem;
-  float: right; 
-  text-transform: uppercase;
-  color: #aaa;
-} 
-
-.img-columns small a { 
-  color: #666; 
-  text-decoration: none; 
-  transition: .4s color;
-}
-
-.img-columns:hover figure:not(:hover) {
-	opacity: 0.4;
-}
-
-@media screen and (max-width: 750px) { 
-  .columns { column-gap: 0px; }
-  .columns figure { width: 100%; }
+.input {
+  /* margin-right: 15%; */
+  margin-left: 20%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #0AB28A;
+  box-sizing: border-box;
+  color: #0AB28A;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 30px;
+  outline: none !important;
+  opacity: .6;
+  padding-bottom: 15px;
+  width:270px;
 }

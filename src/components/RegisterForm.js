@@ -1,26 +1,43 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
 import { withFormik, Form, Field, Formik } from 'formik';
+import logo from '../globals/design-elements/logo.png';
 import * as Yup from 'yup'; 
 import axios from 'axios';
+import '../index.css';
+
+import { MainDiv, ButtonForm, Logo, FooterDiv, H1, DescriptionForm, ButtonDiv, LinkFooter } from '../globals/form-styles';
+
 function FormTemplate ({ touched, errors }){
     return (
+        <MainDiv>
+            <Logo>
+              <img src={logo} alt="Logo" />
+            </Logo>
+            <H1> Registration</H1>
+            <DescriptionForm> Create a profile, follow your favorites cooks, save delicious recipes and more </DescriptionForm>
+
         <Form>
           <div>
             {touched.email && errors.email }
-            <Field type='email' name='email' placeholder='email' />
+            <Field type='email' name='email' class='input' placeholder='Email' />
           </div>
           <div>
             {touched.username && errors.username }
-            <Field type="text" name="username" placeholder="Username" />
+            <Field type="text" name="username" class='input' placeholder="Username" />
           </div>
           <div>
             {touched.password && errors.password }
-            <Field type='password' name='password' placeholder='Password' />
+            <Field type='password' name='password' class='input' placeholder='Password' />
           </div>
-          <button>Register</button>
-          <p>Already have an account? <Link to='/login'>Log in</Link></p>
+          <ButtonDiv>
+            <ButtonForm>Register</ButtonForm>
+          </ButtonDiv>
+          <FooterDiv>
+          <p>Already have an account?</p><Link to='/login'> <LinkFooter>Log in</LinkFooter></Link>
+          </FooterDiv>
         </Form>
+      </MainDiv>
     );
 }
 const FormikRegisterForm = withFormik({
