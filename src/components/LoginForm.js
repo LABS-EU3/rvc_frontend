@@ -14,7 +14,7 @@ function FormTemplate ({ touched, errors }){
             <Logo>
               <img src={logo} alt="Logo" />
             </Logo>
-            <H1> Registration</H1>
+            <H1> Login</H1>
             <DescriptionForm> Create a profile, follow your favorites cooks, save delicious recipes and more </DescriptionForm>
 
         <Form>
@@ -31,10 +31,10 @@ function FormTemplate ({ touched, errors }){
           </ButtonDiv>
         </Form>
           <FooterDiv>
-          <p>Don't have an account? </p>
-          <Link to='/register'>
+          <p>Don't have an account? <Link to='/register' style={{ textDecoration: 'none' }}>
           <LinkFooter> Register</LinkFooter>
-          </Link> 
+          </Link>  </p>
+          
           </FooterDiv>
         </MainDiv>
     );

@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from 'styled-components'
+import logo_image from '../images/forkbook.png'
 
 const Div = styles.div`
-background: green;
+background: #0AB38A;
+color: white;
 display: flex;
 flex-direction: column;
 height: 100vh;
@@ -15,8 +17,11 @@ align-items: center;
   }
 }
 .logo-container {
+   
   img {
     width: 50%;
+    background: white;      
+    
   }
 }
 
@@ -34,7 +39,7 @@ function Welcome (){
               <h1>FORKBOOK</h1>
             </div>
             <div className="logo-container">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/HP_logo_630x630.png" />
+              <img src={logo_image} />
             </div>
             <div className='slogan'>
               <h3>expand your taste</h3>

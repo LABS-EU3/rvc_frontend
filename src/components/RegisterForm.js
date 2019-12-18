@@ -17,7 +17,7 @@ function FormTemplate ({ touched, errors }){
             <H1> Registration</H1>
             <DescriptionForm> Create a profile, follow your favorites cooks, save delicious recipes and more </DescriptionForm>
 
-        <Form>
+        <Form className="formik-form">
           <div>
             {touched.email && errors.email }
             <Field type='email' name='email' class='input' placeholder='Email' />
@@ -30,12 +30,10 @@ function FormTemplate ({ touched, errors }){
             {touched.password && errors.password }
             <Field type='password' name='password' class='input' placeholder='Password' />
           </div>
-          <ButtonDiv>
-            <ButtonForm>Register</ButtonForm>
-          </ButtonDiv>
+            <button type="submit" className="register-button">Register</button>
           <FooterDiv>
-          <p>Already have an account?</p><Link to='/login'> <LinkFooter>Log in</LinkFooter></Link>
-          </FooterDiv>
+          <p>Already have an account?<Link to='/login' style={{ textDecoration: 'none' }}> <LinkFooter>Log in</LinkFooter></Link>
+          </p></FooterDiv>
         </Form>
       </MainDiv>
     );
