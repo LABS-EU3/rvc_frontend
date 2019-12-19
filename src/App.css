@@ -239,7 +239,7 @@ a:hover
 .block {
   background-color: #f2f2f2;
   padding: 10px;
-  border: 2px solid #CCCCCC;
+  border: 2px solid rgb(223, 80, 80);
   max-width: 900px;
   margin: 14% auto;
   height: 470px;
@@ -271,6 +271,35 @@ a:hover
   height: 220px;
 }
 
+
+
+.container { 
+  width: 1200px;
+  margin: 20px auto;
+  columns: 4;
+  column-gap: 20px;
+}
+
+.container .box { 
+  width: 100%;
+  margin: 0 0 20px;
+  padding: 10px;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  break-inside: avoid;
+}
+
+.container .box img { 
+  max-width:  100%;
+
+}
+
+.container .box p { 
+  margin: 10px  0 0;
+  padding: 0 0 10px;
+  font-size: 16px  
+}
+
 @media (max-width:1200px) 
 {
   .container {
@@ -281,14 +310,13 @@ a:hover
   }
 }
 
-@media (max-width:768px) {
+/* @media (max-width:768px) {
   .container {
     columns:2;
   }
-}
-
-@media (max-width: 480px) {
+} */
+@media (max-width: 550px) {
   .container {
-    columns: 2px;;
+    columns: 2;
   }
 }

@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const port = 3333;
-
 const server = express();
 server.use(express.json());
 server.use(cors());
@@ -15,21 +14,21 @@ const allRecipes = [
   
   {
     id: 1,
-    recipe_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7OsYEfJXjYkaiW3e7sbxZE1PgbOnLdRrD3NPW-jJhesGPG1nC",
-    no_of_likes: 32,
+    recipe_image: "https://images.unsplash.com/photo-1573413754133-2a7214b289b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+    no_of_likes: 72,
     fork_icon: null,
-    author: "Mercy James",
-    recipe_title: "Potata stew",
-    time: "3Omin",
-    price: "$5",
+    author: "Kiyani",
+    recipe_title: "stew",
+    time: "1Omin",
+    price: "$45",
     difficulty: "simple"
   },
   {
     id: 2,
-    recipe_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7OsYEfJXjYkaiW3e7sbxZE1PgbOnLdRrD3NPW-jJhesGPG1nC",
+    recipe_image: "https://images.unsplash.com/photo-1563105607-c22c30f552ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=869&q=80",
     no_of_likes: 32,
     fork_icon: null,
-    author: "Mercy James",
+    author: "Kiyani James",
     recipe_title: "Potata stew",
     time: "3Omin",
     price: "$5",
@@ -37,7 +36,7 @@ const allRecipes = [
   },
   {
     id: 3,
-    recipe_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7OsYEfJXjYkaiW3e7sbxZE1PgbOnLdRrD3NPW-jJhesGPG1nC",
+    recipe_image: "https://unsplash.com/photos/Yr4n8O_3UPc",
     no_of_likes: 32,
     fork_icon: null,
     author: "Mercy James",
@@ -48,7 +47,7 @@ const allRecipes = [
   },
   {
     id: 4,
-    recipe_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7OsYEfJXjYkaiW3e7sbxZE1PgbOnLdRrD3NPW-jJhesGPG1nC",
+    recipe_image: "https://unsplash.com/photos/zcUgjyqEwe8",
     no_of_likes: 32,
     fork_icon: null,
     author: "Mercy James",
@@ -59,7 +58,7 @@ const allRecipes = [
   },
   {
     id: 5,
-    recipe_image:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7OsYEfJXjYkaiW3e7sbxZE1PgbOnLdRrD3NPW-jJhesGPG1nC",
+    recipe_image:"https://images.unsplash.com/photo-1504973960431-1c467e159aa4?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
     no_of_likes: 32,
     fork_icon: null,
     author: "Mercy James",
@@ -70,7 +69,7 @@ const allRecipes = [
   },
   {
     id: 6,
-    recipe_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7OsYEfJXjYkaiW3e7sbxZE1PgbOnLdRrD3NPW-jJhesGPG1nC",
+    recipe_image: "https://images.unsplash.com/photo-1432139509613-5c4255815697?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjF9&auto=format&fit=crop&w=332&q=80",
     no_of_likes: 32,
     fork_icon: null,
     author: "Mercy James",
@@ -81,10 +80,22 @@ const allRecipes = [
   },
   {
     id: 7,
-    recipe_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7OsYEfJXjYkaiW3e7sbxZE1PgbOnLdRrD3NPW-jJhesGPG1nC",
+    recipe_image: "https://images.unsplash.com/photo-1432139555190-58524dae6a55?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1510&q=80",
     no_of_likes: 32,
     fork_icon: null,
     author: "Mercy James",
+    recipe_title: "Potata stew",
+    time: "3Omin",
+    price: "$5",
+    difficulty: "simple"
+  },
+
+  {
+    id: 8,
+    recipe_image: "https://images.unsplash.com/photo-1535980156496-87fc2cfcb832?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80",
+    no_of_likes: 302,
+    fork_icon: null,
+    author: "Babaloki James",
     recipe_title: "Potata stew",
     time: "3Omin",
     price: "$5",
