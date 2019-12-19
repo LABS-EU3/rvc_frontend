@@ -30,7 +30,7 @@ const RecipeView = props => {
   return(
     <div>
       <SearchBar/>
-      <div class="block">
+      <div className='container'>
         {recipes.map(recipe => (
         <Recipe key={recipe.id} recipe={recipe}/>
         ))}
