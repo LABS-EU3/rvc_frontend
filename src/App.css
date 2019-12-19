@@ -1,8 +1,18 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
 #root {
   max-width: 550px;
   height: 100vh;
-  margin: 0 auto;
-  font-size: 62.5%;
+  margin: 0 auto; 
 }
 
 .App {
@@ -42,4 +52,194 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.input {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #0AB28A;
+  box-sizing: border-box;
+  color: #0AB28A;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 30px;
+  outline: none !important;
+  opacity: .6;
+  padding-bottom: 1.5rem;
+}
+
+.input::placeholder {
+  color: #0AB28A;
+}
+
+.formik-form {
+  width: 80%;
+  margin: 0 auto;
+  
+}
+
+.spaced-div {
+  margin-bottom: 7rem;
+}
+
+.register-button {
+  width: 100%;
+background-color: #0AB38A;
+border: 0;
+border-radius: 2.8rem;
+display: table-cell;
+vertical-align: middle;
+font-weight: bold;
+font-size: 2.4rem;
+height: 4.5rem;
+text-align: center;
+vertical-align: middle;
+color: #FFFFFF;
+outline: none !important;
+overflow: hidden;
+transition: box-shadow 150ms;
+}
+
+
+/*HAMBURGER MENU STYLE*/
+body
+{
+  margin: 0;
+  padding: 0;
+  background: #232323;
+  color: #cdcdcd;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  overflow-x: hidden; 
+}
+
+a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+a:hover
+{
+  color: #0AB28A;
+}
+
+#menuToggle
+{
+  display: block;
+  position: absolute;
+  top: 23px;
+  right: 11px;  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-right: 7px;
+  margin-bottom: 5px;
+  position: relative;  
+  background: #cdcdcd;
+  border-radius: 3px;  
+  z-index: 1;  
+  transform-origin: 4px 0px;  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu
+{
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 0;
+  padding: 50px;
+  padding-top: 125px;
+  right: -100px;
+  height: 100vh;  
+  background: white;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+  
+}
+
+#menu a li:hover {
+  background-color: #0AB28A;
+  color: white;
+}
+
+#menuToggle input:checked ~ ul
+{
+  transform: scale(1.0, 1.0);
+  opacity: 1;
 }

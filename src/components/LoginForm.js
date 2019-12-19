@@ -1,20 +1,42 @@
 import React from 'react';
-import { withFormik, Form, Field } from 'formik';
-// import FormTemplate from './Form';
+import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
+import { withFormik, Form, Field, Formik } from 'formik';
 import * as Yup from 'yup'; 
+import axios from 'axios';
+import '../index.css';
+import logo from '../globals/design-elements/logo.png';
 
-function FormTemplate (){
+import { MainDiv, ButtonForm, Logo, FooterDiv, H1, DescriptionForm, ButtonDiv, LinkFooter} from '../globals/form-styles';
+
+function FormTemplate ({ touched, errors }){
     return (
-        <Form>
-            <Field type="text" name="username" placeholder="Username" />
-            <Field type='password' name='password' placeholder='Password' />
-            {/* <Field type='email' name='email' placeholder='email' /> */}
-             <button> Add text </button>
+      <MainDiv>
+            <Logo>
+              <img src={logo} alt="Logo" />
+            </Logo>
+            <H1> Login</H1>
+            <DescriptionForm> Create a profile, follow your favorites cooks, save delicious recipes and more </DescriptionForm>
+
+        <Form className="formik-form">
+          <div>
+            {touched.username && errors.username }
+            <Field type="text" name="username" class='input' placeholder="Username" />
+          </div>
+          <div className="spaced-div">
+            {touched.password && errors.password }
+            <Field type='password' name='password' class='input' placeholder='Password' />
+          </div>
+          <button type="submit" className="register-button">Login</button>
         </Form>
+          <FooterDiv>
+          <p>Don't have an account? <Link to='/register' style={{ textDecoration: 'none' }}>
+          <LinkFooter> Register</LinkFooter>
+          </Link>  </p>
+          
+          </FooterDiv>
+        </MainDiv>
     );
 }
-
-
 const FormikLoginForm = withFormik({
 mapPropsToValues ({ username, password }) {
     return {
@@ -32,15 +54,16 @@ validationSchema: Yup.object().shape({
     .required("A password is required to have access to the kitchen")  
 }),
 
-
 handleSubmit(values){
-    console.log(values);
-    const { username, password } = values
+    const { username, password } = values;
+    axios 
+    .post('dummyApi', { username, password })
+    .then(res => { 
+      console.log(res.data)
+    })
+    .catch(error => { 
+      console.log(error.message)
+    })
 }
-
-
 }) (FormTemplate)
-
-
-
 export default FormikLoginForm;
