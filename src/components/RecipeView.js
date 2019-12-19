@@ -4,8 +4,9 @@ import axios from 'axios';
 import styled from 'styled-components';
 import waterfall from '../waterfall';
 import Recipe from './Recipe';
-import SearchBar from './SearchBar'
-import Footer from './Footer'
+import SearchBar from './SearchBar';
+import Footer from './Footer';
+import '../App.css';
 
 const recipesApi = 'http://localhost:3333/recipes';
 
@@ -29,7 +30,7 @@ const RecipeView = props => {
   return(
     <div>
       <SearchBar/>
-      <div>
+      <div class="block">
         {recipes.map(recipe => (
         <Recipe key={recipe.id} recipe={recipe}/>
         ))}
