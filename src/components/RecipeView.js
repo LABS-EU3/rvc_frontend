@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import waterfall from '../waterfall';
 import Recipe from './Recipe';
 import SearchBar from './SearchBar'
-
+import Footer from './Footer'
 
 const recipesApi = 'http://localhost:3333/recipes';
 
@@ -28,18 +28,14 @@ const RecipeView = props => {
 
   return(
     <div>
-      {/* <div>
-        {recipes.map(recipe=> (
-          <SearchBar key={recipe.id} filterRecipe={recipe['recipe_title']}/>
-        ))} */}
-      {/* </div> */}
-      <div className='waterfall'>
+      <SearchBar/>
+      <div>
         {recipes.map(recipe => (
         <Recipe key={recipe.id} recipe={recipe}/>
         ))}
       </div>
+      <Footer/>
     </div>
-
   )
 }
 
