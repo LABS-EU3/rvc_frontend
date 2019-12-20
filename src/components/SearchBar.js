@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import axios from "axios";
-import { SearchBox, SearchBarr } from "../globals/navbar-styles";
+import React  from "react";
+import { SearchBox } from "../globals/navbar-styles";
 
 const SearchBar = ({ recipe }) => {
   // const { recipe_title } = recipe;

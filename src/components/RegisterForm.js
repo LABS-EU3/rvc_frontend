@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
-import { withFormik, Form, Field, Formik } from 'formik';
+import {  Link } from 'react-router-dom';
+import { withFormik, Form, Field } from 'formik';
 import logo from '../globals/design-elements/logo.png';
 import * as Yup from 'yup'; 
 import axios from 'axios';
 import '../index.css';
 
-import { MainDiv, ButtonForm, Logo, FooterDiv, H1, DescriptionForm, ButtonDiv, LinkFooter } from '../globals/form-styles';
+import { MainDiv, Logo, FooterDiv, H1, DescriptionForm, LinkFooter } from '../globals/form-styles';
 
 function FormTemplate ({ touched, errors }){
     return (

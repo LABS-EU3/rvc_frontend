@@ -7,16 +7,24 @@ const Recipe = ({ recipe }) => {
 return ( 
   <div className='box'> 
     {/* <div className='box'> */}
-      <img src={recipe_image} alt='an '/>
+      <img className='recipe' src={recipe_image} alt='an '/>
       {/* <div> */}
-    <div>
-    <p>{no_of_likes}</p>
-    {/* <img className='fork-icon' alt='an'/> */}
+    <div className='recipe-card'>
+      {/* <p>{no_of_likes}</p> */}
+      {/* <img className='recipe' alt='an'/> */}
       <p>{author}</p>
       <h2>{recipe_title}</h2>
-      <p>{time}</p>
-      <p>{price}</p>
-      <p>{difficulty}</p>
+      <div className='recipe-card-tag'>
+        <div>
+          <p>{time}</p>
+        </div>
+        <div>
+          <p>{price}</p>
+        </div>
+        <div>
+          <p>{difficulty}</p>
+        </div>
+      </div>
       </div>
     {/* </div> */}
   </div>
