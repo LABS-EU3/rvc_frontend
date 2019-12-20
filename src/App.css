@@ -306,5 +306,13 @@ margin-top:2vh;
   display: flex;
   justify-content: space-between;
   /* margin-right: 45px; */
-  
+}
+
+.level-recipe {
+  color:transparent;
+  border: 1px solid;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  background-color:red;
 }

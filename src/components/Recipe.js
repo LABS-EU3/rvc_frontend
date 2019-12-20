@@ -5,6 +5,17 @@ const Recipe = ({ recipe }) => {
   // const { id, no_of_likes, recipe_image, recipe_title, time, author, price, difficulty }  = recipe;
   const { recipe_image, recipe_title, time, author, price, difficulty }  = recipe;
 
+  let color = '';
+  if (difficulty === 'S') {
+    color ='green';
+  }
+  else if (difficulty === 'M') {
+    color = 'orange';
+  }
+  else {
+    color = 'red';
+  }
+
 return ( 
   <div className='box'> 
     {/* <div className='box'> */}
@@ -22,7 +33,7 @@ return (
           <p>{price}</p>
         </div>
         <div>
-          <p>{difficulty}</p>
+          <p style={{backgroundColor:color}} className='level-recipe'>{difficulty}</p>
         </div>
       </div>
       </div>

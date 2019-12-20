@@ -15,6 +15,8 @@ import {
   LinkFooter
 } from "../globals/form-styles";
 
+const loginApi = 'https://develop-forkbook.herokuapp.com/api/auth/login'
+
 function FormTemplate({ touched, errors }) {
   return (
     <MainDiv>
@@ -86,7 +88,7 @@ const FormikLoginForm = withFormik({
   handleSubmit(values) {
     const { username, password } = values;
     axios
-      .post("dummyApi", { username, password })
+      .post(loginApi, { username, password })
       .then(res => {
         console.log(res.data);
       })

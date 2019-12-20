@@ -21,7 +21,7 @@ const allRecipes = [
     recipe_title: "stew",
     time: "15min",
     price: "$45",
-    difficulty: "medium"
+    difficulty: "M"
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const allRecipes = [
     recipe_title: "Potata stew",
     time: "3Omin",
     price: "$5",
-    difficulty: "simple"
+    difficulty: "S"
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ const allRecipes = [
     recipe_title: "Potata stew",
     time: "30min",
     price: "$5",
-    difficulty: "simple"
+    difficulty: "S"
   },
   {
     id: 4,
@@ -54,7 +54,7 @@ const allRecipes = [
     recipe_title: "Potata stew",
     time: "120min",
     price: "$5",
-    difficulty: "difficult"
+    difficulty: "D"
   },
   {
     id: 5,
@@ -65,7 +65,7 @@ const allRecipes = [
     recipe_title: "Chips and fish",
     time: "25min",
     price: "$5",
-    difficulty: "simple"
+    difficulty: "S"
   },
   {
     id: 6,
@@ -76,7 +76,7 @@ const allRecipes = [
     recipe_title: "Lasagna",
     time: "30min",
     price: "$5",
-    difficulty: "simple"
+    difficulty: "S"
   },
   {
     id: 7,
@@ -87,7 +87,7 @@ const allRecipes = [
     recipe_title: "Potata stew",
     time: "3Omin",
     price: "$5",
-    difficulty: "simple"
+    difficulty: "S"
   },
 
   {
@@ -99,80 +99,14 @@ const allRecipes = [
     recipe_title: "Potata pasta",
     time: "3Omin",
     price: "$5",
-    difficulty: "simple"
+    difficulty: "S"
   }
 ]
-// let smurfs = [
-//   {
-//     name: 'Brainey',
-//     age: 200,
-//     height: '5cm',
-//     id: 0
-//   }
-// ];
+
 
 server.get('/recipes', (req, res ) => {
   res.json(allRecipes);
 })
-// server.get('/smurfs', (req, res) => {
-//   res.json(smurfs);
-// });
-
-// let smurfId = smurfs.length;
-
-// server.post('/smurfs', (req, res) => {
-//   const { name, age, height } = req.body;
-//   const newSmurf = { name, age, height, id: smurfId };
-//   if (!name || !age || !height) {
-//     return sendUserError(
-//       'Ya gone did smurfed! Name/Age/Height are all required to create a smurf in the smurf DB.',
-//       res
-//     );
-//   }
-  // const findSmurfByName = smurf => {
-  //   return smurf.name === name;
-  // };
-  // if (smurfs.find(findSmurfByName)) {
-  //   return sendUserError(
-  //     `Ya gone did smurfed! ${name} already exists in the smurf DB.`,
-  //     res
-  //   );
-  // }
-
-//   smurfs.push(newSmurf);
-//   smurfId++;
-//   res.json(smurfs);
-// });
-
-// server.put('/smurfs/:id', (req, res) => {
-//   const { id } = req.params;
-//   const { name, age, height } = req.body;
-//   const findSmurfById = smurf => {
-//     return smurf.id == id;
-//   };
-//   const foundSmurf = smurfs.find(findSmurfById);
-//   if (!foundSmurf) {
-//     return sendUserError('No Smurf found by that ID', res);
-//   } else {
-//     if (name) foundSmurf.name = name;
-//     if (age) foundSmurf.age = age;
-//     if (height) foundSmurf.height = height;
-//     res.json(smurfs);
-//   }
-// });
-
-// server.delete('/smurfs/:id', (req, res) => {
-//   const { id } = req.params;
-//   const foundSmurf = smurfs.find(smurf => smurf.id == id);
-
-//   if (foundSmurf) {
-//     const SmurfRemoved = { ...foundSmurf };
-//     smurfs = smurfs.filter(smurf => smurf.id != id);
-//     res.status(200).json(smurfs);
-//   } else {
-//     sendUserError('No smurf by that ID exists in the smurf DB', res);
-//   }
-// });
 
 server.listen(port, err => {
   if (err) console.log(err);

@@ -8,6 +8,8 @@ import '../index.css';
 
 import { MainDiv, Logo, FooterDiv, H1, DescriptionForm, LinkFooter } from '../globals/form-styles';
 
+const registerApi = 'https://develop-forkbook.herokuapp.com/api/auth/register'
+
 function FormTemplate ({ touched, errors }){
     return (
         <MainDiv>
@@ -60,7 +62,7 @@ validationSchema: Yup.object().shape({
 handleSubmit(values){
   const { email, username, password } = values;
   axios
-  .post('https://babaloki.herokuapp.com/api/users/register', { email, username, password })
+  .post(registerApi, { email, username, password })
   .then(res => { 
     console.log(res.data)
   })
