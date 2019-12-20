@@ -238,16 +238,16 @@ a:hover
 
 
 .container { 
-  width: 1200px;
-  margin: 10px ;
-  columns: 4;
-  column-gap: 20px;
+  /* width: 1200px; */
+  margin: 0 auto ;
+  columns: 3;
+  column-gap: 1px;
   margin-top: 15%;
 }
 
 .container .box { 
   width: 100%;
-  margin: 0 0 20px;
+  margin: 0 0 10px;
   padding: 10px;
   /* background-color: black; */
   overflow: hidden;
@@ -260,7 +260,7 @@ a:hover
 }
 
 .container .box p { 
-  margin: 10px  0 0;
+  margin: 5px  0 0;
   padding: 0 0 10px;
   font-size: 16px  
 }
@@ -268,11 +268,12 @@ a:hover
 @media (max-width:1200px) 
 {
   .container {
-    columns:3;
-    width: calc(100% - 40%);
+    columns:4;
+    width: calc(100% - 5%);
     box-sizing: border-box;
-    padding: 20px 20px  20px 0;
+    padding: 10px 10px  10px 0;
   }
+
 }
 
 /* @media (max-width:768px) {
@@ -304,6 +305,6 @@ margin-top:2vh;
 .recipe-card-tag {
   display: flex;
   justify-content: space-between;
-  margin-right: 45px;
+  /* margin-right: 45px; */
   
 }
