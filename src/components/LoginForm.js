@@ -85,12 +85,12 @@ const FormikLoginForm = withFormik({
       .required("A password is required to have access to the kitchen")
   }),
 
-  handleSubmit(values) {
+  handleSubmit(values, {props} ) {
     const { username, password } = values;
     axios
       .post(loginApi, { username, password })
       .then(res => {
-        console.log(res.data);
+        props.history.push('/recipe');
       })
       .catch(error => {
         console.log(error.message);
