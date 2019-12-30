@@ -4,7 +4,9 @@ import thunk from "redux-thunk";
 import * as reducers from "../reducers";
 
 const monsterReducer = combineReducers({
-  count: reducers.countReducer
+  // count: reducers.countReducer
+  onboard : reducers.onBoardingReducer,
+  recipes : reducers.recipeViewReducer
 });
 
 const store = createStore(
