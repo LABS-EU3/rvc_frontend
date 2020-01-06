@@ -55,3 +55,20 @@ export const getRecipes = () => dispatch => {
     dispatch({ type: types.GET_ALL_RECIPES_FAILURE, payload: error.message})
   })
 };
+
+export const createRecipe = (recipeData, history) => dispatch => { 
+  dispatch( { type: types.REQUEST_START }) 
+  axios
+  .post('dummyApi', recipeData )
+  .then( res => { 
+    console.log(res.data)
+    dispatch({ type: types.ADD_RECIPE_SUCCESS,
+      payload: res.data});
+    // history.push('/recipeprofile') 
+    })
+  .catch(error => { 
+    console.log(error.message)
+    dispatch({ type: types.ADD_RECIPE_FAILURE,
+    payload : error.message})
+  });
+}

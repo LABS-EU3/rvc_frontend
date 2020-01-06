@@ -92,3 +92,36 @@ export const recipeViewReducer = (state = initialRecipeView, action) => {
       return state
   }
 }
+
+const initialRecipeState = { 
+  recipe_id : '',
+  message : '',
+  error : '', 
+  isFetching : false,
+};
+export const createRecipeReducer = ( state = initialRecipeState, action) => {
+  switch(action.type) { 
+    case types.REQUEST_START :
+      return { 
+        ...state,
+        isFetching : true,
+        error : ''
+      };
+    case types.ADD_RECIPE_SUCCESS : 
+      return { 
+        ...state, 
+        recipe_id : action.payload.recipeID,
+        message : action.payload.message,
+        isFetching : false
+      };
+    case types.ADD_RECIPE_FAILURE : 
+      return { 
+        ...state,
+        recipe_id : action.payload.recipeID,
+        error : action.payload,
+        isFetching : false
+      }
+    default : 
+    return state;
+  }
+}

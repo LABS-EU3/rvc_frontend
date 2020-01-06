@@ -14,7 +14,7 @@ function App() {
       <Route path='/login' component={ FormikLoginForm}/>
       <Route path='/register' component={ FormikRegisterForm}/>
       <Route path='/recipe' component={RecipeView}/>
-      <FormikCreateRecipeForm/>
+      <Route path='/createrecipe' component={ FormikCreateRecipeForm}/>
     </div>
   );
 }
