@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
 import { login } from '../actions/index';
 import "../index.css";
 import logo from "../globals/design-elements/logo.png";
