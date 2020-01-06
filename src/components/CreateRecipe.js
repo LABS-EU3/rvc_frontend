@@ -1,4 +1,3 @@
-//step6A
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
@@ -7,19 +6,19 @@ import * as Yup from "yup";
 import { createRecipe } from '../actions/index'
 import "../index.css";
 import Footer from './Footer'
-
+import foodplaceholder from '../images/foodplaceholder.png'
 function FormTemplate( { touched, errors, values }) {
   return (
     <>
+    {/* step6A */}
     <Form>
-    
       <div className='section1'>
         <button className='return'>
-          <img className='back-arrow' src=''/>
+          <img className='back-arrow' src='' alt='back arrow'/>
           
         </button>
         <button type='submit' className='submit-recipe'>
-          <img className='submit-recipe' src=''/>
+          <img className='submit-recipe' src='' alt='submit recipe'/>
         </button>
         <div className='recipe'>
           {touched.recipe && errors.recipe}
@@ -70,6 +69,33 @@ function FormTemplate( { touched, errors, values }) {
         </div>
       </div>
       <Footer/>
+    </Form>
+    {/* step6B */}
+    <Form>
+      <div className='section1B'>
+      <button className='return back-arrow'>
+          <img src=''alt=''/>  
+      </button>
+      <h2>
+        {/* {recipe_name} */}
+        Recipe Name
+      </h2>
+      </div>
+
+      <div className='section1C'>
+        {touched.recipePhoto && errors.recipePhoto}
+        <Field
+          type='text'
+          name='recipe'
+          placeholder="add a photo of your 'recipe name' "
+        />
+        <button>
+          <img src={foodplaceholder} alt='recipe photo'/>
+        </button>
+        <div>
+          Skip>>
+        </div>
+      </div>
     </Form>
     </>
   )
