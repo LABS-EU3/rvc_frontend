@@ -8,7 +8,9 @@ import RecipeView from './components/RecipeView';
 import Counter from './components/Couter'
 import SearchBar from './components/SearchBar';
 import Footer from './components/Footer';
-import CreateProfile from './components/CreateProfile';
+import ProfileView from './components/ProfileView';
+import EditProfile from './components/EditProfile';
+
 
 function App() {
   return (
@@ -18,7 +20,8 @@ function App() {
       <Route path='/login' component={ FormikLoginForm}/>
       <Route path='/register' component={ FormikRegisterForm}/>
       <Route path='/recipe' component={RecipeView}/>
-      <Route path='/profile' component={CreateProfile}/>
+      <Route path='/profile' component={ProfileView}/>
+      <Route path='/editprofile' component={EditProfile}/>
     </div>
   );
 }

@@ -8,7 +8,7 @@ import user from '../globals/design-elements/user.png';
 export default function CreateProfile() {
     return (
         <div className="profile-container">
-            <div><img className="profile-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRwzk9us0OpvTp8XxAgvYAs3peCYVamG6PsGX_edQKrTPn1QBZz" />
+            <div><img className="profile-pic" alt="profile img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRwzk9us0OpvTp8XxAgvYAs3peCYVamG6PsGX_edQKrTPn1QBZz" />
             </div>
             <p>@Chelsea</p>
             <div className="num-likes-and-forks">
