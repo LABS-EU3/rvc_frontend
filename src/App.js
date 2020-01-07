@@ -4,6 +4,7 @@ import './App.css';
 import FormikLoginForm from './components/LoginForm';
 import FormikRegisterForm from './components/RegisterForm';
 import Welcome from './components/Welcome';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import RecipeView from './components/RecipeView';
 import SeeRecipe from './components/SeeRecipe';
 
