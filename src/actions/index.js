@@ -72,3 +72,30 @@ export const createRecipe = (recipeData, history) => dispatch => {
     payload : error.message})
   });
 }
+
+export const addIngredient = ingredient => dispatch => { 
+  dispatch({ type : types.REQUEST_START })
+  // axios
+  // .post('dummyApi', ingredient )
+  // .then(res => { 
+  //   dispatch({ type : types.ADD_INGREDIENT_SUCCESS, payload : res.data })
+  // })
+  // .catch(error => { 
+  //   dispatch({ type : types.ADD_INGREDIENT_FAILURE, payload : error.message })
+  // })
+  dispatch({ type : types.ADD_INGREDIENT_SUCCESS, payload : ingredient })
+}
+
+export const getIngredients = () => dispatch => { dispatch({ type : types.REQUEST_START });
+axios
+.get('dummyApi')
+.then(res => { 
+  //dispatch( { type : types.RESET_DISPLAYED_INGREDIENTS, payload : res.data });
+  dispatch({type : types.GET_INGREDIENT_SUCCESS, payload : res.data })
+})
+.catch(error => { 
+  dispatch({
+    type : types.GET_INGREDIENT_FAILURE, payload : error.message
+  })
+})
+}

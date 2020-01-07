@@ -6,6 +6,7 @@ import FormikRegisterForm from './components/RegisterForm';
 import RecipeView from './components/RecipeView';
 import Counter from './components/Couter'
 import FormikCreateRecipeForm from './components/CreateRecipe';
+import IngredientView from './components/IngredientView'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path='/register' component={ FormikRegisterForm}/>
       <Route path='/recipe' component={RecipeView}/>
       <Route path='/createrecipe' component={ FormikCreateRecipeForm}/>
+      <Route path='/ingredient' component={IngredientView}/>
     </div>
   );
 }

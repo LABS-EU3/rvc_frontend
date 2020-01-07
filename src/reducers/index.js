@@ -125,3 +125,50 @@ export const createRecipeReducer = ( state = initialRecipeState, action) => {
     return state;
   }
 }
+
+const initialIngredient = { 
+  ingredientView : [],
+  error : '', 
+  isFetching : false
+}
+
+export const ingredientReducer = ( state = initialIngredient, action) => { 
+    switch(action.type){
+      case types.REQUEST_START:
+        return {
+          ...state,
+          isFetching: true
+        }
+      
+      case types.GET_INGREDIENT_SUCCESS:
+        return { 
+          ...state,
+          ingredientView : action.payload,
+          isFetching : false
+        }
+      case types.GET_INGREDIENT_FAILURE:
+        return { 
+          ...state,
+          error : action.payload,
+          isFetching : false
+        }
+      case types.RESET_DISPLAYED_INGREDIENTS:
+        return {
+          state : action.payload
+        }
+      case types.ADD_INGREDIENT_SUCCESS:
+      return { 
+        ...state,
+        ingredientView : [...state.ingredientView, action.payload],
+        isFetching : false
+      }
+    case types.ADD_INGREDIENT_FAILURE:
+      return{ 
+        ...state,
+        error : action.payload, 
+        isFetching : false
+      }
+    default:
+      return state;
+    }
+  }

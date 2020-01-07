@@ -15,7 +15,6 @@ function FormTemplate( { touched, errors, values }) {
       <div className='section1'>
         <button className='return'>
           <img className='back-arrow' src='' alt='back arrow'/>
-          
         </button>
         <button type='submit' className='submit-recipe'>
           <img className='submit-recipe' src='' alt='submit recipe'/>
@@ -68,8 +67,8 @@ function FormTemplate( { touched, errors, values }) {
           <div className='slider-step1'>oooo</div>
         </div>
       </div>
-      <Footer/>
     </Form>
+    
     {/* step6B */}
     <Form>
       <div className='section1B'>
@@ -88,7 +87,7 @@ function FormTemplate( { touched, errors, values }) {
           type='text'
           name='recipe'
           placeholder="add a photo of your 'recipe name' "
-        />
+          />
         <button>
           <img src={foodplaceholder} alt='recipe photo'/>
         </button>
@@ -97,6 +96,7 @@ function FormTemplate( { touched, errors, values }) {
         </div>
       </div>
     </Form>
+    <Footer/>
     </>
   )
 }

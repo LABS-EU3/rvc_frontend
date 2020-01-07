@@ -56,6 +56,10 @@ function FormTemplate ({ touched, errors, values })  {
           <option value='40units' label='40units'/>
         </select>
     </div>
+    <div className='step'>
+      Step 2/3
+      <div className='slider-step2'>oooo</div>
+    </div>
     
     <button type='submit'>
       +
@@ -66,10 +70,12 @@ function FormTemplate ({ touched, errors, values })  {
 }
 
 const FormikIngredientForm = withFormik({
-  mapPropsToValues({ ingredient })
+  mapPropsToValues({ ingredient, quantity, units })
    {
     return { 
-      ingredient : ingredient || ''
+      ingredient : ingredient || '',
+      quantity : quantity || '',
+      units : units || ''
     }; 
   },
   validationSchema : Yup.object().shape({
@@ -77,7 +83,9 @@ const FormikIngredientForm = withFormik({
   }),
   handleSubmit(values, {props, resetForm}) { 
     const newIngredient = { 
-      ingredient : values.scheme_name
+      ingredient : values.ingredient,
+      quantity : values.quantity,
+      units : values.units
     }
     props.addIngredient(newIngredient);
     resetForm()
