@@ -3,10 +3,8 @@ import { connect } from 'react-redux'
 import * as actionCreators from '../actions/index'
 import { withFormik, Field, Form } from 'formik'
 import * as Yup from 'yup'
-import Footer from 'Footer'
-
+import Footer from './Footer'
 function FormTemplate ({ touched, errors, values })  { 
-  // console.log(props)
   return (
     <>
       <div className='section1B'>
@@ -31,21 +29,21 @@ function FormTemplate ({ touched, errors, values })  {
         />
     </div>
 
+    <button type='submit'>
+      +
+    </button>
     <div className='step'>
       Step 3/3
       <div className='slider-step3'>oooo</div>
     </div>
     
-    <button type='submit'>
-      +
-    </button>
   </Form>
   <Footer/>
   </>
   )
 }
 
-const FormikIngredientForm = withFormik({
+const FormikInstructionForm = withFormik({
   mapPropsToValues({ instruction })
    {
     return { 
@@ -53,7 +51,7 @@ const FormikIngredientForm = withFormik({
     }; 
   },
   validationSchema : Yup.object().shape({
-    ingredient : Yup.string().required('please tell us how do it')
+    instruction : Yup.string().required('please tell us how do it')
   }),
   handleSubmit(values, {props, resetForm}) { 
     const newInstruction = { 
@@ -66,4 +64,4 @@ const FormikIngredientForm = withFormik({
 
 export default connect(
   state => state, actionCreators
-) (FormikIngredientForm)
+) (FormikInstructionForm)

@@ -7,6 +7,8 @@ import RecipeView from './components/RecipeView';
 import Counter from './components/Couter'
 import FormikCreateRecipeForm from './components/CreateRecipe';
 import IngredientView from './components/IngredientView'
+import InstructionView from './components/InstructionView'
+
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
       <Route path='/recipe' component={RecipeView}/>
       <Route path='/createrecipe' component={ FormikCreateRecipeForm}/>
       <Route path='/ingredient' component={IngredientView}/>
+      <Route path='/instruction' component={InstructionView}/>
+
     </div>
   );
 }
