@@ -14,7 +14,7 @@ const expertise = [
 ]
 
 
-export default function EditProfile() {
+export default function EditProfile({close}) {
     const [profileFormData, setProfileFormData] = useState({
         fullname: '',
         username: '',
@@ -36,8 +36,10 @@ export default function EditProfile() {
     }
 
   return (
-    <div>
-      <button className="cancel-button">+</button>
+    <div className="modal">
+      <a className="close" onClick={close}>
+      &times;
+    </a>
       <h1>Profile</h1>
       <div className="profile-photo">
         <img className="profile-pic" alt="profile display phot" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRwzk9us0OpvTp8XxAgvYAs3peCYVamG6PsGX_edQKrTPn1QBZz"

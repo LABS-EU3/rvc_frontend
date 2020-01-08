@@ -317,6 +317,7 @@ margin-top:2vh;
   background-color:red;
 }
 
+/* index.css */ 
 .modal {
   font-size: 12px;
 }
@@ -332,9 +333,11 @@ margin-top:2vh;
   padding: 10px 5px;
 }
 .modal > .actions {
+  margin: auto;
+}
+.modal > .actions {
   width: 100%;
   padding: 10px 5px;
-  margin: auto;
   text-align: center;
 }
 .modal > .close {
@@ -412,7 +415,12 @@ margin-top:2vh;
 .edit-profile-form input, select {
   height: 8%;
   background: rgba(10, 179, 138, 0.08);
+  width: 100%;
   border-radius: 2px;
+}
+
+.popup-content {
+width: 80% !important;
 }
 
 .edit-profile-form button {
@@ -495,7 +503,7 @@ margin-top:2vh;
   input {
     width: 80%;
     height: 4rem;
-    background-color:  #white;
+    background-color: #0AB28A;
   }
   input::placeholder {
     padding-left: 2rem;

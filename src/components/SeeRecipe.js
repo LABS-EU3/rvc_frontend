@@ -6,7 +6,7 @@ import styled from "styled-components";
 import arrow from "../images/left-arrow.png";
 import dishImg from "../images/dish1.jpg";
 import profile from "../images/profile.jpeg";
-import Popup from "reactjs-popup";
+// import Popup from "reactjs-popup";
 
 
 function SeeRecipe (){
