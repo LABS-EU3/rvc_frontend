@@ -22,14 +22,14 @@ export default function CreateProfile() {
             </div>
             <p>I enjoy cooking</p>
             <div className="profile-icons">
-                <img className="profile-icons-image" src={home} />
-                <img className="profile-icons-image" src={play_button} />
-                <img className="profile-icons-image" src={user} />
+                <img className="profile-icons-image" src={home} alt=''/>
+                <img className="profile-icons-image" src={play_button}alt='' />
+                <img className="profile-icons-image" src={user} alt=''/>
             </div>
             <div style={{"padding": "0 5px"}}> <hr id="divider"/></div>
             <div className="profile-food">
-                <img className="profile-recipe-image" src="https://images.unsplash.com/photo-1571809839227-b2ac3d261257?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"/>
-                <img className="profile-recipe-image" src="https://images.unsplash.com/photo-1571809839227-b2ac3d261257?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"/>
+                <img className="profile-recipe-image" src="https://images.unsplash.com/photo-1571809839227-b2ac3d261257?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt=''/>
+                <img className="profile-recipe-image" src="https://images.unsplash.com/photo-1571809839227-b2ac3d261257?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt=''/>
             </div>
 
             <Footer />

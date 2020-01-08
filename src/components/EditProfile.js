@@ -65,9 +65,12 @@ export default function EditProfile() {
                 />
                 <select name="expertise" onChange={onInputChange}>
                   <option value="">Expertise</option>
-                  {
+                  <option value="">Beginner</option>
+                  <option value="">Intermediate</option>
+                  <option value="">Expert</option>
+                  {/* {
 expertise.map(exp_val => <option>{exp_val.value}</option>)
-                  }
+                  } */}
                 </select>
                 <button onClick={handleFormSubmit}>Go</button>
               </form>

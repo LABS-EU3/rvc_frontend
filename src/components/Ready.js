@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "styled-components";
 
-/*
 const Div = styles.div`
 height: 70vh;
 width: 70%;
@@ -30,7 +29,6 @@ button {
     margin: 0 auto;
 }
 `;
-*/
 
 export default function Ready() {
   return (
