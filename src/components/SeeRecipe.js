@@ -1,10 +1,12 @@
 import React from 'react';
-import SearchBar from './SearchBar';
+import '../App.css';
 import Footer from './Footer';
 import { CardDiv } from '../globals/card-styles';
 import styled from "styled-components";
-import Button from 'react-bootstrap/Button';
 import arrow from "../images/left-arrow.png";
+import dishImg from "../images/dish1.jpg";
+import profile from "../images/profile.jpeg";
+
 
 function SeeRecipe (){
     return (
@@ -20,9 +22,24 @@ function SeeRecipe (){
             </RecipeTopDiv>
             <CardDiv>
                 <ImgRecipe>
-                
+                    <img src={dishImg} alt="dishImg" />
                 </ImgRecipe>
-            <h1> Individual recipe </h1>
+                <DescriptionDiv>
+                    <ProfilePicture>
+                        <img src={profile} alt="profile" />
+                    </ProfilePicture>
+                    <DetailsRecipe>
+
+                    </DetailsRecipe>
+                </DescriptionDiv>
+                <BottomButtonDiv>
+                    <LgButton>
+                        Instruction
+                    </LgButton>
+                    <LgButton>
+                        Ingredients
+                    </LgButton>
+                </BottomButtonDiv>
             </CardDiv>
             <Footer/>
             </div>
@@ -58,3 +75,51 @@ export const ShareButton = styled.div`
     background: rgba(182, 182, 182, 0.6);
     border-radius: 5px;
 `
+export const ImgRecipe = styled.div`
+width: 100%;
+height: 372px;
+object-fit: scale-down;
+overflow: hidden;
+margin-top:-10%;
+margin-bottom:2%;
+`
+export const DescriptionDiv = styled.div`
+display:flex;
+justify-content: space-between;
+margin:5%;
+`
+
+export const DetailsRecipe = styled.div`
+background: rgba(196, 196, 196, 0.12);
+border-radius: 15px;
+text-align: start;
+width: 75%;
+
+`
+export const ProfilePicture = styled.div`
+border-radius: 50px;
+width: 53px;
+height: 55px;
+object-fit: scale-down;
+overflow: hidden;
+`
+
+export const BottomButtonDiv = styled.div`
+display: flex;
+flex-direction: column;
+margin:5%;
+`
+export const LgButton = styled.div`
+height: 41px;
+margin:2%;
+font-weight: bold;
+font-size: 24px;
+line-height: 33px;
+text-align: center;
+background: rgba(10, 179, 138, 0.74);
+border-radius: 9px;
+color:white;
+`
+
+
+
