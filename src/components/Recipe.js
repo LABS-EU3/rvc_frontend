@@ -2,13 +2,20 @@ import React from 'react';
 import '../App.css';
 
 const Recipe = ({ recipe }) => { 
-  const { recipe_image, recipe_title, time, author, price, difficulty }  = recipe;
+  const {
+    recipe_title,
+    author,
+    time_required,
+    difficulty,
+    budget,
+    image, 
+     }  = recipe;
 
   let color = '';
-  if (difficulty === 'S') {
+  if (difficulty === 1) {
     color ='green';
   }
-  else if (difficulty === 'M') {
+  else if (difficulty === 2) {
     color = 'orange';
   }
   else {
@@ -18,7 +25,8 @@ const Recipe = ({ recipe }) => {
 return ( 
   <div className='box'> 
     {/* <div className='box'> */}
-      <img className='recipe' src={recipe_image} alt='an '/>
+      <img className='recipe' src={image} alt='an '/>
+      {/* <img className='recipe' src={recipe_image} alt='an '/> */}
     <div className='recipe-card'>
       {/* <p>{no_of_likes}</p> */}
       {/* <img className='recipe' alt='an'/> */}
@@ -26,10 +34,10 @@ return (
       <h2>{recipe_title}</h2>
       <div className='recipe-card-tag'>
         <div>
-          <p>{time}</p>
+          <p>{time_required} mins</p>
         </div>
         <div>
-          <p>{price}</p>
+          <p>${budget}</p>
         </div>
         <div>
           <p style={{backgroundColor:color}} className='level-recipe'>{difficulty}</p>

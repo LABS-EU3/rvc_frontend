@@ -6,7 +6,6 @@ import FormikRegisterForm from './components/RegisterForm';
 import Welcome from './components/Welcome';
 import RecipeView from './components/RecipeView';
 import SeeRecipe from './components/SeeRecipe';
-import Counter from './components/Couter'
 import SearchBar from './components/SearchBar';
 import Footer from './components/Footer';
 import ProfileView from './components/ProfileView';

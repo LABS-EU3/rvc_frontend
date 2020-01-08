@@ -50,7 +50,8 @@ export const logout = () => {
 export const getRecipes = () => dispatch => { 
   dispatch({ type: types.REQUEST_START });
   axios
-  .get('http://localhost:3333/recipes')
+  // .get('http://localhost:3333/recipes')
+  .get('https://develop-forkbook.herokuapp.com/api/recipe')
   .then(res => {
     dispatch({ type: types.GET_ALL_RECIPES_SUCCESS, payload: res.data})
   })
