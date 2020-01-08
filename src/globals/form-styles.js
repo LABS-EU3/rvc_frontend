@@ -5,7 +5,6 @@ export const MainDiv = styled.div`
 display: flex;
 flex-direction: column;
 height: 739px;
-border: 1px red solid;
 text-aign:center;
 font-family: Avenir Next;
 justify-content: space-evenly; 

@@ -105,16 +105,6 @@ transition: box-shadow 150ms;
 
 
 /*HAMBURGER MENU STYLE*/
-body
-{
-  margin: 0;
-  padding: 0;
-  background: #232323;
-  color: #cdcdcd;
-  font-family: "Avenir Next", "Avenir", sans-serif;
-  overflow-x: hidden; 
-}
-
 a
 {
   text-decoration: none;
@@ -173,8 +163,8 @@ a:hover
   z-index: 1;  
   transform-origin: 4px 0px;  
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
+   background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+  opacity 0.55s ease;
 }
 
 #menuToggle span:first-child
@@ -209,11 +199,11 @@ a:hover
 #menu
 {
   position: absolute;
-  width: 300px;
-  margin: -100px 0 0 0;
-  padding: 50px;
+  width: 320px;
+  margin: -50px 0 0 0;
+  /* padding: 50px; */
   padding-top: 125px;
-  right: -100px;
+  right: -50%;
   height: 100vh;  
   background: white;
   list-style-type: none;
@@ -243,3 +233,278 @@ a:hover
   transform: scale(1.0, 1.0);
   opacity: 1;
 }
+
+/* Recipes View */
+
+
+.container { 
+  /* width: 1200px; */
+  margin: 0 auto ;
+  columns: 3;
+  column-gap: 1px;
+  margin-top: 15%;
+}
+
+.container .box { 
+  width: 100%;
+  margin: 0 0 10px;
+  padding: 10px;
+  /* background-color: black; */
+  overflow: hidden;
+  break-inside: avoid;
+}
+
+.container .box img { 
+  max-width:  100%;
+
+}
+
+.container .box p { 
+  margin: 5px  0 0;
+  padding: 0 0 10px;
+  font-size: 16px  
+}
+
+@media (max-width:1200px) 
+{
+  .container {
+    columns:4;
+    width: calc(100% - 5%);
+    box-sizing: border-box;
+    padding: 10px 10px  10px 0;
+  }
+
+}
+
+/* @media (max-width:768px) {
+  .container {
+    columns:2;
+  }
+} */
+@media (max-width: 550px) {
+  .container {
+    columns: 2;
+  }
+}
+
+.recipe {
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 9px;
+
+
+}
+
+.recipe-card {
+background: rgba(196, 196, 196, 0.12);
+border-radius: 15px;
+text-align: start;
+padding:2vh;
+margin-top:2vh;
+}
+
+.recipe-card-tag {
+  display: flex;
+  justify-content: space-between;
+  /* margin-right: 45px; */
+}
+
+.level-recipe {
+  color:transparent;
+  border: 1px solid;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  background-color:red;
+}
+
+.modal {
+  font-size: 12px;
+}
+.modal > .header {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+.modal > .content {
+  width: 100%;
+  padding: 10px 5px;
+}
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-evenly;
+}
+
+.profile-recipe-image {
+  width: 45%;
+  height: 100%;
+  margin: 0 2px;
+
+}
+
+.profile-pic {
+  width: 30%;
+  border-radius: 50%;
+}
+
+.num-likes-and-forks {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.likes-paragraph {
+  font-size: 1.6rem;
+}
+
+.profile-food {
+  padding: 5px 5px;
+  margin-top: -20px 
+}
+
+.profile-icons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#divider {
+  border-width: 1px;
+  background-color:  rgb(0, 172, 238);
+  padding: 0 12px;
+}
+
+.profile-photo {
+  margin-top: 2rem;
+}
+
+.edit-profile-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 70vh;
+  padding: 0 2px;
+}
+
+.edit-profile-form input, select {
+  height: 8%;
+  background: rgba(10, 179, 138, 0.08);
+  border-radius: 2px;
+}
+
+.edit-profile-form button {
+  width: 30%;
+  height: 7%;
+  margin: 0 auto;
+}
+
+.edit-profile-form select option[data-default] {
+  color: #888;
+}
+
+.edit-profile-form input::placeholder {
+  padding-left: 20px;
+}
+
+.cancel-button{
+  height: 35px;
+  width: 8%;
+  background-color: #E5E5E5;
+  border-radius: 32%;
+  position: relative;
+  top: 0.5rem;
+  right: 20.5rem;
+}
+.recipe {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  }
+  .recipe-card {
+  background: rgba(196, 196, 196, 0.12);
+  border-radius: 15px;
+  text-align: start;
+  padding:2vh;
+  margin-top:2vh;
+  }
+  .recipe-card-tag {
+    display: flex;
+    justify-content: space-between;
+    /* margin-right: 45px; */
+  }
+  .level-recipe {
+    color:transparent;
+    border: 1px solid;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    background-color:red;
+  }
+  .recipe-nav {
+    background-color: #0AB28A;
+    height: 12rem;
+  }
+  .back-arrow-container {
+    width: 37px;
+    height: 30px;
+    color: white;
+    position: relative;
+    top: 1rem;
+    left: 1rem;
+  }
+  .submit-recipe-container {
+    width: 37px;
+    height: 30px;
+    position: relative;
+    left: 45rem;
+    bottom: 2rem;
+  }
+  .back-arrow {
+    width: 100%;
+  }
+  .back-arrow {
+    width: 100%;
+    color: white;
+  }
+  .submit-recipe {
+    width: 100%;
+    color: white; 
+  }
+  input {
+    width: 80%;
+    height: 4rem;
+    background-color:  #white;
+  }
+  input::placeholder {
+    padding-left: 2rem;
+    color: green; 
+  }
+  .progress-bar-container{
+    height: 1rem;
+    background-color: #C4C4C4;
+    margin: 0 auto;
+    width: 80%;
+    border-radius: 5px;
+  }

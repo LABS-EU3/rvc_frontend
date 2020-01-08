@@ -1,58 +1,33 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import axios from "axios";
-import { SearchBox, SearchBarr } from "../globals/navbar-styles";
+import React  from 'react';
+import { SearchBox } from '../globals/navbar-styles';
+import { Link } from 'react-router-dom';
 
 const SearchBar = ({ recipe }) => {
-  // const { recipe_title } = recipe;
-
-  // const [ searchRecipe, setSearchRecipe ]  = useState('');
-  // const [ recipeSearchResult, setRecipeSearchResult ] = useState([]);
-  // // const [recipeData, setRecipeData] = useState([]);
-
-  // const handleChange = event => {
-  //   setSearchRecipe(event.target.value);
-  // };
-
-  // useEffect(() => {
-
-  //   const result = recipe_title.filter(data => data.toLowerCase().includes(searchRecipe));
-
-  //   setRecipeSearchResult(result);
-  // }, [] )
-  // const result = recipeData['recipe_title'].filter(data => data.toLowerCase().includes(searchRecipe));
-  // setRecipeSearchResult(result)
 
   return (
     <div>
       <div>
         <SearchBox>
           <input
-            type="text"
-            placeholder="search recipes..."
-            // value={searchRecipe}
-            // onChange={handleChange}
-          />
-          <div className="menu-container">
-            <nav role="navigation">
-              <div id="menuToggle">
-                <input type="checkbox" />
+            type='text'
+            placeholder='search recipes...'/>
+          <div className='menu-container'>
+            <nav role='navigation'>
+              <div id='menuToggle'>
+                <input type='checkbox' />
                 <span></span>
                 <span></span>
                 <span></span>
-                <ul id="menu">
-                  <a href="#">
-                    <li>Home</li>
-                  </a>
-                  <a href="#">
-                    <li>About</li>
-                  </a>
-                  <a href="#">
-                    <li>Info</li>
-                  </a>
-                  <a href="#">
-                    <li>Contact</li>
-                  </a>
+                <ul id='menu'>
+                <Link to='/' style={{ textDecoration: 'none' }}>
+                  <li>Home</li>
+                  </Link>
+                  <Link to='/register' style={{ textDecoration: 'none' }}>
+                  <li>Profile</li>
+                  </Link>
+                  <Link to='/register' style={{ textDecoration: 'none' }}>
+                  <li>Log in</li>
+                  </Link>
                 </ul>
               </div>
             </nav>

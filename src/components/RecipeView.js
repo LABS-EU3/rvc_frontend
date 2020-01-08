@@ -1,46 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
-import axios from 'axios';
-import styled from 'styled-components';
-import waterfall from '../waterfall';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import * as actionCreators from '../actions/index'
 import Recipe from './Recipe';
-import SearchBar from './SearchBar'
+import SearchBar from './SearchBar';
+import Footer from './Footer';
+import '../App.css';
 
 
-const recipesApi = 'http://localhost:3333/recipes';
-
-const RecipeView = props => { 
-  const [recipes, setRecipes] = useState([])
+const RecipeView = ({ getRecipes, recipeView })=> {
 
   useEffect(() => { 
-    const getRecipes = () => { 
-      axios
-      .get(recipesApi)
-      .then(res => { 
-        setRecipes(res.data);
-      })
-      .catch(error => { 
-        console.error(error.message)
-      })
-    }
-    getRecipes()
-  }, []);
+    getRecipes();
+  }, [getRecipes]);
 
   return(
     <div>
-      {/* <div>
-        {recipes.map(recipe=> (
-          <SearchBar key={recipe.id} filterRecipe={recipe['recipe_title']}/>
-        ))} */}
-      {/* </div> */}
-      <div className='waterfall'>
-        {recipes.map(recipe => (
+      <SearchBar/>
+      <div className='container'>
+        {recipeView.map(recipe => (
         <Recipe key={recipe.id} recipe={recipe}/>
         ))}
       </div>
+      <Footer/>
     </div>
-
   )
 }
 
-export default RecipeView;
+export default connect (state => 
+  state.recipes, actionCreators)(RecipeView)
