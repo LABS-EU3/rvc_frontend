@@ -15,9 +15,10 @@ export const register = (credentials, history) => dispatch => {
   })
   .catch(error => { 
     // console.log(error.message);
-    dispatch({ type: types.REGISTER_FAILURE, payload:( error.message = 'Username already exists')});
+
+    dispatch({ type: types.REGISTER_FAILURE, payload: error.message });
     // dispatch({ type: types.REGISTER_FAILURE, payload:( error.res.data.message = 'Username already exists')});
-    // alert(error.message)
+    alert('Username already exists')
     // alert(error.response.data.message)
   });
 }
@@ -50,7 +51,6 @@ export const logout = () => {
 export const getRecipes = () => dispatch => { 
   dispatch({ type: types.REQUEST_START });
   axios
-  // .get('http://localhost:3333/recipes')
   .get('https://develop-forkbook.herokuapp.com/api/recipe')
   .then(res => {
     dispatch({ type: types.GET_ALL_RECIPES_SUCCESS, payload: res.data})

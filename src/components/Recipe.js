@@ -49,5 +49,4 @@ return (
 )
 }
 
-
 export default Recipe;
