@@ -12,12 +12,15 @@ import SearchBar from './components/SearchBar';
 import Footer from './components/Footer';
 import ProfileView from './components/ProfileView';
 import EditProfile from './components/EditProfile';
+import FormikCreateRecipeForm from './components/CreateRecipe';
+import IngredientView from './components/IngredientView'
+import InstructionView from './components/InstructionView'
+import CreateRecipe from './components/CreateRecipe';
 
 
 function App() {
   return (
     <div className="App">
-      {/* <Route exact path='/' component={Welcome}/> */}
       <Route exact path='/' component={RecipeView}/>
       <Route path='/login' component={ FormikLoginForm}/>
       <Route path='/register' component={ FormikRegisterForm}/>
@@ -26,6 +29,9 @@ function App() {
 
       <Route path='/profile' component={ProfileView}/>
       <Route path='/editprofile' component={EditProfile}/>
+      <Route path='/createrecipe' component={ FormikCreateRecipeForm}/>
+      <Route path='/ingredient' component={IngredientView}/>
+      <Route path='/instruction' component={InstructionView}/>
     </div>
   );
 }

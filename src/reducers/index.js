@@ -92,3 +92,83 @@ export const recipeViewReducer = (state = initialRecipeView, action) => {
       return state
   }
 }
+
+const initialRecipeState = { 
+  recipe_id : '',
+  message : '',
+  error : '', 
+  isFetching : false,
+};
+export const createRecipeReducer = ( state = initialRecipeState, action) => {
+  switch(action.type) { 
+    case types.REQUEST_START :
+      return { 
+        ...state,
+        isFetching : true,
+        error : ''
+      };
+    case types.ADD_RECIPE_SUCCESS : 
+      return { 
+        ...state, 
+        recipe_id : action.payload.recipeID,
+        message : action.payload.message,
+        isFetching : false
+      };
+    case types.ADD_RECIPE_FAILURE : 
+      return { 
+        ...state,
+        recipe_id : action.payload.recipeID,
+        error : action.payload,
+        isFetching : false
+      }
+    default : 
+    return state;
+  }
+}
+
+const initialIngredient = { 
+  ingredientView : [],
+  error : '', 
+  isFetching : false
+}
+
+export const ingredientReducer = ( state = initialIngredient, action) => { 
+    switch(action.type){
+      case types.REQUEST_START:
+        return {
+          ...state,
+          isFetching: true
+        }
+      
+      case types.GET_INGREDIENT_SUCCESS:
+        return { 
+          ...state,
+          ingredientView : action.payload,
+          isFetching : false
+        }
+      case types.GET_INGREDIENT_FAILURE:
+        return { 
+          ...state,
+          error : action.payload,
+          isFetching : false
+        }
+      case types.RESET_DISPLAYED_INGREDIENTS:
+        return {
+          state : action.payload
+        }
+      case types.ADD_INGREDIENT_SUCCESS:
+      return { 
+        ...state,
+        ingredientView : [...state.ingredientView, action.payload],
+        isFetching : false
+      }
+    case types.ADD_INGREDIENT_FAILURE:
+      return{ 
+        ...state,
+        error : action.payload, 
+        isFetching : false
+      }
+    default:
+      return state;
+    }
+  }
