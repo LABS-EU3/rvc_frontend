@@ -4,7 +4,6 @@ import './App.css';
 import FormikLoginForm from './components/LoginForm';
 import FormikRegisterForm from './components/RegisterForm';
 import Welcome from './components/Welcome';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import RecipeView from './components/RecipeView';
 import SeeRecipe from './components/SeeRecipe';
 import Counter from './components/Couter'
@@ -15,7 +14,7 @@ import EditProfile from './components/EditProfile';
 import IngredientView from './components/IngredientView'
 import InstructionView from './components/InstructionView'
 import CreateRecipe from './components/CreateRecipe';
-
+import PrivateRoute from './components/PrivateRoute'
 
 
 function App() {
