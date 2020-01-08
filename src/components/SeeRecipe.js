@@ -10,6 +10,7 @@ import Popup from "reactjs-popup";
 import IngredientList from "./IngredientList";
 import InstructionList from "./InstructionList";
 
+
 function SeeRecipe (){
     return (
         <div>
