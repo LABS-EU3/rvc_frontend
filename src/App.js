@@ -8,6 +8,7 @@ import Counter from './components/Couter'
 import FormikCreateRecipeForm from './components/CreateRecipe';
 import IngredientView from './components/IngredientView'
 import InstructionView from './components/InstructionView'
+import CreateRecipe from './components/CreateRecipe';
 
 
 function App() {
@@ -20,7 +21,6 @@ function App() {
       <Route path='/createrecipe' component={ FormikCreateRecipeForm}/>
       <Route path='/ingredient' component={IngredientView}/>
       <Route path='/instruction' component={InstructionView}/>
-
     </div>
   );
 }

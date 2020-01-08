@@ -31,7 +31,7 @@ function FormTemplate ({ touched, errors, values })  {
     </div>
     <div>
       {touched.quantity && errors.quantity}
-      {/* <label></label> */}
+      <label>Qauntity</label>
         <select
         name='quantity'
         value={values.quantity}

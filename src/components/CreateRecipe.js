@@ -7,6 +7,14 @@ import { createRecipe } from '../actions/index'
 import "../index.css";
 import Footer from './Footer'
 import foodplaceholder from '../images/foodplaceholder.png'
+
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
 function FormTemplate( { touched, errors, values }) {
   return (
     <>
@@ -31,12 +39,13 @@ function FormTemplate( { touched, errors, values }) {
 
       <div className='section2'>
         {touched.category && errors.category}
-        <label>Category:</label>
+        <p>Category:</p>
+        <label>pick a category</label>
         <select
         name='category'
         value={values.category}
         >
-          <option value='' label='pick a category'/>
+          {/* <option value='' label='pick a category'/> */}
           <option value='breakfast' label='breakfast'/>
           <option value='lunch' label='lunch'/>
           <option value='dinner' label='dinner'/>
@@ -68,7 +77,7 @@ function FormTemplate( { touched, errors, values }) {
         </div>
       </div>
     </Form>
-    
+
     {/* step6B */}
     <Form>
       <div className='section1B'>
@@ -123,9 +132,11 @@ const FormikCreateRecipeForm = withFormik({
 
   handleSubmit(values, {props}) { 
     props.createRecipe(values, props.history)
-  }
+  },
+
 })(FormTemplate);
 
 export default connect(
   state => state, { createRecipe }
 )(FormikCreateRecipeForm);
+
