@@ -2,7 +2,6 @@ import React from 'react';
 import '../App.css';
 
 const Recipe = ({ recipe }) => { 
-  // const { id, no_of_likes, recipe_image, recipe_title, time, author, price, difficulty }  = recipe;
   const { recipe_image, recipe_title, time, author, price, difficulty }  = recipe;
 
   let color = '';

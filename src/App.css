@@ -350,3 +350,91 @@ margin-top:2vh;
   border-radius: 18px;
   border: 1px solid #cfcece;
 }
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-evenly;
+}
+
+.profile-recipe-image {
+  width: 45%;
+  height: 100%;
+  margin: 0 2px;
+
+}
+
+.profile-pic {
+  width: 30%;
+  border-radius: 50%;
+}
+
+.num-likes-and-forks {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.likes-paragraph {
+  font-size: 1.6rem;
+}
+
+.profile-food {
+  padding: 5px 5px;
+  margin-top: -20px 
+}
+
+.profile-icons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#divider {
+  border-width: 1px;
+  background-color:  rgb(0, 172, 238);
+  padding: 0 12px;
+}
+
+.profile-photo {
+  margin-top: 2rem;
+}
+
+.edit-profile-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 70vh;
+  padding: 0 2px;
+}
+
+.edit-profile-form input, select {
+  height: 8%;
+  background: rgba(10, 179, 138, 0.08);
+  border-radius: 2px;
+}
+
+.edit-profile-form button {
+  width: 30%;
+  height: 7%;
+  margin: 0 auto;
+}
+
+.edit-profile-form select option[data-default] {
+  color: #888;
+}
+
+.edit-profile-form input::placeholder {
+  padding-left: 20px;
+}
+
+.cancel-button{
+  height: 35px;
+  width: 8%;
+  background-color: #E5E5E5;
+  border-radius: 32%;
+  position: relative;
+  top: 0.5rem;
+  right: 20.5rem;
+}
