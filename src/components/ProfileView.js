@@ -5,15 +5,14 @@ import Footer from "./Footer";
 import home from "../globals/design-elements/home.png";
 import play_button from "../globals/design-elements/play_button.png";
 import user from "../globals/design-elements/user.png";
-import EditProfile from './EditProfile';
-import styles from 'styled-components';
+import EditProfile from "./EditProfile";
+import styles from "styled-components";
 
 const P = styles.p`
 font-size: 6rem;
 text-align: center;
 margin-top: 1.5rem;
-`
-
+`;
 
 export default function CreateProfile() {
   return (
@@ -21,9 +20,9 @@ export default function CreateProfile() {
       <div className="profile-img">
         <P>C</P>
       </div>
-      
-      <Popup modal trigger={<h4>@Chelsea</h4>} >
-      {close => <EditProfile close={close} />}
+
+      <Popup modal trigger={<h4>@Chelsea</h4>}>
+        {close => <EditProfile close={close} />}
       </Popup>
       <div className="num-likes-and-forks">
         <div>
