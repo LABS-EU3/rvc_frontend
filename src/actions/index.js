@@ -1,18 +1,6 @@
 import * as types from "./actionTypes";
 import axios from 'axios'
 
-// export function increment() {
-//   return { type: types.INCREMENT };
-// }
-
-// export function decrement() {
-//   return { type: types.DECREMENT };
-// }
-
-// export const reset = () => {
-//   return { type: types.RESET };
-// };
-
 export const register = (credentials, history) => dispatch => { 
 
   dispatch({ type: types.REQUEST_START });
@@ -20,12 +8,17 @@ export const register = (credentials, history) => dispatch => {
   .post('https://develop-forkbook.herokuapp.com/api/auth/register', credentials)
   .then(res => { 
     console.log(res.data);
+    localStorage.setItem('token', res.data.token)
+    localStorage.setItem('userID', res.data.userID)
     dispatch({ type: types.REGISTER_SUCCESS, payload : res.data });
     history.push('/recipe')
   })
   .catch(error => { 
-    console.log(error.message);
-    dispatch({ type: types.REGISTER_FAILURE, payload: error.message})
+    // console.log(error.message);
+    dispatch({ type: types.REGISTER_FAILURE, payload:( error.message = 'Username already exists')});
+    // dispatch({ type: types.REGISTER_FAILURE, payload:( error.res.data.message = 'Username already exists')});
+    // alert(error.message)
+    // alert(error.response.data.message)
   });
 }
 
@@ -35,14 +28,24 @@ export const login = (credentials, history) => dispatch => {
   .post('https://develop-forkbook.herokuapp.com/api/auth/login', credentials)
   .then(res => { 
     console.log(res.data);
+    localStorage.setItem('token', res.data.token);
+    localStorage.setItem('userID', res.data.userID);
     dispatch({ type: types.LOGIN_SUCCESS, payload : res.data });
     history.push('/recipe')
   })
   .catch(error => { 
-    console.log(error.message);
-    dispatch({ type: types.LOGIN_FAILURE, payload : error.message})
+    // console.log(error.message);
+    dispatch({ type: types.LOGIN_FAILURE, payload : error.message});
+    // dispatch({ type: types.LOGIN_FAILURE, payload : error.response.data.message});
+    // alert(error.message)
+    // alert(error.response.data.message)
   })
 }
+
+export const logout = () => { 
+  localStorage.clear();
+  return { type : types.LOGOUT }
+};
 
 export const getRecipes = () => dispatch => { 
   dispatch({ type: types.REQUEST_START });

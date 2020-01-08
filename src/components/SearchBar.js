@@ -1,6 +1,7 @@
 import React  from 'react';
 import { SearchBox } from '../globals/navbar-styles';
 import { Link } from 'react-router-dom';
+import { logout } from '../actions';
 
 const SearchBar = ({ recipe }) => {
 
@@ -27,6 +28,9 @@ const SearchBar = ({ recipe }) => {
                   </Link>
                   <Link to='/register' style={{ textDecoration: 'none' }}>
                   <li>Log in</li>
+                  </Link>
+                  <Link to='/' style={{ textDecoration: 'none' }}>
+                  <li onClick={() => { logout()}}>Logout</li>
                   </Link>
                 </ul>
               </div>
