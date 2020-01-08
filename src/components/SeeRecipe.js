@@ -7,7 +7,8 @@ import arrow from "../images/left-arrow.png";
 import dishImg from "../images/dish1.jpg";
 import profile from "../images/profile.jpeg";
 import Popup from "reactjs-popup";
-
+import IngredientList from "./IngredientList";
+import InstructionList from "./InstructionList";
 
 function SeeRecipe (){
     return (
@@ -34,12 +35,14 @@ function SeeRecipe (){
                     </DetailsRecipe>
                 </DescriptionDiv>
                 <BottomButtonDiv>
-                    <LgButton>
-                        Instruction
-                    </LgButton>
-                    <LgButton>
-                        Ingredients
-                    </LgButton>
+                    <Popup modal trigger={
+                    <LgButton>Ingredients</LgButton>}>
+                        {close => <IngredientList close={close} />}
+                    </Popup>
+                    <Popup modal trigger={
+                    <LgButton>Instructions</LgButton>}>
+                        {close => <InstructionList close={close} />}
+                    </Popup>
                 </BottomButtonDiv>
             </CardDiv>
             <Footer/>
@@ -79,10 +82,13 @@ export const ShareButton = styled.div`
 export const ImgRecipe = styled.div`
 width: 100%;
 height: 372px;
-object-fit: scale-down;
+
 overflow: hidden;
 margin-top:-10%;
 margin-bottom:2%;
+img{
+    object-fit: scale-down;
+}
 `
 export const DescriptionDiv = styled.div`
 display:flex;
