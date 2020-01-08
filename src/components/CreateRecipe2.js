@@ -23,7 +23,6 @@ export default function() {
       return (
         <div className="App">
         <div>
-          <p>Hello from CreateRecipe 1</p>
           <RecipeFormOne step={step} nextPage={nextPage} />
         </div>
         <Footer />

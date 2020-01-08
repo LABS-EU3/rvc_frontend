@@ -316,3 +316,58 @@ margin-top:2vh;
   height: 18px;
   background-color:red;
 }
+
+.recipe-nav {
+  background-color: #0AB28A;
+  height: 12rem;
+}
+
+.back-arrow-container {
+  width: 37px;
+  height: 30px;
+  color: white;
+  position: relative;
+  top: 1rem;
+  left: 1rem;
+}
+
+.submit-recipe-container {
+  width: 37px;
+  height: 30px;
+  position: relative;
+  left: 45rem;
+  bottom: 2rem;
+}
+
+.back-arrow {
+  width: 100%;
+}
+
+.back-arrow {
+  width: 100%;
+  color: white;
+}
+
+.submit-recipe {
+  width: 100%;
+  color: white; 
+}
+
+input {
+  width: 80%;
+  height: 4rem;
+  background-color:  #white;
+}
+
+input::placeholder {
+  padding-left: 2rem;
+  color: green; 
+}
+
+.progress-bar-container{
+  height: 1rem;
+  background-color: #C4C4C4;
+  margin: 0 auto;
+  width: 80%;
+  border-radius: 5px;
+}

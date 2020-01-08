@@ -35,6 +35,9 @@ export default function RecipeFormTwo(props) {
         <button onClick={prevPage}>Prev</button>
         <button onClick={nextPage}>Next</button>
         </div>
+        <div className="progress-bar-container">    
+        <div  style={{"backgroundColor":"#0AB28A", "height":"10px", "width":"60%", "borderRadius": "5px"}}></div>
+        </div>
 
       </div>
     </form>
