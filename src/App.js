@@ -15,7 +15,6 @@ import InstructionView from './components/InstructionView'
 import CreateRecipe from './components/CreateRecipe';
 import PrivateRoute from './components/PrivateRoute'
 
-
 function App() {
   return (
     <div className="App">
@@ -24,12 +23,12 @@ function App() {
       <Route path='/register' component={ FormikRegisterForm}/>
       <Route path='/recipe' component={RecipeView}/>
       <Route path='/seerecipe' component={SeeRecipe}/>
-      <PrivateRoute path='/profile' component={ProfileView}/>
+      {/* <PrivateRoute path='/profile' component={ProfileView}/>
       <PrivateRoute path='/editprofile' component={EditProfile}/>
-      <PrivateRoute path='/createrecipe' component={ CreateRecipe}/>
-      {/* <Route path='/profile' component={ProfileView}/>
+      <PrivateRoute path='/createrecipe' component={ CreateRecipe}/> */}
+      <Route path='/profile' component={ProfileView}/>
       <Route path='/editprofile' component={EditProfile}/>
-      <Route path='/createrecipe' component={ CreateRecipe}/> */}
+      <Route path='/createrecipe' component={ CreateRecipe}/>
       <Route path='/ingredient' component={IngredientView}/>
       <Route path='/instruction' component={InstructionView}/>
     </div>

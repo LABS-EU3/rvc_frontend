@@ -80,10 +80,13 @@ export const recipeViewReducer = (state = initialRecipeView, action) => {
 }
 
 const initialRecipeState = { 
+  user_id : 1,
   recipe_id : '',
   message : '',
   error : '', 
   isFetching : false,
+  ingredients: '',
+  instructions: ''
 };
 export const createRecipeReducer = ( state = initialRecipeState, action) => {
   switch(action.type) { 
@@ -158,3 +161,66 @@ export const ingredientReducer = ( state = initialIngredient, action) => {
       return state;
     }
   }
+
+  const initialInstruction = { 
+    instructionView : [],
+    error : '', 
+    isFetching : false
+  }
+
+  export const instructionReducer = ( state = initialInstruction, action) => { 
+    switch(action.type){
+      case types.REQUEST_START:
+        return {
+          ...state,
+          isFetching: true
+        }
+      
+      case types.GET_INSTRUCTION_SUCCESS:
+        return { 
+          ...state,
+          instructionView : action.payload,
+          isFetching : false
+        }
+      case types.GET_INSTRUCTION_FAILURE:
+        return { 
+          ...state,
+          error : action.payload,
+          isFetching : false
+        }
+      case types.RESET_DISPLAYED_INSTRUCTIONS:
+        return {
+          state : action.payload
+        }
+      case types.ADD_INSTRUCTION_SUCCESS:
+      return { 
+        ...state,
+        instructionView : [...state.instructionView, action.payload],
+        isFetching : false
+      }
+    case types.ADD_INSTRUCTION_FAILURE:
+      return{ 
+        ...state,
+        error : action.payload, 
+        isFetching : false
+      }
+    default:
+      return state;
+    }
+  }
+
+
+  //attempt 2 
+
+  const initialRecipe = { 
+    user_id : 1,
+    message : '',
+    error : '',
+    isFetching : false,
+    recipeData : [],
+    categories : [],
+    tags : [],
+    images : [],
+    ingredients : [],
+    instructions : [],
+  }; 

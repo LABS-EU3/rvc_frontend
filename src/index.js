@@ -7,6 +7,7 @@ import store from "./store";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
 
+// const store = configureStore()
 ReactDOM.render(
   <Provider store={store}>
     <Router>

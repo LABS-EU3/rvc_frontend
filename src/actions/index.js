@@ -63,12 +63,12 @@ export const getRecipes = () => dispatch => {
 export const createRecipe = (recipeData, history) => dispatch => { 
   dispatch( { type: types.REQUEST_START }) 
   axios
-  .post('dummyApi', recipeData )
+  .post('https://develop-forkbook.herokuapp.com/api/recipe', recipeData )
   .then( res => { 
-    console.log(res.data)
+    console.log(res.data.recipes)
     dispatch({ type: types.ADD_RECIPE_SUCCESS,
-      payload: res.data});
-    // history.push('/recipeprofile') 
+      payload: res.data.recipes});
+    history.push('/seerecipe') 
     })
   .catch(error => { 
     console.log(error.message)
@@ -77,25 +77,26 @@ export const createRecipe = (recipeData, history) => dispatch => {
   });
 }
 
-export const addIngredient = ingredient => dispatch => { 
+export const addIngredient = ingredientData => dispatch => { 
   dispatch({ type : types.REQUEST_START })
-  // axios
-  // .post('dummyApi', ingredient )
-  // .then(res => { 
-  //   dispatch({ type : types.ADD_INGREDIENT_SUCCESS, payload : res.data })
-  // })
-  // .catch(error => { 
-  //   dispatch({ type : types.ADD_INGREDIENT_FAILURE, payload : error.message })
-  // })
-  dispatch({ type : types.ADD_INGREDIENT_SUCCESS, payload : ingredient })
+  axios
+  .post('https://develop-forkbook.herokuapp.com/api/recipe', ingredientData )
+  .then(res => { 
+    dispatch({ type : types.ADD_INGREDIENT_SUCCESS, payload : res.data.ingredients })
+  })
+  .catch(error => { 
+    dispatch({ type : types.ADD_INGREDIENT_FAILURE, payload : error.message })
+  })
+  // dispatch({ type : types.ADD_INGREDIENT_SUCCESS, payload : ingredient })
 }
 
 export const getIngredients = () => dispatch => { dispatch({ type : types.REQUEST_START });
 axios
-.get('dummyApi')
+.get('https://develop-forkbook.herokuapp.com/api/recipe/')
 .then(res => { 
   //dispatch( { type : types.RESET_DISPLAYED_INGREDIENTS, payload : res.data });
   dispatch({type : types.GET_INGREDIENT_SUCCESS, payload : res.data })
+  console.log(res.data)
 })
 .catch(error => { 
   dispatch({
@@ -103,3 +104,33 @@ axios
   })
 })
 }
+
+export const addInstruction = instructionData => dispatch => { 
+  dispatch({ type : types.REQUEST_START })
+  axios
+  .post('https://develop-forkbook.herokuapp.com/api/recipe', instructionData )
+  .then(res => { 
+    console.log('akata', res.data)
+
+    dispatch({ type : types.ADD_INSTRUCTION_SUCCESS, payload : res.data.instructions })
+  })
+  .catch(error => { 
+    dispatch({ type : types.ADD_INSTRUCTION_FAILURE, payload : error.message })
+  })
+  // dispatch({ type : types.ADD_INGREDIENT_SUCCESS, payload : ingredient })
+}
+
+export const getInstructions = () => dispatch => { dispatch({ type : types.REQUEST_START });
+axios
+.get('https://develop-forkbook.herokuapp.com/api/recipe')
+.then(res => { 
+  //dispatch( { type : types.RESET_DISPLAYED_INGREDIENTS, payload : res.data });
+  dispatch({type : types.GET_INSTRUCTION_SUCCESS, payload : res.data.instructions })
+})
+.catch(error => { 
+  dispatch({
+    type : types.GET_INSTRUCTION_FAILURE, payload : error.message
+  })
+})
+}
+
