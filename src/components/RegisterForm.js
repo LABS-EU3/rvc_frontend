@@ -7,9 +7,10 @@ import * as Yup from "yup";
 import axios from "axios";
 import { register } from '../actions/index'
 import "../index.css";
-
+import arrow from "../images/left-arrow.png";
 import {
   MainDiv,
+  ArrowDiv,
   Logo,
   FooterDiv,
   H1,
@@ -23,6 +24,11 @@ const registerApi = "https://develop-forkbook.herokuapp.com/api/auth/register";
 function FormTemplate({ touched, errors }) {
   return (
     <MainDiv>
+      <ArrowDiv>
+        <Link to='/'>
+          <img src={arrow} alt="arrow" />
+        </Link>
+      </ArrowDiv>
       <Logo>
         <img src={logo} alt="Logo" />
       </Logo>
