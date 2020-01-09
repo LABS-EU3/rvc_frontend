@@ -371,7 +371,12 @@ margin-top:2vh;
   border-radius: 50%;
 }
 
+.profile-bio {
+  font-size: 1.4rem;
+}
+
 .num-likes-and-forks {
+  font-size: 2.2rem;
   width: 80%;
   margin: 0 auto;
   padding: 2rem 0;
@@ -384,13 +389,23 @@ margin-top:2vh;
 }
 
 .profile-food {
-  padding: 5px 5px;
-  margin-top: -20px 
+  margin-bottom: 6rem;
 }
 
 .profile-icons {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin: 3rem 3rem 0 3rem;
+}
+
+.profile-icons-image {
+  height: 2.5rem;
+
+}
+
+.divider-wrapper {
+  margin-bottom: 0.3rem;
+  padding: 0 2.4rem;
 }
 
 #divider {

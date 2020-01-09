@@ -2,9 +2,9 @@ import React from "react";
 import Popup from "reactjs-popup";
 
 import Footer from "./Footer";
-import home from "../globals/design-elements/home.png";
-import play_button from "../globals/design-elements/play_button.png";
-import user from "../globals/design-elements/user.png";
+import bookmark from "../globals/design-elements/bookmark.png";
+import more from "../globals/design-elements/more.png";
+import copy from "../globals/design-elements/copy-item.png";
 import EditProfile from "./EditProfile";
 import styles from "styled-components";
 
@@ -27,24 +27,24 @@ export default function CreateProfile() {
       <div className="num-likes-and-forks">
         <div>
           <p className="likes-paragraph">8</p>
-          <h3>Recipes</h3>
+          <h4>Recipes</h4>
         </div>
         <div>
           <p className="likes-paragraph">21</p>
-          <h3>Forked Recipes</h3>
+          <h4>Forked Recipes</h4>
         </div>
         <div>
           <p className="likes-paragraph">1225</p>
-          <h3>Forks</h3>
+          <h4>Forks</h4>
         </div>
       </div>
-      <p>I enjoy cooking</p>
+      <p className="profile-bio">...I enjoy cooking</p>
       <div className="profile-icons">
-        <img className="profile-icons-image" src={home} alt="" />
-        <img className="profile-icons-image" src={play_button} alt="" />
-        <img className="profile-icons-image" src={user} alt="" />
+        <img className="profile-icons-image" src={bookmark} alt="" />
+        <img className="profile-icons-image" src={copy} alt="" />
+        <img className="profile-icons-image" src={more} alt="" />
       </div>
-      <div style={{ padding: "0 5px" }}>
+      <div className="divider-wrapper">
         {" "}
         <hr id="divider" />
       </div>
