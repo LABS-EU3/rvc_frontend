@@ -5,7 +5,6 @@ import { CardDiv } from '../globals/card-styles';
 import styled from "styled-components";
 import arrow from "../images/left-arrow.png";
 import dishImg from "../images/dish1.jpg";
-import profile from "../images/profile.jpeg";
 import Popup from "reactjs-popup";
 import IngredientList from "./IngredientList";
 import InstructionList from "./InstructionList";
@@ -19,8 +18,12 @@ function SeeRecipe (){
                     <img src={arrow} alt="arrow" />
                 </div>
                 <TopButtonDiv>
-                    <ShareButton>Share</ShareButton>
-                    <ForkButton>Fork</ForkButton>
+                    <ShareButton>
+                        <h1>Share</h1>
+                    </ShareButton>
+                    <ForkButton>
+                        <h1>Fork</h1>
+                    </ForkButton>
                 </TopButtonDiv>
             </RecipeTopDiv>
             <CardDiv>
@@ -29,7 +32,8 @@ function SeeRecipe (){
                 </ImgRecipe>
                 <DescriptionDiv>
                     <ProfilePicture>
-                        <img src={profile} alt="profile" />
+                        {/* <img src={profile} alt="profile" /> */}
+                        <h1> C </h1>
                     </ProfilePicture>
                     <DetailsRecipe>
 
@@ -66,6 +70,12 @@ export const TopButtonDiv = styled.div`
     text-align: center;
     font-size: 16px;
 
+    h1{
+        margin-top:7px;
+        font-size: 16px;
+        font-weight: normal;
+    }
+
 `
 
 export const ForkButton = styled.div`
@@ -83,7 +93,6 @@ export const ShareButton = styled.div`
 export const ImgRecipe = styled.div`
 width: 100%;
 height: 372px;
-
 overflow: hidden;
 margin-top:-10%;
 margin-bottom:2%;
@@ -101,7 +110,7 @@ export const DetailsRecipe = styled.div`
 background: rgba(196, 196, 196, 0.12);
 border-radius: 15px;
 text-align: start;
-width: 75%;
+width: 81%;
 
 `
 export const ProfilePicture = styled.div`
@@ -110,12 +119,19 @@ width: 53px;
 height: 55px;
 object-fit: scale-down;
 overflow: hidden;
+border: 2px solid rgba(196, 196, 196, 0.12);
+background-color: #D88524;
+h1 {
+    margin-top:12px;
+    font-size:18px;
+}
 `
 
 export const BottomButtonDiv = styled.div`
 display: flex;
 flex-direction: column;
 margin:5%;
+height:24vh;
 `
 export const LgButton = styled.div`
 height: 41px;
@@ -126,7 +142,7 @@ line-height: 33px;
 text-align: center;
 background: rgba(10, 179, 138, 0.74);
 border-radius: 9px;
-color:white;
+color:white; 
 `
 
 
