@@ -212,15 +212,39 @@ export const ingredientReducer = ( state = initialIngredient, action) => {
 
   //attempt 2 
 
-  const initialRecipe = { 
-    user_id : 1,
-    message : '',
-    error : '',
-    isFetching : false,
-    recipeData : [],
-    categories : [],
-    tags : [],
-    images : [],
-    ingredients : [],
-    instructions : [],
-  }; 
+  export const createRecipeReducer2 = ( state = { }, action) => { 
+    switch(action.type) { 
+      case types.ADD_TO_NEW_RECIPE :
+        return { 
+          ...state,
+          ...action.payload
+        }
+      
+      case types.REQUEST_START :
+        return { 
+          ...state,
+          isFetching : true
+        }
+      case types.SUBMIT_NEW_RECIPE_SUCCESS : 
+      return {
+        ...state,
+        message : action.payload.message,
+        isFetching : false
+       }
+      
+      case types.RESET_NEW_RECIPE : 
+        return ({})
+
+      case types.SUBMIT_NEW_RECIPE_FAILURE : 
+       return { 
+         ...state,
+         error : action.payload,
+         isFetching : false
+       }
+    
+      default : 
+        return state
+      };
+
+
+  }

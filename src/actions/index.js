@@ -134,3 +134,29 @@ axios
 })
 }
 
+
+//attempt 2 
+
+export const submitNewRecipe = (newRecipeData, history) => dispatch => { 
+  dispatch({ type : types.REQUEST_START })
+  axios
+  .post('https://develop-forkbook.herokuapp.com/api/recipe', newRecipeData )
+  .then(res => { 
+    console.log('akata', res.data)
+    dispatch({ type : types.SUBMIT_NEW_RECIPE_SUCCESS, payload : res.data })
+      .then(()=> dispatch( { type : types.RESET_NEW_RECIPE }))
+    history.push('/seerecipe') 
+  })
+  .catch(error => { 
+    dispatch({ type : types.SUBMIT_NEW_RECIPE_FAILURE, payload : error.message })
+    history.push('/createrecipe') 
+
+  })
+}
+
+export const addToNewRecipe = (newRecipeData) => {
+  return{
+    type : types.ADD_TO_NEW_RECIPE,
+     payload : newRecipeData
+    }
+} 

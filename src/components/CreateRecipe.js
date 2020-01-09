@@ -3,7 +3,6 @@ import RecipeFormOne from "./RecipeFormOne";
 import RecipeFormTwo from "./RecipeFormTwo";
 import Ready from "./Ready";
 import Footer from "./Footer";
-import { reduxForm } from 'redux-form'
 
 export default function(props) {
   const [step, setStep] = useState(1);
