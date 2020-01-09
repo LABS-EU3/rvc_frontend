@@ -8,6 +8,7 @@ import dishImg from "../images/dish1.jpg";
 import Popup from "reactjs-popup";
 import IngredientList from "./IngredientList";
 import InstructionList from "./InstructionList";
+import { Link } from 'react-router-dom';
 
 
 function SeeRecipe (){
@@ -15,7 +16,9 @@ function SeeRecipe (){
         <div>
             <RecipeTopDiv>
                 <div>
+                    <Link to='/'>
                     <img src={arrow} alt="arrow" />
+                    </Link>
                 </div>
                 <TopButtonDiv>
                     <ShareButton>

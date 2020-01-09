@@ -32,6 +32,11 @@ font-family: Avenir Next;
 justify-content: space-evenly; 
 `
 
+export const ArrowDiv = styled.div`
+margin-right: 298px;
+`
+
+
 export const Logo = styled.div`
 img {
   width: 50%;
