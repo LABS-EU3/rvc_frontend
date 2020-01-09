@@ -4,7 +4,7 @@ import RecipeFormTwo from "./RecipeFormTwo";
 import Ready from "./Ready";
 import Footer from "./Footer";
 export default function() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
   const nextPage = () => {
     setStep(step + 1 );
   }
