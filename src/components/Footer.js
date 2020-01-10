@@ -7,7 +7,7 @@ import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
 const Footer = () => {
   return (
     <FooterBar>
-      <HomeOutlinedIcon color="primary" style={{ fontSize: 40, color: 'gray' }} />
+      <HomeOutlinedIcon cgit style={{ fontSize: 40, color: 'gray' }} />
       <PlayCircleOutlineOutlinedIcon color="primary" style={{ fontSize: 40, color: 'gray' }} />
       <PersonOutlineOutlinedIcon color="primary" style={{ fontSize: 40, color: 'gray' }} />
     </FooterBar>
