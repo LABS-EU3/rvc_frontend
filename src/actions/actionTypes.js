@@ -1,9 +1,3 @@
-// export const INCREMENT = 'INCREMENT';
-// export const DECREMENT = 'DECREMENT';
-// export const RESET = 'RESET';
-
-//request start 
-
 export const REQUEST_START = 'REQUEST_START'
 
 //register and login action types
@@ -13,9 +7,55 @@ export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
+export const LOGOUT = 'LOGOUT';
+
+//create recipe 
+export const  ADD_RECIPE_SUCCESS = 'ADD_RECIPE_SUCCESS';
+export const ADD_RECIPE_FAILURE = 'ADD_RECIPE_FAILURE';
+
+
+
+//add to new recipe
+export const ADD_TO_NEW_RECIPE = 'ADD_TO_NEW_RECIPE';
+
+//submit new recipe 
+export const POST_NEW_RECIPE_SUCCESS = 'POST_NEW_RECIPE_SUCCESS';
+export const POST_NEW_RECIPE_FAILURE = 'POST_NEW_RECIPE_FAILURE';
+
+//reset new recipe 
+export const RESET_NEW_RECIPE = 'RESET_NEW_RECIPE'
+ 
+
+
+
 // view recipe
 export const GET_ALL_RECIPES_SUCCESS = 'GET_ALL_RECIPES_SUCCESS';
-export const GET_ALL_RECIPES_FAILURE = 'GET_ALL_RECIPES_FAILURE';
+export const GET_ALL_RECIPES_FAILURE = 'GET_ALL_RECIPES_FAILURE'
+
+// add category
+export const ADD_CATEGORY_SUCCESS = 'ADD_CATEGORY_SUCCESS'
+export const ADD_CATEGORY_FAILURE = 'ADD_CATEGORY_FAILURE'
+
+// view categories 
+export const GET_ALL_CATEGORIES_SUCCESS = 'GET_ALL_CATEGORIES_SUCCESS'
+export const GET_ALL_CATEGORIES_FAILURE = 'GET_ALL_CATOGORIES_FAILURE'
+
+
+// add tag
+export const ADD_TAG_SUCCESS = 'ADD_TAG_SUCCESS'
+export const ADD_TAG_FAILURE = 'ADD_TAG_FAILURE'
+
+//view tags 
+export const GET_ALL_TAGS_SUCCESS = 'GET_ALL_TAGS_SUCCESS'
+export const GET_ALL_TAGS_FAILURE = 'GET_ALL_TAGS_FAILURE'
+
+//add photo
+export const  ADD_PHOTO_SUCCESS = 'ADD_PHOTO_SUCCESS'
+export const ADD_PHOTO_FAILURE = 'ADD_PHOTO_FAILURE'
+
+//view photos 
+export const GET_ALL_PHOTOS_SUCCESS = 'GET_ALL_PHOTOS_SUCCESS'
+export const GET_ALL_PHOTOS_FAILURE = 'GET_ALL_PHOTOS_FAILURE'
 
 //add ingredient
 export const ADD_INGREDIENT_SUCCESS = 'ADD_INGREDIENT_SUCCESS';
@@ -26,6 +66,12 @@ export const GET_INGREDIENT_SUCCESS = 'GET_INGREDIENT_SUCCESS';
 export const GET_INGREDIENT_FAILURE = 'GET_INGREDIENT_FAILURE';
 export const RESET_DISPLAYED_INGREDIENTS = 'RESET_DISPLAYED_INGREDIENTS'
 
-//create recipe 
-export const  ADD_RECIPE_SUCCESS = 'ADD_RECIPE_SUCCESS';
-export const ADD_RECIPE_FAILURE = 'ADD_RECIPE_FAILURE';
+//add instruction
+export const ADD_INSTRUCTION_SUCCESS = 'ADD_INSTRUCTION_SUCCESS';
+export const ADD_INSTRUCTION_FAILURE = 'ADD_INSTRUCTION_FAILURE';
+
+//view instructions
+export const GET_INSTRUCTION_SUCCESS = 
+'GET_INSTRUCTION_SUCCESS';
+export const GET_INSTRUCTION_FAILURE = 'GET_INSTRUCTION_FAILURE';
+export const RESET_DISPLAYED_INSTRUCTIONS = 'RESET_DISPLAYED_INSTRUCTIONS'

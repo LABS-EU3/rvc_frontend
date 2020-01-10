@@ -28,6 +28,12 @@ export default function RecipeFormTwo(props) {
         );
       });
   };
+import React from "react";
+import foodplaceholder from "../images/foodplaceholder.png";
+
+export default function RecipeFormTwo(props) {
+  const { step, prevPage, nextPage, uploadImage, recipeImage, onHandleChange } = props;  
+
   return (
     <form>
       <div className="section1B">

@@ -1,19 +1,5 @@
 import * as types from "../actions/actionTypes";
 
-// const initialValueCount = 0;
-// export function countReducer(count = initialValueCount, action) {
-//   switch (action.type) {
-//     case types.INCREMENT:
-//       return count + 1;
-//     case types.DECREMENT:
-//       return count - 1;
-//     case types.RESET:
-//       return 0;
-//     default:
-//       return count;
-//   }
-// }
-
 const initialOnboardingState = { 
   user_id : '',
   message : '',
@@ -94,10 +80,13 @@ export const recipeViewReducer = (state = initialRecipeView, action) => {
 }
 
 const initialRecipeState = { 
+  user_id : 1,
   recipe_id : '',
   message : '',
   error : '', 
   isFetching : false,
+  ingredients: '',
+  instructions: ''
 };
 export const createRecipeReducer = ( state = initialRecipeState, action) => {
   switch(action.type) { 
@@ -171,4 +160,91 @@ export const ingredientReducer = ( state = initialIngredient, action) => {
     default:
       return state;
     }
+  }
+
+  const initialInstruction = { 
+    instructionView : [],
+    error : '', 
+    isFetching : false
+  }
+
+  export const instructionReducer = ( state = initialInstruction, action) => { 
+    switch(action.type){
+      case types.REQUEST_START:
+        return {
+          ...state,
+          isFetching: true
+        }
+      
+      case types.GET_INSTRUCTION_SUCCESS:
+        return { 
+          ...state,
+          instructionView : action.payload,
+          isFetching : false
+        }
+      case types.GET_INSTRUCTION_FAILURE:
+        return { 
+          ...state,
+          error : action.payload,
+          isFetching : false
+        }
+      case types.RESET_DISPLAYED_INSTRUCTIONS:
+        return {
+          state : action.payload
+        }
+      case types.ADD_INSTRUCTION_SUCCESS:
+      return { 
+        ...state,
+        instructionView : [...state.instructionView, action.payload],
+        isFetching : false
+      }
+    case types.ADD_INSTRUCTION_FAILURE:
+      return{ 
+        ...state,
+        error : action.payload, 
+        isFetching : false
+      }
+    default:
+      return state;
+    }
+  }
+
+
+  //attempt 2 
+
+  export const newRecipeReducer = ( state = { }, action) => { 
+    switch(action.type) { 
+      case types.ADD_TO_NEW_RECIPE :
+        return { 
+          ...state,
+          ...action.payload
+        }
+      
+      case types.REQUEST_START :
+        return { 
+          ...state,
+          isFetching : true
+        }
+      case types.POST_NEW_RECIPE_SUCCESS : 
+      return {
+        ...state,
+        message : action.payload.message,
+        isFetching : false
+       }
+      
+      case types.RESET_NEW_RECIPE : 
+        return ({})
+
+      case types.POST_NEW_RECIPE_FAILURE : 
+       return { 
+         ...state,
+         error : action.payload,
+         isFetching : false
+       }
+    
+      default : 
+        return state
+      };
+
+
   }

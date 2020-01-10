@@ -2,13 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux'
 import * as actionCreators from '../actions/index'
 
-const Instruction = ({ ingredient }) => { 
-// const { ingredient } = ingredient
+const Instruction = ({ instruction }) => { 
   return (
     <div>
-    <p>{ingredient.ingredient}</p>
-    <p>{ingredient.quantity}</p>
-    <p>{ingredient.units}</p>
+    <p>{instruction}</p>
     <p 
     // onClick={onEdit()}
     >E</p>

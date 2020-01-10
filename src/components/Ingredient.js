@@ -6,7 +6,7 @@ const Ingredient = ({ ingredient }) => {
 // const { ingredient } = ingredient
   return (
     <div>
-    <p>{ingredient.ingredient}</p>
+    <p>{ingredient.name}</p>
     <p>{ingredient.quantity}</p>
     <p>{ingredient.units}</p>
     <p 
