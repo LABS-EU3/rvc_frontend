@@ -16,11 +16,6 @@ export default function RecipeFormOne(props) {
           <img className="back-arrow" src={back} alt="back arrow" />
         </div>
         <div
-          // onClick={() => {
-          //   addToNewRecipe();
-          //   nextPage();
-          // }}
-          // onClick={ addToNewRecipe}
           onSubmit={onHandleSubmit}
           onClick={nextPage}
           className="submit-recipe-container"

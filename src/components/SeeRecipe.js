@@ -1,14 +1,14 @@
 import React from 'react';
-import '../App.css';
-import Footer from './Footer';
-import { CardDiv } from '../globals/card-styles';
+import { Link } from 'react-router-dom';
+import Popup from "reactjs-popup";
 import styled from "styled-components";
+import { CardDiv } from '../globals/card-styles';
 import arrow from "../images/left-arrow.png";
 import dishImg from "../images/dish1.jpg";
-import Popup from "reactjs-popup";
 import IngredientList from "./IngredientList";
 import InstructionList from "./InstructionList";
-import { Link } from 'react-router-dom';
+import Footer from './Footer';
+import '../App.css';
 
 
 function SeeRecipe (){

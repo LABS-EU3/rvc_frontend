@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { withFormik, Form, Field } from "formik";
-import logo from "../globals/design-elements/logo.png";
 import * as Yup from "yup";
-import axios from "axios";
-import { register } from '../actions/index'
-import "../index.css";
+import { register } from "../actions/index";
+import logo from "../globals/design-elements/logo.png";
 import arrow from "../images/left-arrow.png";
+import "../index.css";
 import {
   MainDiv,
   ArrowDiv,
@@ -18,14 +17,11 @@ import {
   LinkFooter
 } from "../globals/form-styles";
 
-const registerApi = "https://develop-forkbook.herokuapp.com/api/auth/register";
-
-
 function FormTemplate({ touched, errors }) {
   return (
     <MainDiv>
       <ArrowDiv>
-        <Link to='/'>
+        <Link to="/">
           <img src={arrow} alt="arrow" />
         </Link>
       </ArrowDiv>
@@ -62,16 +58,16 @@ function FormTemplate({ touched, errors }) {
             placeholder="Password"
           />
         </div>
-        
-          <button type="submit" className="register-button">
-            Register
-          </button>
+
+        <button type="submit" className="register-button">
+          Register
+        </button>
 
         <FooterDiv>
           <p>
             Already have an account?
-            <Link to='/login' style={{ textDecoration: 'none' }}>
-              {''}
+            <Link to="/login" style={{ textDecoration: "none" }}>
+              {""}
               <LinkFooter>Log in</LinkFooter>
             </Link>
           </p>
@@ -83,32 +79,29 @@ function FormTemplate({ touched, errors }) {
 const FormikRegisterForm = withFormik({
   mapPropsToValues({ email, username, password }) {
     return {
-      email : email || "",
-      username : username || "",
-      password : password || ""
+      email: email || "",
+      username: username || "",
+      password: password || ""
     };
   },
   // Validation //
-  validationSchema : Yup.object().shape({
-    email : Yup.string()
-      .email('An email is required')
-      .required('Please, add an email'),
+  validationSchema: Yup.object().shape({
+    email: Yup.string()
+      .email("An email is required")
+      .required("Please, add an email"),
     username: Yup.string().required(
-     ' Username is required to have acess to the kitchen'
+      " Username is required to have acess to the kitchen"
     ),
-    password : Yup.string()
+    password: Yup.string()
       .min(
         6,
-        'A safe kitchen should be protected by a 6 characters password. Try again.'
+        "A safe kitchen should be protected by a 6 characters password. Try again."
       )
-      .required('A password is required to have access to the kitchen')
+      .required("A password is required to have access to the kitchen")
   }),
-  handleSubmit(values, {props}) {
-    props.register(values, props.history)
-   }
+  handleSubmit(values, { props }) {
+    props.register(values, props.history);
+  }
 })(FormTemplate);
 
-export default connect(
-  state => state, { register }
- )
-(FormikRegisterForm);
+export default connect(state => state, { register })(FormikRegisterForm);

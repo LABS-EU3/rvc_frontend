@@ -1,19 +1,19 @@
 import React from 'react';
 import {  Route } from 'react-router-dom';
-import './App.css';
+import PrivateRoute from './components/PrivateRoute'
 import FormikLoginForm from './components/LoginForm';
 import FormikRegisterForm from './components/RegisterForm';
 import Welcome from './components/Welcome';
+import SearchBar from './components/SearchBar';
 import RecipeView from './components/RecipeView';
 import SeeRecipe from './components/SeeRecipe';
-import SearchBar from './components/SearchBar';
-import Footer from './components/Footer';
 import ProfileView from './components/ProfileView';
 import EditProfile from './components/EditProfile';
 import IngredientView from './components/IngredientView'
 import InstructionView from './components/InstructionView'
 import CreateRecipe from './components/CreateRecipe';
-import PrivateRoute from './components/PrivateRoute'
+import Footer from './components/Footer';
+import './App.css';
 
 function App() {
   return (

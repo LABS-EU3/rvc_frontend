@@ -5,7 +5,6 @@ import { withFormik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 
 function FormTemplate ({ handleChange, touched, errors, values })  { 
-  // console.log(props)
   return (
     <>
       <div className='section1B'>
