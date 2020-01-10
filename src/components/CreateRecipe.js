@@ -5,6 +5,8 @@ import FormikIngredientForm from './IngredientForm'
 import FormikInstructionForm from './InstructionForm'
 import Ready from "./Ready";
 import Footer from "./Footer";
+export default function() {
+  const [step, setStep] = useState(2);
 import {addToNewRecipe} from '../actions'
 import * as actionCreators from '../actions'
 import { connect } from 'react-redux'
