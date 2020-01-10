@@ -446,6 +446,9 @@ margin-top:2vh;
 
 .popup-content {
 width: 80% !important;
+background: #FFFFFF;
+box-shadow: 0px 4px 85px #181818;
+
 }
 
 .edit-profile-form button {
