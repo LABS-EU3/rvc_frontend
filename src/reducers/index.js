@@ -212,7 +212,7 @@ export const ingredientReducer = ( state = initialIngredient, action) => {
 
   //attempt 2 
 
-  export const createRecipeReducer2 = ( state = { }, action) => { 
+  export const newRecipeReducer = ( state = { }, action) => { 
     switch(action.type) { 
       case types.ADD_TO_NEW_RECIPE :
         return { 
@@ -225,7 +225,7 @@ export const ingredientReducer = ( state = initialIngredient, action) => {
           ...state,
           isFetching : true
         }
-      case types.SUBMIT_NEW_RECIPE_SUCCESS : 
+      case types.POST_NEW_RECIPE_SUCCESS : 
       return {
         ...state,
         message : action.payload.message,
@@ -235,7 +235,7 @@ export const ingredientReducer = ( state = initialIngredient, action) => {
       case types.RESET_NEW_RECIPE : 
         return ({})
 
-      case types.SUBMIT_NEW_RECIPE_FAILURE : 
+      case types.POST_NEW_RECIPE_FAILURE : 
        return { 
          ...state,
          error : action.payload,

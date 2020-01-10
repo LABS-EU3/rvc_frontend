@@ -143,12 +143,12 @@ export const submitNewRecipe = (newRecipeData, history) => dispatch => {
   .post('https://develop-forkbook.herokuapp.com/api/recipe', newRecipeData )
   .then(res => { 
     console.log('akata', res.data)
-    dispatch({ type : types.SUBMIT_NEW_RECIPE_SUCCESS, payload : res.data })
+    dispatch({ type : types.POST_NEW_RECIPE_SUCCESS, payload : res.data })
       .then(()=> dispatch( { type : types.RESET_NEW_RECIPE }))
     history.push('/seerecipe') 
   })
   .catch(error => { 
-    dispatch({ type : types.SUBMIT_NEW_RECIPE_FAILURE, payload : error.message })
+    dispatch({ type : types.POST_NEW_RECIPE_FAILURE, payload : error.message })
     history.push('/createrecipe') 
 
   })
@@ -160,3 +160,6 @@ export const addToNewRecipe = (newRecipeData) => {
      payload : newRecipeData
     }
 } 
+
+//future todo
+//abiility to return to the stage in a form after quiting midway

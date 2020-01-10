@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import * as reducers from "../reducers";
 
 const monsterReducer = combineReducers({
-  newRecipe : reducers.addNewRecipe,
+  newRecipe : reducers.newRecipeReducer,
   onboard : reducers.onBoardingReducer,
   recipes : reducers.recipeViewReducer,
   create: reducers.createRecipeReducer,
