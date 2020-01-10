@@ -8,7 +8,6 @@ import '../App.css';
 
 
 const RecipeView = ({ getRecipes, recipeView })=> {
-
   useEffect(() => { 
     getRecipes();
   }, [getRecipes]);

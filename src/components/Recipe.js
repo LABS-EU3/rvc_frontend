@@ -2,6 +2,7 @@ import React from 'react';
 import '../App.css';
 
 const Recipe = ({ recipe }) => { 
+  console.log('AAA', recipe)
   const {
     recipe_title,
     author,
@@ -22,6 +23,13 @@ const Recipe = ({ recipe }) => {
     color = 'red';
   }
 
+// let letterS = 's'
+// const name = 'James'
+// let lastLetter = name.substr(-1)
+
+
+// lastLetter === 's' ? '' : letterS 
+
 return ( 
   <div className='box'> 
     {/* <div className='box'> */}
@@ -30,6 +38,7 @@ return (
     <div className='recipe-card'>
       {/* <p>{no_of_likes}</p> */}
       {/* <img className='recipe' alt='an'/> */}
+      {/* <p>James'{letterS}</p> */}
       <p>{author}'s</p>
       <h2>{recipe_title}</h2>
       <div className='recipe-card-tag'>
