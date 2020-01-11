@@ -10,25 +10,19 @@ const Recipe = ({ recipe }) => {
     time_required,
     difficulty,
     budget,
-    image, 
+    imageUrl, 
   }  = recipe;
   
   let color = '';
-  if (difficulty === 1) {
-    color ='green';
-  }
-  else if (difficulty === 2) {
-    color = 'orange';
-  }
-  else {
-    color = 'red';
-  }
+  if (difficulty === 1) color ='green';
+  else if (difficulty === 2) color = 'orange';
+  else color = 'red'
 const lastLetter = author.substr(-1) === 's' ? "'" : "'s" ;
 
 return ( 
   <div className='box'> 
     {/* <div className='box'> */}
-      <img className='recipe' src={image} alt='an '/>
+      <img className='recipe' src={imageUrl} alt='an '/>
       {/* <img className='recipe' src={recipe_image} alt='an '/> */}
     <div className='recipe-card'>
       {/* <p>{no_of_likes}</p> */}
