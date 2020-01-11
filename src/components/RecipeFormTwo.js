@@ -4,34 +4,6 @@ import Footer from "./Footer";
 import foodplaceholder from "../images/foodplaceholder.png";
 
 export default function RecipeFormTwo(props) {
-  const { step, prevPage, nextPage } = props;
-  const [recipeImage, setRecipeImage] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const uploadImage = async e => {
-    const files = e.target.files;
-    console.log("files arary is ", files);
-    const data = new FormData();
-    data.append("file", files[0]);
-    data.append("upload_preset", "recipe_image");
-    setLoading(true);
-    axios
-      .post("https://api.cloudinary.com/v1_1/dr34bum3p/image/upload", data)
-      .then(res => {
-        setRecipeImage(res.data.secure_url);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.log(
-          "An error was encounterd while trying to upload this image",
-          err
-        );
-      });
-  };
-import React from "react";
-import foodplaceholder from "../images/foodplaceholder.png";
-
-export default function RecipeFormTwo(props) {
   const { step, prevPage, nextPage, uploadImage, recipeImage, onHandleChange } = props;  
 
   return (

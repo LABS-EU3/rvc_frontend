@@ -7,7 +7,6 @@ import { register } from "../actions/index";
 import logo from "../globals/design-elements/logo.png";
 import arrow from "../images/left-arrow.png";
 import "../index.css";
-import arrow from "../images/left-arrow.png";
 import {
   MainDiv,
   ArrowDiv,
@@ -23,7 +22,7 @@ function FormTemplate({ touched, errors }) {
     <MainDiv>
       <ArrowDiv>
         <Link to='/'>
-        <Link to="/">
+        {/* <Link to="/"> */}
           <img src={arrow} alt="arrow" />
         </Link>
       </ArrowDiv>
