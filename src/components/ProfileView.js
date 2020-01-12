@@ -7,7 +7,8 @@ import more from "../globals/design-elements/more.png";
 import copy from "../globals/design-elements/copy-item.png";
 import EditProfile from "./EditProfile";
 import styles from "styled-components";
-
+import { Link, Redirect } from 'react-router-dom';
+ 
 const P = styles.p`
 font-size: 6rem;
 text-align: center;
@@ -42,7 +43,9 @@ export default function CreateProfile() {
       <div className="profile-icons">
         <img className="profile-icons-image" src={bookmark} alt="" />
         <img className="profile-icons-image" src={copy} alt="" />
+        <Link to='/createrecipe'>
         <img className="profile-icons-image" src={more} alt="" />
+        </Link>
       </div>
       <div className="divider-wrapper">
         {" "}

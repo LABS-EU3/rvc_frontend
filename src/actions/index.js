@@ -8,10 +8,11 @@ export const register = (credentials, history) => dispatch => {
   .post('https://develop-forkbook.herokuapp.com/api/auth/register', credentials)
   .then(res => { 
     console.log(res.data);
+    localStorage.setItem('username', res.data.username);
     localStorage.setItem('token', res.data.token)
-    localStorage.setItem('userID', res.data.userID)
+    localStorage.setItem('userID', res.data.id)
     dispatch({ type: types.REGISTER_SUCCESS, payload : res.data });
-    history.push('/recipe')
+    history.push('/recipes')
   })
   .catch(error => { 
     // console.log(error.message);
@@ -29,10 +30,11 @@ export const login = (credentials, history) => dispatch => {
   .post('https://develop-forkbook.herokuapp.com/api/auth/login', credentials)
   .then(res => { 
     console.log(res.data);
+    localStorage.setItem('username', res.data.username);
     localStorage.setItem('token', res.data.token);
-    localStorage.setItem('userID', res.data.userID);
+    localStorage.setItem('userID', res.data.id);
     dispatch({ type: types.LOGIN_SUCCESS, payload : res.data });
-    history.push('/recipe')
+    history.push('/recipes')
   })
   .catch(error => { 
     // console.log(error.message);
@@ -60,22 +62,22 @@ export const getRecipes = () => dispatch => {
   })
 };
 
-export const createRecipe = (recipeData, history) => dispatch => { 
-  dispatch( { type: types.REQUEST_START }) 
-  axios
-  .post('https://develop-forkbook.herokuapp.com/api/recipe', recipeData )
-  .then( res => { 
-    console.log(res.data.recipes)
-    dispatch({ type: types.ADD_RECIPE_SUCCESS,
-      payload: res.data.recipes});
-    history.push('/seerecipe') 
-    })
-  .catch(error => { 
-    console.log(error.message)
-    dispatch({ type: types.ADD_RECIPE_FAILURE,
-    payload : error.message})
-  });
-}
+// export const createRecipe = (recipeData, history) => dispatch => { 
+//   dispatch( { type: types.REQUEST_START }) 
+//   axios
+//   .post('https://develop-forkbook.herokuapp.com/api/recipe', recipeData )
+//   .then( res => { 
+//     console.log(res.data.recipes)
+//     dispatch({ type: types.ADD_RECIPE_SUCCESS,
+//       payload: res.data.recipes});
+//     history.push('/seerecipe') 
+//     })
+//   .catch(error => { 
+//     console.log(error.message)
+//     dispatch({ type: types.ADD_RECIPE_FAILURE,
+//     payload : error.message})
+//   });
+// }
 
 export const addIngredient = ingredientData => dispatch => { 
   dispatch({ type : types.REQUEST_START })
@@ -87,14 +89,12 @@ export const addIngredient = ingredientData => dispatch => {
   .catch(error => { 
     dispatch({ type : types.ADD_INGREDIENT_FAILURE, payload : error.message })
   })
-  // dispatch({ type : types.ADD_INGREDIENT_SUCCESS, payload : ingredient })
 }
 
 export const getIngredients = () => dispatch => { dispatch({ type : types.REQUEST_START });
 axios
 .get('https://develop-forkbook.herokuapp.com/api/recipe/')
 .then(res => { 
-  //dispatch( { type : types.RESET_DISPLAYED_INGREDIENTS, payload : res.data });
   dispatch({type : types.GET_INGREDIENT_SUCCESS, payload : res.data })
   console.log(res.data)
 })
@@ -117,14 +117,12 @@ export const addInstruction = instructionData => dispatch => {
   .catch(error => { 
     dispatch({ type : types.ADD_INSTRUCTION_FAILURE, payload : error.message })
   })
-  // dispatch({ type : types.ADD_INGREDIENT_SUCCESS, payload : ingredient })
 }
 
 export const getInstructions = () => dispatch => { dispatch({ type : types.REQUEST_START });
 axios
 .get('https://develop-forkbook.herokuapp.com/api/recipe')
 .then(res => { 
-  //dispatch( { type : types.RESET_DISPLAYED_INGREDIENTS, payload : res.data });
   dispatch({type : types.GET_INSTRUCTION_SUCCESS, payload : res.data.instructions })
 })
 .catch(error => { 
@@ -138,14 +136,20 @@ axios
 //attempt 2 
 
 export const submitNewRecipe = (newRecipeData, history) => dispatch => { 
+  console.log('YES', newRecipeData)
   dispatch({ type : types.REQUEST_START })
   axios
-  .post('https://develop-forkbook.herokuapp.com/api/recipe', newRecipeData )
+  .post('https://develop-forkbook.herokuapp.com/api/recipe', newRecipeData, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('token')
+    }
+  } )
   .then(res => { 
     console.log('akata', res.data)
     dispatch({ type : types.POST_NEW_RECIPE_SUCCESS, payload : res.data })
       .then(()=> dispatch( { type : types.RESET_NEW_RECIPE }))
-    history.push('/seerecipe') 
+    history.push('/') 
   })
   .catch(error => { 
     dispatch({ type : types.POST_NEW_RECIPE_FAILURE, payload : error.message })

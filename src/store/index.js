@@ -6,7 +6,7 @@ const monsterReducer = combineReducers({
   newRecipe : reducers.newRecipeReducer,
   onboard : reducers.onBoardingReducer,
   recipes : reducers.recipeViewReducer,
-  create: reducers.createRecipeReducer,
+  // create: reducers.createRecipeReducer,
   ingredients : reducers.ingredientReducer,
 });
 

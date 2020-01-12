@@ -150,7 +150,6 @@ export default function RecipeFormOne(props) {
         </div>
         <button
           type='submit'
-          // onClick={nextPage}
           className="submit-recipe-container"
         >
           <img className="submit-recipe" src={check} alt="submit recipe" />
@@ -178,6 +177,47 @@ export default function RecipeFormOne(props) {
             <option value="dinner" label="dinner" />
           </select>
         </div>
+        <div className="recipe-input">
+          <input
+            onChange={onHandleChange}
+            type="text"
+            name="description"
+            placeholder="enter description"
+          />
+        </div>
+        <div className="recipe-input">
+          <input
+            onChange={onHandleChange}
+            type="number"
+            name="time_required"
+            placeholder="Duration in minutes"
+            min='1'
+            max='1000'
+          />
+        </div>
+        <div className="recipe-input">
+          <input
+            onChange={onHandleChange}
+            type="number"
+            name="budget"
+            placeholder="Budget in USD"
+            min='1'
+            max='1000'
+          />
+        </div>
+        <div className="section2">
+          <label htmlFor="recipeCategoryInput">Difficulty Level:</label>
+          <select
+            onChange={onHandleChange}
+            name="difficulty"
+          >
+            <option value="" label="pick a level" />
+            <option value="1" label="1" />
+            <option value="2" label="2" />
+            <option value="3" label="3" />
+          </select>
+        </div>
+       
         <div className="section3">
           <p className="options-paragraph">Options:</p>
           <SwitchDiv>

@@ -25,10 +25,10 @@ function App() {
       <Route path="/recipes/:id" render={props => <SeeRecipe {...props} />} />
       {/* <PrivateRoute path='/profile' component={ProfileView}/> */}
       {/* <PrivateRoute path='/editprofile' component={EditProfile}/> */}
-      {/* <PrivateRoute path='/createrecipe' component={ CreateRecipe}/> */}
+      <PrivateRoute path='/createrecipe' component={ CreateRecipe}/>
       <Route path="/profile" component={ProfileView} />
       <Route path="/editprofile" component={EditProfile} />
-      <Route path="/createrecipe" component={CreateRecipe} />
+      {/* <Route path="/createrecipe" component={CreateRecipe} /> */}
       <Route path="/ingredient" component={IngredientView} />
       <Route path="/instruction" component={InstructionView} />
     </div>

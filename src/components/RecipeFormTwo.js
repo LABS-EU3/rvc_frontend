@@ -5,45 +5,42 @@ import Footer from "./Footer";
 import foodplaceholder from "../images/foodplaceholder.png";
 
 export default function RecipeFormTwo(props) {
-  const { step, prevPage, nextPage, uploadImage, recipeImage,
-  onHandleSubmit
+  const { step, prevPage, nextPage, uploadImage, recipe_file,
+  onHandleSubmit,
   } = props;  
   
   return (
-    <form>
+    <div>  
+    <form 
+    onSubmit={onHandleSubmit}
+    >
       <div className="section1B">
       <div className="recipe-nav">
         <div
           className="back-arrow-container"
           onClick={prevPage}
-        >
+          >
           <img className="back-arrow" src={back} alt="back arrow" />
         </div>
-        <div
-          onSubmit={onHandleSubmit}
-          onClick={nextPage}
+        <button
+        type='submit'
           className="submit-recipe-container"
-        >
+          >
           <img className="submit-recipe" src={check} alt="submit recipe" />
-        </div>
+        </button>
       </div>
         <h2>Recipe Name. Step is {step}</h2>
       </div>
       <div className="section1C">
         <input
-          type="file"
-          name="recipefile"
-          placeholder="upload an image"
           onChange={uploadImage}
+          type="file"
+          name="recipe_file"
+          placeholder="upload an image"
         />
         <button>
-          <img src={recipeImage || foodplaceholder} alt="A display of the already finished recipe" />
+          <img src={recipe_file || foodplaceholder} alt="A display of the already finished recipe" />
         </button>
-        {/* <div>
-          <div className="step">Step {step}/3</div>
-          <button onClick={prevPage}>Prev</button>
-          <button onClick={nextPage}>Next</button>
-        </div> */}
         <div className="progress-bar-container">
           <div
             style={{
@@ -56,5 +53,6 @@ export default function RecipeFormTwo(props) {
         </div>
       </div>
     </form>
+    </div>
   );
 }

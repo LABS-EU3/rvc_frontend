@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from "react";
 import RecipeFormOne from "./RecipeFormOne";
 import RecipeFormTwo from "./RecipeFormTwo";
-import RecipeFormThree from "./RecipeFormTwo";
+import RecipeFormThree from "./RecipeFormThree";
 import Ready from "./Ready";
 import Footer from "./Footer";
-import { addToNewRecipe } from "../actions";
+import { addToNewRecipe, submitNewRecipe } from "../actions";
 import * as actionCreators from "../actions";
 import { connect } from "react-redux";
 import axios from "axios";
-import { withFormik } from "formik";
+import IngredientView from "./IngredientView";
+import RecipeFormFour from "./RecipeFormFour";
 
-function CreateRecipe(props) {
+function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewRecipe , title, recipe_category, recipe_file, tag,description,
+  time_required,
+  difficulty,
+  budget, user_id, history }) {
   const [recipeImage, setRecipeImage] = useState("");
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(1);
+
   const nextPage = () => {
     setStep(step + 1);
   };
@@ -22,32 +27,114 @@ function CreateRecipe(props) {
   };
 
   //form1
-  const { addToNewReicpe } = props;
+  // const { addToNewReicpe } = props;
   const [formState, setFormState] = useState({
     title: '',
     recipe_category: '',
-    tags: [],
     recipe_file: '',
+    tag: '',
     ingredients: [],
     instructions: []
   });
+  const initialIngredient = {
+    name: '',
+    quantity: '',
+    unit: ''
+    }
+
+  const initialInstruction = { 
+    text: '',
+    step: 1
+  }
+
+  const [instructionState, setInstructionState] = useState({...initialInstruction})
+  const [ingredientState, setIngredientState] = useState({...initialIngredient});
 
   const onHandleChange = e => {
-    setFormState({
-      ...formState,
+    e.preventDefault()
+   addToNewRecipe({
       [e.target.name]: e.target.value
     });
     console.log("DDDDD", formState);
   };
 
+  
+  const onHandleIngredientInput = e => {
+    e.preventDefault()
+  setIngredientState({
+    ...ingredientState,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const onHandleInstructionInput = e => {
+    e.preventDefault()
+  setInstructionState({
+    ...instructionState,
+      [e.target.name]: e.target.value
+    });
+  };
+
+
+  const onAddIngredient = (e) => {
+    e.preventDefault()
+    addToNewRecipe({
+      ingredients: [
+        ...ingredients, 
+        {...ingredientState}
+      ]
+    });
+    setIngredientState({...initialIngredient})
+    setStep(3)
+  }
+
+  const onAddInstruction = (e) => {
+    e.preventDefault()
+    addToNewRecipe({
+      instructions: [
+        ...instructions, 
+        {...instructionState}
+      ]
+    });
+    setInstructionState({...initialInstruction, step: instructionState.step + 1})
+    setStep(4)
+  }
+
   const onHandleSubmit = (e) => {
     e.preventDefault()
     console.log('ccc', e)
-    // addToNewRecipe(formState);
-    props.addToNewRecipe({ ...formState })
+    // props.addToNewRecipe({ ...formState })
     nextPage()
   };
 
+  const onHandleFinalSubmit = (e) => { 
+    e.preventDefault()
+    submitNewRecipe({
+      recipes: {
+        user_id,
+      title,
+      description,
+      time_required,
+      difficulty,
+      budget,
+      },
+      recipe_category,
+      images: [
+        {
+        url: recipe_file,
+        }
+      ],
+      ingredients,
+      instructions,
+      tags: [
+        {
+          name: tag
+        }
+      ],
+     
+    },
+    history)
+  }
 
 
   //form2
@@ -55,20 +142,25 @@ function CreateRecipe(props) {
   let CLOUDINARY_API = "https://api.cloudinary.com/v1_1/dr34bum3p/image/upload";
 
   const uploadImage = async e => {
+    e.preventDefault();
     const files = e.target.files;
     const data = new FormData();
     data.append("file", files[0]);
     data.append("upload_preset", UPLOAD_PRESET);
-    setLoading(true);
+    // setLoading(true);
     axios
       .post(CLOUDINARY_API, data)
       .then(res => {
-        setRecipeImage(res.data.secure_url);
-        setFormState({
-          ...formState,
-          recipe_file: "something"
+        console.log('rrrrr',res.data.secure_url)
+        const recipe_file = res.data.secure_url;
+
+        // setRecipeImage(res.data.secure_url);
+        addToNewRecipe( {
+          recipe_file
         });
-        setLoading(false);
+        console.log('MMMM',recipe_file)
+        onHandleSubmit(e)
+        // setLoading(false);
       })
       .catch(err => {
         console.log(
@@ -90,12 +182,13 @@ function CreateRecipe(props) {
               nextPage={nextPage}
               onHandleChange={onHandleChange}
               onHandleSubmit={onHandleSubmit}
-              addToNewReicpe={addToNewReicpe}
+              addToNewRecipe={addToNewRecipe}
             />
           </div>
           <Footer />
         </div>
       );
+    
     case 2:
       return (
         <div className="App">
@@ -106,8 +199,8 @@ function CreateRecipe(props) {
               prevPage={prevPage}
               nextPage={nextPage}
               uploadImage={uploadImage}
-              recipeImage={recipeImage}
-              loading={loading}
+              recipeImage={formState.recipe_file}
+              // loading={loading}
               onHandleChange={onHandleChange}
             />
           </div>
@@ -115,33 +208,68 @@ function CreateRecipe(props) {
         </div>
       );
 
+
+    case 3:
+      return (
+        <div className="App">
+          <div>
+            <p>Hello from CreateRecipe 3</p>
+              <RecipeFormThree
+              step={step}
+              prevPage={prevPage}
+              nextPage={nextPage}
+              onHandleChange={onHandleChange}
+              onHandleSubmit={onHandleSubmit}
+              onHandleIngredientInput={onHandleIngredientInput}
+              onAddIngredient={onAddIngredient}
+              ingredients={ingredients}
+              ingredient={ingredientState}
+
+              />
+
+          </div>
+          <Footer />
+        </div>
+      );
+
+      case 4:
+      return (
+        <div className="App">
+          <div>
+            <p>Hello from CreateRecipe 4</p>
+              <RecipeFormFour
+              step={step}
+              prevPage={prevPage}
+              nextPage={nextPage}
+              onHandleChange={onHandleChange}
+              onHandleSubmit={onHandleSubmit}
+              onHandleInstructionInput={onHandleInstructionInput}
+              onAddInstruction={onAddInstruction}
+              instructions={instructions}
+              instruction={instructionState}
+              onHandleFinalSubmit={onHandleFinalSubmit}
+              />            
+          </div>
+          <Footer />
+        </div>
+      );
+    
     // case 3:
     //   return (
     //     <div className="App">
     //       <div>
     //         <p>This is step three page</p>
-    //         <FormikIngredientForm />
+    //         <RecipeFormThree
+    //             step={step}
+    //             prevPage={prevPage}
+    //             nextPage={nextPage}
+    //             // loading={loading}
+    //             onHandleChange={onHandleChange}
+    //         />
     //       </div>
     //       <Footer />
     //     </div>
     //   );
-    
-    case 3:
-      return (
-        <div className="App">
-          <div>
-            <p>This is step three page</p>
-            <RecipeFormThree
-                step={step}
-                prevPage={prevPage}
-                nextPage={nextPage}
-                loading={loading}
-                onHandleChange={onHandleChange}
-            />
-          </div>
-          <Footer />
-        </div>
-      );
 
     // case 4:
     //   return (
@@ -169,4 +297,4 @@ function CreateRecipe(props) {
       return <p>Hello there</p>;
   }
 }
-export default connect(state => state.newRecipe, {addToNewRecipe} )(CreateRecipe);
+export default connect(state => ({...state.newRecipe, ...state.onboard }), {addToNewRecipe, submitNewRecipe} )(CreateRecipe);

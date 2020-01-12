@@ -1,90 +1,82 @@
 import React from "react";
-import { withFormik, Field, Form } from 'formik'
-import * as Yup from 'yup'
+import styles from "styled-components";
 import back from "../globals/design-elements/back.png";
 import check from "../globals/design-elements/check.png";
 import Footer from "./Footer";
 
-export default function RecipeFormThree (props) { 
-  const { touched, errors, values, step ,prevPage, nextPage, onHandleSubmit } = props
 
-  return ( 
-    <Form>
-      <div className="section1B">
-      <div className="recipe-nav">
+export default function RecipeFormThree(props) {
+  const { history, step, prevPage, nextPage, onHandleChange, onHandleSubmit, onHandleIngredientInput, onAddIngredient, ingredients, ingredient } = props;
+
+  return (
+    <div>
+      <form
+      onSubmit={onHandleSubmit}
+      >
+         <div className="recipe-nav">
         <div
           className="back-arrow-container"
           onClick={prevPage}
         >
           <img className="back-arrow" src={back} alt="back arrow" />
         </div>
-        <div
-          onSubmit={onHandleSubmit}
-          onClick={nextPage}
+        <button
+          type='submit'
           className="submit-recipe-container"
         >
           <img className="submit-recipe" src={check} alt="submit recipe" />
-        </div>
+        </button>
       </div>
-
-      </div>
-      <div className="section1C wanderlust-form">
-
-      <div>
-      { touched.ingredient && errors.ingredient}
-      <Field
-        type='text'
-        name='ingredient'
-        placeholder='add ingredient...'
+        <h2>Recipe Name. Step is {step}</h2>
+      <div className="ingredient-input">
+        <input
+          onChange={onHandleIngredientInput}
+          type="text"
+          name="name"
+          value={ingredient.name}
+          placeholder="add ingredient"
         />
-    </div>
-    <button type='submit'>
-      +
-    </button>
-
-    <div>
-      {touched.quantity && errors.quantity}
-      <label>Qauntity</label>
-        <select
-        name='quantity'
-        value={values.quantity}
-        onChange={handleChange}
+        <button
+        onClick={onAddIngredient}
         >
-          <option value='' label='Qauntity'/>
-          <option value='10' label='10'/>
-          <option value='20' label='20'/>
-          <option value='40' label='40'/>
-        </select>
-    </div>
-
-    <div>
-      {touched.units && errors.units}
-      {/* <label></label> */}
-        <select
-        name='units'
-        value={values.units}
-        onChange={handleChange}
-        >
-          <option value='' label='Units'/>
-          <option value='10units' label='10units'/>
-          <option value='20units' label='20units'/>
-          <option value='40units' label='40units'/>
-        </select>
-    </div>
-
-
-        <div className="progress-bar-container">
-          <div
-            style={{
-              backgroundColor: "#0AB28A",
-              height: "10px",
-              width: "60%",
-              borderRadius: "5px"
-            }}
-          ></div>
-        </div>
+          +
+        </button>
       </div>
-    </Form>
 
+      <div className="section2">
+          <label htmlFor="ingredientQuantityInput"></label>
+          <input
+          onChange={onHandleIngredientInput}
+          type="number"
+          name="quantity"
+          value={ingredient.quantity}
+
+          min="1"
+          max="1000"
+          placeholder="add quantity"
+        />
+      </div>
+
+      <div className="section2">
+          <label htmlFor="ingredientUnitsInput"></label>
+          <select
+            id="ingredientUnitsInput"
+            onChange={onHandleIngredientInput}
+            name="unit"
+          >
+            <option value="" label="Units" />
+            <option value="kg" label="kg" />
+            <option value="gram" label="gram" />
+          </select>
+      </div>
+      </form>
+      <div>
+        {
+          ingredients.map(item =>(
+          <p>{item.quantity} {item.unit} of {item.name} </p>
+          ))
+        }
+      </div>
+    </div>
   )
 }
