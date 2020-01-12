@@ -21,7 +21,7 @@ function App() {
       <Route exact path="/" component={RecipeView} />
       <Route path="/login" component={FormikLoginForm} />
       <Route path="/register" component={FormikRegisterForm} />
-      <Route path="/recipes" component={RecipeView} />
+      <Route path="/recipes" exact component={RecipeView} />
       <Route path="/recipes/:id" render={props => <SeeRecipe {...props} />} />
       {/* <PrivateRoute path='/profile' component={ProfileView}/> */}
       {/* <PrivateRoute path='/editprofile' component={EditProfile}/> */}

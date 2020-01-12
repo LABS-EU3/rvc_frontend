@@ -12,10 +12,12 @@ import InstructionList from "./InstructionList";
 import Footer from "./Footer";
 import "../App.css";
 
-function SeeRecipe({ recipeView }) {
-  getRecipe = id => {
+function SeeRecipe({ match, recipeView }) {
+  const getRecipe = id => {
     return recipeView.filter(recipe => recipe.id === parseInt(id, 10));
   };
+  const recipeID = match.params.id.trim();
+  const recipe = recipeID ? getRecipe(recipeID)[0] : {};
   return (
     <div>
       <RecipeTopDiv>
@@ -35,14 +37,14 @@ function SeeRecipe({ recipeView }) {
       </RecipeTopDiv>
       <CardDiv>
         <ImgRecipe>
-          <img src={dishImg} alt="dishImg" />
+          <img src={recipe.imageUrl || dishImg} alt="dishImg" />
         </ImgRecipe>
         <DescriptionDiv>
           <ProfilePicture>
             {/* <img src={profile} alt="profile" /> */}
-            <h1> C </h1>
+            <h1> {recipe.author[0].toUpperCase() || `C`} </h1>
           </ProfilePicture>
-          <DetailsRecipe></DetailsRecipe>
+          <DetailsRecipe>{recipe.recipe_title || ""}</DetailsRecipe>
         </DescriptionDiv>
         <BottomButtonDiv>
           <Popup modal trigger={<LgButton>Ingredients</LgButton>}>
