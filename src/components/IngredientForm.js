@@ -4,8 +4,7 @@ import * as actionCreators from '../actions/index'
 import { withFormik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 
-function FormTemplate ({ touched, errors, values })  { 
-  // console.log(props)
+function FormTemplate ({ handleChange, touched, errors, values })  { 
   return (
     <>
       <div className='section1B'>
@@ -35,6 +34,7 @@ function FormTemplate ({ touched, errors, values })  {
         <select
         name='quantity'
         value={values.quantity}
+        onChange={handleChange}
         >
           <option value='' label='Qauntity'/>
           <option value='10' label='10'/>
@@ -47,8 +47,9 @@ function FormTemplate ({ touched, errors, values })  {
       {touched.units && errors.units}
       {/* <label></label> */}
         <select
-        name='quantity'
+        name='units'
         value={values.units}
+        onChange={handleChange}
         >
           <option value='' label='Units'/>
           <option value='10units' label='10units'/>

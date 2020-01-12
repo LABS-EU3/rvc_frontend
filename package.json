@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.7.2",
+    "@material-ui/icons": "^4.5.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.3",
     "@testing-library/user-event": "^7.1.2",
@@ -21,8 +22,10 @@
     "react-scripts": "3.3.0",
     "reactjs-popup": "^1.5.0",
     "redux": "^4.0.4",
+    "redux-form": "^8.2.6",
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.4.1",
+    "typeface-roboto": "0.0.75",
     "waterfall.js": "^1.1.0",
     "yup": "^0.27.0"
   },
