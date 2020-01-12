@@ -2,7 +2,7 @@ import React from "react";
 import styles from "styled-components";
 import back from "../globals/design-elements/back.png";
 import check from "../globals/design-elements/check.png";
-import Footer from './Footer'
+import Footer from "./Footer";
 
 const ProgressBarDiv = styles.div`
 height: 1rem;
@@ -18,6 +18,72 @@ border-radius: 5px;
 }
 `;
 
+const SwitchDiv = styles.div`
+font-size: 1.6rem;
+display: flex;
+align-items: center;
+margin-bottom: 1.5rem;
+justify-content: space-between; 
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+`
+
 const StyledForm = styles.form`
 display: flex;
 flex-direction: column;
@@ -26,22 +92,31 @@ input {
   width: 80%;
   height: 4rem;
   &.category{
-    background-color: red;
   }
 }
-.section2 {
+.section2 {  
   display: flex;
   flex-direction: column;
   align-items: center;  
+  margin-top: 3rem;
+  font-size: 1.4rem;
+  label {
+    position: relative;
+    top: 0;
+    right: 140px;
+    margin: 1rem 0;
+  }
   select {
     width: 80%;
     height: 40px;
+    border-radius: 2rem;
   }
 
 }
 
 .section3 {
-  margin-top: 4rem;
+  font-size: 1.6rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,12 +124,13 @@ input {
     display: flex;
     width: 80%;
   }
+  .options-paragraph   {
+    position: relative;
+    top: 0;
+    right: 140px;
+    margin: 1rem 0;
+  }
 }
-
-
-
-
-
 `;
 
 export default function RecipeFormOne(props) {
@@ -101,15 +177,19 @@ export default function RecipeFormOne(props) {
           </select>
         </div>
         <div className="section3">
-          <p>Options:</p>
-          <div>
-            <label>Private</label>
-            <input type="checkbox" name="options" value="Private" />
-          </div>
+          <p className="options-paragraph">Options:</p>
+          <SwitchDiv>
+            Private
+            <label class="switch">
+              <input type="checkbox" name="options" value="Private" />
+              <span class="slider round"></span>
+            </label>
+          </SwitchDiv>
 
           <p>The private option hides your recipe from other users</p>
           <p>Add Tags</p>
-          <input className="category"
+          <input
+            className="category"
             onChange={onHandleChange}
             type="text"
             name="tag"
