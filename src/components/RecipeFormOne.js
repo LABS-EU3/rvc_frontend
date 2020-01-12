@@ -1,10 +1,64 @@
-import React, { useState, useEffect } from "react";
-import { addToNewRecipe } from "../actions";
+import React from "react";
+import styles from "styled-components";
 import back from "../globals/design-elements/back.png";
 import check from "../globals/design-elements/check.png";
+import Footer from './Footer'
+
+const ProgressBarDiv = styles.div`
+height: 1rem;
+background-color: #C4C4C4;
+margin: 0 auto;
+width: 80%;
+border-radius: 5px;
+.progress{
+  background-color: #0AB28A;
+  height: 10px;
+  width: 17%;
+  border-radius: 5px;
+}
+`;
+
+const StyledForm = styles.form`
+display: flex;
+flex-direction: column;
+margin-top: 4rem;
+input {
+  width: 80%;
+  height: 4rem;
+  &.category{
+    background-color: red;
+  }
+}
+.section2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  select {
+    width: 80%;
+    height: 40px;
+  }
+
+}
+
+.section3 {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  div {
+    display: flex;
+    width: 80%;
+  }
+}
+
+
+
+
+
+`;
 
 export default function RecipeFormOne(props) {
-  const { history, step, nextPage, onHandleChange, onHandleSubmit, addToNewRecipe } = props;
+  const { history, step, nextPage, onHandleChange, onHandleSubmit } = props;
 
   return (
     <div>
@@ -24,7 +78,7 @@ export default function RecipeFormOne(props) {
         </div>
       </div>
 
-      <form>
+      <StyledForm>
         <div className="recipe-input">
           <input
             onChange={onHandleChange}
@@ -34,9 +88,11 @@ export default function RecipeFormOne(props) {
           />
         </div>
         <div className="section2">
-          <label>Category:</label>
+          <label htmlFor="recipeCategoryInput">Category:</label>
           <select
-          onChange={onHandleChange} name="recipe_category"
+            id="recipeCategoryInput"
+            onChange={onHandleChange}
+            name="recipe_category"
           >
             <option value="" label="pick a category" />
             <option value="breakfast" label="breakfast" />
@@ -45,14 +101,15 @@ export default function RecipeFormOne(props) {
           </select>
         </div>
         <div className="section3">
-          {/* <label>
-            Options:
-            <input type="radio" name="options" value="Private" />
-            Private
-          </label> */}
-          {/* <p>The private option hides your recipe from other users</p> */}
+          <p>Options:</p>
+          <div>
+            <label>Private</label>
+            <input type="checkbox" name="options" value="Private" />
+          </div>
+
+          <p>The private option hides your recipe from other users</p>
           <p>Add Tags</p>
-          <input
+          <input className="category"
             onChange={onHandleChange}
             type="text"
             name="tag"
@@ -60,18 +117,12 @@ export default function RecipeFormOne(props) {
           />
           <div className="step">Step {step}/3</div>
           <button onClick={nextPage}>Next</button>
-          <div className="progress-bar-container">
-            <div
-              style={{
-                backgroundColor: "#0AB28A",
-                height: "10px",
-                width: "30%",
-                borderRadius: "5px"
-              }}
-            ></div>
-          </div>
+          <ProgressBarDiv>
+            <div className="progress"></div>
+          </ProgressBarDiv>
         </div>
-      </form>
+      </StyledForm>
+      <Footer />
     </div>
   );
 }

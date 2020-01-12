@@ -1,11 +1,9 @@
-import React, { useState } from "react";
-import axios from "axios";
-import Footer from "./Footer";
+import React from "react";
 import foodplaceholder from "../images/foodplaceholder.png";
 
 export default function RecipeFormTwo(props) {
-  const { step, prevPage, nextPage, uploadImage, recipeImage, onHandleChange } = props;  
-
+  const { step, prevPage, nextPage, uploadImage, recipeImage } = props;  
+  
   return (
     <form>
       <div className="section1B">
@@ -22,7 +20,7 @@ export default function RecipeFormTwo(props) {
           onChange={uploadImage}
         />
         <button>
-          <img src={recipeImage || foodplaceholder } alt="recipe photo" />
+          <img src={recipeImage || foodplaceholder} alt="A display of the already finished recipe" />
         </button>
         <div>
           <div className="step">Step {step}/3</div>
