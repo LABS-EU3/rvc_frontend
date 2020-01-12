@@ -12,7 +12,10 @@ import InstructionList from "./InstructionList";
 import Footer from "./Footer";
 import "../App.css";
 
-function SeeRecipe() {
+function SeeRecipe({ recipeView }) {
+  getRecipe = id => {
+    return recipeView.filter(recipe => recipe.id === parseInt(id, 10));
+  };
   return (
     <div>
       <RecipeTopDiv>
