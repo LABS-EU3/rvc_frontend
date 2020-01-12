@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import RecipeFormOne from "./RecipeFormOne";
 import RecipeFormTwo from "./RecipeFormTwo";
-import FormikIngredientForm from "./IngredientForm";
-import FormikInstructionForm from "./InstructionForm";
+import RecipeFormThree from "./RecipeFormTwo";
 import Ready from "./Ready";
 import Footer from "./Footer";
 import { addToNewRecipe } from "../actions";
 import * as actionCreators from "../actions";
 import { connect } from "react-redux";
 import axios from "axios";
+import { withFormik } from "formik";
 
 function CreateRecipe(props) {
   const [recipeImage, setRecipeImage] = useState("");
@@ -24,10 +24,10 @@ function CreateRecipe(props) {
   //form1
   const { addToNewReicpe } = props;
   const [formState, setFormState] = useState({
-    title: "",
-    recipe_category: "",
+    title: '',
+    recipe_category: '',
     tags: [],
-    recipefile: "",
+    recipe_file: '',
     ingredients: [],
     instructions: []
   });
@@ -40,10 +40,17 @@ function CreateRecipe(props) {
     console.log("DDDDD", formState);
   };
 
-  const onHandleSubmit = setFormState => {
-    addToNewRecipe(setFormState);
+  const onHandleSubmit = (e) => {
+    e.preventDefault()
+    console.log('ccc', e)
+    // addToNewRecipe(formState);
+    props.addToNewRecipe({ ...formState })
+    nextPage()
   };
 
+
+
+  //form2
   let UPLOAD_PRESET = "recipe_image";
   let CLOUDINARY_API = "https://api.cloudinary.com/v1_1/dr34bum3p/image/upload";
 
@@ -59,7 +66,7 @@ function CreateRecipe(props) {
         setRecipeImage(res.data.secure_url);
         setFormState({
           ...formState,
-          recipefile: "something"
+          recipe_file: "something"
         });
         setLoading(false);
       })
@@ -71,6 +78,8 @@ function CreateRecipe(props) {
       });
   };
 
+
+ 
   switch (step) {
     case 1:
       return (
@@ -106,27 +115,44 @@ function CreateRecipe(props) {
         </div>
       );
 
+    // case 3:
+    //   return (
+    //     <div className="App">
+    //       <div>
+    //         <p>This is step three page</p>
+    //         <FormikIngredientForm />
+    //       </div>
+    //       <Footer />
+    //     </div>
+    //   );
+    
     case 3:
       return (
         <div className="App">
           <div>
             <p>This is step three page</p>
-            <FormikIngredientForm />
+            <RecipeFormThree
+                step={step}
+                prevPage={prevPage}
+                nextPage={nextPage}
+                loading={loading}
+                onHandleChange={onHandleChange}
+            />
           </div>
           <Footer />
         </div>
       );
 
-    case 4:
-      return (
-        <div className="App">
-          <div>
-            <p>This is step three page</p>
-            <FormikInstructionForm />
-          </div>
-          <Footer />
-        </div>
-      );
+    // case 4:
+    //   return (
+    //     <div className="App">
+    //       <div>
+    //         <p>This is step 4 page</p>
+    //         <FormikInstructionForm />
+    //       </div>
+    //       <Footer />
+    //     </div>
+    //   );
 
     case 5:
       return (
@@ -143,4 +169,4 @@ function CreateRecipe(props) {
       return <p>Hello there</p>;
   }
 }
-export default connect(state => state.newRecipe, actionCreators)(CreateRecipe);
+export default connect(state => state.newRecipe, {addToNewRecipe} )(CreateRecipe);

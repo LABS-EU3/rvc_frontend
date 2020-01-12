@@ -6,15 +6,18 @@ const Ingredient = ({ ingredient }) => {
 // const { ingredient } = ingredient
   return (
     <div>
-    <p>{ingredient.name}</p>
-    <p>{ingredient.quantity}</p>
+    <p>{ingredient.quantity} {ingredient.name}</p>
+    <p></p>
     <p>{ingredient.units}</p>
-    <p 
+    {/* <p 
     // onClick={onEdit()}
     >E</p>
     <p 
     // onClick={onDelete()}
-    >X</p>
+    >X</p> */}
+    <p 
+    // onClick={onDelete()}
+    >new</p>
 
   </div>
 )

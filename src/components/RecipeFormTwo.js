@@ -1,15 +1,32 @@
 import React from "react";
+import back from "../globals/design-elements/back.png";
+import check from "../globals/design-elements/check.png";
+import Footer from "./Footer";
 import foodplaceholder from "../images/foodplaceholder.png";
 
 export default function RecipeFormTwo(props) {
-  const { step, prevPage, nextPage, uploadImage, recipeImage } = props;  
+  const { step, prevPage, nextPage, uploadImage, recipeImage,
+  onHandleSubmit
+  } = props;  
   
   return (
     <form>
       <div className="section1B">
-        <button className="return back-arrow">
-          <img src="" alt="" />
-        </button>
+      <div className="recipe-nav">
+        <div
+          className="back-arrow-container"
+          onClick={prevPage}
+        >
+          <img className="back-arrow" src={back} alt="back arrow" />
+        </div>
+        <div
+          onSubmit={onHandleSubmit}
+          onClick={nextPage}
+          className="submit-recipe-container"
+        >
+          <img className="submit-recipe" src={check} alt="submit recipe" />
+        </div>
+      </div>
         <h2>Recipe Name. Step is {step}</h2>
       </div>
       <div className="section1C">
@@ -22,11 +39,11 @@ export default function RecipeFormTwo(props) {
         <button>
           <img src={recipeImage || foodplaceholder} alt="A display of the already finished recipe" />
         </button>
-        <div>
+        {/* <div>
           <div className="step">Step {step}/3</div>
           <button onClick={prevPage}>Prev</button>
           <button onClick={nextPage}>Next</button>
-        </div>
+        </div> */}
         <div className="progress-bar-container">
           <div
             style={{

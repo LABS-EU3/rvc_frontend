@@ -138,6 +138,9 @@ export default function RecipeFormOne(props) {
 
   return (
     <div>
+      <StyledForm
+        onSubmit={onHandleSubmit}
+      >
       <div className="recipe-nav">
         <div
           className="back-arrow-container"
@@ -145,16 +148,15 @@ export default function RecipeFormOne(props) {
         >
           <img className="back-arrow" src={back} alt="back arrow" />
         </div>
-        <div
-          onSubmit={onHandleSubmit}
-          onClick={nextPage}
+        <button
+          type='submit'
+          // onClick={nextPage}
           className="submit-recipe-container"
         >
           <img className="submit-recipe" src={check} alt="submit recipe" />
-        </div>
+        </button>
       </div>
 
-      <StyledForm>
         <div className="recipe-input">
           <input
             onChange={onHandleChange}
@@ -196,7 +198,7 @@ export default function RecipeFormOne(props) {
             placeholder="Add as many tags as you want to easily find your recipe"
           />
           <div className="step">Step {step}/3</div>
-          <button onClick={nextPage}>Next</button>
+          {/* <button onClick={nextPage}>Next</button> */}
           <ProgressBarDiv>
             <div className="progress"></div>
           </ProgressBarDiv>
