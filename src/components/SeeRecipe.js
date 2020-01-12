@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actionCreators from "../actions/index";
 import Popup from "reactjs-popup";
 import styled from "styled-components";
 import { CardDiv } from "../globals/card-styles";
@@ -53,7 +55,7 @@ function SeeRecipe() {
   );
 }
 
-export default SeeRecipe;
+export default connect(state => state.recipes, actionCreators)(SeeRecipe);
 
 export const RecipeTopDiv = styled.div`
   display: flex;
