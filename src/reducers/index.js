@@ -90,13 +90,13 @@ export const recipeViewReducer = (state = initialRecipeView, action) => {
 };
 
 const initialSingleRecipe = {
-  singleRecipeView: [],
+  recipe: [],
   error: "",
   isFetching: false
 };
 export const singleRecipeReducer = (state = initialSingleRecipe, action) => {
   switch (action.type) {
-    case types.REQUEST_START:
+    case types.GET_RECIPE:
       return {
         ...state,
         isFetching: true
@@ -104,7 +104,7 @@ export const singleRecipeReducer = (state = initialSingleRecipe, action) => {
     case types.GET_RECIPE_SUCCESS:
       return {
         ...state,
-        singleRecipeView: action.payload,
+        recipe: action.payload,
         isFetching: false
       };
     case types.GET_RECIPE_FAILURE:
@@ -114,7 +114,10 @@ export const singleRecipeReducer = (state = initialSingleRecipe, action) => {
         isFetching: false
       };
     default:
-      return state;
+      return {
+        ...state,
+        isFetching: false
+      };
   }
 };
 
