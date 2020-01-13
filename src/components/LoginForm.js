@@ -17,8 +17,6 @@ import {
   LinkFooter
 } from "../globals/form-styles";
 
-const loginApi = 'https://develop-forkbook.herokuapp.com/api/auth/login'
-
 function FormTemplate({ touched, errors }) {
   return (
     <MainDiv>

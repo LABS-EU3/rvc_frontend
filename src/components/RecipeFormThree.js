@@ -43,7 +43,7 @@ export default function RecipeFormThree(props) {
         </button>
       </div>
 
-      <div className="section2">
+      {/* <div className="section2">
           <label htmlFor="ingredientQuantityInput"></label>
           <input
           onChange={onHandleIngredientInput}
@@ -55,9 +55,9 @@ export default function RecipeFormThree(props) {
           max="1000"
           placeholder="add quantity"
         />
-      </div>
+      </div> */}
 
-      <div className="section2">
+      {/* <div className="section2">
           <label htmlFor="ingredientUnitsInput"></label>
           <select
             id="ingredientUnitsInput"
@@ -68,7 +68,7 @@ export default function RecipeFormThree(props) {
             <option value="kg" label="kg" />
             <option value="gram" label="gram" />
           </select>
-      </div>
+      </div> */}
       </form>
       <div>
         {

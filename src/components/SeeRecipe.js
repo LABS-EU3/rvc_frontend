@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "../actions/index";
+import { getRecipesById} from '../actions/index';
 import Popup from "reactjs-popup";
 import styled from "styled-components";
 import { CardDiv } from "../globals/card-styles";
@@ -12,12 +13,17 @@ import InstructionList from "./InstructionList";
 import Footer from "./Footer";
 import "../App.css";
 
-function SeeRecipe({ match, recipeView }) {
-  const getRecipe = id => {
-    return recipeView.filter(recipe => recipe.id === parseInt(id, 10));
-  };
+function SeeRecipe({ match, recipeView, singleRecipe, getRecipesById }) {
+  console.log('llll',singleRecipe)
+  // const getRecipe = id => {
+  //   return recipeView.filter(recipe => recipe.id === parseInt(id, 10));
+  // };
   const recipeID = match.params.id.trim();
-  const recipe = recipeID ? getRecipe(recipeID)[0] : {};
+  // const recipe = recipeID ? getRecipe(recipeID)[0] : {};
+
+  useEffect(() => { 
+    getRecipesById(recipeID);
+  }, [getRecipesById, recipeID])
   return (
     <div>
       <RecipeTopDiv>
@@ -37,14 +43,14 @@ function SeeRecipe({ match, recipeView }) {
       </RecipeTopDiv>
       <CardDiv>
         <ImgRecipe>
-          <img src={recipe.imageUrl || dishImg} alt="dishImg" />
+          <img src={ dishImg} alt="jj" />
         </ImgRecipe>
         <DescriptionDiv>
           <ProfilePicture>
             {/* <img src={profile} alt="profile" /> */}
-            <h1> {recipe.author[0].toUpperCase() || `C`} </h1>
+            <h1> { `C`} </h1>
           </ProfilePicture>
-          <DetailsRecipe>{recipe.recipe_title || ""}</DetailsRecipe>
+          <DetailsRecipe>{ ""}</DetailsRecipe>
         </DescriptionDiv>
         <BottomButtonDiv>
           <Popup modal trigger={<LgButton>Ingredients</LgButton>}>
@@ -60,7 +66,7 @@ function SeeRecipe({ match, recipeView }) {
   );
 }
 
-export default connect(state => state.recipes, actionCreators)(SeeRecipe);
+export default connect(state => ({singleRecipe: state.singleRecipe}), { getRecipesById})(SeeRecipe);
 
 export const RecipeTopDiv = styled.div`
   display: flex;

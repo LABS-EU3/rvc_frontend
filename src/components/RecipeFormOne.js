@@ -1,8 +1,14 @@
 import React from "react";
 import styles from "styled-components";
+import arrow from "../images/left-arrow.png";
 import back from "../globals/design-elements/back.png";
 import check from "../globals/design-elements/check.png";
 import Footer from "./Footer";
+import { 
+  ArrowDiv
+} from '../globals/form-styles';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack'; 
+import CheckIcon from '@material-ui/icons/Check'
 
 const ProgressBarDiv = styles.div`
 height: 1rem;
@@ -84,13 +90,16 @@ input:checked + .slider:before {
 }
 `
 
-const StyledForm = styles.form`
+export const StyledForm = styles.form`
 display: flex;
 flex-direction: column;
 margin-top: 4rem;
 input {
   width: 80%;
   height: 4rem;
+  height: 40px;
+  border-width: 0.5rem;
+  border-color: rgba(10, 179, 138, 0.08);
   &.category{
   }
 }
@@ -109,9 +118,9 @@ input {
   select {
     width: 80%;
     height: 40px;
-    border-radius: 2rem;
+    border-width: 0.5rem;
+    border-color: rgba(10, 179, 138, 0.08);
   }
-
 }
 
 .section3 {
@@ -134,7 +143,7 @@ input {
 `;
 
 export default function RecipeFormOne(props) {
-  const { history, step, nextPage, onHandleChange, onHandleSubmit } = props;
+  const { history, step, onHandleChange, onHandleSubmit } = props;
 
   return (
     <div>
@@ -142,18 +151,29 @@ export default function RecipeFormOne(props) {
         onSubmit={onHandleSubmit}
       >
       <div className="recipe-nav">
-        <div
+        <div 
           className="back-arrow-container"
           onClick={() => history.push("/profile")}
         >
-          <img className="back-arrow" src={back} alt="back arrow" />
+          <ArrowBackIcon 
+          fontSize='large'
+          // style={{ fontSize: 48 }} 
+        />
         </div>
-        <button
+        <div
           type='submit'
           className="submit-recipe-container"
         >
-          <img className="submit-recipe" src={check} alt="submit recipe" />
-        </button>
+          <button 
+          >
+          <CheckIcon 
+          fontSize='large'
+          style={{
+            color: 'white'
+          }}
+          />
+          </button>
+        </div>
       </div>
 
         <div className="recipe-input">
@@ -172,9 +192,12 @@ export default function RecipeFormOne(props) {
             name="recipe_category"
           >
             <option value="" label="pick a category" />
-            <option value="breakfast" label="breakfast" />
-            <option value="lunch" label="lunch" />
-            <option value="dinner" label="dinner" />
+            <option value="1" label="breakfast" />
+            <option value="2" label="brunch" />
+            <option value="3" label="lunch" />
+            <option value="4" label="dinner" />
+            <option value="5" label="starter" />
+            {/* <option value="breakfast" label="breakfast" /> */}
           </select>
         </div>
         <div className="recipe-input">
@@ -238,7 +261,6 @@ export default function RecipeFormOne(props) {
             placeholder="Add as many tags as you want to easily find your recipe"
           />
           <div className="step">Step {step}/3</div>
-          {/* <button onClick={nextPage}>Next</button> */}
           <ProgressBarDiv>
             <div className="progress"></div>
           </ProgressBarDiv>

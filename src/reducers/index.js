@@ -86,41 +86,35 @@ export const recipeViewReducer = (state = initialRecipeView, action) => {
   }
 }
 
-// const initialRecipeState = { 
-//   user_id : 1,
-//   recipe_id : '',
-//   message : '',
-//   error : '', 
-//   isFetching : false,
-//   ingredients: '',
-//   instructions: ''
-// };
-// export const createRecipeReducer = ( state = initialRecipeState, action) => {
-//   switch(action.type) { 
-//     case types.REQUEST_START :
-//       return { 
-//         ...state,
-//         isFetching : true,
-//         error : ''
-//       };
-//     case types.ADD_RECIPE_SUCCESS : 
-//       return { 
-//         ...state, 
-//         recipe_id : action.payload.recipeID,
-//         message : action.payload.message,
-//         isFetching : false
-//       };
-//     case types.ADD_RECIPE_FAILURE : 
-//       return { 
-//         ...state,
-//         recipe_id : action.payload.recipeID,
-//         error : action.payload,
-//         isFetching : false
-//       }
-//     default : 
-//     return state;
-//   }
-// }
+const initialSingleRecipe = { 
+  singleRecipeView : [],
+  error : '',
+  isFetching : false 
+}
+export const singleRecipeReducer = (state = initialSingleRecipe, action ) => { 
+  switch( action.type) { 
+    case types.REQUEST_START: 
+      return { 
+        ...state, 
+        isFetching : true
+      };
+    case types.GET_RECIPE_SUCCESS:
+      return { 
+        ...state,
+        singleRecipeView : action.payload,
+        isFetching : false
+      };
+    case types.GET_RECIPE_FAILURE: 
+      return { 
+        ...state,
+        error : action.payload,
+        isFetching : false
+      };
+    default:
+      return state
+    }
+}
+
 
 const initialIngredient = { 
   ingredientView : [],

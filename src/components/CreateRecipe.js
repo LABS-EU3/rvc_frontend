@@ -21,13 +21,15 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
 
   const nextPage = () => {
     setStep(step + 1);
-  };
+  ;;};
   const prevPage = () => {
     setStep(step - 1);
   };
 
   //form1
-  // const { addToNewReicpe } = props;
+
+  const [quantityUnit, setQuantityUnit ] = useState([])
+
   const [formState, setFormState] = useState({
     title: '',
     recipe_category: '',
@@ -38,13 +40,13 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
   });
   const initialIngredient = {
     name: '',
-    quantity: '',
-    unit: ''
+    // quantity: '',
+    // unit: ''
     }
 
   const initialInstruction = { 
     text: '',
-    step: 1
+    // step: 1
   }
 
   const [instructionState, setInstructionState] = useState({...initialInstruction})
@@ -96,7 +98,9 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
         {...instructionState}
       ]
     });
-    setInstructionState({...initialInstruction, step: instructionState.step + 1})
+    setInstructionState({...initialInstruction,
+      //  step: instructionState.step + 1
+      })
     setStep(4)
   }
 
@@ -117,14 +121,31 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
       time_required,
       difficulty,
       budget,
+      parent_id: 3,
       },
-      recipe_category,
+      recipe_categories: [
+        {
+          category_id: recipe_category
+        }
+      ],
       images: [
         {
         url: recipe_file,
         }
       ],
       ingredients,
+      recipe_ingredients: [
+        {
+          ingredient_id : 1,
+          quantity: 1,
+          unit_id: 1
+        }
+      ],
+      recipe_tags: [
+        {
+          tag_id: 1,
+        }
+      ],
       instructions,
       tags: [
         {

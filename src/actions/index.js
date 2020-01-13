@@ -62,6 +62,19 @@ export const getRecipes = () => dispatch => {
   })
 };
 
+export const getRecipesById = (id) => dispatch => { 
+  dispatch({ type: types.REQUEST_START });
+  axios
+  .get(`https://develop-forkbook.herokuapp.com/api/recipe/${id}`)
+  .then(res => {
+    dispatch({ type: types.GET_ALL_RECIPES_SUCCESS, payload: res.data})
+  })
+  .catch(error => { 
+    dispatch({ type: types.GET_ALL_RECIPES_FAILURE, payload: error.message})
+  })
+};
+
+
 // export const createRecipe = (recipeData, history) => dispatch => { 
 //   dispatch( { type: types.REQUEST_START }) 
 //   axios

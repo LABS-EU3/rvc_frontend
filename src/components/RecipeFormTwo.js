@@ -3,9 +3,12 @@ import back from "../globals/design-elements/back.png";
 import check from "../globals/design-elements/check.png";
 import Footer from "./Footer";
 import foodplaceholder from "../images/foodplaceholder.png";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack'; 
+import CheckIcon from '@material-ui/icons/Check'
+import StyledForm from './RecipeFormOne'
 
 export default function RecipeFormTwo(props) {
-  const { step, prevPage, nextPage, uploadImage, recipe_file,
+  const { step, prevPage, uploadImage, recipe_file,
   onHandleSubmit,
   } = props;  
   
@@ -20,13 +23,18 @@ export default function RecipeFormTwo(props) {
           className="back-arrow-container"
           onClick={prevPage}
           >
-          <img className="back-arrow" src={back} alt="back arrow" />
+          <ArrowBackIcon style={{ fontSize: 48 }} 
+        />
         </div>
         <button
         type='submit'
           className="submit-recipe-container"
           >
-          <img className="submit-recipe" src={check} alt="submit recipe" />
+         <CheckIcon 
+          style={{ fontSize: 48,
+            color: 'white'
+         }}
+          />
         </button>
       </div>
         <h2>Recipe Name. Step is {step}</h2>
