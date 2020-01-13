@@ -8,8 +8,8 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Link } from "react-router-dom";
 
 export default function RecipeFormTwo(props) {
-  const { step, prevPage, nextPage, uploadImage, recipe_file,
-  onHandleSubmit,
+  const { step, prevPage, uploadImage, recipe_file,
+  onHandleSubmit, loading
   } = props;  
   
   return (

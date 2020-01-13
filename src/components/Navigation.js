@@ -18,6 +18,9 @@ const Navigation = () => {
     <Link to='/profile' style={{ textDecoration: 'none' }}>
     <li>Profile</li>
     </Link>
+    <Link to='/createrecipe' style={{ textDecoration: 'none' }}>
+    <li>Create</li>
+    </Link>
     <Link to='/register' style={{ textDecoration: 'none' }}>
     <li>Log in</li>
     </Link>

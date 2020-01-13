@@ -3,7 +3,6 @@ import styles from "styled-components";
 import back from "../globals/design-elements/back.png";
 import check from "../globals/design-elements/check.png";
 import Footer from "./Footer";
-import { instructionReducer } from "../reducers";
 
 export default function RecipeFormFour (props) { 
   const { history, step, prevPage, nextPage, onHandleChange, onHandleSubmit, onHandleInstructionInput, onAddInstruction, instruction, instructions, onHandleFinalSubmit } = props;
@@ -23,6 +22,7 @@ export default function RecipeFormFour (props) {
         </div>
         <button
           type='submit'
+          onClick={onHandleSubmit}
           className="submit-recipe-container"
         >
           <img className="submit-recipe" src={check} alt="submit recipe" />

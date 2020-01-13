@@ -7,6 +7,7 @@ const monsterReducer = combineReducers({
   onboard : reducers.onBoardingReducer,
   recipes : reducers.recipeViewReducer,
   // create: reducers.createRecipeReducer,
+  singleRecipe: reducers.singleRecipeReducer,
   ingredients : reducers.ingredientReducer,
 });
 

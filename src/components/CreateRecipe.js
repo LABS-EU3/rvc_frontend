@@ -16,18 +16,19 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
   difficulty,
   budget, user_id, history }) {
   const [recipeImage, setRecipeImage] = useState("");
-  // const [loading, setLoading] = useState(false);
-  const [step, setStep] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [step, setStep] = useState(2);
 
   const nextPage = () => {
     setStep(step + 1);
-  };
+  ;;};
   const prevPage = () => {
     setStep(step - 1);
   };
 
   //form1
-  // const { addToNewReicpe } = props;
+
+
   const [formState, setFormState] = useState({
     title: '',
     recipe_category: '',
@@ -38,13 +39,13 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
   });
   const initialIngredient = {
     name: '',
-    quantity: '',
-    unit: ''
+    // quantity: '',
+    // unit: ''
     }
 
   const initialInstruction = { 
     text: '',
-    step: 1
+    // step: 1
   }
 
   const [instructionState, setInstructionState] = useState({...initialInstruction})
@@ -55,7 +56,7 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
    addToNewRecipe({
       [e.target.name]: e.target.value
     });
-    console.log("DDDDD", formState);
+    // console.log("DDDDD", formState);
   };
 
   
@@ -96,7 +97,9 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
         {...instructionState}
       ]
     });
-    setInstructionState({...initialInstruction, step: instructionState.step + 1})
+    setInstructionState({...initialInstruction,
+      //  step: instructionState.step + 1
+      })
     setStep(4)
   }
 
@@ -117,14 +120,31 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
       time_required,
       difficulty,
       budget,
+      parent_id: 3,
       },
-      recipe_category,
+      recipe_categories: [
+        {
+          category_id: recipe_category
+        }
+      ],
       images: [
         {
         url: recipe_file,
         }
       ],
       ingredients,
+      recipe_ingredients: [
+        {
+          ingredient_id : 1,
+          quantity: 1,
+          unit_id: 1
+        }
+      ],
+      recipe_tags: [
+        {
+          tag_id: 1,
+        }
+      ],
       instructions,
       tags: [
         {
@@ -147,7 +167,7 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
     const data = new FormData();
     data.append("file", files[0]);
     data.append("upload_preset", UPLOAD_PRESET);
-    // setLoading(true);
+    setLoading(true);
     axios
       .post(CLOUDINARY_API, data)
       .then(res => {
@@ -160,7 +180,6 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
         });
         console.log('MMMM',recipe_file)
         onHandleSubmit(e)
-        // setLoading(false);
       })
       .catch(err => {
         console.log(
@@ -169,8 +188,6 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
         );
       });
   };
-
-
  
   switch (step) {
     case 1:
@@ -200,7 +217,7 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
               nextPage={nextPage}
               uploadImage={uploadImage}
               recipeImage={formState.recipe_file}
-              // loading={loading}
+              loading={loading}
               onHandleChange={onHandleChange}
             />
           </div>
@@ -253,41 +270,15 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
           <Footer />
         </div>
       );
-    
-    // case 3:
-    //   return (
-    //     <div className="App">
-    //       <div>
-    //         <p>This is step three page</p>
-    //         <RecipeFormThree
-    //             step={step}
-    //             prevPage={prevPage}
-    //             nextPage={nextPage}
-    //             // loading={loading}
-    //             onHandleChange={onHandleChange}
-    //         />
-    //       </div>
-    //       <Footer />
-    //     </div>
-    //   );
-
-    // case 4:
-    //   return (
-    //     <div className="App">
-    //       <div>
-    //         <p>This is step 4 page</p>
-    //         <FormikInstructionForm />
-    //       </div>
-    //       <Footer />
-    //     </div>
-    //   );
 
     case 5:
       return (
         <div className="App">
           <div>
             <p>This is step three page</p>
-            <Ready />
+            <Ready
+            history={history}
+            />
           </div>
           <Footer />
         </div>
