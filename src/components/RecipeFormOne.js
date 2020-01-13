@@ -14,6 +14,7 @@ height: 1rem;
 background-color: #C4C4C4;
 margin: 0 auto;
 width: 80%;
+margin-top:4px;
 border-radius: 5px;
 .progress{
   background-color: #0AB28A;
@@ -33,13 +34,13 @@ box-shadow: 0px 8px 30px #DAD9D9;
 margin-bottom:10px;
 `
 
-
 const SwitchDiv = styles.div`
 font-size: 1.6rem;
 display: flex;
 align-items: center;
 margin-bottom: 1.5rem;
 justify-content: space-between; 
+color: rgba(0, 0, 0, 0.51);
 .switch {
   position: relative;
   display: inline-block;
@@ -208,9 +209,7 @@ export default function RecipeFormOne(props) {
               <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
             </Link>
           </div>
-          <button
-            type='submit'
-          >
+          <button type='submit'>
           <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
         </button>
         </NavigationSection1>
@@ -290,15 +289,16 @@ export default function RecipeFormOne(props) {
         <div>
           <Title>Options:</Title>
           <SwitchDiv>
-            Private
+            <div>
+            <p>Private</p><br></br>
+          <p>The private option hides your recipe from other users</p>
+          </div>
             <label class="switch">
               <input type="checkbox" name="options" value="Private" />
               <span class="slider round"></span>
             </label>
           </SwitchDiv>
-
-          <p>The private option hides your recipe from other users</p>
-          <p>Add Tags</p>
+          <Title>Add Tags</Title>
           <input
             className="category"
             onChange={onHandleChange}
@@ -306,11 +306,13 @@ export default function RecipeFormOne(props) {
             name="tag"
             placeholder="Add as many tags as you want to easily find your recipe"
             />
-          <div className="step">Step {step}/3</div>
           {/* <button onClick={nextPage}>Next</button> */}
+          <Step >
+            Step {step}/3
           <ProgressBarDiv>
             <div className="progress"></div>
           </ProgressBarDiv>
+          </Step >
         </div>
         </Section2>
       </StyledForm>
@@ -318,3 +320,9 @@ export default function RecipeFormOne(props) {
     </div>
   );
 }
+
+export const Step = styles.div`
+display:flex;
+flex-direction:column;
+align-items: center;
+`
