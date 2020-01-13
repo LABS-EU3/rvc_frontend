@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "styled-components";
 import back from "../globals/design-elements/back.png";
-import check from "../globals/design-elements/check.png";
 import Footer from "./Footer";
+import CheckIcon from '@material-ui/icons/Check';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { Link } from "react-router-dom";
 
 const ProgressBarDiv = styles.div`
 height: 1rem;
@@ -84,6 +86,10 @@ input:checked + .slider:before {
 }
 `
 
+const AddTitle = styles.div`
+
+`
+
 const StyledForm = styles.form`
 display: flex;
 flex-direction: column;
@@ -146,23 +152,26 @@ export default function RecipeFormOne(props) {
           className="back-arrow-container"
           onClick={() => history.push("/profile")}
         >
-          <img className="back-arrow" src={back} alt="back arrow" />
+        <Link to='/profile'>
+          <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+         </Link>
+        
         </div>
         <button
           type='submit'
           className="submit-recipe-container"
         >
-          <img className="submit-recipe" src={check} alt="submit recipe" />
+        <CheckIcon cgit style={{ fontSize: 40, color: 'white' }} />
         </button>
-      </div>
+              <AddTitle>
+                <input
+                  onChange={onHandleChange}
+                  type="text"
+                  name="title"
+                  placeholder="enter recipe name"
+                />
+      </AddTitle>
 
-        <div className="recipe-input">
-          <input
-            onChange={onHandleChange}
-            type="text"
-            name="title"
-            placeholder="enter recipe name"
-          />
         </div>
         <div className="section2">
           <label htmlFor="recipeCategoryInput">Category:</label>

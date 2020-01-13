@@ -72,7 +72,7 @@
 }
 
 .input::placeholder {
-  color: #0AB28A;
+  color:black;
 }
 
 .formik-form {
