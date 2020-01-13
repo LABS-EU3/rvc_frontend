@@ -166,7 +166,7 @@ export default function RecipeFormOne(props) {
           className="submit-recipe-container"
         >
         <CheckIcon cgit style={{ fontSize: 40, color: 'white' }} />
-        </button>
+        </div>
               <AddTitle>
                 <input
                   onChange={onHandleChange}
