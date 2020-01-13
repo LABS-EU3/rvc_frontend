@@ -17,7 +17,7 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
   budget, user_id, history }) {
   const [recipeImage, setRecipeImage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
 
   const nextPage = () => {
     setStep(step + 1);
