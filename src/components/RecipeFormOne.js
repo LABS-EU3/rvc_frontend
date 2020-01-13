@@ -156,27 +156,34 @@ export default function RecipeFormOne(props) {
           className="back-arrow-container"
           onClick={() => history.push("/profile")}
         >
-        <Link to='/profile'>
-          <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
-         </Link>
-        
+          <ArrowBackIcon
+          fontSize='large'
+          />
         </div>
         <div
           type='submit'
           className="submit-recipe-container"
         >
-        <CheckIcon cgit style={{ fontSize: 40, color: 'white' }} />
+          <button 
+          >
+          <CheckIcon 
+          fontSize='large'
+          style={{
+            color: 'white'
+          }}
+          />
+          </button>
+          </div>
         </div>
-              <AddTitle>
-                <input
-                  onChange={onHandleChange}
-                  type="text"
-                  name="title"
-                  placeholder="enter recipe name"
-                />
-      </AddTitle>
-
+          <div className="recipe-input">
+          <input
+            onChange={onHandleChange}
+            type="text"
+            name="title"
+            placeholder="enter recipe name"
+          />
         </div>
+       
         <div className="section2">
           <label htmlFor="recipeCategoryInput">Category:</label>
           <select

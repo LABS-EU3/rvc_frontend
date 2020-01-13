@@ -22,6 +22,7 @@ export default function RecipeFormFour (props) {
         </div>
         <button
           type='submit'
+          onClick={onHandleSubmit}
           className="submit-recipe-container"
         >
           <img className="submit-recipe" src={check} alt="submit recipe" />

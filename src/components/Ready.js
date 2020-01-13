@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "styled-components";
+import { Link } from 'react-router-dom'
 
 const Div = styles.div`
 height: 70vh;
@@ -30,10 +31,11 @@ button {
 }
 `;
 
-export default function Ready() {
+export default function Ready({steps, history}) {
   return (
     <div className="App">
       <h1>It's READY! </h1>
+      <h2>Your Recipe was successfully created</h2>
       <div className="image-container">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRwzk9us0OpvTp8XxAgvYAs3peCYVamG6PsGX_edQKrTPn1QBZz"
