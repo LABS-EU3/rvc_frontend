@@ -20,9 +20,6 @@ export default function RecipeFormTwo(props) {
     onSubmit={onHandleSubmit}
     >
       <div className="section1B">
-      
-      
-
       <div className="recipe-nav">
         <div
           className="back-arrow-container"

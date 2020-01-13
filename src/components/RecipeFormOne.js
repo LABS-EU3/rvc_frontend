@@ -1,17 +1,20 @@
 import React from "react";
 import styles from "styled-components";
-import arrow from "../images/left-arrow.png";
 import back from "../globals/design-elements/back.png";
 import Footer from "./Footer";
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Link } from "react-router-dom";
+import { TextField, Select, MenuItem } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
-const ProgressBarDiv = styles.div`
+
+export const ProgressBarDiv = styles.div`
 height: 1rem;
 background-color: #C4C4C4;
 margin: 0 auto;
 width: 80%;
+margin-top:4px;
 border-radius: 5px;
 .progress{
   background-color: #0AB28A;
@@ -21,12 +24,23 @@ border-radius: 5px;
 }
 `;
 
+export const Section1 = styles.div`
+display:flex;
+flex-direction:column;
+background-color: #0AB28A;
+height: 15rem;
+width:100%;
+box-shadow: 0px 8px 30px #DAD9D9;
+margin-bottom:10px;
+`
+
 const SwitchDiv = styles.div`
 font-size: 1.6rem;
 display: flex;
 align-items: center;
 margin-bottom: 1.5rem;
 justify-content: space-between; 
+color: rgba(0, 0, 0, 0.51);
 .switch {
   position: relative;
   display: inline-block;
@@ -87,20 +101,13 @@ input:checked + .slider:before {
 }
 `
 
-const AddTitle = styles.div`
-
-`
-
-const StyledForm = styles.form`
+export const StyledForm = styles.form`
 display: flex;
 flex-direction: column;
-margin-top: 4rem;
+// margin-top: 4rem;
 input {
   width: 80%;
   height: 4rem;
-  height: 40px;
-  border-width: 0.5rem;
-  border-color: rgba(10, 179, 138, 0.08);
   &.category{
   }
 }
@@ -119,9 +126,9 @@ input {
   select {
     width: 80%;
     height: 40px;
-    border-width: 0.5rem;
-    border-color: rgba(10, 179, 138, 0.08);
+    border-radius: 2rem;
   }
+
 }
 
 .section3 {
@@ -141,124 +148,170 @@ input {
     margin: 1rem 0;
   }
 }
-`;
+`
 
+<<<<<<< HEAD
 export default function RecipeFormOne(props) {
   const { history, step, onHandleChange, onHandleSubmit } = props;
   const progressBarWidth = (step-1) * 100/4;
+=======
+export const NavigationSection1 = styles.div`
+display:flex;
+justify-content: space-between;
+`
+
+export const Addtitle = styles.div `
+margin-left:5%;
+margin-right:15%;
+
+`
+
+export const Title = styles.h3 `
+font-weight: 300;
+font-size: 20px;
+line-height: 18px;
+margin-bottom: 15px;
+margin-top:15px;
+`
+
+export const Section2 = styles.div `
+display:flex;
+flex-direction:column;
+text-align: left;
+margin:5%;
+margin-top:8px;
+font-weight: 300;
+font-size: 15px;
+`
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    color: 'white'
+  },
+}));
+
+
+export default function RecipeFormOne(props) {
+  const { history, step, nextPage, onHandleChange, onHandleSubmit } = props;
+  const classes = useStyles();
+>>>>>>> d81ebb7a2d9882a867327a14acf56c1b3beabddb
   return (
     <div>
       <StyledForm
         onSubmit={onHandleSubmit}
       >
-      <div className="recipe-nav">
-        <div 
-          className="back-arrow-container"
-          onClick={() => history.push("/profile")}
-        >
-          <ArrowBackIcon
-          fontSize='large'
-          />
-        </div>
-        <div
-          type='submit'
-          className="submit-recipe-container"
-        >
-          <button 
-          >
-          <CheckIcon 
-          fontSize='large'
-          style={{
-            color: 'white'
-          }}
-          />
-          </button>
+      <Section1>
+        <NavigationSection1>
+          <div
+              onClick={() => history.push("/profile")}
+            >
+            <Link to='/profile'>
+              <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+            </Link>
           </div>
-        </div>
-          <div className="recipe-input">
-          <input
-            onChange={onHandleChange}
-            type="text"
-            name="title"
-            placeholder="enter recipe name"
-          />
-        </div>
-       
-        <div className="section2">
-          <label htmlFor="recipeCategoryInput">Category:</label>
-          <select
-            id="recipeCategoryInput"
+          <button type='submit'>
+          <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+        </button>
+        </NavigationSection1>
+            <Addtitle>
+            <TextField
+              id="standard-full-width"
+              style={{ color: "white" }}
+              onChange={onHandleChange}
+              type="text"
+              name="title"
+              placeholder="Enter recipe name"
+              fullWidth
+              margin="normal"
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true,
+              }}
+        />
+      </Addtitle>
+        </Section1>
+        <Section2>
+          <Title htmlFor="recipeCategoryInput">Category:</Title>
+          <Select
+            Select
             onChange={onHandleChange}
             name="recipe_category"
           >
-            <option value="" label="pick a category" />
-            <option value="1" label="breakfast" />
-            <option value="2" label="brunch" />
-            <option value="3" label="lunch" />
-            <option value="4" label="dinner" />
-            <option value="5" label="starter" />
-            {/* <option value="breakfast" label="breakfast" /> */}
-          </select>
-        </div>
+          <MenuItem value="breakfast">breakfast</MenuItem>
+          <MenuItem value="lunch">lunch</MenuItem>
+          <MenuItem value="dinner">dinner</MenuItem>
+            {/* <option value="" label="pick a category" /> */}
+          </Select>
         <div className="recipe-input">
-          <input
+          <TextField
+                    id="margin-none"
+                    className={classes.textField}
             onChange={onHandleChange}
             type="text"
             name="description"
-            placeholder="enter description"
+            placeholder="Description"
           />
         </div>
         <div className="recipe-input">
-          <input
+          <TextField
             onChange={onHandleChange}
             type="number"
             name="time_required"
-            placeholder="Duration in minutes"
+            placeholder="Times"
             min='1'
             max='1000'
-          />
+            />
         </div>
         <div className="recipe-input">
-          <input
+          <TextField
             onChange={onHandleChange}
             type="number"
             name="budget"
-            placeholder="Budget in USD"
+            placeholder="Budget (USD)"
             min='1'
             max='1000'
           />
         </div>
-        <div className="section2">
-          <label htmlFor="recipeCategoryInput">Difficulty Level:</label>
-          <select
+        <div>
+          <div>
+          <Title htmlFor="recipeCategoryInput">Difficulty Level:</Title>
+          </div>
+          <Select
             onChange={onHandleChange}
             name="difficulty"
           >
-            <option value="" label="pick a level" />
-            <option value="1" label="1" />
-            <option value="2" label="2" />
-            <option value="3" label="3" />
-          </select>
+          <MenuItem value={1}>1</MenuItem>
+          <MenuItem value={2}>2</MenuItem>
+          <MenuItem value={3}>3</MenuItem>
+            {/* <option value="" label="pick a level" /> */}
+          </Select>
         </div>
-       
-        <div className="section3">
-          <p className="options-paragraph">Options:</p>
+        <div>
+          <Title>Options:</Title>
           <SwitchDiv>
-            Private
+            <div>
+            <p>Private</p><br></br>
+          <p>The private option hides your recipe from other users</p>
+          </div>
             <label class="switch">
               <input type="checkbox" name="options" value="Private" />
               <span class="slider round"></span>
             </label>
           </SwitchDiv>
-
-          <p>The private option hides your recipe from other users</p>
-          <p>Add Tags</p>
+          <Title>Add Tags</Title>
           <input
             className="category"
             onChange={onHandleChange}
             type="text"
             name="tag"
             placeholder="Add as many tags as you want to easily find your recipe"
+<<<<<<< HEAD
           />
           <div className="step">Step {step}/3</div>
           {/* <ProgressBarDiv>
@@ -274,9 +327,26 @@ export default function RecipeFormOne(props) {
             }}
           ></div>
         </div>
+=======
+            />
+          {/* <button onClick={nextPage}>Next</button> */}
+          <Step >
+            Step {step}/3
+          <ProgressBarDiv>
+            <div className="progress"></div>
+          </ProgressBarDiv>
+          </Step >
+>>>>>>> d81ebb7a2d9882a867327a14acf56c1b3beabddb
         </div>
+        </Section2>
       </StyledForm>
       <Footer />
     </div>
   );
 }
+
+export const Step = styles.div`
+display:flex;
+flex-direction:column;
+align-items: center;
+`
