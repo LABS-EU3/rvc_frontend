@@ -5,7 +5,9 @@ export const Ring = styled.div`
   position: relative;
   width: 64px;
   height: 64px;
-  margin: 0px auto;
+  margin: 75px auto;
+  align-self: center;
+  justify-self: center;
 
   & div {
     box-sizing: border-box;
