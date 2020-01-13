@@ -31,8 +31,8 @@ export default function RecipeFormTwo(props) {
           >
           <CheckIcon cgit style={{ fontSize: 40, color: 'white' }} />
         </button>
-      </div>
         <h2>Recipe Name. Step is {step}</h2>
+      </div>
       </div>
       <div className="section1C">
         <input
