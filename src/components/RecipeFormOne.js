@@ -149,12 +149,6 @@ input {
   }
 }
 `
-
-<<<<<<< HEAD
-export default function RecipeFormOne(props) {
-  const { history, step, onHandleChange, onHandleSubmit } = props;
-  const progressBarWidth = (step-1) * 100/4;
-=======
 export const NavigationSection1 = styles.div`
 display:flex;
 justify-content: space-between;
@@ -184,23 +178,24 @@ font-weight: 300;
 font-size: 15px;
 `
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    color: 'white'
-  },
-}));
-
 
 export default function RecipeFormOne(props) {
   const { history, step, nextPage, onHandleChange, onHandleSubmit } = props;
+  const progressBarWidth = (step-1) * 100/4;
+  const useStyles = makeStyles(theme => ({
+    root: {
+      display: 'flex',
+      flexWrap: 'wrap',
+    },
+    textField: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+      color: 'white'
+    },
+  }));
+  
+
   const classes = useStyles();
->>>>>>> d81ebb7a2d9882a867327a14acf56c1b3beabddb
   return (
     <div>
       <StyledForm
@@ -311,13 +306,12 @@ export default function RecipeFormOne(props) {
             type="text"
             name="tag"
             placeholder="Add as many tags as you want to easily find your recipe"
-<<<<<<< HEAD
           />
-          <div className="step">Step {step}/3</div>
+          {/* <div className="step">Step {step}/3</div> */}
           {/* <ProgressBarDiv>
             <div className="progress"></div>
           </ProgressBarDiv> */}
-          <div className="progress-bar-container">
+          {/* <div className="progress-bar-container">
           <div
             style={{
               backgroundColor: "#0AB28A",
@@ -325,10 +319,9 @@ export default function RecipeFormOne(props) {
               width: progressBarWidth+"%",
               borderRadius: "5px"
             }}
-          ></div>
-        </div>
-=======
-            />
+          ></div> */}
+        {/* </div> */}
+            {/* /> */}
           {/* <button onClick={nextPage}>Next</button> */}
           <Step >
             Step {step}/3
@@ -336,7 +329,6 @@ export default function RecipeFormOne(props) {
             <div className="progress"></div>
           </ProgressBarDiv>
           </Step >
->>>>>>> d81ebb7a2d9882a867327a14acf56c1b3beabddb
         </div>
         </Section2>
       </StyledForm>
