@@ -145,7 +145,7 @@ input {
 
 export default function RecipeFormOne(props) {
   const { history, step, onHandleChange, onHandleSubmit } = props;
-
+  const progressBarWidth = (step-1) * 100/4;
   return (
     <div>
       <StyledForm
@@ -261,9 +261,19 @@ export default function RecipeFormOne(props) {
             placeholder="Add as many tags as you want to easily find your recipe"
           />
           <div className="step">Step {step}/3</div>
-          <ProgressBarDiv>
+          {/* <ProgressBarDiv>
             <div className="progress"></div>
-          </ProgressBarDiv>
+          </ProgressBarDiv> */}
+          <div className="progress-bar-container">
+          <div
+            style={{
+              backgroundColor: "#0AB28A",
+              height: "10px",
+              width: progressBarWidth+"%",
+              borderRadius: "5px"
+            }}
+          ></div>
+        </div>
         </div>
       </StyledForm>
       <Footer />

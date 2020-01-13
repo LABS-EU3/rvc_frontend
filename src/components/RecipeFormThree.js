@@ -8,7 +8,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 export default function RecipeFormThree(props) {
   const { history, step, prevPage, nextPage, onHandleChange, onHandleSubmit, onHandleIngredientInput, onAddIngredient, ingredients, ingredient } = props;
-
+  const progressBarWidth = (step-1) * 100/4;
   return (
     <div>
       <form
@@ -44,6 +44,16 @@ export default function RecipeFormThree(props) {
           +
         </button>
       </div>
+      <div className="progress-bar-container">
+          <div
+            style={{
+              backgroundColor: "#0AB28A",
+              height: "10px",
+              width: progressBarWidth+"%",
+              borderRadius: "5px"
+            }}
+          ></div>
+        </div>
 
       {/* <div className="section2">
           <label htmlFor="ingredientQuantityInput"></label>

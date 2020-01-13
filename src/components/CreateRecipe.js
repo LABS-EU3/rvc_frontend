@@ -212,6 +212,7 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
           <div>
             <p>Hello from CreateRecipe 2</p>
             <RecipeFormTwo
+              formState={formState}
               step={step}
               prevPage={prevPage}
               nextPage={nextPage}

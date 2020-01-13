@@ -11,6 +11,7 @@ export default function RecipeFormTwo(props) {
   const { step, prevPage, uploadImage, recipe_file,
   onHandleSubmit, loading
   } = props;  
+  const progressBarWidth = (step-1) * 100/4;
   
   return (
     <div>  
@@ -47,12 +48,13 @@ export default function RecipeFormTwo(props) {
         <button>
           <img src={recipe_file || foodplaceholder} alt="A display of the already finished recipe" />
         </button>
+        { loading ? <h4>...upLoading file</h4> : ""}
         <div className="progress-bar-container">
           <div
             style={{
               backgroundColor: "#0AB28A",
               height: "10px",
-              width: "60%",
+              width: progressBarWidth+"%",
               borderRadius: "5px"
             }}
           ></div>
