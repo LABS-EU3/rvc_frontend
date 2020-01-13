@@ -32,8 +32,9 @@ button {
 `;
 
 export default function Ready({steps, history}) {
+  console.log('yyyy', history)
   return (
-    <div className="App">
+    <Div className="App">
       <h1>It's READY! </h1>
       <h2>Your Recipe was successfully created</h2>
       <div className="image-container">
@@ -42,7 +43,9 @@ export default function Ready({steps, history}) {
           alt="it's ready img"
         />
       </div>
-      <button>Start</button>
-    </div>
+      <button onClick={()=> { 
+        history.push('/')
+      }}>Check Out The Recipe</button>
+    </Div>
   );
 }

@@ -16,8 +16,8 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
   difficulty,
   budget, user_id, history }) {
   const [recipeImage, setRecipeImage] = useState("");
-  // const [loading, setLoading] = useState(false);
-  const [step, setStep] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [step, setStep] = useState(2);
 
   const nextPage = () => {
     setStep(step + 1);
@@ -167,7 +167,7 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
     const data = new FormData();
     data.append("file", files[0]);
     data.append("upload_preset", UPLOAD_PRESET);
-    // setLoading(true);
+    setLoading(true);
     axios
       .post(CLOUDINARY_API, data)
       .then(res => {
@@ -217,7 +217,7 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
               nextPage={nextPage}
               uploadImage={uploadImage}
               recipeImage={formState.recipe_file}
-              // loading={loading}
+              loading={loading}
               onHandleChange={onHandleChange}
             />
           </div>
@@ -276,7 +276,9 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
         <div className="App">
           <div>
             <p>This is step three page</p>
-            <Ready />
+            <Ready
+            history={history}
+            />
           </div>
           <Footer />
         </div>

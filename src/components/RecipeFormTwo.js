@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 export default function RecipeFormTwo(props) {
   const { step, prevPage, uploadImage, recipe_file,
-  onHandleSubmit,
+  onHandleSubmit, loading
   } = props;  
   
   return (
