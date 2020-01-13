@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Link } from "react-router-dom";
+import { Input } from '@material-ui/core';
 
 const ProgressBarDiv = styles.div`
 height: 1rem;
@@ -86,11 +87,7 @@ input:checked + .slider:before {
 }
 `
 
-const AddTitle = styles.div`
-
-`
-
-const StyledForm = styles.form`
+export const StyledForm = styles.form`
 display: flex;
 flex-direction: column;
 margin-top: 4rem;
@@ -137,7 +134,13 @@ input {
     margin: 1rem 0;
   }
 }
-`;
+`
+
+export const Section2 = styles.div `
+text-align: left;
+margin:2%;
+`
+
 
 export default function RecipeFormOne(props) {
   const { history, step, nextPage, onHandleChange, onHandleSubmit } = props;
@@ -163,17 +166,17 @@ export default function RecipeFormOne(props) {
         >
         <CheckIcon cgit style={{ fontSize: 40, color: 'white' }} />
         </button>
-              <AddTitle>
+            <div>
                 <input
                   onChange={onHandleChange}
                   type="text"
                   name="title"
                   placeholder="enter recipe name"
                 />
-      </AddTitle>
+      </div>
 
         </div>
-        <div className="section2">
+        <Section2>
           <label htmlFor="recipeCategoryInput">Category:</label>
           <select
             id="recipeCategoryInput"
@@ -185,7 +188,7 @@ export default function RecipeFormOne(props) {
             <option value="lunch" label="lunch" />
             <option value="dinner" label="dinner" />
           </select>
-        </div>
+        </Section2>
         <div className="recipe-input">
           <input
             onChange={onHandleChange}
