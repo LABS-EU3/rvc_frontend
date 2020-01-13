@@ -7,7 +7,7 @@ import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 export default function RecipeFormThree(props) {
-  const { history, step, prevPage, nextPage, onHandleChange, onHandleSubmit, onHandleIngredientInput, onAddIngredient, ingredients, ingredient } = props;
+  const { history, step, prevPage, nextPage, title, onHandleChange, onHandleSubmit, onHandleIngredientInput, onAddIngredient, ingredients, ingredient } = props;
   const progressBarWidth = (step-1) * 100/4;
   return (
     <div>
@@ -29,7 +29,7 @@ export default function RecipeFormThree(props) {
         </button>
       </div>
 
-        <h2>Recipe Name. Step is {step}</h2>
+      <h2>{ title }. Step is {step}</h2>
       <div className="ingredient-input">
         <input
           onChange={onHandleIngredientInput}

@@ -28,7 +28,6 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
 
   //form1
 
-
   const [formState, setFormState] = useState({
     title: '',
     recipe_category: '',
@@ -212,7 +211,7 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
           <div>
             <p>Hello from CreateRecipe 2</p>
             <RecipeFormTwo
-              formState={formState}
+              title={title}
               step={step}
               prevPage={prevPage}
               nextPage={nextPage}
@@ -234,6 +233,7 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
             <p>Hello from CreateRecipe 3</p>
               <RecipeFormThree
               step={step}
+              title={title}
               prevPage={prevPage}
               nextPage={nextPage}
               onHandleChange={onHandleChange}
@@ -257,6 +257,7 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
             <p>Hello from CreateRecipe 4</p>
               <RecipeFormFour
               step={step}
+              title={title}
               prevPage={prevPage}
               nextPage={nextPage}
               onHandleChange={onHandleChange}

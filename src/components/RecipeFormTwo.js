@@ -9,8 +9,9 @@ import { Link } from "react-router-dom";
 
 export default function RecipeFormTwo(props) {
   const { step, prevPage, uploadImage, recipe_file,
-  onHandleSubmit, loading
+  onHandleSubmit, loading, title
   } = props;  
+  console.log("props is", props, title)
   const progressBarWidth = (step-1) * 100/4;
   
   return (
@@ -36,7 +37,7 @@ export default function RecipeFormTwo(props) {
           <CheckIcon cgit style={{ fontSize: 40, color: 'white' }} />
         </button>
       </div>
-        <h2>Recipe Name. Step is {step}</h2>
+        <h2>{ title }. Step is {step}</h2>
       </div>
       <div className="section1C">
         <input

@@ -5,7 +5,7 @@ import check from "../globals/design-elements/check.png";
 import Footer from "./Footer";
 
 export default function RecipeFormFour (props) { 
-  const { history, step, prevPage, nextPage, onHandleChange, onHandleSubmit, onHandleInstructionInput, onAddInstruction, instruction, instructions, onHandleFinalSubmit } = props;
+  const { history, step, prevPage, title, nextPage, onHandleChange, onHandleSubmit, onHandleInstructionInput, onAddInstruction, instruction, instructions, onHandleFinalSubmit } = props;
   
   return ( 
     <div>
@@ -28,7 +28,7 @@ export default function RecipeFormFour (props) {
           <img className="submit-recipe" src={check} alt="submit recipe" />
         </button>
       </div>
-      <h2>Recipe Name. Step is {step}</h2>
+      <h2>{ title } Step is {step}</h2>
       <div className="instruction-input">
         <input
           onChange={onHandleInstructionInput}
