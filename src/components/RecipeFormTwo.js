@@ -3,9 +3,9 @@ import back from "../globals/design-elements/back.png";
 import check from "../globals/design-elements/check.png";
 import Footer from "./Footer";
 import foodplaceholder from "../images/foodplaceholder.png";
-import ArrowBackIcon from '@material-ui/icons/ArrowBack'; 
-import CheckIcon from '@material-ui/icons/Check'
-import StyledForm from './RecipeFormOne'
+import CheckIcon from '@material-ui/icons/Check';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { Link } from "react-router-dom";
 
 export default function RecipeFormTwo(props) {
   const { step, prevPage, uploadImage, recipe_file,
@@ -18,23 +18,21 @@ export default function RecipeFormTwo(props) {
     onSubmit={onHandleSubmit}
     >
       <div className="section1B">
+      
+      
+
       <div className="recipe-nav">
         <div
           className="back-arrow-container"
           onClick={prevPage}
           >
-          <ArrowBackIcon style={{ fontSize: 48 }} 
-        />
+          <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
         </div>
         <button
         type='submit'
           className="submit-recipe-container"
           >
-         <CheckIcon 
-          style={{ fontSize: 48,
-            color: 'white'
-         }}
-          />
+          <CheckIcon cgit style={{ fontSize: 40, color: 'white' }} />
         </button>
       </div>
         <h2>Recipe Name. Step is {step}</h2>

@@ -2,13 +2,10 @@ import React from "react";
 import styles from "styled-components";
 import arrow from "../images/left-arrow.png";
 import back from "../globals/design-elements/back.png";
-import check from "../globals/design-elements/check.png";
 import Footer from "./Footer";
-import { 
-  ArrowDiv
-} from '../globals/form-styles';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack'; 
-import CheckIcon from '@material-ui/icons/Check'
+import CheckIcon from '@material-ui/icons/Check';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { Link } from "react-router-dom";
 
 const ProgressBarDiv = styles.div`
 height: 1rem;
@@ -90,7 +87,11 @@ input:checked + .slider:before {
 }
 `
 
-export const StyledForm = styles.form`
+const AddTitle = styles.div`
+
+`
+
+const StyledForm = styles.form`
 display: flex;
 flex-direction: column;
 margin-top: 4rem;
@@ -155,34 +156,26 @@ export default function RecipeFormOne(props) {
           className="back-arrow-container"
           onClick={() => history.push("/profile")}
         >
-          <ArrowBackIcon 
-          fontSize='large'
-          // style={{ fontSize: 48 }} 
-        />
+        <Link to='/profile'>
+          <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+         </Link>
+        
         </div>
         <div
           type='submit'
           className="submit-recipe-container"
         >
-          <button 
-          >
-          <CheckIcon 
-          fontSize='large'
-          style={{
-            color: 'white'
-          }}
-          />
-          </button>
-        </div>
-      </div>
+        <CheckIcon cgit style={{ fontSize: 40, color: 'white' }} />
+        </button>
+              <AddTitle>
+                <input
+                  onChange={onHandleChange}
+                  type="text"
+                  name="title"
+                  placeholder="enter recipe name"
+                />
+      </AddTitle>
 
-        <div className="recipe-input">
-          <input
-            onChange={onHandleChange}
-            type="text"
-            name="title"
-            placeholder="enter recipe name"
-          />
         </div>
         <div className="section2">
           <label htmlFor="recipeCategoryInput">Category:</label>
