@@ -4,7 +4,9 @@ import { SeeRecipePopup } from "../globals/form-styles";
 export default function IngredientList({ ingredients, close }) {
   return (
     <SeeRecipePopup>
-      <button className="cancel-button">+</button>
+      <button onClick={close} className="cancel-button">
+        x
+      </button>
       <h1>Ingredients</h1>
       {/* <h2> 6 Tomatoes </h2> */}
       {ingredients.map((item, id) => (
