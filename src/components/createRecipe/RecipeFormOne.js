@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "styled-components";
-import back from "../globals/design-elements/back.png";
 import Footer from "../navigation/FooterNav";
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';

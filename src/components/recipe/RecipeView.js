@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../../actions/index";
 import Recipe from "./Recipe";
-import SearchBar from "./SearchBar";
-import Footer from "./Footer";
+import SearchBar from "../navigation/SearchBar";
+import Footer from "../navigation/FooterNav";
 import Loader from "../Loader";
-import "../App.css";
+import "../../App.css";
 
 const RecipeView = ({ getRecipes, recipeView, isFetching }) => {
   useEffect(() => {

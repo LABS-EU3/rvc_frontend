@@ -2,7 +2,7 @@ import React  from 'react';
 import { SearchBox } from '../../globals/navbar-styles';
 import { Link } from 'react-router-dom';
 import { logout } from '../../actions';
-import Navigation from './Navigation';
+import Navigation from '../navigation/HamburgerNav';
 
 const SearchBar = ({ recipe }) => {
 

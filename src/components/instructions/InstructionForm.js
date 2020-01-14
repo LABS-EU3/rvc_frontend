@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import * as actionCreators from '../../actions/index'
 import { withFormik, Field, Form } from 'formik'
 import * as Yup from 'yup'
-import Footer from './Footer'
+import Footer from '../navigation/FooterNav'
 function FormTemplate ({ touched, errors, values })  { 
   return (
     <>

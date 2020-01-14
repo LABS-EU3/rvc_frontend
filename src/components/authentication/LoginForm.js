@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { login } from '../../actions/index';
-import logo from "../globals/design-elements/logo.png";
-import arrow from "../images/left-arrow.png";
-import "../index.css";
+import logo from "../../globals/design-elements/logo.png";
+import arrow from "../../images/left-arrow.png";
+import "../../index.css";
 import {
   MainDiv,
   ArrowDiv,
