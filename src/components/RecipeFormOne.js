@@ -7,6 +7,17 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Link } from "react-router-dom";
 import { TextField, Select, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import {
+  ProgressBarDiv,
+  Section1,
+  SwitchDiv,
+  StyledForm,
+  NavigationSection1,
+  Addtitle,
+  Title,
+  Section2,
+  Step
+} from "../globals/form-styles";
 
 
 export const ProgressBarDiv = styles.div`
@@ -177,6 +188,18 @@ margin-top:8px;
 font-weight: 300;
 font-size: 15px;
 `
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    color: 'white'
+    // font-size: 18px
+  },
+}));
 
 
 export default function RecipeFormOne(props) {
@@ -351,9 +374,3 @@ export default function RecipeFormOne(props) {
     </div>
   );
 }
-
-export const Step = styles.div`
-display:flex;
-flex-direction:column;
-align-items: center;
-`

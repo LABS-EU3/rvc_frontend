@@ -17,7 +17,7 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
   budget, user_id, history }) {
   const [recipeImage, setRecipeImage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
 
   const nextPage = () => {
     setStep(step + 1);
@@ -209,10 +209,11 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
       return (
         <div className="App">
           <div>
-            <p>Hello from CreateRecipe 2</p>
+            {/* <p>Hello from CreateRecipe 2</p> */}
             <RecipeFormTwo
               title={title}
               step={step}
+              title={title}
               prevPage={prevPage}
               nextPage={nextPage}
               uploadImage={uploadImage}
@@ -230,12 +231,13 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
       return (
         <div className="App">
           <div>
-            <p>Hello from CreateRecipe 3</p>
+            {/* <p>Hello from CreateRecipe 3</p> */}
               <RecipeFormThree
               step={step}
               title={title}
               prevPage={prevPage}
               nextPage={nextPage}
+              title={title}
               onHandleChange={onHandleChange}
               onHandleSubmit={onHandleSubmit}
               onHandleIngredientInput={onHandleIngredientInput}
@@ -254,11 +256,12 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
       return (
         <div className="App">
           <div>
-            <p>Hello from CreateRecipe 4</p>
+            {/* <p>Hello from CreateRecipe 4</p> */}
               <RecipeFormFour
               step={step}
               title={title}
               prevPage={prevPage}
+              title={title}
               nextPage={nextPage}
               onHandleChange={onHandleChange}
               onHandleSubmit={onHandleSubmit}

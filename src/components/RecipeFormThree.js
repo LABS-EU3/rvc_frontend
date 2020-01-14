@@ -1,10 +1,22 @@
 import React from "react";
-import styles from "styled-components";
-import back from "../globals/design-elements/back.png";
-import check from "../globals/design-elements/check.png";
 import Footer from "./Footer";
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { Link } from "react-router-dom";
+import { TextField, Select, MenuItem } from '@material-ui/core';
+import AddCircleOutlineTwoToneIcon from '@material-ui/icons/AddCircleOutlineTwoTone';
+import {
+  ProgressBarDiv,
+  Section1,
+  NavigationSection1,
+  Addtitle,
+  Title,
+  Title2,
+  Section2b,
+  Section2,
+  AddItem
+} from "../globals/form-styles";
+
 
 export default function RecipeFormThree(props) {
   const { history, step, prevPage, nextPage, title, onHandleChange, onHandleSubmit, onHandleIngredientInput, onAddIngredient, ingredients, ingredient } = props;
@@ -14,36 +26,63 @@ export default function RecipeFormThree(props) {
       <form
       onSubmit={onHandleSubmit}
       >
-         <div className="recipe-nav">
+   <Section1>
+      <NavigationSection1>
         <div
-          className="back-arrow-container"
           onClick={prevPage}
-        >
+          >
           <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
         </div>
         <button
-          type='submit'
-          className="submit-recipe-container"
-        >
-           <CheckIcon cgit style={{ fontSize: 40, color: 'white' }} />
+        type='submit'
+          >
+          <CheckIcon cgit style={{ fontSize: 40, color: 'white' }} />
         </button>
-      </div>
+      {/* PREVIOUS CODE BLOCK */}
+      {/* </div>
 
       <h2>{ title }. Step is {step}</h2>
       <div className="ingredient-input">
-        <input
+        <input */}
+      {/* PREVIOUS CODE BLOCK END */}
+      </NavigationSection1>
+      <Addtitle>
+        <h1>{title}</h1>
+        </Addtitle>
+      </Section1>
+      <Section2>
+        <Title2> Add ingredients </Title2>
+        <TextField
+          id="filled-full-width"
+          style={{ margin: 8 }}
+          placeholder="Add ingredient"
+          helperText="click on the plus button to add your ingredient!"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="filled"
           onChange={onHandleIngredientInput}
           type="text"
           name="name"
           value={ingredient.name}
-          placeholder="add ingredient"
         />
+        {/* <input
+          onChange={onHandleIngredientInput}
+          type="text"
+          name="name"
+          value={ingredient.name}
+          /> */}
         <button
         onClick={onAddIngredient}
         >
-          +
+          <AddCircleOutlineTwoToneIcon cgit style={{ fontSize: 40, color: '#0AB38A' }} />
         </button>
-      </div>
+
+      {/* PREVIOUS CODE BLOCK */}
+      
+      {/* </div>
       <div className="progress-bar-container">
           <div
             style={{
@@ -53,8 +92,11 @@ export default function RecipeFormThree(props) {
               borderRadius: "5px"
             }}
           ></div>
-        </div>
+        </div> */}
+      {/* PREVIOUS CODE BLOCK END*/}
 
+
+      </Section2>
       {/* <div className="section2">
           <label htmlFor="ingredientQuantityInput"></label>
           <input
@@ -90,13 +132,17 @@ export default function RecipeFormThree(props) {
           </select>
       </div> */}
       </form>
-      <div>
+      <Section2>
         {
           ingredients.map(item =>(
-          <p>{item.quantity} {item.unit} of {item.name} </p>
+          <AddItem>
+              <p>{item.quantity} {item.unit} {item.name} </p>
+          </AddItem>
+              
           ))
         }
-      </div>
+      </Section2>
+      <Footer/>
     </div>
   )
 }
