@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import * as actionCreators from '../actions/index'
 import Ingredient from './Ingredient'
-import FormikIngredientForm from './IngredientForm'
 
 
 const IngredientView = ({ getIngredients, ingredientView, ingredients }) => { 
@@ -14,7 +13,6 @@ const IngredientView = ({ getIngredients, ingredientView, ingredients }) => {
  console.log(ingredientView)
  return (
    <div>
-   <FormikIngredientForm/>
     <div>
       {ingredientView.map(ingredient=>
       <Ingredient

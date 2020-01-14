@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.7.2",
+    "@material-ui/icons": "^4.5.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.3",
     "@testing-library/user-event": "^7.1.2",
@@ -13,6 +14,7 @@
     "express": "^4.17.1",
     "formik": "^2.0.7",
     "less": "^3.10.3",
+    "material-design-icons": "^3.0.1",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
@@ -21,8 +23,10 @@
     "react-scripts": "3.3.0",
     "reactjs-popup": "^1.5.0",
     "redux": "^4.0.4",
+    "redux-form": "^8.2.6",
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.4.1",
+    "typeface-roboto": "0.0.75",
     "waterfall.js": "^1.1.0",
     "yup": "^0.27.0"
   },

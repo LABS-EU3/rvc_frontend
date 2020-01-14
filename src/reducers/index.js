@@ -1,174 +1,283 @@
 import * as types from "../actions/actionTypes";
 
-// const initialValueCount = 0;
-// export function countReducer(count = initialValueCount, action) {
-//   switch (action.type) {
-//     case types.INCREMENT:
-//       return count + 1;
-//     case types.DECREMENT:
-//       return count - 1;
-//     case types.RESET:
-//       return 0;
-//     default:
-//       return count;
-//   }
-// }
-
-const initialOnboardingState = { 
-  user_id : '',
-  message : '',
-  error : '', 
-  isFetching : false,
-  isLoggedIn : false
+const initialOnboardingState = {
+  user_id: localStorage.getItem("userID") || "",
+  username: localStorage.getItem("username") || "",
+  token: localStorage.getItem("token") || "",
+  message: "",
+  error: "",
+  isFetching: false,
+  isLoggedIn: false
 };
 
-export const onBoardingReducer = (state = initialOnboardingState, action) => { 
-  switch(action.type) { 
-    case types.REQUEST_START: 
-    return { 
-      ...state,
-      isFetching : true,
-      error : ''
-    };
+export const onBoardingReducer = (state = initialOnboardingState, action) => {
+  switch (action.type) {
+    case types.REQUEST_START:
+      return {
+        ...state,
+        isFetching: true,
+        error: ""
+      };
     case types.REGISTER_SUCCESS:
-      return { 
+      return {
         ...state,
-        user_id : action.payload.userID,
-        message : action.payload.message,
-        isFetching : false
+        user_id: action.payload.id,
+        username: action.payload.username,
+        token: action.payload.token,
+        message: action.payload.message,
+        isFetching: false,
+        isLoggedIn: true
       };
-    case types.REGISTER_FAILURE: 
-      return { 
+    case types.REGISTER_FAILURE:
+      return {
         ...state,
-        error : action.payload,
-        isFetching : false
+        error: action.payload,
+        isFetching: false
       };
-    case types.LOGIN_SUCCESS: 
-      return { 
-        user_id : action.payload.userID,
-        message : action.payload.message,
-        isFetching : false,
-        isLoggedIn : true
+    case types.LOGIN_SUCCESS:
+      return {
+        user_id: action.payload.id,
+        username: action.payload.username,
+        token: action.payload.token,
+        message: action.payload.message,
+        isFetching: false,
+        isLoggedIn: true
       };
-    case types.LOGIN_FAILURE: 
-      return { 
+    case types.LOGIN_FAILURE:
+      return {
         ...state,
-        error : action.payload,
-        isFetching : false,
-        isLoggedIn : false
-      }
+        error: action.payload,
+        isFetching: false,
+        isLoggedIn: false
+      };
     default:
       return state;
   }
-}
+};
 
-const initialRecipeView = { 
-  recipeView : [],
-  error : '',
-  isFetching : false 
-}
+const initialRecipeView = {
+  recipeView: [],
+  error: "",
+  isFetching: false
+};
 
-export const recipeViewReducer = (state = initialRecipeView, action) => { 
-  switch( action.type) { 
-    case types.REQUEST_START: 
-      return { 
-        ...state, 
-        isFetching : true
+export const recipeViewReducer = (state = initialRecipeView, action) => {
+  switch (action.type) {
+    case types.REQUEST_START:
+      return {
+        ...state,
+        isFetching: true
       };
     case types.GET_ALL_RECIPES_SUCCESS:
-      return { 
+      return {
         ...state,
-        recipeView : action.payload,
-        isFetching : false
+        recipeView: action.payload,
+        isFetching: false
       };
-    case types.GET_ALL_RECIPES_FAILURE: 
-      return { 
+    case types.GET_ALL_RECIPES_FAILURE:
+      return {
         ...state,
-        error : action.payload,
-        isFetching : false
+        error: action.payload,
+        isFetching: false
       };
 
     default:
-      return state
+      return {
+        ...state,
+        isFetching: false
+      };
   }
-}
-
-const initialRecipeState = { 
-  recipe_id : '',
-  message : '',
-  error : '', 
-  isFetching : false,
 };
-export const createRecipeReducer = ( state = initialRecipeState, action) => {
-  switch(action.type) { 
-    case types.REQUEST_START :
-      return { 
+
+const initialSingleRecipe = {
+  recipe: [],
+  error: "",
+  isFetching: false
+};
+export const singleRecipeReducer = (state = initialSingleRecipe, action) => {
+  switch (action.type) {
+    case types.GET_RECIPE:
+      return {
         ...state,
-        isFetching : true,
-        error : ''
+        isFetching: true
       };
-    case types.ADD_RECIPE_SUCCESS : 
-      return { 
-        ...state, 
-        recipe_id : action.payload.recipeID,
-        message : action.payload.message,
-        isFetching : false
-      };
-    case types.ADD_RECIPE_FAILURE : 
-      return { 
+    case types.GET_RECIPE_SUCCESS:
+      return {
         ...state,
-        recipe_id : action.payload.recipeID,
-        error : action.payload,
-        isFetching : false
-      }
-    default : 
-    return state;
+        recipe: action.payload,
+        isFetching: false
+      };
+    case types.GET_RECIPE_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false
+      };
+    default:
+      return {
+        ...state,
+        isFetching: false
+      };
   }
-}
+};
 
-const initialIngredient = { 
-  ingredientView : [],
-  error : '', 
-  isFetching : false
-}
+const initialIngredient = {
+  ingredientView: [],
+  error: "",
+  isFetching: false
+};
 
-export const ingredientReducer = ( state = initialIngredient, action) => { 
-    switch(action.type){
-      case types.REQUEST_START:
-        return {
-          ...state,
-          isFetching: true
-        }
-      
-      case types.GET_INGREDIENT_SUCCESS:
-        return { 
-          ...state,
-          ingredientView : action.payload,
-          isFetching : false
-        }
-      case types.GET_INGREDIENT_FAILURE:
-        return { 
-          ...state,
-          error : action.payload,
-          isFetching : false
-        }
-      case types.RESET_DISPLAYED_INGREDIENTS:
-        return {
-          state : action.payload
-        }
-      case types.ADD_INGREDIENT_SUCCESS:
-      return { 
+export const ingredientReducer = (state = initialIngredient, action) => {
+  switch (action.type) {
+    case types.REQUEST_START:
+      return {
         ...state,
-        ingredientView : [...state.ingredientView, action.payload],
-        isFetching : false
-      }
+        isFetching: true
+      };
+
+    case types.GET_INGREDIENT_SUCCESS:
+      return {
+        ...state,
+        ingredientView: action.payload,
+        isFetching: false
+      };
+    case types.GET_INGREDIENT_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false
+      };
+    case types.RESET_DISPLAYED_INGREDIENTS:
+      return {
+        state: action.payload
+      };
+    case types.ADD_INGREDIENT_SUCCESS:
+      return {
+        ...state,
+        ingredientView: [...state.ingredientView, action.payload],
+        isFetching: false
+      };
     case types.ADD_INGREDIENT_FAILURE:
-      return{ 
+      return {
         ...state,
-        error : action.payload, 
-        isFetching : false
-      }
+        error: action.payload,
+        isFetching: false
+      };
     default:
       return state;
-    }
   }
+};
+
+const initialInstruction = {
+  instructionView: [],
+  error: "",
+  isFetching: false
+};
+
+export const instructionReducer = (state = initialInstruction, action) => {
+  switch (action.type) {
+    case types.REQUEST_START:
+      return {
+        ...state,
+        isFetching: true
+      };
+
+    case types.GET_INSTRUCTION_SUCCESS:
+      return {
+        ...state,
+        instructionView: action.payload,
+        isFetching: false
+      };
+    case types.GET_INSTRUCTION_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false
+      };
+    case types.RESET_DISPLAYED_INSTRUCTIONS:
+      return {
+        state: action.payload
+      };
+    case types.ADD_INSTRUCTION_SUCCESS:
+      return {
+        ...state,
+        instructionView: [...state.instructionView, action.payload],
+        isFetching: false
+      };
+    case types.ADD_INSTRUCTION_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false
+      };
+    default:
+      return state;
+  }
+};
+
+//attempt 2
+const initialRecipeState = {
+  title: "",
+  recipe_category: "",
+  tags: [],
+  tag: "",
+  recipe_file: "",
+  ingredients: [],
+  instructions: [],
+  description: "",
+  time_required: null,
+  difficulty: null,
+  budget: null,
+  isFetching: false,
+  error: "",
+  message: ""
+};
+
+export const newRecipeReducer = (state = initialRecipeState, action) => {
+  switch (action.type) {
+    case types.ADD_TO_NEW_RECIPE:
+      return {
+        ...state,
+        ...action.payload
+      };
+
+    case types.REQUEST_START:
+      return {
+        ...state,
+        isFetching: true
+      };
+    case types.POST_NEW_RECIPE_SUCCESS:
+      return {
+        ...state,
+        message: action.payload.message,
+        isFetching: false
+      };
+    case types.RESET_NEW_RECIPE:
+      return {
+        ...state,
+        title: "",
+        recipe_category: "",
+        tags: [],
+        tag: "",
+        recipe_file: "",
+        ingredients: [],
+        instructions: [],
+        description: "",
+        time_required: null,
+        difficulty: null,
+        budget: null,
+        isFetching: false,
+        error: "",
+        message: ""
+      };
+    case types.POST_NEW_RECIPE_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false
+      };
+
+    default:
+      return state;
+  }
+};

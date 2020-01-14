@@ -1,14 +1,14 @@
+import * as reducers from "../reducers";
 import { combineReducers, createStore, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
-import * as reducers from "../reducers";
-
 const monsterReducer = combineReducers({
-  // count: reducers.countReducer
+  newRecipe : reducers.newRecipeReducer,
   onboard : reducers.onBoardingReducer,
   recipes : reducers.recipeViewReducer,
-  create: reducers.createRecipeReducer,
-  ingredients : reducers.ingredientReducer
+  // create: reducers.createRecipeReducer,
+  singleRecipe: reducers.singleRecipeReducer,
+  ingredients : reducers.ingredientReducer,
 });
 
 const store = createStore(
