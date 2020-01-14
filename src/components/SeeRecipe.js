@@ -126,7 +126,7 @@ export const ImgRecipe = styled.div`
   margin-top: -10%;
   margin-bottom: 2%;
   img {
-    object-fit: scale-down;
+    width: 100%;
   }
 `;
 export const DescriptionDiv = styled.div`
