@@ -288,7 +288,7 @@ export default function RecipeFormOne(props) {
               <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
             </Link>
           </div>
-          <button type='submit' style={{"border":"0 none white "}}>
+          <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
           <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
         </button>
         </NavigationSection1>
@@ -421,7 +421,7 @@ export default function RecipeFormOne(props) {
                 }
               }}
             required
-            
+
           />
         </div>
         <div>
