@@ -205,7 +205,30 @@ const useStyles = makeStyles(theme => ({
 export default function RecipeFormOne(props) {
   const { history, step, nextPage, onHandleChange, onHandleSubmit } = props;
   const progressBarWidth = (step-1) * 100/4;
+  // const useStyles = makeStyles(theme => ({
+  //   root: {
+  //     display: 'flex',
+  //     flexWrap: 'wrap',
+  //   },
+  //   textField: {
+  //     marginLeft: theme.spacing(1),
+  //     marginRight: theme.spacing(1),
+  //     color: 'white',
+  //     fontSize: '30px'
+  //   },
+  // }));
+
   const useStyles = makeStyles(theme => ({
+    inputRoot: {
+      fontSize: 30
+    },
+    labelRoot: {
+      fontSize: 30,
+      color: "white",
+      "&$labelFocused": {
+        color: "white"
+      }
+    },
     root: {
       display: 'flex',
       flexWrap: 'wrap',
@@ -213,8 +236,7 @@ export default function RecipeFormOne(props) {
     textField: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
-      color: 'white',
-      fontSize: '30px'
+      color: 'white'
     },
   }));
   
@@ -238,7 +260,7 @@ export default function RecipeFormOne(props) {
           <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
         </button>
         </NavigationSection1>
-            <Addtitle>
+            {/* <Addtitle>
             <TextField
               id="standard-full-width"
               style={{ color: "white" }}
@@ -252,6 +274,28 @@ export default function RecipeFormOne(props) {
               className={classes.textField}
               InputLabelProps={{
                 shrink: true,
+              }}
+        />
+      </Addtitle> */}
+      <Addtitle>
+            <TextField
+              id="standard-full-width"
+              style={{ color: "white" }}
+              onChange={onHandleChange}
+              type="text"
+              name="title"
+              placeholder="Enter recipe name"
+              required
+              fullWidth
+              margin="normal"
+              InputProps={{ classes: { root: classes.inputRoot } }}
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true,
+                classes: {
+                  root: classes.labelRoot,
+                  focused: classes.labelFocused
+                }
               }}
         />
       </Addtitle>
@@ -294,7 +338,7 @@ export default function RecipeFormOne(props) {
             onChange={onHandleChange}
             type="number"
             name="time_required"
-            placeholder="Times"
+            placeholder="Time required"
             min='1'
             max='1000'
             required
