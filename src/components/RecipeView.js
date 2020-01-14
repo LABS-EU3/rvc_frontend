@@ -4,9 +4,10 @@ import * as actionCreators from "../actions/index";
 import Recipe from "./Recipe";
 import SearchBar from "./SearchBar";
 import Footer from "./Footer";
+import Loader from "./Loader";
 import "../App.css";
 
-const RecipeView = ({ getRecipes, recipeView }) => {
+const RecipeView = ({ getRecipes, recipeView, isFetching }) => {
   useEffect(() => {
     getRecipes();
   }, [getRecipes]);
@@ -14,6 +15,7 @@ const RecipeView = ({ getRecipes, recipeView }) => {
   return (
     <div>
       <SearchBar />
+      {isFetching ? <Loader /> : null}
       <div className="container">
         {recipeView.map(recipe => (
           <Recipe key={recipe.id} recipe={recipe} />

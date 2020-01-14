@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actionCreators from "../actions/index";
-import { getRecipesById} from '../actions/index';
+import { getRecipesById } from "../actions/index";
 import Popup from "reactjs-popup";
 import styled from "styled-components";
 import { CardDiv } from "../globals/card-styles";
@@ -11,19 +11,20 @@ import dishImg from "../images/dish1.jpg";
 import IngredientList from "./IngredientList";
 import InstructionList from "./InstructionList";
 import Footer from "./Footer";
+import Loader from "./Loader";
 import "../App.css";
 
-function SeeRecipe({ match, recipeView, singleRecipe, getRecipesById, recipe }) {
-  console.log('llll',recipe)
+function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
+  console.log("llll", recipe);
   // const getRecipe = id => {
   //   return recipeView.filter(recipe => recipe.id === parseInt(id, 10));
   // };
   const recipeID = match.params.id.trim();
   // const recipe = recipeID ? getRecipe(recipeID)[0] : {};
 
-  useEffect(() => { 
+  useEffect(() => {
     getRecipesById(recipeID);
-  }, [getRecipesById, recipeID])
+  }, [getRecipesById, recipeID]);
   return (
     <div>
       <RecipeTopDiv>
@@ -42,22 +43,38 @@ function SeeRecipe({ match, recipeView, singleRecipe, getRecipesById, recipe }) 
         </TopButtonDiv>
       </RecipeTopDiv>
       <CardDiv>
+        {isFetching ? <Loader /> : null}
         <ImgRecipe>
-          <img src={ dishImg} alt="jj" />
+          <img
+            src={recipe.images ? recipe.images[0] : null || dishImg}
+            alt={recipe.recipe_title}
+          />
         </ImgRecipe>
         <DescriptionDiv>
           <ProfilePicture>
             {/* <img src={profile} alt="profile" /> */}
-            <h1> { `C`} </h1>
+            <h1>
+              {" "}
+              {recipe.author
+                ? recipe.author[0].toUpperCase()
+                : null || `C`}{" "}
+            </h1>
           </ProfilePicture>
-          <DetailsRecipe>{ ""}</DetailsRecipe>
+          <DetailsRecipe>{recipe.recipe_title || ""}</DetailsRecipe>
         </DescriptionDiv>
         <BottomButtonDiv>
           <Popup modal trigger={<LgButton>Ingredients</LgButton>}>
-            {close => <IngredientList close={close} />}
+            {close => (
+              <IngredientList ingredients={recipe.ingredients} close={close} />
+            )}
           </Popup>
           <Popup modal trigger={<LgButton>Instructions</LgButton>}>
-            {close => <InstructionList close={close} />}
+            {close => (
+              <InstructionList
+                instructions={recipe.instructions}
+                close={close}
+              />
+            )}
           </Popup>
         </BottomButtonDiv>
       </CardDiv>
@@ -66,7 +83,9 @@ function SeeRecipe({ match, recipeView, singleRecipe, getRecipesById, recipe }) 
   );
 }
 
-export default connect(state => ({singleRecipe: state.singleRecipe}), { getRecipesById})(SeeRecipe);
+export default connect(state => state.singleRecipe, {
+  getRecipesById
+})(SeeRecipe);
 
 export const RecipeTopDiv = styled.div`
   display: flex;
@@ -107,7 +126,7 @@ export const ImgRecipe = styled.div`
   margin-top: -10%;
   margin-bottom: 2%;
   img {
-    object-fit: scale-down;
+    width: 100%;
   }
 `;
 export const DescriptionDiv = styled.div`

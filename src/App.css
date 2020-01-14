@@ -12,7 +12,7 @@
 #root {
   max-width: 550px;
   height: 100vh;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 .App {
@@ -60,25 +60,24 @@
   text-align: center;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid #0AB28A;
+  border-bottom: 1px solid #0ab28a;
   box-sizing: border-box;
-  color: #0AB28A;
+  color: #0ab28a;
   display: block;
   font-size: 16px;
   margin-bottom: 30px;
   outline: none !important;
-  opacity: .6;
+  opacity: 0.6;
   padding-bottom: 1.5rem;
 }
 
 .input::placeholder {
-  color:black;
+  color: black;
 }
 
 .formik-form {
   width: 80%;
   margin: 0 auto;
-  
 }
 
 .spaced-div {
@@ -87,165 +86,148 @@
 
 .register-button {
   width: 100%;
-background-color: #0AB38A;
-border: 0;
-border-radius: 2.8rem;
-display: table-cell;
-vertical-align: middle;
-font-weight: bold;
-font-size: 2.4rem;
-height: 4.5rem;
-text-align: center;
-vertical-align: middle;
-color: #FFFFFF;
-outline: none !important;
-overflow: hidden;
-transition: box-shadow 150ms;
+  background-color: #0ab38a;
+  border: 0;
+  border-radius: 2.8rem;
+  display: table-cell;
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 2.4rem;
+  height: 4.5rem;
+  text-align: center;
+  vertical-align: middle;
+  color: #ffffff;
+  outline: none !important;
+  overflow: hidden;
+  transition: box-shadow 150ms;
 }
 
-
 /*HAMBURGER MENU STYLE*/
-a
-{
+a {
   text-decoration: none;
   color: #232323;
-  
+
   transition: color 0.3s ease;
 }
 
-a:hover
-{
-  color: #0AB28A;
+a:hover {
+  color: #0ab28a;
 }
 
-#menuToggle
-{
+#menuToggle {
   display: block;
   position: absolute;
   top: 23px;
-  right: 11px;  
+  right: 11px;
   z-index: 1;
-  
+
   -webkit-user-select: none;
   user-select: none;
 }
 
-#menuToggle input
-{
+#menuToggle input {
   display: block;
   width: 40px;
   height: 32px;
   position: absolute;
   top: -7px;
   left: -5px;
-  
+
   cursor: pointer;
-  
+
   opacity: 0; /* hide this */
   z-index: 2; /* and place it over the hamburger */
-  
+
   -webkit-touch-callout: none;
 }
 
 /*
  * Just a quick hamburger
  */
-#menuToggle span
-{
+#menuToggle span {
   display: block;
   width: 33px;
   height: 4px;
   margin-right: 7px;
   margin-bottom: 5px;
-  position: relative;  
+  position: relative;
   background: #cdcdcd;
-  border-radius: 3px;  
-  z-index: 1;  
-  transform-origin: 4px 0px;  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-   background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-  opacity 0.55s ease;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
 }
 
-#menuToggle span:first-child
-{
+#menuToggle span:first-child {
   transform-origin: 0% 0%;
 }
 
-#menuToggle span:nth-last-child(2)
-{
+#menuToggle span:nth-last-child(2) {
   transform-origin: 0% 100%;
 }
 
-#menuToggle input:checked ~ span
-{
+#menuToggle input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
   background: #232323;
 }
 
-#menuToggle input:checked ~ span:nth-last-child(3)
-{
+#menuToggle input:checked ~ span:nth-last-child(3) {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-#menuToggle input:checked ~ span:nth-last-child(2)
-{
+#menuToggle input:checked ~ span:nth-last-child(2) {
   opacity: 1;
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-#menu
-{
+#menu {
   position: absolute;
   width: 320px;
   margin: -50px 0 0 0;
   /* padding: 50px; */
   padding-top: 125px;
   right: -50%;
-  height: 100vh;  
+  height: 100vh;
   background: white;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
-  
+
   transform-origin: 0% 0%;
   transform: translate(100%, 0);
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
-#menu li
-{
+#menu li {
   padding: 10px 0;
   font-size: 22px;
-  
 }
 
 #menu a li:hover {
-  background-color: #0AB28A;
+  background-color: #0ab28a;
   color: white;
 }
 
-#menuToggle input:checked ~ ul
-{
-  transform: scale(1.0, 1.0);
+#menuToggle input:checked ~ ul {
+  transform: scale(1, 1);
   opacity: 1;
 }
 
 /* Recipes View */
 
-
-.container { 
+.container {
   /* width: 1200px; */
-  margin: 0 auto ;
+  margin: 0 auto;
   columns: 3;
   column-gap: 1px;
   margin-top: 15%;
 }
 
-.container .box { 
+.container .box {
   width: 100%;
   margin: 0 0 10px;
   padding: 10px;
@@ -254,26 +236,23 @@ a:hover
   break-inside: avoid;
 }
 
-.container .box img { 
-  max-width:  100%;
-
+.container .box img {
+  max-width: 100%;
 }
 
-.container .box p { 
-  margin: 5px  0 0;
+.container .box p {
+  margin: 5px 0 0;
   padding: 0 0 10px;
-  font-size: 16px  
+  font-size: 16px;
 }
 
-@media (max-width:1200px) 
-{
+@media (max-width: 1200px) {
   .container {
-    columns:4;
+    columns: 4;
     width: calc(100% - 5%);
     box-sizing: border-box;
-    padding: 10px 10px  10px 0;
+    padding: 10px 10px 10px 0;
   }
-
 }
 
 /* @media (max-width:768px) {
@@ -288,18 +267,16 @@ a:hover
 }
 
 .recipe {
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 9px;
-
-
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
 }
 
 .recipe-card {
-background: rgba(196, 196, 196, 0.12);
-border-radius: 15px;
-text-align: start;
-padding:2vh;
-margin-top:2vh;
+  background: rgba(196, 196, 196, 0.12);
+  border-radius: 15px;
+  text-align: start;
+  padding: 2vh;
+  margin-top: 2vh;
 }
 
 .recipe-card-tag {
@@ -309,15 +286,15 @@ margin-top:2vh;
 }
 
 .level-recipe {
-  color:transparent;
+  color: transparent;
   border: 1px solid;
   border-radius: 50%;
   width: 18px;
   height: 18px;
-  background-color:red;
+  background-color: red;
 }
 
-/* index.css */ 
+/* index.css */
 .modal {
   font-size: 12px;
 }
@@ -348,7 +325,7 @@ margin-top:2vh;
   line-height: 20px;
   top: 8px;
   font-size: 24px;
-  background: #0AB28A;
+  background: #0ab28a;
   border-radius: 18px;
   border: 1px solid #cfcece;
 }
@@ -363,7 +340,6 @@ margin-top:2vh;
   width: 45%;
   height: 100%;
   margin: 0 2px;
-
 }
 
 .profile-pic {
@@ -400,7 +376,6 @@ margin-top:2vh;
 
 .profile-icons-image {
   height: 2.5rem;
-
 }
 
 .divider-wrapper {
@@ -410,7 +385,7 @@ margin-top:2vh;
 
 #divider {
   border-width: 1px;
-  background-color:  rgb(0, 172, 238);
+  background-color: rgb(0, 172, 238);
   padding: 0 12px;
 }
 
@@ -420,13 +395,13 @@ margin-top:2vh;
 
 .profile-img {
   text-align: center;
-    border: 1px solid black;
-    width: 26%;
-    height: 20%;
-    margin: 2px auto;
-    border-radius: 50%;
-    color: white;
-    background-color: #0AB28A;
+  border: 1px solid black;
+  width: 26%;
+  height: 20%;
+  margin: 2px auto;
+  border-radius: 50%;
+  color: white;
+  background-color: #0ab28a;
 }
 
 .edit-profile-form {
@@ -437,7 +412,8 @@ margin-top:2vh;
   padding: 0 2px;
 }
 
-.edit-profile-form input, select {
+.edit-profile-form input,
+select {
   height: 8%;
   background: rgba(10, 179, 138, 0.08);
   width: 100%;
@@ -445,10 +421,9 @@ margin-top:2vh;
 }
 
 .popup-content {
-width: 80% !important;
-background: #FFFFFF;
-box-shadow: 0px 4px 85px #181818;
-
+  width: 80% !important;
+  background: #ffffff;
+  box-shadow: 0px 4px 85px #181818;
 }
 
 .edit-profile-form button {
@@ -465,10 +440,10 @@ box-shadow: 0px 4px 85px #181818;
   padding-left: 20px;
 }
 
-.cancel-button{
+.cancel-button {
   height: 35px;
   width: 8%;
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
   border-radius: 32%;
   position: relative;
   top: 0.5rem;
@@ -477,85 +452,100 @@ box-shadow: 0px 4px 85px #181818;
 .recipe {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 9px;
-  }
-  .recipe-card {
+}
+.recipe-card {
   background: rgba(196, 196, 196, 0.12);
   border-radius: 15px;
   text-align: start;
-  padding:2vh;
-  margin-top:2vh;
-  }
-  .recipe-card-tag {
-    display: flex;
-    justify-content: space-between;
-    /* margin-right: 45px; */
-  }
-  .level-recipe {
-    color:transparent;
-    border: 1px solid;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    background-color:red;
-  }
-  .recipe-nav {
-    background-color: #0AB28A;
-    height: 12rem;
-  }
-  .back-arrow-container {
-    width: 37px;
-    height: 30px;
-    color: white;
-    position: relative;
-    top: 1rem;
-    left: 1rem;
-  }
-  .submit-recipe-container {
-    display: block;
-    width: 37px;
-    height: 30px;
-    position: relative;
-    left: 45rem;
-    bottom: 2rem;
-    background-color: inherit;
-    border: none;
-    outline: none;
-  }
-  .back-arrow {
-    width: 100%;
-  }
-  .back-arrow {
-    width: 100%;
-    color: white;
-  }
-  .submit-recipe {
-    width: 100%;
-    color: white; 
-  }
-  
-  input::placeholder {
-    padding-left: 2rem;
-    color: green; 
-  }
-  .progress-bar-container{
-    height: 1rem;
-    background-color: #C4C4C4;
-    margin: 0 auto;
-    width: 80%;
-    border-radius: 5px;
-  }
+  padding: 2vh;
+  margin-top: 2vh;
+}
+.recipe-card-tag {
+  display: flex;
+  justify-content: space-between;
+  /* margin-right: 45px; */
+}
+.level-recipe {
+  color: transparent;
+  border: 1px solid;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  background-color: red;
+}
+.recipe-nav {
+  background-color: #0ab28a;
+  height: 12rem;
+}
+.back-arrow-container {
+  width: 37px;
+  height: 30px;
+  color: white;
+  position: relative;
+  top: 1rem;
+  left: 1rem;
+}
+.submit-recipe-container {
+  display: block;
+  width: 37px;
+  height: 30px;
+  position: relative;
+  left: 45rem;
+  bottom: 2rem;
+  background-color: inherit;
+  border: none;
+  outline: none;
+}
+.back-arrow {
+  width: 100%;
+}
+.back-arrow {
+  width: 100%;
+  color: white;
+}
+.submit-recipe {
+  width: 100%;
+  color: white;
+}
 
-  /* Rules for sizing the icon. */
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
+input::placeholder {
+  padding-left: 2rem;
+  color: green;
+}
+.progress-bar-container {
+  height: 1rem;
+  background-color: #c4c4c4;
+  margin: 0 auto;
+  width: 80%;
+  border-radius: 5px;
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
 
 /* Rules for using icons as black on a light background. */
-.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54);
+}
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26);
+}
 
 /* Rules for using icons as white on a dark background. */
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
-  
+.material-icons.md-light {
+  color: rgba(255, 255, 255, 1);
+}
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
+}
