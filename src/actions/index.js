@@ -155,5 +155,3 @@ export const addToNewRecipe = newRecipeData => {
     payload: newRecipeData
   };
 };
-
-

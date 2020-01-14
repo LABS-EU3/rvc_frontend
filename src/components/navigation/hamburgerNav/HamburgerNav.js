@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { logout } from "../../actions";
+import { logout } from "../../../actions";
 const Navigation = () => {
   const isLoggedIn = localStorage.getItem("token");
   return (
@@ -12,20 +12,16 @@ const Navigation = () => {
           <span></span>
           <span></span>
           <ul id="menu">
-          <li><Link to="/">
-              Home
-            </Link> </li>           
+            <li>
+              <Link to="/">Home</Link>{" "}
+            </li>
             {isLoggedIn ? (
-              <div>              
+              <div>
                 <li>
-                <Link to="/createrecipe">
-              Create
-            </Link>
+                  <Link to="/createrecipe">Create</Link>
                 </li>
                 <li>
-                <Link to="/profile">
-              Profile
-            </Link>
+                  <Link to="/profile">Profile</Link>
                 </li>
                 <li
                   onClick={() => {
@@ -45,9 +41,6 @@ const Navigation = () => {
                 </li>
               </div>
             )}
-            {/* <Link to='/' style={{ textDecoration: 'none' }}>
-    <li onClick={() => { logout()}}>Logout</li>
-      </Link> */}
           </ul>
         </div>
       </nav>
