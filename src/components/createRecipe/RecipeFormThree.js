@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "./Footer";
+import Footer from "../navigation/FooterNav";
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Link } from "react-router-dom";
@@ -16,7 +16,7 @@ import {
   Section2,
   AddItem,
   Step
-} from "../globals/form-styles";
+} from "../../globals/form-styles";
 
 
 export default function RecipeFormThree(props) {

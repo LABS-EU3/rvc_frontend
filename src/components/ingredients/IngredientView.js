@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import * as actionCreators from '../actions/index'
+import * as actionCreators from '../../actions/index'
 import Ingredient from './Ingredient'
 
 

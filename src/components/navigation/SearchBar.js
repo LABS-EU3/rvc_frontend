@@ -1,7 +1,7 @@
 import React  from 'react';
-import { SearchBox } from '../globals/navbar-styles';
+import { SearchBox } from '../../globals/navbar-styles';
 import { Link } from 'react-router-dom';
-import { logout } from '../actions';
+import { logout } from '../../actions';
 import Navigation from './Navigation';
 
 const SearchBar = ({ recipe }) => {

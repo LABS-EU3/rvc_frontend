@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { login } from '../actions/index';
+import { register } from "../../actions/index";
 import logo from "../globals/design-elements/logo.png";
 import arrow from "../images/left-arrow.png";
 import "../index.css";
@@ -15,20 +15,21 @@ import {
   H1,
   DescriptionForm,
   LinkFooter
-} from "../globals/form-styles";
+} from "../../globals/form-styles";
 
 function FormTemplate({ touched, errors }) {
   return (
     <MainDiv>
       <ArrowDiv>
         <Link to='/'>
+        {/* <Link to="/"> */}
           <img src={arrow} alt="arrow" />
         </Link>
       </ArrowDiv>
       <Logo>
         <img src={logo} alt="Logo" />
       </Logo>
-      <H1> Login</H1>
+      <H1> Register</H1>
       <DescriptionForm>
         {" "}
         Create a profile, follow your favorites cooks, save delicious recipes
@@ -36,6 +37,10 @@ function FormTemplate({ touched, errors }) {
       </DescriptionForm>
 
       <Form className="formik-form">
+        <div>
+          {touched.email && errors.email}
+          <Field type="email" name="email" class="input" placeholder="Email" />
+        </div>
         <div>
           {touched.username && errors.username}
           <Field
@@ -45,7 +50,7 @@ function FormTemplate({ touched, errors }) {
             placeholder="Username"
           />
         </div>
-        <div className="spaced-div">
+        <div>
           {touched.password && errors.password}
           <Field
             type="password"
@@ -54,31 +59,39 @@ function FormTemplate({ touched, errors }) {
             placeholder="Password"
           />
         </div>
+
         <button type="submit" className="register-button">
-          Login
+          Register
         </button>
+
+        <FooterDiv>
+          <p>
+            Already have an account?
+            <Link to="/login" style={{ textDecoration: "none" }}>
+              {""}
+              <LinkFooter>Log in</LinkFooter>
+            </Link>
+          </p>
+        </FooterDiv>
       </Form>
-      <FooterDiv>
-        <p>
-          Don't have an account?{" "}
-          <Link to="/register" style={{ textDecoration: "none" }}>
-            <LinkFooter> Register</LinkFooter>
-          </Link>{" "}
-        </p>
-      </FooterDiv>
     </MainDiv>
   );
 }
-const FormikLoginForm = withFormik({
-  mapPropsToValues({ username, password }) {
+const FormikRegisterForm = withFormik({
+  mapPropsToValues({ email, username, password }) {
     return {
+      email: email || "",
       username: username || "",
       password: password || ""
     };
   },
+  // Validation //
   validationSchema: Yup.object().shape({
+    email: Yup.string()
+      .email("An email is required")
+      .required("Please, add an email"),
     username: Yup.string().required(
-      "Username is required to have acess to the kitchen"
+      " Username is required to have acess to the kitchen"
     ),
     password: Yup.string()
       .min(
@@ -87,12 +100,9 @@ const FormikLoginForm = withFormik({
       )
       .required("A password is required to have access to the kitchen")
   }),
-
-  handleSubmit(values, {props} ) {
-    props.login(values, props.history)
+  handleSubmit(values, { props }) {
+    props.register(values, props.history);
   }
 })(FormTemplate);
 
-export default connect(
-  state => state, { login }
-) (FormikLoginForm)
+export default connect(state => state, { register })(FormikRegisterForm);

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import * as actionCreators from '../actions/index'
+import * as actionCreators from '../../actions/index'
 import { withFormik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 

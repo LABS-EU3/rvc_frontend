@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { logout } from "../actions";
+import { logout } from "../../actions";
 const Navigation = () => {
   const isLoggedIn = localStorage.getItem("token");
   return (

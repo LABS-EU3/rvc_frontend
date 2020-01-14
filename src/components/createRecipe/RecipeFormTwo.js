@@ -1,7 +1,7 @@
 import React from "react";
 import back from "../globals/design-elements/back.png";
 import check from "../globals/design-elements/check.png";
-import Footer from "./Footer";
+import Footer from "../navigation/FooterNav";
 import foodplaceholder from "../images/foodplaceholder.png";
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
@@ -15,7 +15,7 @@ import {
   Section2b,
   Step,
   ExportImg
-} from "../globals/form-styles";
+} from "../../globals/form-styles";
 
 export default function RecipeFormTwo(props) {
   const { step, prevPage, uploadImage, recipe_file,

@@ -3,12 +3,12 @@ import RecipeFormOne from "./RecipeFormOne";
 import RecipeFormTwo from "./RecipeFormTwo";
 import RecipeFormThree from "./RecipeFormThree";
 import Ready from "./Ready";
-import Footer from "./Footer";
-import { addToNewRecipe, submitNewRecipe } from "../actions";
-import * as actionCreators from "../actions";
+import Footer from "../navigation/FooterNav";
+import { addToNewRecipe, submitNewRecipe } from "../../actions";
+import * as actionCreators from "../../actions";
 import { connect } from "react-redux";
 import axios from "axios";
-import IngredientView from "./IngredientView";
+import IngredientView from "../ingredients/IngredientView";
 import RecipeFormFour from "./RecipeFormFour";
 
 function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewRecipe , title, recipe_category, recipe_file, tag,description,

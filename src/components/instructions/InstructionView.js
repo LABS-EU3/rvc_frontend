@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import * as actionCreators from '../actions/index'
+import * as actionCreators from '../../actions/index'
 import FormikInstructionForm from './InstructionForm'
 import Instruction from './Instruction'
 

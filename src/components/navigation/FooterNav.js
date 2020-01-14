@@ -1,5 +1,5 @@
 import React from "react";
-import { FooterBar } from "../globals/footer-styles";
+import { FooterBar } from "../../globals/footer-styles";
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import PlayCircleOutlineOutlinedIcon from '@material-ui/icons/PlayCircleOutlineOutlined';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';

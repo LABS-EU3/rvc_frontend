@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import * as actionCreators from "../actions/index";
-import { getRecipesById } from "../actions/index";
+import * as actionCreators from "../../actions/index";
+import { getRecipesById } from "../../actions/index";
 import Popup from "reactjs-popup";
 import styled from "styled-components";
-import { CardDiv } from "../globals/card-styles";
+import { CardDiv } from "../../globals/card-styles";
 import arrow from "../images/left-arrow.png";
 import dishImg from "../images/dish1.jpg";
 import IngredientList from "./IngredientList";
 import InstructionList from "./InstructionList";
 import Footer from "./Footer";
-import Loader from "./Loader";
+import Loader from "../Loader";
 import "../App.css";
 
 function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
