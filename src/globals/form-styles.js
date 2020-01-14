@@ -139,6 +139,7 @@ margin: 0 auto;
 width: 80%;
 margin-top:4px;
 border-radius: 5px;
+bottom: 15px;
 .progress{
   background-color: #0AB28A;
   height: 10px;
@@ -281,6 +282,20 @@ justify-content: space-between;
 export const Addtitle = styled.div `
 margin-left:5%;
 margin-right:15%;
+h1 {
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 43px;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.9);
+}
+`
+
+export const Step = styled.div`
+display:flex;
+flex-direction:column;
+align-items: center;
 `
 
 export const Title = styled.h3 `
@@ -299,5 +314,29 @@ margin:5%;
 margin-top:8px;
 font-weight: 300;
 font-size: 15px;
+`
+
+export const Section2b = styled.div `
+display: flex;
+flex-direction: column;
+margin-top:15px;
+h1 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 38px;
+  margin-bottom:10px;
+}
+`
+
+export const ExportImg = styled.div `
+width: 100%;
+height: 397px;
+background: rgba(10, 178, 138, 0.21);
+padding:0px;
+display:flex;
+align-items: center; 
+align-content: center;
+margin-bottom:35px;
 `
 

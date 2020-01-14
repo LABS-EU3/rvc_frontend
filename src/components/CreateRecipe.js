@@ -210,9 +210,10 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
       return (
         <div className="App">
           <div>
-            <p>Hello from CreateRecipe 2</p>
+            {/* <p>Hello from CreateRecipe 2</p> */}
             <RecipeFormTwo
               step={step}
+              title={title}
               prevPage={prevPage}
               nextPage={nextPage}
               uploadImage={uploadImage}
@@ -230,11 +231,12 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
       return (
         <div className="App">
           <div>
-            <p>Hello from CreateRecipe 3</p>
+            {/* <p>Hello from CreateRecipe 3</p> */}
               <RecipeFormThree
               step={step}
               prevPage={prevPage}
               nextPage={nextPage}
+              title={title}
               onHandleChange={onHandleChange}
               onHandleSubmit={onHandleSubmit}
               onHandleIngredientInput={onHandleIngredientInput}
@@ -253,10 +255,11 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
       return (
         <div className="App">
           <div>
-            <p>Hello from CreateRecipe 4</p>
+            {/* <p>Hello from CreateRecipe 4</p> */}
               <RecipeFormFour
               step={step}
               prevPage={prevPage}
+              title={title}
               nextPage={nextPage}
               onHandleChange={onHandleChange}
               onHandleSubmit={onHandleSubmit}

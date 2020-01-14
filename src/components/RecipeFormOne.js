@@ -15,7 +15,8 @@ import {
   NavigationSection1,
   Addtitle,
   Title,
-  Section2
+  Section2,
+  Step
 } from "../globals/form-styles";
 
 
@@ -77,9 +78,18 @@ export default function RecipeFormOne(props) {
             onChange={onHandleChange}
             name="recipe_category"
           >
-          <MenuItem value="breakfast">breakfast</MenuItem>
-          <MenuItem value="lunch">lunch</MenuItem>
-          <MenuItem value="dinner">dinner</MenuItem>
+          <MenuItem value="1">breakfast</MenuItem>
+          <MenuItem value="2">brunch</MenuItem>
+          <MenuItem value="3">lunch</MenuItem>
+          <MenuItem value="4">dinner</MenuItem>
+          <MenuItem value="5">starter</MenuItem>
+          <MenuItem value="6">main</MenuItem>
+          <MenuItem value="7">dessert</MenuItem>
+          <MenuItem value="8">soup</MenuItem>
+          <MenuItem value="9">salad</MenuItem>
+          <MenuItem value="10">beverage</MenuItem>
+          <MenuItem value="11">snack</MenuItem>
+          <MenuItem value="12">misc</MenuItem>
             {/* <option value="" label="pick a category" /> */}
           </Select>
         <div className="recipe-input">
@@ -160,9 +170,3 @@ export default function RecipeFormOne(props) {
     </div>
   );
 }
-
-export const Step = styles.div`
-display:flex;
-flex-direction:column;
-align-items: center;
-`

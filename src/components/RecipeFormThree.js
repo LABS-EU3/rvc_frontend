@@ -5,31 +5,44 @@ import check from "../globals/design-elements/check.png";
 import Footer from "./Footer";
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { Link } from "react-router-dom";
+import {
+  ProgressBarDiv,
+  Section1,
+  NavigationSection1,
+  Addtitle,
+  Title,
+  Section2b,
+  Step,
+  ExportImg
+} from "../globals/form-styles";
+
 
 export default function RecipeFormThree(props) {
-  const { history, step, prevPage, nextPage, onHandleChange, onHandleSubmit, onHandleIngredientInput, onAddIngredient, ingredients, ingredient } = props;
+  const { history, step, title, prevPage, nextPage, onHandleChange, onHandleSubmit, onHandleIngredientInput, onAddIngredient, ingredients, ingredient } = props;
 
   return (
     <div>
       <form
       onSubmit={onHandleSubmit}
       >
-         <div className="recipe-nav">
+   <Section1>
+      <NavigationSection1>
         <div
-          className="back-arrow-container"
           onClick={prevPage}
-        >
+          >
           <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
         </div>
         <button
-          type='submit'
-          className="submit-recipe-container"
-        >
-           <CheckIcon cgit style={{ fontSize: 40, color: 'white' }} />
+        type='submit'
+          >
+          <CheckIcon cgit style={{ fontSize: 40, color: 'white' }} />
         </button>
-      </div>
-
-        <h2>Recipe Name. Step is {step}</h2>
+      </NavigationSection1>
+      <Addtitle>
+        <h1>{title}</h1>
+        </Addtitle>
+      </Section1>
       <div className="ingredient-input">
         <input
           onChange={onHandleIngredientInput}
@@ -79,6 +92,7 @@ export default function RecipeFormThree(props) {
           ))
         }
       </div>
+      <Footer/>
     </div>
   )
 }

@@ -3,32 +3,67 @@ import styles from "styled-components";
 import back from "../globals/design-elements/back.png";
 import check from "../globals/design-elements/check.png";
 import Footer from "./Footer";
+import CheckIcon from '@material-ui/icons/Check';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import {
+  ProgressBarDiv,
+  Section1,
+  NavigationSection1,
+  Addtitle,
+  Title,
+  Section2b,
+  Step,
+  ExportImg
+} from "../globals/form-styles";
 
 export default function RecipeFormFour (props) { 
-  const { history, step, prevPage, nextPage, onHandleChange, onHandleSubmit, onHandleInstructionInput, onAddInstruction, instruction, instructions, onHandleFinalSubmit } = props;
+  const { history, title, step, prevPage, nextPage, onHandleChange, onHandleSubmit, onHandleInstructionInput, onAddInstruction, instruction, instructions, onHandleFinalSubmit } = props;
   
   return ( 
-    <div>
-       <form
-      onSubmit={onHandleFinalSubmit}
+    // <div>
+    //    <form
+    //   onSubmit={onHandleFinalSubmit}
 
-      >
-         <div className="recipe-nav">
-        <div
-          className="back-arrow-container"
-          onClick={prevPage}
+    //   >
+    //      <div className="recipe-nav">
+    //      <Section1>
+    //   <NavigationSection1>
+    //     <div
+    //       onClick={prevPage}
+    //       >
+    //       <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+    //     </div>
+    //     <button
+    //     type='submit'
+    //       >
+    //       <CheckIcon cgit style={{ fontSize: 40, color: 'white' }} />
+    //     </button>
+    //   </NavigationSection1>
+    //   <Addtitle>
+    //     <h1>{title}</h1>
+    //     </Addtitle>
+    //   </Section1>
+    <div>
+    <form
+    onSubmit={onHandleSubmit}
+    >
+ <Section1>
+    <NavigationSection1>
+      <div
+        onClick={prevPage}
         >
-          <img className="back-arrow" src={back} alt="back arrow" />
-        </div>
-        <button
-          type='submit'
-          onClick={onHandleSubmit}
-          className="submit-recipe-container"
-        >
-          <img className="submit-recipe" src={check} alt="submit recipe" />
-        </button>
+        <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
       </div>
-      <h2>Recipe Name. Step is {step}</h2>
+      <button
+      type='submit'
+        >
+        <CheckIcon cgit style={{ fontSize: 40, color: 'white' }} />
+      </button>
+    </NavigationSection1>
+    <Addtitle>
+      <h1>{title}</h1>
+      </Addtitle>
+    </Section1>
       <div className="instruction-input">
         <input
           onChange={onHandleInstructionInput}
@@ -51,6 +86,7 @@ export default function RecipeFormFour (props) {
           ))
         }
       </div>
+      <Footer/>
     </div>
 
   )
