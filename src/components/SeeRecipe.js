@@ -11,6 +11,7 @@ import dishImg from "../images/dish1.jpg";
 import IngredientList from "./IngredientList";
 import InstructionList from "./InstructionList";
 import Footer from "./Footer";
+import Loader from "./Loader";
 import "../App.css";
 
 function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
@@ -42,6 +43,7 @@ function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
         </TopButtonDiv>
       </RecipeTopDiv>
       <CardDiv>
+        {isFetching ? <Loader /> : null}
         <ImgRecipe>
           <img
             src={recipe.images ? recipe.images[0] : null || dishImg}
