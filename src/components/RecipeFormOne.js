@@ -218,12 +218,44 @@ export default function RecipeFormOne(props) {
   //   },
   // }));
 
+  // const useStyles = makeStyles(theme => ({
+  //   inputRoot: {
+  //     fontSize: 30
+  //   },
+  //   labelRoot: {
+  //     fontSize: 30,
+  //     color: "white",
+  //     "&$labelFocused": {
+  //       color: "white"
+  //     }
+  //   },
+  //   root: {
+  //     display: 'flex',
+  //     flexWrap: 'wrap',
+  //   },
+  //   textField: {
+  //     marginLeft: theme.spacing(1),
+  //     marginRight: theme.spacing(1),
+  //     color: 'white'
+  //   },
+  // }));
+
   const useStyles = makeStyles(theme => ({
     inputRoot: {
       fontSize: 30
     },
+    inputRoot2: {
+      fontSize: 15
+    },
     labelRoot: {
       fontSize: 30,
+      color: "white",
+      "&$labelFocused": {
+        color: "white"
+      }
+    },
+    labelRoot2: {
+      fontSize: 15,
       color: "white",
       "&$labelFocused": {
         color: "white"
@@ -331,6 +363,15 @@ export default function RecipeFormOne(props) {
             name="description"
             placeholder="Description"
             fullWidth
+            InputProps={{ classes: { root: classes.inputRoot2 } }}
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true,
+                classes: {
+                  root: classes.labelRoot,
+                  focused: classes.labelFocused
+                }
+              }}
           />
         </div>
         <div className="recipe-input">
@@ -342,10 +383,19 @@ export default function RecipeFormOne(props) {
             min='1'
             max='1000'
             required
+            InputProps={{ classes: { root: classes.inputRoot2 } }}
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true,
+                classes: {
+                  root: classes.labelRoot,
+                  focused: classes.labelFocused
+                }
+              }}
             />
         </div>
         <div className="recipe-input">
-          <TextField
+          {/* <TextField
             onChange={onHandleChange}
             type="number"
             name="budget"
@@ -353,6 +403,25 @@ export default function RecipeFormOne(props) {
             min='1'
             max='1000'
             required
+          /> */}
+              <TextField
+            onChange={onHandleChange}
+            type="number"
+            name="budget"
+            placeholder="Budget (USD)"
+            min='1'
+            max='1000'
+            InputProps={{ classes: { root: classes.inputRoot2 } }}
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true,
+                classes: {
+                  root: classes.labelRoot,
+                  focused: classes.labelFocused
+                }
+              }}
+            required
+            
           />
         </div>
         <div>
@@ -409,11 +478,11 @@ export default function RecipeFormOne(props) {
           {/* <button onClick={nextPage}>Next</button> */}
           <Step >
             Step {step}/4
-          <ProgressBarDiv>
+          {/* <ProgressBarDiv>
             <div 
             className="progress"
             ></div>
-          </ProgressBarDiv>
+          </ProgressBarDiv> */}
           </Step >
         </div>
         </Section2>

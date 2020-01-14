@@ -73,7 +73,7 @@ export default function RecipeFormTwo(props) {
           </ExportImg>
            <Step >
             Step {step}/4
-          <ProgressBarDiv>
+          {/* <ProgressBarDiv>
           <div
             style={{
               backgroundColor: "#0AB28A",
@@ -82,7 +82,7 @@ export default function RecipeFormTwo(props) {
               borderRadius: "5px"
             }}
           ></div>
-          </ProgressBarDiv>
+          </ProgressBarDiv> */}
           </Step >
       </div>
         </Section2b> 

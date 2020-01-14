@@ -146,9 +146,9 @@ export default function RecipeFormThree(props) {
         }
         <Step >
           Step {step}/4
-        <ProgressBarDiv>
+        {/* <ProgressBarDiv>
           <div className="progress"></div>
-        </ProgressBarDiv>
+        </ProgressBarDiv> */}
         </Step >
       </Section2>
       <Footer/>
