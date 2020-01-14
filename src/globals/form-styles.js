@@ -340,3 +340,14 @@ align-content: center;
 margin-bottom:35px;
 `
 
+export const Title2 = styled.h1 `
+font-style: normal;
+font-weight: 300;
+font-size: 35px;
+line-height: 36px;
+display: flex;
+align-items: center;
+margin-bottom: 15px;
+margin-top:15px;
+margin-left:5%;
+`

@@ -29,6 +29,7 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     color: 'white'
+    // font-size: 18px
   },
 }));
 

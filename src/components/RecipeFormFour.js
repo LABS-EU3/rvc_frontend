@@ -5,12 +5,16 @@ import check from "../globals/design-elements/check.png";
 import Footer from "./Footer";
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { TextField, Select, MenuItem } from '@material-ui/core';
+import AddCircleOutlineTwoToneIcon from '@material-ui/icons/AddCircleOutlineTwoTone';
 import {
   ProgressBarDiv,
   Section1,
+  Section2,
   NavigationSection1,
   Addtitle,
   Title,
+  Title2,
   Section2b,
   Step,
   ExportImg
@@ -64,25 +68,35 @@ export default function RecipeFormFour (props) {
       <h1>{title}</h1>
       </Addtitle>
     </Section1>
-      <div className="instruction-input">
-        <input
+    <Section2>
+    <Title2> Add instruction </Title2>
+        <TextField
+          id="filled-full-width"
+          style={{ margin: 8 }}
+          placeholder="Add instruction"
+          helperText="click on the plus button to add your instruction!"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="filled"
           onChange={onHandleInstructionInput}
           type="text"
           name="text"
           value={instruction.text}
-          placeholder="add instruction"
         />
          <button
         onClick={onAddInstruction}
         >
-          +
+        <AddCircleOutlineTwoToneIcon cgit style={{ fontSize: 40, color: '#0AB38A' }} />
         </button>
-      </div>
+        </Section2>
       </form>
       <div>
         {
           instructions.map(item =>(
-          <p>{item.step}. {item.text}</p>
+          <p>{item.step} - {item.text}</p>
           ))
         }
       </div>

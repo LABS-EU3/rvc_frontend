@@ -1,18 +1,19 @@
 import React from "react";
-import styles from "styled-components";
-import back from "../globals/design-elements/back.png";
-import check from "../globals/design-elements/check.png";
 import Footer from "./Footer";
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Link } from "react-router-dom";
+import { TextField, Select, MenuItem } from '@material-ui/core';
+import AddCircleOutlineTwoToneIcon from '@material-ui/icons/AddCircleOutlineTwoTone';
 import {
   ProgressBarDiv,
   Section1,
   NavigationSection1,
   Addtitle,
   Title,
+  Title2,
   Section2b,
+  Section2,
   Step,
   ExportImg
 } from "../globals/form-styles";
@@ -43,20 +44,36 @@ export default function RecipeFormThree(props) {
         <h1>{title}</h1>
         </Addtitle>
       </Section1>
-      <div className="ingredient-input">
-        <input
+      <Section2>
+        <Title2> Add ingredients </Title2>
+        <TextField
+          id="filled-full-width"
+          style={{ margin: 8 }}
+          placeholder="Add ingredient"
+          helperText="click on the plus button to add your ingredient!"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="filled"
           onChange={onHandleIngredientInput}
           type="text"
           name="name"
           value={ingredient.name}
-          placeholder="add ingredient"
         />
+        {/* <input
+          onChange={onHandleIngredientInput}
+          type="text"
+          name="name"
+          value={ingredient.name}
+          /> */}
         <button
         onClick={onAddIngredient}
         >
-          +
+          <AddCircleOutlineTwoToneIcon cgit style={{ fontSize: 40, color: '#0AB38A' }} />
         </button>
-      </div>
+      </Section2>
 
       {/* <div className="section2">
           <label htmlFor="ingredientQuantityInput"></label>
@@ -88,7 +105,7 @@ export default function RecipeFormThree(props) {
       <div>
         {
           ingredients.map(item =>(
-          <p>{item.quantity} {item.unit} of {item.name} </p>
+          <p>{item.quantity} {item.unit} - {item.name} </p>
           ))
         }
       </div>
