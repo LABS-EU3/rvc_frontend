@@ -9,8 +9,10 @@ import { Link } from "react-router-dom";
 
 export default function RecipeFormTwo(props) {
   const { step, prevPage, uploadImage, recipe_file,
-  onHandleSubmit, loading
+  onHandleSubmit, loading, title
   } = props;  
+  console.log("props is", props, title)
+  const progressBarWidth = (step-1) * 100/4;
   
   return (
     <div>  
@@ -32,7 +34,7 @@ export default function RecipeFormTwo(props) {
           <CheckIcon cgit style={{ fontSize: 40, color: 'white' }} />
         </button>
       </div>
-        <h2>Recipe Name. Step is {step}</h2>
+        <h2>{ title }. Step is {step}</h2>
       </div>
       <div className="section1C">
         <input
@@ -44,12 +46,13 @@ export default function RecipeFormTwo(props) {
         <button>
           <img src={recipe_file || foodplaceholder} alt="A display of the already finished recipe" />
         </button>
+        { loading ? <h4>...upLoading file</h4> : ""}
         <div className="progress-bar-container">
           <div
             style={{
               backgroundColor: "#0AB28A",
               height: "10px",
-              width: "60%",
+              width: progressBarWidth+"%",
               borderRadius: "5px"
             }}
           ></div>

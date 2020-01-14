@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { logout } from '../actions';
 
 const Navigation = () => { 
+  const isLoggedIn = localStorage.getItem('token');
   return (
     <div className='menu-container'>
     <nav role='navigation'>
@@ -21,12 +22,10 @@ const Navigation = () => {
     <Link to='/createrecipe' style={{ textDecoration: 'none' }}>
     <li>Create</li>
     </Link>
-    <Link to='/register' style={{ textDecoration: 'none' }}>
-    <li>Log in</li>
-    </Link>
-    <Link to='/' style={{ textDecoration: 'none' }}>
+    {isLoggedIn ? <li onClick={() => { logout()}}>Logout</li>  : <li><Link to="/login">Log in</Link></li>}
+    {/* <Link to='/' style={{ textDecoration: 'none' }}>
     <li onClick={() => { logout()}}>Logout</li>
-      </Link>
+      </Link> */}
     </ul>
     </div>
     </nav>

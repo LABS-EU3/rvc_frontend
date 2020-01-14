@@ -149,7 +149,6 @@ input {
   }
 }
 `
-
 export const NavigationSection1 = styles.div`
 display:flex;
 justify-content: space-between;
@@ -179,21 +178,23 @@ font-weight: 300;
 font-size: 15px;
 `
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    color: 'white'
-  },
-}));
-
 
 export default function RecipeFormOne(props) {
   const { history, step, nextPage, onHandleChange, onHandleSubmit } = props;
+  const progressBarWidth = (step-1) * 100/4;
+  const useStyles = makeStyles(theme => ({
+    root: {
+      display: 'flex',
+      flexWrap: 'wrap',
+    },
+    textField: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+      color: 'white'
+    },
+  }));
+  
+
   const classes = useStyles();
   return (
     <div>
@@ -305,7 +306,22 @@ export default function RecipeFormOne(props) {
             type="text"
             name="tag"
             placeholder="Add as many tags as you want to easily find your recipe"
-            />
+          />
+          {/* <div className="step">Step {step}/3</div> */}
+          {/* <ProgressBarDiv>
+            <div className="progress"></div>
+          </ProgressBarDiv> */}
+          {/* <div className="progress-bar-container">
+          <div
+            style={{
+              backgroundColor: "#0AB28A",
+              height: "10px",
+              width: progressBarWidth+"%",
+              borderRadius: "5px"
+            }}
+          ></div> */}
+        {/* </div> */}
+            {/* /> */}
           {/* <button onClick={nextPage}>Next</button> */}
           <Step >
             Step {step}/3
