@@ -105,11 +105,13 @@ export default function RecipeFormFour (props) {
           name="text"
           value={instruction.text}
         />
-         <button
+         <div
         onClick={onAddInstruction}
+        style={{"margin" : "0 auto"}}
+
         >
         <AddCircleOutlineTwoToneIcon cgit style={{ fontSize: 40, color: '#0AB38A' }} />
-        </button>
+        </div>
         </Section2>
       </form>
       <Section2>

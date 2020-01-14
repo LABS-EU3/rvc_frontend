@@ -75,11 +75,13 @@ export default function RecipeFormThree(props) {
           name="name"
           value={ingredient.name}
           /> */}
-        <button
+        <div
+        style={{"margin" : "0 auto"}}
+        
         onClick={onAddIngredient}
         >
           <AddCircleOutlineTwoToneIcon cgit style={{ fontSize: 40, color: '#0AB38A' }} />
-        </button>
+        </div>
 
       {/* PREVIOUS CODE BLOCK */}
       
