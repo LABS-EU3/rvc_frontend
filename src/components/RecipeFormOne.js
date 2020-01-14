@@ -8,14 +8,14 @@ import { Link } from "react-router-dom";
 import { TextField, Select, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import {
-  ProgressBarDiv,
-  Section1,
-  SwitchDiv,
-  StyledForm,
-  NavigationSection1,
-  Addtitle,
-  Title,
-  Section2,
+  // ProgressBarDiv,
+  // Section1,
+  // SwitchDiv,
+  // StyledForm,
+  // NavigationSection1,
+  // Addtitle,
+  // Title,
+  // Section2,
   Step
 } from "../globals/form-styles";
 
@@ -213,7 +213,8 @@ export default function RecipeFormOne(props) {
     textField: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
-      color: 'white'
+      color: 'white',
+      fontSize: '30px'
     },
   }));
   
@@ -285,6 +286,7 @@ export default function RecipeFormOne(props) {
             type="text"
             name="description"
             placeholder="Description"
+            fullWidth
           />
         </div>
         <div className="recipe-input">
@@ -362,9 +364,11 @@ export default function RecipeFormOne(props) {
             {/* /> */}
           {/* <button onClick={nextPage}>Next</button> */}
           <Step >
-            Step {step}/3
+            Step {step}/4
           <ProgressBarDiv>
-            <div className="progress"></div>
+            <div 
+            className="progress"
+            ></div>
           </ProgressBarDiv>
           </Step >
         </div>

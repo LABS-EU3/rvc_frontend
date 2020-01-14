@@ -14,7 +14,8 @@ import {
   Title2,
   Section2b,
   Section2,
-  AddItem
+  AddItem,
+  Step
 } from "../globals/form-styles";
 
 
@@ -141,6 +142,12 @@ export default function RecipeFormThree(props) {
               
           ))
         }
+        <Step >
+          Step {step}/4
+        <ProgressBarDiv>
+          <div className="progress"></div>
+        </ProgressBarDiv>
+        </Step >
       </Section2>
       <Footer/>
     </div>

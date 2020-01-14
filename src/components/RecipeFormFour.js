@@ -15,7 +15,8 @@ import {
   Addtitle,
   Title,
   Title2,
-  AddItem
+  AddItem,
+  Step
 } from "../globals/form-styles";
 
 export default function RecipeFormFour (props) { 
@@ -62,7 +63,7 @@ export default function RecipeFormFour (props) {
 
     <div>
     <form
-    onSubmit={onHandleSubmit}
+    onSubmit={onHandleFinalSubmit}
     >
  <Section1>
     <NavigationSection1>
@@ -119,7 +120,14 @@ export default function RecipeFormFour (props) {
             </AddItem>
           ))
         }
-          </Section2>
+         <Step >
+            Step {step}/4
+          <ProgressBarDiv>
+          <div className="progress">
+          ></div>
+          </ProgressBarDiv>
+          </Step >
+        </Section2>
       <Footer/>
     </div>
 

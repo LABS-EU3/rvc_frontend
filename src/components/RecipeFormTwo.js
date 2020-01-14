@@ -72,7 +72,7 @@ export default function RecipeFormTwo(props) {
         </div>
           </ExportImg>
            <Step >
-            Step {step}/3
+            Step {step}/4
           <ProgressBarDiv>
           <div
             style={{
