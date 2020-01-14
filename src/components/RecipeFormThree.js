@@ -77,8 +77,16 @@ export default function RecipeFormThree(props) {
             name="unit"
           >
             <option value="" label="Units" />
-            <option value="kg" label="kg" />
-            <option value="gram" label="gram" />
+            <option value="1" label="kg" />
+            <option value="2" label="g" />
+            <option value="3" label="ml" />
+            <option value="4" label="cups" />
+            <option value="5" label="tbsp" />
+            <option value="6" label="tsp" />
+            <option value="7" label="pinch" />
+            <option value="8" label="knob" />
+            <option value="9" label="cloves" />
+            <option value="10" label="handfull" />         
           </select>
       </div> */}
       </form>

@@ -13,8 +13,8 @@ import InstructionList from "./InstructionList";
 import Footer from "./Footer";
 import "../App.css";
 
-function SeeRecipe({ match, recipeView, singleRecipe, getRecipesById }) {
-  console.log('llll',singleRecipe)
+function SeeRecipe({ match, recipeView, singleRecipe, getRecipesById, recipe }) {
+  console.log('llll',recipe)
   // const getRecipe = id => {
   //   return recipeView.filter(recipe => recipe.id === parseInt(id, 10));
   // };

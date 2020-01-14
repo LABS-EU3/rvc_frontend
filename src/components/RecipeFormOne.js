@@ -222,6 +222,7 @@ export default function RecipeFormOne(props) {
               type="text"
               name="title"
               placeholder="Enter recipe name"
+              required
               fullWidth
               margin="normal"
               className={classes.textField}
@@ -237,10 +238,20 @@ export default function RecipeFormOne(props) {
             Select
             onChange={onHandleChange}
             name="recipe_category"
+            required
           >
-          <MenuItem value="breakfast">breakfast</MenuItem>
-          <MenuItem value="lunch">lunch</MenuItem>
-          <MenuItem value="dinner">dinner</MenuItem>
+          <MenuItem value="1">breakfast</MenuItem>
+          <MenuItem value="2">brunch</MenuItem>
+          <MenuItem value="3">lunch</MenuItem>
+          <MenuItem value="4">dinner</MenuItem>
+          <MenuItem value="5">starter</MenuItem>
+          <MenuItem value="6">main</MenuItem>
+          <MenuItem value="7">dessert</MenuItem>
+          <MenuItem value="8">soup</MenuItem>
+          <MenuItem value="9">salad</MenuItem>
+          <MenuItem value="10">beverage</MenuItem>
+          <MenuItem value="11">snack</MenuItem>
+          <MenuItem value="12">misc</MenuItem>
             {/* <option value="" label="pick a category" /> */}
           </Select>
         <div className="recipe-input">
@@ -261,6 +272,7 @@ export default function RecipeFormOne(props) {
             placeholder="Times"
             min='1'
             max='1000'
+            required
             />
         </div>
         <div className="recipe-input">
@@ -271,6 +283,7 @@ export default function RecipeFormOne(props) {
             placeholder="Budget (USD)"
             min='1'
             max='1000'
+            required
           />
         </div>
         <div>
@@ -280,6 +293,7 @@ export default function RecipeFormOne(props) {
           <Select
             onChange={onHandleChange}
             name="difficulty"
+            required
           >
           <MenuItem value={1}>1</MenuItem>
           <MenuItem value={2}>2</MenuItem>
@@ -306,6 +320,7 @@ export default function RecipeFormOne(props) {
             type="text"
             name="tag"
             placeholder="Add as many tags as you want to easily find your recipe"
+            required
           />
           {/* <div className="step">Step {step}/3</div> */}
           {/* <ProgressBarDiv>
