@@ -15,9 +15,7 @@ import {
   Addtitle,
   Title,
   Title2,
-  Section2b,
-  Step,
-  ExportImg
+  AddItem
 } from "../globals/form-styles";
 
 export default function RecipeFormFour (props) { 
@@ -93,13 +91,15 @@ export default function RecipeFormFour (props) {
         </button>
         </Section2>
       </form>
-      <div>
+      <Section2>
         {
           instructions.map(item =>(
-          <p>{item.step} - {item.text}</p>
+            <AddItem>
+              <p>{item.step}  {item.text}</p>
+            </AddItem>
           ))
         }
-      </div>
+          </Section2>
       <Footer/>
     </div>
 

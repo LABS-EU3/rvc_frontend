@@ -351,3 +351,18 @@ margin-bottom: 15px;
 margin-top:15px;
 margin-left:5%;
 `
+
+export const AddItem = styled.div `
+color: currentColor;
+  width: 100%;
+  border: 0;
+  height: 25px;
+  margin-top:2%;
+display: flex;
+align-content:flex-start;
+background: rgba(10, 179, 138, 0.08);
+border-radius: 2px;
+box-sizing: content-box;
+    p{
+      font-size: 20px;
+    }`

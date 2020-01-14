@@ -34,11 +34,6 @@ export default function RecipeFormTwo(props) {
           >
           <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
         </div>
-        <button
-        type='submit'
-          >
-          <CheckIcon cgit style={{ fontSize: 40, color: 'white' }} />
-        </button>
       </NavigationSection1>
       <Addtitle>
         <h1>{title}</h1>

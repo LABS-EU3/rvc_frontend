@@ -14,8 +14,7 @@ import {
   Title2,
   Section2b,
   Section2,
-  Step,
-  ExportImg
+  AddItem
 } from "../globals/form-styles";
 
 
@@ -74,7 +73,6 @@ export default function RecipeFormThree(props) {
           <AddCircleOutlineTwoToneIcon cgit style={{ fontSize: 40, color: '#0AB38A' }} />
         </button>
       </Section2>
-
       {/* <div className="section2">
           <label htmlFor="ingredientQuantityInput"></label>
           <input
@@ -102,13 +100,16 @@ export default function RecipeFormThree(props) {
           </select>
       </div> */}
       </form>
-      <div>
+      <Section2>
         {
           ingredients.map(item =>(
-          <p>{item.quantity} {item.unit} - {item.name} </p>
+          <AddItem>
+              <p>{item.quantity} {item.unit} {item.name} </p>
+          </AddItem>
+              
           ))
         }
-      </div>
+      </Section2>
       <Footer/>
     </div>
   )
