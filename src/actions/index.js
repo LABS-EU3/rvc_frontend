@@ -172,12 +172,9 @@ export const submitNewRecipe = (newRecipeData, history) => dispatch => {
       }
     })
     .then(res => {
-      console.log("akata", res.data);
-      dispatch({
-        type: types.POST_NEW_RECIPE_SUCCESS,
-        payload: res.data
-      }).then(() => dispatch({ type: types.RESET_NEW_RECIPE }));
-      history.push("/");
+      dispatch({ type: types.POST_NEW_RECIPE_SUCCESS, payload: res.data });
+      dispatch({ type: types.RESET_NEW_RECIPE });
+      history.push(`/recipes/${res.data.id}`);
     })
     .catch(error => {
       dispatch({ type: types.POST_NEW_RECIPE_FAILURE, payload: error.message });
