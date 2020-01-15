@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import RecipeFormOne from "./RecipeFormOne";
-import RecipeFormTwo from "./RecipeFormTwo";
-import RecipeFormThree from "./RecipeFormThree";
-import Ready from "./Ready";
-import Footer from "../navigation/FooterNav";
-import { addToNewRecipe, submitNewRecipe } from "../../actions";
-import * as actionCreators from "../../actions";
+import RecipeFormOne from "../recipeForm/RecipeFormStep1";
+import RecipeFormTwo from "../recipeForm/RecipeFormStep2";
+import RecipeFormThree from "../recipeForm/RecipeFormStep3";
+import Ready from "../Ready";
+import Footer from "../../navigation/FooterNav";
+import { addToNewRecipe, submitNewRecipe } from "../../../actions";
+import * as actionCreators from "../../../actions";
 import { connect } from "react-redux";
 import axios from "axios";
-import IngredientView from "../ingredients/IngredientView";
-import RecipeFormFour from "./RecipeFormFour";
+import IngredientView from "../../ingredients/IngredientView";
+import RecipeFormFour from "../recipeForm/RecipeFormStep4";
 
 function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewRecipe , title, recipe_category, recipe_file, tag,description,
   time_required,

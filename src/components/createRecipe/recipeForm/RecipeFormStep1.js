@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "styled-components";
 import back from "../globals/design-elements/back.png";
-import Footer from "../navigation/FooterNav";
+import Footer from "../../navigation/FooterNav";
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Link } from "react-router-dom";
@@ -17,7 +17,7 @@ import {
   // Title,
   // Section2,
   Step
-} from "../../globals/form-styles";
+} from "../../../globals/form-styles";
 
 
 export const ProgressBarDiv = styles.div`
