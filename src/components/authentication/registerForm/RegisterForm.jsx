@@ -15,7 +15,7 @@ import {
   H1,
   DescriptionForm,
   LinkFooter
-} from "../../globals/form-styles";
+} from "./registerForm.styles";
 
 function FormTemplate({ touched, errors }) {
   return (

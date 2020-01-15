@@ -1,25 +1,20 @@
 import React from "react";
 import Popup from "reactjs-popup";
 
-import Footer from "../navigation/FooterNav";
-import bookmark from "../../globals/design-elements/bookmark.png";
-import more from "../../globals/design-elements/more.png";
-import copy from "../../globals/design-elements/copy-item.png";
-import EditProfile from "./EditProfile";
-import styles from "styled-components";
-import { Link, Redirect } from 'react-router-dom';
- 
-const P = styles.p`
-font-size: 6rem;
-text-align: center;
-margin-top: 1.5rem;
-`;
+import Footer from "../../navigation/footerNav/FooterNav";
+import bookmark from "../../../globals/design-elements/bookmark.png";
+import more from "../../../globals/design-elements/more.png";
+import copy from "../../../globals/design-elements/copy-item.png";
+import EditProfile from "../editProfile/EditProfile";
+import { Link } from 'react-router-dom';
+import { StyledParagraph } from './profileView.styles'
+
 
 export default function CreateProfile() {
   return (
     <div className="profile-container">
       <div className="profile-img">
-        <P>C</P>
+        <StyledParagraph>C</StyledParagraph>
       </div>
 
       <Popup modal trigger={<h4>@Chelsea</h4>}>
