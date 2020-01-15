@@ -94,6 +94,7 @@ const initialSingleRecipe = {
   error: "",
   isFetching: false
 };
+
 export const singleRecipeReducer = (state = initialSingleRecipe, action) => {
   switch (action.type) {
     case types.GET_RECIPE:
@@ -215,7 +216,6 @@ export const instructionReducer = (state = initialInstruction, action) => {
   }
 };
 
-//attempt 2
 const initialRecipeState = {
   title: "",
   recipe_category: "",
