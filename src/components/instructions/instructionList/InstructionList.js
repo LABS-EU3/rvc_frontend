@@ -1,5 +1,5 @@
 import React from "react";
-import { SeeRecipePopup } from "../../globals/form-styles";
+import { SeeRecipePopup } from "./InstructionList.styles";
 
 export default function IngredientList({ instructions, close }) {
   return (

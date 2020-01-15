@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as actionCreators from '../../actions/index'
+import { InstructionFormDiv } from "./IngredientForm.styles"
 import { withFormik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 
 function FormTemplate ({ handleChange, touched, errors, values })  { 
   return (
-    <>
+    <InstructionFormDiv>
       <div className='section1B'>
         <button className='return back-arrow'>
             <img src=''alt='back-arrow'/>  
@@ -66,7 +67,7 @@ function FormTemplate ({ handleChange, touched, errors, values })  {
       +
     </button>
   </Form>
-  </>
+  </InstructionFormDiv>
   )
 }
 

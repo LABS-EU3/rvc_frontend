@@ -1,9 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import * as actionCreators from '../../actions/index'
 
 const Ingredient = ({ ingredient }) => { 
-// const { ingredient } = ingredient
   return (
     <div>
     <p>{ingredient.quantity} {ingredient.name}</p>
@@ -24,5 +21,3 @@ const Ingredient = ({ ingredient }) => {
 }
 
 export default Ingredient;
-
-// export default connect(state => state, actionCreators)(Ingredient)

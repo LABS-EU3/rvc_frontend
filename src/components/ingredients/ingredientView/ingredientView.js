@@ -5,12 +5,10 @@ import Ingredient from './Ingredient'
 
 
 const IngredientView = ({ getIngredients, ingredientView, ingredients }) => { 
-  console.log(ingredientView)
 
  useEffect(() => { getIngredients();
  }, [getIngredients]);
  
- console.log(ingredientView)
  return (
    <div>
     <div>

@@ -4,9 +4,10 @@ import * as actionCreators from '../../actions/index'
 import { withFormik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 import Footer from '../navigation/FooterNav'
+import {InstructionFormDiv} from './InstructionForm.styles'
 function FormTemplate ({ touched, errors, values })  { 
   return (
-    <>
+    <InstructionFormDiv>
       <div className='section1B'>
         <button className='return back-arrow'>
             <img src=''alt='back-arrow'/>  
@@ -39,7 +40,7 @@ function FormTemplate ({ touched, errors, values })  {
     
   </Form>
   <Footer/>
-  </>
+  </InstructionFormDiv>
   )
 }
 
