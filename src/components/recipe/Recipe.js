@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import "../../App.css";
 
 const Recipe = ({ recipe }) => {
-  console.log("AAA", recipe);
+  console.log("Recipe.js > recipe: ", recipe);
 
   const {
     id,
@@ -24,12 +25,8 @@ const Recipe = ({ recipe }) => {
   return (
     <div className="box">
       <Link to={`/recipes/${id}`}>
-        {/* <div className='box'> */}
         <img className="recipe" src={imageUrl} alt="an " />
-        {/* <img className='recipe' src={recipe_image} alt='an '/> */}
         <div className="recipe-card">
-          {/* <p>{no_of_likes}</p> */}
-          {/* <img className='recipe' alt='an'/> */}
           <p>{author + lastLetter}</p>
           <h2>{recipe_title}</h2>
           <div className="recipe-card-tag">
