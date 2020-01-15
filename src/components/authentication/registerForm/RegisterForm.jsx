@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { register } from "../../actions/index";
-import logo from "../../globals/design-elements/logo.png";
-import arrow from "../../images/left-arrow.png";
-import "../../index.css";
+import { register } from "../../../actions/actionCreators";
+import logo from "../../../globals/design-elements/logo.png";
+import arrow from "../../../images/left-arrow.png";
+import "../../../index.css";
 import {
   MainDiv,
   ArrowDiv,
@@ -15,7 +15,7 @@ import {
   H1,
   DescriptionForm,
   LinkFooter
-} from "../../globals/form-styles";
+} from "./registerForm.styles";
 
 function FormTemplate({ touched, errors }) {
   return (
