@@ -21,9 +21,25 @@ export const MenuToggle = styled.div`
     z-index: 2;
   }
 
-  input: checked ~ul {
+  input: checked ~ ul {
     transform: scale(1, 1);
     opacity: 1;
+  }
+
+  input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+  }
+
+  input:checked ~ span:nth-last-child(2) {
+    opacity: 1;
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+
+  input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
   }
 
   span {
@@ -40,7 +56,16 @@ export const MenuToggle = styled.div`
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
       background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
   }
-`;
+
+  span:first-child {
+    transform-origin: 0% 0%;
+  }
+
+  span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+  }
+  `;
+  
 export const Menu = styled.div`
   position: absolute;
   width: 320px;
