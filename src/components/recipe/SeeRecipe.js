@@ -6,13 +6,13 @@ import { getRecipesById } from "../../actions/index";
 import Popup from "reactjs-popup";
 import styled from "styled-components";
 import { CardDiv } from "../../globals/card-styles";
-import arrow from "../images/left-arrow.png";
-import dishImg from "../images/dish1.jpg";
-import IngredientList from "./IngredientList";
-import InstructionList from "./InstructionList";
-import Footer from "./Footer";
+import arrow from "../../images/left-arrow.png";
+import dishImg from "../../images/dish1.jpg";
+import IngredientList from "../ingredients/IngredientList";
+import InstructionList from "../instructions/InstructionList";
+import Footer from "../navigation/FooterNav";
 import Loader from "../Loader";
-import "../App.css";
+import "../../App.css";
 
 function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
   console.log("llll", recipe);

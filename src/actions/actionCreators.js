@@ -9,7 +9,6 @@ export const register = (credentials, history) => dispatch => {
       credentials
     )
     .then(res => {
-      console.log(res.data);
       localStorage.setItem("username", res.data.username);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userID", res.data.id);
@@ -17,12 +16,8 @@ export const register = (credentials, history) => dispatch => {
       history.push("/recipes");
     })
     .catch(error => {
-      // console.log(error.message);
-
       dispatch({ type: types.REGISTER_FAILURE, payload: error.message });
-      // dispatch({ type: types.REGISTER_FAILURE, payload:( error.res.data.message = 'Username already exists')});
       alert("Username already exists");
-      // alert(error.response.data.message)
     });
 };
 
@@ -31,7 +26,6 @@ export const login = (credentials, history) => dispatch => {
   axios
     .post("https://develop-forkbook.herokuapp.com/api/auth/login", credentials)
     .then(res => {
-      console.log(res.data);
       localStorage.setItem("username", res.data.username);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userID", res.data.id);
@@ -39,11 +33,7 @@ export const login = (credentials, history) => dispatch => {
       history.push("/recipes");
     })
     .catch(error => {
-      // console.log(error.message);
       dispatch({ type: types.LOGIN_FAILURE, payload: error.message });
-      // dispatch({ type: types.LOGIN_FAILURE, payload : error.response.data.message});
-      // alert(error.message)
-      // alert(error.response.data.message)
     });
 };
 
@@ -76,23 +66,6 @@ export const getRecipesById = id => dispatch => {
     });
 };
 
-// export const createRecipe = (recipeData, history) => dispatch => {
-//   dispatch( { type: types.REQUEST_START })
-//   axios
-//   .post('https://develop-forkbook.herokuapp.com/api/recipe', recipeData )
-//   .then( res => {
-//     console.log(res.data.recipes)
-//     dispatch({ type: types.ADD_RECIPE_SUCCESS,
-//       payload: res.data.recipes});
-//     history.push('/seerecipe')
-//     })
-//   .catch(error => {
-//     console.log(error.message)
-//     dispatch({ type: types.ADD_RECIPE_FAILURE,
-//     payload : error.message})
-//   });
-// }
-
 export const addIngredient = ingredientData => dispatch => {
   dispatch({ type: types.REQUEST_START });
   axios
@@ -114,7 +87,6 @@ export const getIngredients = () => dispatch => {
     .get("https://develop-forkbook.herokuapp.com/api/recipe/")
     .then(res => {
       dispatch({ type: types.GET_INGREDIENT_SUCCESS, payload: res.data });
-      console.log(res.data);
     })
     .catch(error => {
       dispatch({
@@ -129,8 +101,6 @@ export const addInstruction = instructionData => dispatch => {
   axios
     .post("https://develop-forkbook.herokuapp.com/api/recipe", instructionData)
     .then(res => {
-      console.log("akata", res.data);
-
       dispatch({
         type: types.ADD_INSTRUCTION_SUCCESS,
         payload: res.data.instructions
@@ -159,10 +129,7 @@ export const getInstructions = () => dispatch => {
     });
 };
 
-//attempt 2
-
 export const submitNewRecipe = (newRecipeData, history) => dispatch => {
-  console.log("YES", newRecipeData);
   dispatch({ type: types.REQUEST_START });
   axios
     .post("https://develop-forkbook.herokuapp.com/api/recipe", newRecipeData, {
@@ -188,6 +155,3 @@ export const addToNewRecipe = newRecipeData => {
     payload: newRecipeData
   };
 };
-
-//future todo
-//abiility to return to the stage in a form after quiting midway

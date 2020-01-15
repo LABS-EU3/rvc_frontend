@@ -1,10 +1,10 @@
 import React from "react";
 import Popup from "reactjs-popup";
 
-import Footer from "./Footer";
-import bookmark from "../globals/design-elements/bookmark.png";
-import more from "../globals/design-elements/more.png";
-import copy from "../globals/design-elements/copy-item.png";
+import Footer from "../navigation/FooterNav";
+import bookmark from "../../globals/design-elements/bookmark.png";
+import more from "../../globals/design-elements/more.png";
+import copy from "../../globals/design-elements/copy-item.png";
 import EditProfile from "./EditProfile";
 import styles from "styled-components";
 import { Link, Redirect } from 'react-router-dom';
