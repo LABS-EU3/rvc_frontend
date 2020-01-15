@@ -9,10 +9,10 @@ import InstructionList from "../instructions/instructionList/InstructionList";
 import Footer from "../navigation/footerNav/FooterNav";
 import Loader from "../loader/Loader";
 
-import { CardDiv } from "../../globals/card-styles";
 import arrow from "../../images/left-arrow.png";
 import dishImg from "../../images/dish1.jpg";
 
+import { CardDiv } from "../../globals/card-styles";
 import "../../App.css";
 import {
   RecipeTopDiv,
@@ -25,7 +25,7 @@ import {
   ProfilePicture,
   BottomButtonDiv,
   LgButton
-} from "./recipe.styles";
+} from "./Recipe.styles";
 
 function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
   console.log("SeeRecipe.js > recipe: ", recipe);
