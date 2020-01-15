@@ -6,7 +6,7 @@ import bookmark from "../../../globals/design-elements/bookmark.png";
 import more from "../../../globals/design-elements/more.png";
 import copy from "../../../globals/design-elements/copy-item.png";
 import EditProfile from "../editProfile/EditProfile";
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { StyledParagraph } from './profileView.styles'
 
 
