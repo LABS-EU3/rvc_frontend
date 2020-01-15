@@ -1,10 +1,11 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import * as actionCreators from '../../actions/index'
-import { withFormik, Field, Form } from 'formik'
-import * as Yup from 'yup'
-import Footer from '../navigation/FooterNav'
-import {InstructionFormDiv} from './InstructionForm.styles'
+import React from 'react';
+import { connect } from 'react-redux';
+import * as actionCreators from '../../../actions/actionCreators';
+import { withFormik, Field, Form } from 'formik';
+import * as Yup from 'yup';
+import Footer from '../../navigation/footerNav/FooterNav';
+import {InstructionFormDiv} from './InstructionForm.styles';
+
 function FormTemplate ({ touched, errors, values })  { 
   return (
     <InstructionFormDiv>

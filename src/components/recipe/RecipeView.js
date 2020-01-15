@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import * as actionCreators from "../../actions/index";
+import * as actionCreators from "../../actions/actionCreators";
 
 import Recipe from "./Recipe";
-import SearchBar from "../navigation/SearchBar";
-import Footer from "../navigation/FooterNav";
-import Loader from "../Loader";
+import SearchBar from "../navigation/searchBar/SearchBar";
+import Footer from "../navigation/footerNav/FooterNav";
+import Loader from "../loader/Loader";
 
 import "../../App.css";
 

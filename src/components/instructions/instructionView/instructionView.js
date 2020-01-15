@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
-import * as actionCreators from '../../actions/index'
-import FormikInstructionForm from '../instructionForm/InstructionForm'
-import Instruction from '../instruction/Instruction'
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import * as actionCreators from '../../../actions/actionCreators';
+import FormikInstructionForm from '../instructionForm/InstructionForm';
+import Instruction from '../instruction/Instruction';
 
 const InstructionView = ({ getIngredients, ingredientView, ingredients }) => {
   useEffect(() => { getIngredients();}, [getIngredients])

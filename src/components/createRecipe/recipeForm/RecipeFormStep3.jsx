@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../../navigation/FooterNav";
+import Footer from "../../navigation/footerNav/FooterNav";
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Link } from "react-router-dom";

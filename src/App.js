@@ -1,15 +1,15 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import PrivateRoute from "./components/authentication/PrivateRoute";
-import FormikLoginForm from "./components/authentication/LoginForm";
-import FormikRegisterForm from "./components/authentication/RegisterForm";
+import PrivateRoute from "./components/authentication/privateRoute/PrivateRoute";
+import FormikLoginForm from "./components/authentication/loginForm/LoginForm";
+import FormikRegisterForm from "./components/authentication/registerForm/RegisterForm";
 import RecipeView from "./components/recipe/RecipeView";
 import SeeRecipe from "./components/recipe/SeeRecipe";
-import ProfileView from "./components/profile/ProfileView";
-import EditProfile from "./components/profile/EditProfile";
-import IngredientView from "./components/ingredients/IngredientView";
-import InstructionView from "./components/instructions/InstructionView";
-import CreateRecipe from "./components/createRecipe/CreateRecipe";
+import ProfileView from "./components/profile/profileView/ProfileView";
+import EditProfile from "./components/profile/editProfile/EditProfile";
+import IngredientView from "./components/ingredients/ingredientView/IngredientView";
+import InstructionView from "./components/instructions/instructionView/InstructionView";
+import CreateRecipe from "./components/createRecipe/createRecipe/CreateRecipe";
 import "./App.css";
 
 function App() {

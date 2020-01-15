@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "styled-components";
-import back from "../globals/design-elements/back.png";
-import check from "../globals/design-elements/check.png";
-import Footer from "../../navigation/FooterNav";
+import back from "../../../globals/design-elements/back.png";
+import check from "../../../globals/design-elements/check.png";
+import Footer from "../../navigation/footerNav/FooterNav";
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { TextField, Select, MenuItem } from '@material-ui/core';
