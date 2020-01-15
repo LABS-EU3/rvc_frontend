@@ -1,5 +1,5 @@
 import React from "react";
-import { Ring } from "./loader.styles";
+import { Ring } from "./Loader.styles";
 
 const Loader = () => {
   return (

@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getRecipesById } from "../../actions/index";
+import { getRecipesById } from "../../actions/actionCreators";
 import Popup from "reactjs-popup";
 
-import IngredientList from "../ingredients/IngredientList";
-import InstructionList from "../instructions/InstructionList";
-import Footer from "../navigation/FooterNav";
-import Loader from "../Loader";
+import IngredientList from "../ingredients/ingredientList/IngredientList";
+import InstructionList from "../instructions/instructionList/InstructionList";
+import Footer from "../navigation/footerNav/FooterNav";
+import Loader from "../loader/Loader";
 
 import { CardDiv } from "../../globals/card-styles";
 import arrow from "../../images/left-arrow.png";
