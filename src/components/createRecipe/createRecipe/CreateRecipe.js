@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import RecipeFormOne from "../recipeForm/RecipeFormStep1";
 import RecipeFormTwo from "../recipeForm/RecipeFormStep2";
 import RecipeFormThree from "../recipeForm/RecipeFormStep3";
-import Ready from "../Ready";
+import Ready from "../RecipeConfirmCreation/RecipeConfirmCreation";
 import Footer from "../../navigation/FooterNav";
 import { addToNewRecipe, submitNewRecipe } from "../../../actions";
 import * as actionCreators from "../../../actions";
@@ -55,7 +55,6 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
    addToNewRecipe({
       [e.target.name]: e.target.value
     });
-    // console.log("DDDDD", formState);
   };
 
   
@@ -110,7 +109,7 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
   };
 
   const onHandleFinalSubmit = (e) => { 
-    e.preventDefault()    
+    e.preventDefault()
     submitNewRecipe({
       recipes: {
         user_id,
@@ -155,8 +154,6 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
     history)
   }
 
-
-  //form2
   let UPLOAD_PRESET = "recipe_image";
   let CLOUDINARY_API = "https://api.cloudinary.com/v1_1/dr34bum3p/image/upload";
 
@@ -170,7 +167,6 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
     axios
       .post(CLOUDINARY_API, data)
       .then(res => {
-        console.log('rrrrr',res.data.secure_url)
         const recipe_file = res.data.secure_url;
 
         // setRecipeImage(res.data.secure_url);
@@ -209,7 +205,6 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
       return (
         <div className="App">
           <div>
-            {/* <p>Hello from CreateRecipe 2</p> */}
             <RecipeFormTwo
               title={title}
               step={step}
@@ -231,7 +226,7 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
       return (
         <div className="App">
           <div>
-            {/* <p>Hello from CreateRecipe 3</p> */}
+
               <RecipeFormThree
               step={step}
               title={title}
@@ -256,7 +251,6 @@ function CreateRecipe({ addToNewRecipe, ingredients, instructions, submitNewReci
       return (
         <div className="App">
           <div>
-            {/* <p>Hello from CreateRecipe 4</p> */}
               <RecipeFormFour
               step={step}
               title={title}
