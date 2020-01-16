@@ -13,7 +13,7 @@ function Welcome (){
               <img src={logo_image} alt="welcome" />
             </div>
             <div className='slogan'>
-              <h3>expand your taste</h3>
+              <h3>Find. Fork. Fix up!</h3>
             </div>
         </WelcomeDiv>
     );
