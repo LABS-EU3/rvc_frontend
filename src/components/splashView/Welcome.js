@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logo_image from '../globals/design-elements/logo_white.png';
+import logo_image from '../../globals/design-elements/logo_white.png';
 import { WelcomeDiv } from './splashView.styles';
 
 function Welcome (){
