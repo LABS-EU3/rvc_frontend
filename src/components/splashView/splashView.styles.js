@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const WelcomeDiv = styled.div`
+export const SplashViewDiv = styled.div`
   background: #0AB38A;
   color: white;
   display: flex;
