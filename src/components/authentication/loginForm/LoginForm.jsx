@@ -54,8 +54,8 @@ function FormTemplate({ touched, errors, onboard }) {
             placeholder="Password"
           />
         </div>
-        { // When a request fails:
-          onboard.error !== "" &&
+        { // If credentials are invalid:
+          (onboard.error !== "" && onboard.error.response.status === 401) &&
             <div className="error-message">
                 <p>Invalid credentials. Please try again.</p>
             </div>

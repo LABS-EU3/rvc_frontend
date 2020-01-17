@@ -33,8 +33,7 @@ export const login = (credentials, history) => dispatch => {
       history.push("/recipes");
     })
     .catch(error => {
-      dispatch({ type: types.LOGIN_FAILURE, payload: error.message });
-      // May want to change to `payload: error` in future, as the full object is more useful.
+      dispatch({ type: types.LOGIN_FAILURE, payload: error });
     });
 };
 
