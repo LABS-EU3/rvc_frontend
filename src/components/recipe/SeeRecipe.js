@@ -10,7 +10,7 @@ import Footer from "../navigation/footerNav/FooterNav";
 import Loader from "../loader/Loader";
 
 import arrow from "../../images/left-arrow.png";
-import dishImg from "../../images/dish1.jpg";
+import defaultRecipeImg from "../../images/foodplaceholder.png";
 
 import { CardDiv } from "../../globals/card-styles";
 import "../../App.css";
@@ -62,7 +62,7 @@ function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
 
         <ImgRecipe>
           <img
-            src={recipe.images ? recipe.images[0] : null || dishImg}
+            src={recipe.images ? recipe.images[0] : null || defaultRecipeImg}
             alt={recipe.recipe_title}
           />
         </ImgRecipe>

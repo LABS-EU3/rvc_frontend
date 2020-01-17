@@ -17,7 +17,7 @@ import {
   LinkFooter
 } from "./loginForm.styles";
 
-function FormTemplate({ touched, errors }) {
+function FormTemplate({ touched, errors, onboard }) {
   return (
     <MainDiv>
       <ArrowDiv>
@@ -54,6 +54,12 @@ function FormTemplate({ touched, errors }) {
             placeholder="Password"
           />
         </div>
+        { // If credentials are invalid:
+          (onboard.error.response && onboard.error.response.status === 401) &&
+            <div className="error-message">
+                <p>Invalid credentials. Please try again.</p>
+            </div>
+        }
         <button type="submit" className="register-button">
           Login
         </button>
