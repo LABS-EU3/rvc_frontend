@@ -5,7 +5,7 @@ const initialOnboardingState = {
   username: localStorage.getItem("username") || "",
   token: localStorage.getItem("token") || "",
   message: "",
-  error: "",
+  error: {},
   isFetching: false,
   isLoggedIn: false
 };
