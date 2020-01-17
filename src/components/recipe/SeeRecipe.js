@@ -9,10 +9,10 @@ import InstructionList from "../instructions/instructionList/InstructionList";
 import Footer from "../navigation/footerNav/FooterNav";
 import Loader from "../loader/Loader";
 
-import { CardDiv } from "../../globals/card-styles";
 import arrow from "../../images/left-arrow.png";
 import dishImg from "../../images/dish1.jpg";
 
+import { CardDiv } from "../../globals/card-styles";
 import "../../App.css";
 import {
   RecipeTopDiv,
@@ -25,15 +25,17 @@ import {
   ProfilePicture,
   BottomButtonDiv,
   LgButton
-} from "./recipe.styles";
+} from "./Recipe.styles";
 
 function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
   console.log("SeeRecipe.js > recipe: ", recipe);
+  
   const recipeID = match.params.id.trim();
 
   useEffect(() => {
     getRecipesById(recipeID);
   }, [getRecipesById, recipeID]);
+
   return (
     <div>
       <RecipeTopDiv>
@@ -42,23 +44,29 @@ function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
             <img src={arrow} alt="arrow" />
           </Link>
         </div>
+
         <TopButtonDiv>
           <ShareButton>
             <h1>Share</h1>
           </ShareButton>
+
           <ForkButton>
             <h1>Fork</h1>
           </ForkButton>
         </TopButtonDiv>
+
       </RecipeTopDiv>
+
       <CardDiv>
         {isFetching ? <Loader /> : null}
+
         <ImgRecipe>
           <img
             src={recipe.images ? recipe.images[0] : null || dishImg}
             alt={recipe.recipe_title}
           />
         </ImgRecipe>
+
         <DescriptionDiv>
           <ProfilePicture>
             <h1>
@@ -68,14 +76,17 @@ function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
                 : null || `C`}{" "}
             </h1>
           </ProfilePicture>
+
           <DetailsRecipe>{recipe.recipe_title || ""}</DetailsRecipe>
         </DescriptionDiv>
+
         <BottomButtonDiv>
           <Popup modal trigger={<LgButton>Ingredients</LgButton>}>
             {close => (
               <IngredientList ingredients={recipe.ingredients} close={close} />
             )}
           </Popup>
+
           <Popup modal trigger={<LgButton>Instructions</LgButton>}>
             {close => (
               <InstructionList
@@ -86,6 +97,7 @@ function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
           </Popup>
         </BottomButtonDiv>
       </CardDiv>
+
       <Footer />
     </div>
   );
