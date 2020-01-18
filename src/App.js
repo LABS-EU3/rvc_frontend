@@ -18,13 +18,14 @@ function App() {
       <Route exact path="/" component={RecipeView} />
       <Route path="/login" component={FormikLoginForm} />
       <Route path="/register" component={FormikRegisterForm} />
+
       <Route path="/recipes" exact component={RecipeView} />
       <Route path="/recipes/:id" render={props => <SeeRecipe {...props} />} />
+
       <PrivateRoute path='/profile' component={ProfileView}/>
-      {/* <PrivateRoute path='/editprofile' component={EditProfile}/> */}
+      <PrivateRoute path='/editprofile' component={EditProfile}/>
+      
       <PrivateRoute path='/createrecipe' component={ CreateRecipe}/>
-      <Route path="/editprofile" component={EditProfile} />
-      {/* <Route path="/createrecipe" component={CreateRecipe} /> */}
       <Route path="/ingredient" component={IngredientView} />
       <Route path="/instruction" component={InstructionView} />
     </div>
