@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
+
 import PrivateRoute from "./components/authentication/privateRoute/PrivateRoute";
 import FormikLoginForm from "./components/authentication/loginForm/LoginForm";
 import FormikRegisterForm from "./components/authentication/registerForm/RegisterForm";
@@ -10,6 +11,7 @@ import EditProfile from "./components/profile/editProfile/EditProfile";
 import IngredientView from "./components/ingredients/ingredientView/IngredientView";
 import InstructionView from "./components/instructions/instructionView/InstructionView";
 import CreateRecipe from "./components/createRecipe/createRecipe/CreateRecipe";
+
 import "./App.css";
 
 function App() {
@@ -24,7 +26,7 @@ function App() {
 
       <PrivateRoute path='/profile' component={ProfileView}/>
       <PrivateRoute path='/editprofile' component={EditProfile}/>
-      
+
       <PrivateRoute path='/createrecipe' component={ CreateRecipe}/>
       <Route path="/ingredient" component={IngredientView} />
       <Route path="/instruction" component={InstructionView} />
