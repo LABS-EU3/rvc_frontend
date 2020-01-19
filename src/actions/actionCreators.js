@@ -1,11 +1,10 @@
 import * as types from "./actionTypes";
-import axios from "axios";
+import { Axios, axiosWithAuth } from "../utils/axios";
 
 export const register = (credentials, history) => dispatch => {
   dispatch({ type: types.REQUEST_START });
-  axios
-    // .post("https://develop-forkbook.herokuapp.com/api/auth/register",credentials )
-    .post("http://localhost:3333/api/auth/register",credentials )
+  Axios()
+    .post("api/auth/register", credentials)
     .then(res => {
       localStorage.setItem("username", res.data.username);
       localStorage.setItem("token", res.data.token);
@@ -21,9 +20,8 @@ export const register = (credentials, history) => dispatch => {
 
 export const login = (credentials, history) => dispatch => {
   dispatch({ type: types.REQUEST_START });
-  axios
-  // .post("https://develop-forkbook.herokuapp.com/api/auth/login", credentials)
-  .post("http://localhost:3333/api/auth/login", credentials)
+  Axios()
+    .post("api/auth/login", credentials)
     .then(res => {
       localStorage.setItem("username", res.data.username);
       localStorage.setItem("token", res.data.token);
@@ -43,9 +41,8 @@ export const logout = () => {
 
 export const getRecipes = () => dispatch => {
   dispatch({ type: types.REQUEST_START });
-  axios
-    // .get("https://develop-forkbook.herokuapp.com/api/recipe")
-    .get("http://localhost:3333/api/recipe")
+  Axios()
+    .get("api/recipe")
 
     .then(res => {
       dispatch({ type: types.GET_ALL_RECIPES_SUCCESS, payload: res.data });
@@ -57,9 +54,8 @@ export const getRecipes = () => dispatch => {
 
 export const getRecipesById = id => dispatch => {
   dispatch({ type: types.GET_RECIPE });
-  axios
-    // .get(`https://develop-forkbook.herokuapp.com/api/recipe/${id}`)
-    .get(` http://localhost:3333/api/recipe/${id}`)
+  Axios()
+    .get(`api/recipe/${id}`)
 
     .then(res => {
       dispatch({ type: types.GET_RECIPE_SUCCESS, payload: res.data });
@@ -71,9 +67,8 @@ export const getRecipesById = id => dispatch => {
 // Might not be needed
 export const addIngredient = ingredientData => dispatch => {
   dispatch({ type: types.REQUEST_START });
-  axios
-    // .post("https://develop-forkbook.herokuapp.com/api/recipe", ingredientData)
-    .post("http://localhost:3333/api/recipe", ingredientData)
+  Axios()
+    .post("api/recipe", ingredientData)
 
     .then(res => {
       dispatch({
@@ -88,9 +83,8 @@ export const addIngredient = ingredientData => dispatch => {
 
 export const getIngredients = () => dispatch => {
   dispatch({ type: types.REQUEST_START });
-  axios
-    // .get("https://develop-forkbook.herokuapp.com/api/recipe/")
-    .get("http://localhost:3333/api/recipe/")
+  Axios()
+    .get("api/recipe/")
 
     .then(res => {
       dispatch({ type: types.GET_INGREDIENT_SUCCESS, payload: res.data });
@@ -105,9 +99,8 @@ export const getIngredients = () => dispatch => {
 // Might not be needed
 export const addInstruction = instructionData => dispatch => {
   dispatch({ type: types.REQUEST_START });
-  axios
-    // .post("https://develop-forkbook.herokuapp.com/api/recipe", instructionData)
-    .post("http://localhost:3333/api/recipe", instructionData)
+  Axios()
+    .post("api/recipe", instructionData)
 
     .then(res => {
       dispatch({
@@ -122,9 +115,8 @@ export const addInstruction = instructionData => dispatch => {
 // Might not be needed
 export const getInstructions = () => dispatch => {
   dispatch({ type: types.REQUEST_START });
-  axios
-    // .get("https://develop-forkbook.herokuapp.com/api/recipe")
-    .get("http://localhost:3333/api/recipe")
+  Axios()
+    .get("api/recipe")
 
     .then(res => {
       dispatch({
@@ -142,15 +134,8 @@ export const getInstructions = () => dispatch => {
 
 export const submitNewRecipe = (newRecipeData, history) => dispatch => {
   dispatch({ type: types.REQUEST_START });
-  axios
-    // .post("https://develop-forkbook.herokuapp.com/api/recipe", newRecipeData, {
-    .post("http://localhost:3333/api/recipe", newRecipeData, {
-
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: localStorage.getItem("token")
-      }
-    })
+  axiosWithAuth()
+    .post("api/recipe", newRecipeData)
     .then(res => {
       dispatch({ type: types.POST_NEW_RECIPE_SUCCESS, payload: res.data });
       dispatch({ type: types.RESET_NEW_RECIPE });
@@ -169,7 +154,6 @@ export const addToNewRecipe = newRecipeData => {
     payload: newRecipeData
   };
 };
-
 
 /// THIS IS THE NEW STUFF DO NOT DELETE BELOW
 
@@ -222,18 +206,13 @@ export const addInstructionsToBody = instructions => dispatch => {
 };
 
 export const postRecipe = payload => dispatch => {
-  axios
-    .post("http://localhost:3333/api/recipe", payload, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: localStorage.getItem("token")
-      }
-    })
+  axiosWithAuth()
+    .post("api/recipe", payload)
     .then(res => {
       dispatch({ type: types.POST_RECIPE_OK, payload: res.data });
     })
     .catch(error => {
-      console.dir(error)
+      console.dir(error);
       dispatch({ type: types.POST_RECIPE_FAIL, payload: error });
     });
 };
