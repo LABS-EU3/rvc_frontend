@@ -269,18 +269,18 @@ export const getProfile = () => dispatch => {
     })
     .catch(generalError);
 
-    const getForkedRecipesCount = axiosWithAuth()
-      .get('api/profile/forked') // **subject to change!**
-      .then(res => {
-        const payload = res.data; // an integer
-        const massagedPayload = {
-          forked_recipes_count: payload,
-          isFetchingForkedRecipesCount: false,
-        }
+  const getForkedRecipesCount = axiosWithAuth()
+    .get('api/profile/forked') // **subject to change!**
+    .then(res => {
+      const payload = res.data; // an integer
+      const massagedPayload = {
+        forked_recipes_count: payload,
+        isFetchingForkedRecipesCount: false,
+      }
 
-        dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload });
-      })
-      .catch(generalError);
+      dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload });
+    })
+    .catch(generalError);
 
   Promise.all([getProfileInfo, getUserRecipes, getUserLikes, getForkedRecipesCount])
     .then(res => {
