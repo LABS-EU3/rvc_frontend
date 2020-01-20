@@ -296,13 +296,18 @@ const initialProfileState = {
   first_name: "",
   last_name: "",
   bio: "",
-  // The following need their own request(s):
-  recipe_count: 0,
-  recipes_forked_count: 0,
+  // The following need their own request(s)...
+  user_recipes: [], // A
+  liked_recipes: [], // B
   forked_recipes_count: 0,
-  recipes: [], // Tracks recipes available in the carosel!
+  // ... determining the following:
+  recipe_count: 0, // A
+  recipes_forked_count: 0, // B
   // And the following are meta:
-  isFetching: false,
+  isFetchingProfile: false,
+  isFetchingUserRecipes: false,
+  isFetchingUserLikes: false,
+  isFetchingForkedRecipesCount: false,
   error: "",
   message: ""
 };
@@ -311,19 +316,24 @@ const profileReducer = (state = initialProfileState, action) => {
     case types.GET_PROFILE:
       return {
         ...state,
-        isFetching: true
+        isFetchingProfile: true,
+        isFetchingUserRecipes: true,
+        isFetchingUserLikes: true,
       };
     case types.GET_PROFILE_SUCCESS:
       return {
         ...state,
-        ...action.payload, // Note: The way this is set up, it can be used both when a GET /api/profile
-        isFetching: false  // happens, and when GET reqs are put in for liked or created recipes.
-      };                   // So long as action.payload is appropriate in each case! :)
+        ...action.payload,
+        // Note: No 'isFetching___: false' here, because it's in the payload.
+      };
     case types.GET_PROFILE_FAILURE:
       return {
         ...state,
         error: action.payload,
-        isFetching: false
+        isFetchingProfile: false,
+        isFetchingUserRecipes: false,
+        isFetchingUserLikes: false,
+        isFetchingForkedRecipesCount: false,
       };
     default:
       return state;
