@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import * as dispatchers from "../../../actions/actionCreators"
+import * as dispatchers from "../../../actions/actionCreators";
 import DropDown from "../../dropDown/DropDown";
+import { NewRecipeForm } from "./form.styles";
 
 const getAllCategoiresUrl = "http://localhost:3333/api/category";
 const getAllTagsUrl = "http://localhost:3333/api/tag";
 
 function Step1(props) {
-
   const {
     goForward,
     addRecipeToBody,
@@ -42,24 +42,25 @@ function Step1(props) {
     addRecipeToBody(recipe);
 
     // body.recipe_categories
-    addRecipeCategoriesToBody([inputState.recipe_categories])
+    addRecipeCategoriesToBody([inputState.recipe_categories]);
 
     // body.recipe_tags
-    addRecipeTagsToBody([inputState.recipe_tags])
-    
+    addRecipeTagsToBody([inputState.recipe_tags]);
+
     goForward(e);
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <input
-        type="text"
-        onChange={inputHandler}
-        value={inputState.title}
-        name="title"
-        placeholder="title"
-      />
-      <br></br>
+    <NewRecipeForm onSubmit={onSubmit}>
+      <div>
+        <label>Name of the Recipe</label>
+        <input
+          type="text"
+          onChange={inputHandler}
+          value={inputState.title}
+          name="title"
+        />
+      </div>
       <input
         type="text"
         onChange={inputHandler}
@@ -118,7 +119,7 @@ function Step1(props) {
       />
       <br></br>
       <button type="submit">Next</button>
-    </form>
+    </NewRecipeForm>
   );
 }
 

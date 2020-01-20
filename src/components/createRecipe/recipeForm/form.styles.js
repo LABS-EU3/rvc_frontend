@@ -14,10 +14,11 @@ export const NewRecipeForm = styled.form`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
     width: 100%;
     background: #0ab38a;
-    backdrop-filter: blur(27.1828px);
+    backdrop-filter: blur(27px);
+    -moz-backdrop-filter: blur(27px);
+    -webkit-backdrop-filter: blur(27px);
 
     label,
     input {
@@ -25,8 +26,8 @@ export const NewRecipeForm = styled.form`
       border: none;
       outline: none;
       background: inherit;
+      margin: none;
       margin-left: 25px;
-      margin-bottom: 50px;
     }
     label {
       font-size: 14px;
@@ -36,6 +37,7 @@ export const NewRecipeForm = styled.form`
       border-bottom: 2px solid #ffffff;
       padding: 10px;
       font-size: 16px;
+      margin-bottom: 50px;
     }
   }
 `;
