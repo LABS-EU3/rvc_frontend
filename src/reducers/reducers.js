@@ -291,15 +291,16 @@ export const newRecipeReducerOld = (state = initialRecipeState, action) => {
 
 // profile
 const initialProfileState = {
-  recipe_count: 0,
-  recipes_forked_count: 0,
-  forked_recipes_count: 0,
-  recipes: [], // Tracks recipes available in the carosel!
   // The following exist in the db as-is:
   profile_pic: "",
   first_name: "",
   last_name: "",
   bio: "",
+  // The following need their own request(s):
+  recipe_count: 0,
+  recipes_forked_count: 0,
+  forked_recipes_count: 0,
+  recipes: [], // Tracks recipes available in the carosel!
   // And the following are meta:
   isFetching: false,
   error: "",
