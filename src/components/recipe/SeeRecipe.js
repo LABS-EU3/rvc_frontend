@@ -25,11 +25,11 @@ import {
   ProfilePicture,
   BottomButtonDiv,
   LgButton
-} from "./Recipe.styles";
+} from "./recipe.styles";
 
 function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
   console.log("SeeRecipe.js > recipe: ", recipe);
-  
+
   const recipeID = match.params.id.trim();
 
   useEffect(() => {
@@ -54,7 +54,6 @@ function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
             <h1>Fork</h1>
           </ForkButton>
         </TopButtonDiv>
-
       </RecipeTopDiv>
 
       <CardDiv>
