@@ -1,25 +1,29 @@
 import React from "react";
 import Popup from "reactjs-popup";
+import { Link } from 'react-router-dom';
 
 import Footer from "../../navigation/footerNav/FooterNav";
+import EditProfile from "../editProfile/EditProfile";
+
 import bookmark from "../../../globals/design-elements/bookmark.png";
 import more from "../../../globals/design-elements/more.png";
 import copy from "../../../globals/design-elements/copy-item.png";
-import EditProfile from "../editProfile/EditProfile";
-import { Link } from 'react-router-dom';
-import { StyledParagraph } from './profileView.styles'
+
+import { StyledProfile } from './profileView.styles';
+import profilePlaceholderImage from '../../../images/profile_placeholder_1.png';
 
 
-export default function CreateProfile() {
+export default function ProfileView() {
   return (
-    <div className="profile-container">
+    <StyledProfile>
       <div className="profile-img">
-        <StyledParagraph>C</StyledParagraph>
+        <img src={profilePlaceholderImage} alt="default profile"/>
       </div>
 
-      <Popup modal trigger={<h4>@Chelsea</h4>}>
+      {/* <Popup modal trigger={<h4>@Chelsea</h4>}>
         {close => <EditProfile close={close} />}
-      </Popup>
+      </Popup> */} 
+
       <div className="num-likes-and-forks">
         <div>
           <p className="likes-paragraph">8</p>
@@ -60,6 +64,6 @@ export default function CreateProfile() {
       </div>
 
       <Footer />
-    </div>
+    </StyledProfile>
   );
 }

@@ -329,7 +329,7 @@ a:hover {
   border-radius: 18px;
   border: 1px solid #cfcece;
 }
-.profile-container {
+/* .profile-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -387,7 +387,7 @@ a:hover {
   border-width: 1px;
   background-color: rgb(0, 172, 238);
   padding: 0 12px;
-}
+} */
 
 .profile-photo {
   margin-top: 2rem;
