@@ -315,9 +315,9 @@ const profileReducer = (state = initialProfileState, action) => {
     case types.GET_PROFILE_SUCCESS:
       return {
         ...state,
-        ...action.payload,
-        isFetching: false
-      };
+        ...action.payload, // Note: The way this is set up, it can be used both when a GET /api/profile
+        isFetching: false  // happens, and when GET reqs are put in for liked or created recipes.
+      };                   // So long as action.payload is appropriate in each case! :)
     case types.GET_PROFILE_FAILURE:
       return {
         ...state,
@@ -328,7 +328,6 @@ const profileReducer = (state = initialProfileState, action) => {
       return state;
   }
 }
-
 
 // THIS IS THE NEW STUFF DO NOT DELETE BELOW
 
