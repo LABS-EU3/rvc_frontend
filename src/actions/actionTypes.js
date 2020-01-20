@@ -9,6 +9,11 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 
 export const LOGOUT = "LOGOUT";
 
+// profile
+export const GET_PROFILE = 'GET_PROFILE';
+export const GET_PROFILE_SUCCESS = 'GET_PROFILE_SUCCESS';
+export const GET_PROFILE_FAILURE = 'GET_PROFILE_FAILURE';
+
 //create recipe
 export const ADD_RECIPE_SUCCESS = "ADD_RECIPE_SUCCESS";
 export const ADD_RECIPE_FAILURE = "ADD_RECIPE_FAILURE";
