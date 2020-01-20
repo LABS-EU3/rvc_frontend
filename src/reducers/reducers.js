@@ -289,6 +289,46 @@ export const newRecipeReducerOld = (state = initialRecipeState, action) => {
   }
 };
 
+// profile
+const initialProfileState = {
+  recipe_count: 0,
+  recipes_forked_count: 0,
+  forked_recipes_count: 0,
+  recipes: [], // Tracks recipes available in the carosel!
+  // The following exist in the db as-is:
+  profile_pic: "",
+  first_name: "",
+  last_name: "",
+  bio: "",
+  // And the following are meta:
+  isFetching: false,
+  error: "",
+  message: ""
+};
+const profileReducer = (state = initialProfileState, action) => {
+  switch (action.type) {
+    case types.GET_PROFILE:
+      return {
+        ...state,
+        isFetching: true
+      };
+    case types.GET_PROFILE_SUCCESS:
+      return {
+        ...state,
+        ...action.payload,
+        isFetching: false
+      };
+    case types.GET_PROFILE_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetching: false
+      };
+    default:
+      return state;
+  }
+}
+
 
 // THIS IS THE NEW STUFF DO NOT DELETE BELOW
 
