@@ -1,6 +1,8 @@
-import React from "react";
-import Popup from "reactjs-popup";
+import React, { useEffect } from "react";
 import { Link } from 'react-router-dom';
+import Popup from "reactjs-popup";
+import { connect } from "react-redux";
+import * as actionCreators from "../../../actions/actionCreators";
 
 import Footer from "../../navigation/footerNav/FooterNav";
 import EditProfile from "../editProfile/EditProfile";
@@ -15,7 +17,7 @@ import profilePlaceholderImage from '../../../images/profile_placeholder_1.png';
 // Not sure which is nicer!
 
 
-export default function ProfileView() {
+export function ProfileView() {
   return (
     <>
       <StyledProfile>
@@ -75,3 +77,5 @@ export default function ProfileView() {
     </>
   );
 }
+
+export default connect(state => state.profile, actionCreators)(ProfileView);
