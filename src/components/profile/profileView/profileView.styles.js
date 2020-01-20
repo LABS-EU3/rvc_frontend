@@ -8,14 +8,17 @@ export const StyledProfile = styled.div`
     justify-content: space-evenly;
 
     .profile-img {
-      text-align: center;
-      border: 1px solid black;
-      width: 26%;
-      height: 20%;
+      border: 2px solid #0ab28a;
+      width: 15rem;
+      height: 15rem;
       margin: 2px auto;
       border-radius: 50%;
-      color: white;
-      background-color: #0ab28a;
+      background: white;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     .num-likes-and-forks {
