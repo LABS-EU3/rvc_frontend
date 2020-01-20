@@ -311,7 +311,7 @@ const initialProfileState = {
   error: "",
   message: ""
 };
-const profileReducer = (state = initialProfileState, action) => {
+export const profileReducer = (state = initialProfileState, action) => {
   switch (action.type) {
     case types.GET_PROFILE:
       return {

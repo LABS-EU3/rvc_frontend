@@ -217,7 +217,7 @@ export const postRecipe = payload => dispatch => {
     });
 };
 
-export const getProfileById = id => dispatch => {
+export const getProfile = () => dispatch => {
   dispatch({ type: types.GET_PROFILE });
 
   const generalError = error => { // For use below!
