@@ -22,7 +22,12 @@ export function ProfileView(props) {
     profile_pic,
     first_name,
     last_name,
-    bio
+    bio,
+    user_recipes,
+    liked_recipes,
+    forked_recipes_count,
+    recipe_count,
+    recipes_forked_count
   } = props;
 
   return (
@@ -48,15 +53,15 @@ export function ProfileView(props) {
 
           <div className="num-likes-and-forks">
             <div>
-              <p className="likes-paragraph">8</p>
+          <p className="recipes">{recipe_count}</p>
               <h4>Recipes</h4>
             </div>
             <div>
-              <p className="likes-paragraph">21</p>
+          <p className="forked-recipes">{recipes_forked_count}</p>
               <h4>Forked Recipes</h4>
             </div>
             <div>
-              <p className="likes-paragraph">1225</p>
+              <p className="forks">{forked_recipes_count}</p>
               <h4>Forks</h4>
             </div>
           </div>

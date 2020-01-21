@@ -293,9 +293,9 @@ export const newRecipeReducerOld = (state = initialRecipeState, action) => {
 const initialProfileState = {
   // The following exist in the db as-is:
   profile_pic: "",
-  first_name: "Test",
-  last_name: "Testname",
-  bio: "Oh boy, here I go cookin' again!",
+  first_name: "",
+  last_name: "",
+  bio: "",
   // The following need their own request(s)...
   user_recipes: [], // A
   liked_recipes: [], // B
@@ -309,9 +309,52 @@ const initialProfileState = {
   isFetchingUserLikes: false,
   isFetchingForkedRecipesCount: false,
   error: "",
-  message: ""
+  message: "",
 };
-export const profileReducer = (state = initialProfileState, action) => {
+
+const dummyProfileState = {
+  // The following exist in the db as-is:
+  profile_pic: "",
+  first_name: "Dummy",
+  last_name: "Dummyname",
+  bio: "Oh boy, here I go cookin' again!",
+  // The following need their own request(s)...
+  user_recipes: [
+    {
+      recipe_title: "Pancakes",
+      images: [
+        "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
+      ],
+    },
+    {
+      recipe_title: "Cakes",
+      images: [
+        "https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/carrot-cake.jpg"
+      ],
+    }
+  ], // A
+  liked_recipes: [
+    {
+      recipe_title: "Pancakes",
+      images: [
+        "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
+      ],
+    }
+  ], // B
+  forked_recipes_count: 0,
+  // ... determining the following:
+  recipe_count: 2, // A
+  recipes_forked_count: 1, // B
+  // And the following are meta:
+  isFetchingProfile: false,
+  isFetchingUserRecipes: false,
+  isFetchingUserLikes: false,
+  isFetchingForkedRecipesCount: false,
+  error: "",
+  message: "",
+};
+
+export const profileReducer = (state = dummyProfileState, action) => {
   switch (action.type) {
     case types.GET_PROFILE:
       return {
@@ -325,6 +368,7 @@ export const profileReducer = (state = initialProfileState, action) => {
         ...state,
         ...action.payload,
         // Note: No 'isFetching___: false' here, because it's in the payload.
+        // Ditto for 'error' and 'message'!
       };
     case types.GET_PROFILE_FAILURE:
       return {
