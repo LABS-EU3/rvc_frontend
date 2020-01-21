@@ -293,9 +293,9 @@ export const newRecipeReducerOld = (state = initialRecipeState, action) => {
 const initialProfileState = {
   // The following exist in the db as-is:
   profile_pic: "",
-  first_name: "",
-  last_name: "",
-  bio: "",
+  first_name: "Test",
+  last_name: "Testname",
+  bio: "Oh boy, here I go cookin' again!",
   // The following need their own request(s)...
   user_recipes: [], // A
   liked_recipes: [], // B

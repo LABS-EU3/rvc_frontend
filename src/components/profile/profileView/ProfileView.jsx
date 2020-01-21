@@ -17,19 +17,34 @@ import profilePlaceholderImage from '../../../images/profile_placeholder_1.png';
 // Not sure which is nicer!
 
 
-export function ProfileView() {
+export function ProfileView(props) {
+  const { 
+    profile_pic,
+    first_name,
+    last_name,
+    bio
+  } = props;
+
   return (
     <>
       <StyledProfile>
         <div className="profile-container">
   
           <div className="profile-img">
-            <img src={profilePlaceholderImage} alt="default profile"/>
+            {
+              (profile_pic !== "" &&
+              <img src={profile_pic} alt="default profile" />) ||
+              <img src={profilePlaceholderImage} alt="default profile"/>
+            }
           </div>
 
-          {/* <Popup modal trigger={<h4>@Chelsea</h4>}>
+          <Popup modal trigger={<h4>@[USERNAME]</h4>}>
             {close => <EditProfile close={close} />}
-          </Popup> */} 
+          </Popup>
+
+          <div className="name">
+            <p>{first_name + " " + last_name}</p>
+          </div>
 
           <div className="num-likes-and-forks">
             <div>
@@ -45,7 +60,7 @@ export function ProfileView() {
               <h4>Forks</h4>
             </div>
           </div>
-          <p className="profile-bio">...I enjoy cooking</p>
+        <p className="profile-bio">{bio}</p>
           <div className="profile-icons">
             <img className="profile-icons-image" src={bookmark} alt="" />
             <img className="profile-icons-image" src={copy} alt="" />
