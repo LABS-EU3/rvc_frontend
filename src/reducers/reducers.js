@@ -352,11 +352,16 @@ const dummyProfileState = {
   ], // A
   liked_recipes: [
     {
-      recipe_title: "Pancakes",
+      id: 2,
+      recipe_title: "Cookies",
+      author: "TEST",
+      time_required: 55,
+      difficulty: 1,
+      budget: 1,
       images: [
-        "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
+        "https://www.handletheheat.com/wp-content/uploads/2018/02/BAKERY-STYLE-CHOCOLATE-CHIP-COOKIES-9.jpg"
       ],
-    }
+    },
   ], // B
   forked_recipes_count: 0,
   // ... determining the following:

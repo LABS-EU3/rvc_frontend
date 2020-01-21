@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import Popup from "reactjs-popup";
 import { connect } from "react-redux";
@@ -47,6 +47,14 @@ export function ProfileView(props) {
   const sanitisedUserRecipes = sanitiseRecipes(user_recipes);
   const sanitisedLikedRecipes = sanitiseRecipes(liked_recipes);
 
+  const [selectedRecipes, setSelectedRecipes] = useState('created');
+
+  const switchSelectedRecipes = selected => {
+    selected === 'created' ? 
+      setSelectedRecipes('created') :
+      setSelectedRecipes('forked');
+  };
+
   return (
     <>
       <StyledProfile>
@@ -84,8 +92,8 @@ export function ProfileView(props) {
           </div>
         <p className="profile-bio">{bio}</p>
           <div className="profile-icons">
-            <img className="profile-icons-image" src={bookmark} alt="" />
-            <img className="profile-icons-image" src={copy} alt="" />
+            <img className="profile-icons-image" src={copy} alt="" onClick={() => switchSelectedRecipes('created')} />
+            <img className="profile-icons-image" src={bookmark} alt="" onClick={() => switchSelectedRecipes('forked')}/>
             <Link to='/createrecipe'>
             <img className="profile-icons-image" src={more} alt="" />
             </Link>
@@ -96,11 +104,19 @@ export function ProfileView(props) {
             <hr id="divider" />
           </div>
 
-          <div className="container">
-            {sanitisedUserRecipes.map(recipe => (
-              <Recipe key={recipe.id} recipe={recipe} />
-            ))}
-          </div>
+          {(selectedRecipes === 'created' && 
+            <div className="container">
+              {sanitisedUserRecipes.map(recipe => (
+                <Recipe key={recipe.id} recipe={recipe} />
+              ))}
+            </div>) ||
+            (selectedRecipes === 'forked' &&
+              <div className="container">
+                {sanitisedLikedRecipes.map(recipe => (
+                  <Recipe key={recipe.id} recipe={recipe} />
+                ))}
+              </div>)
+          }
         </div>
       </StyledProfile>
 
