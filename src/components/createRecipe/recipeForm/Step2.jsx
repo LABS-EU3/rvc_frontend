@@ -1,6 +1,21 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators"
+import CheckIcon from '@material-ui/icons/Check';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import DropDown from "../../dropDown/DropDown";
+import { Link } from "react-router-dom";
+import { TextField, Select, MenuItem } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import {
+  Section1,
+  NavigationSection1,
+  Addtitle,
+  Section2,
+  Section3,
+  Title,
+  SwitchDiv
+} from "./FormStyled.styles";
 
 import axios from "axios";
 
@@ -31,7 +46,21 @@ function Step2(props) {
 
   return (
     <form onSubmit={onSubmit}>
-      <span>Upload Image </span>
+      <Section3>
+      <NavigationSection1>
+            <Link to='/profile'>
+              <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+            </Link>
+          <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
+          <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+        </button>
+        </NavigationSection1>
+        <Addtitle>
+       <h1>
+        Upload Image
+        </h1>
+        </Addtitle>
+      </Section3>
       <input
         type="file"
         onChange={uploadImage}
@@ -42,7 +71,6 @@ function Step2(props) {
         ? <img alt="image to uploaded" src={imgUrl} />
         : <h2>image here</h2>
       }
-      <button type="submit">Next</button>
     </form>
   );
 }
