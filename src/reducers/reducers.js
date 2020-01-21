@@ -319,19 +319,36 @@ const dummyProfileState = {
   last_name: "Dummyname",
   bio: "Oh boy, here I go cookin' again!",
   // The following need their own request(s)...
+  // id,
+  // recipe_title,
+  // author,
+  // time_required,
+  // difficulty,
+  // budget,
+  // imageUrl
   user_recipes: [
     {
+      id: 2,
       recipe_title: "Pancakes",
+      author: "TEST",
+      time_required: 55,
+      difficulty: 1,
+      budget: 1,
       images: [
         "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
       ],
     },
     {
+      id: 2,
       recipe_title: "Cakes",
+      author: "TEST",
+      time_required: 55,
+      difficulty: 1,
+      budget: 1,
       images: [
-        "https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/carrot-cake.jpg"
+        "https://keyassets-p2.timeincuk.net/wp/prod/wp-content/uploads/sites/53/2019/07/pick-and-mix-choc-cake-920x605.jpg"
       ],
-    }
+    },
   ], // A
   liked_recipes: [
     {
