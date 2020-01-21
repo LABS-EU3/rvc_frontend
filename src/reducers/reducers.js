@@ -293,9 +293,9 @@ export const newRecipeReducerOld = (state = initialRecipeState, action) => {
 const initialProfileState = {
   // The following exist in the db as-is:
   profile_pic: "",
-  first_name: "",
-  last_name: "",
-  bio: "",
+  first_name: "[FIRST NAME]",
+  last_name: "[LAST NAME]",
+  bio: "Tap your username above to edit your profile and add a short bio!",
   // The following need their own request(s)...
   user_recipes: [], // A
   liked_recipes: [], // B
@@ -376,7 +376,7 @@ const dummyProfileState = {
   message: "",
 };
 
-export const profileReducer = (state = dummyProfileState, action) => {
+export const profileReducer = (state = initialProfileState, action) => {
   switch (action.type) {
     case types.GET_PROFILE:
       return {

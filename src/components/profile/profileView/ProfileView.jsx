@@ -105,18 +105,37 @@ export function ProfileView(props) {
           </div>
 
           {(selectedRecipes === 'created' && 
-            <div className="container">
-              {sanitisedUserRecipes.map(recipe => (
-                <Recipe key={recipe.id} recipe={recipe} />
-              ))}
-            </div>) ||
-            (selectedRecipes === 'forked' &&
+            (
+              sanitisedUserRecipes.length === 0 ?
+                <div className="container">
+                  <p>
+                    "X"
+                  </p>
+                </div> : 
+                <div className="container">
+                  {sanitisedUserRecipes.map(recipe => (
+                    <Recipe key={recipe.id} recipe={recipe} />
+                  ))}
+                </div>
+            )
+          )
+          ||
+          (selectedRecipes === 'forked' &&
+            (
+              sanitisedLikedRecipes.length > 0 ?
+              <div className="container">
+                <p>
+                  "Y"
+                </p>
+              </div> :
               <div className="container">
                 {sanitisedLikedRecipes.map(recipe => (
                   <Recipe key={recipe.id} recipe={recipe} />
                 ))}
-              </div>)
-          }
+              </div>
+            ) 
+          )}
+
         </div>
       </StyledProfile>
 
