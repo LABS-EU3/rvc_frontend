@@ -14,9 +14,11 @@ import {
   Section2,
   Section3,
   Title,
-  SwitchDiv
+  Section2b,
+  ExportImg
 } from "./FormStyled.styles";
 
+import foodplaceholder from "../../../images/foodplaceholder.png";
 import axios from "axios";
 
 function Step2(props) {
@@ -61,16 +63,21 @@ function Step2(props) {
         </h1>
         </Addtitle>
       </Section3>
+      <ExportImg>
+        <div>
+          {imgUrl
+            ? <img alt="image to uploaded" src={imgUrl} />
+            : <img src={foodplaceholder} alt="A display of the already finished recipe" />
+          }
       <input
         type="file"
         onChange={uploadImage}
         name="imageUrl"
         placeholder="imageUrl"
       />
-      {imgUrl
-        ? <img alt="image to uploaded" src={imgUrl} />
-        : <h2>image here</h2>
-      }
+        </div>
+    </ExportImg>
+      
     </form>
   );
 }

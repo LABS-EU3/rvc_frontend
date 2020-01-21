@@ -309,6 +309,7 @@ display:flex;
 flex-direction:column;
 text-align: left;
 margin:5%;
+margin-bottom:65px;
 margin-top:8px;
 font-weight: 300;
 font-size: 15px;
@@ -332,12 +333,15 @@ h1 {
 export const ExportImg = styled.div `
 width: 100%;
 height: 397px;
+max-width: 100%;
+max-height: 397px;
 background: rgba(10, 178, 138, 0.21);
 padding:0px;
 display:flex;
 align-items: center; 
 align-content: center;
 margin-bottom:35px;
+
 `
 
 export const Title2 = styled.h1 `
