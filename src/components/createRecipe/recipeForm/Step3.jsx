@@ -9,12 +9,16 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Link } from "react-router-dom";
 import { TextField, Select, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import AddCircleOutlineTwoToneIcon from '@material-ui/icons/AddCircleOutlineTwoTone';
 import {
-  Section1,
   NavigationSection1,
   Addtitle,
+  Section2b,
+  IngredientsDiv,
+  IngredientsMainDiv,
+  Title2,
   Section3,
-  Title,
+  Section1,
   AddItem
 } from "./FormStyled.styles";
 
@@ -87,22 +91,32 @@ function Step3(props) {
         <h1>Add ingredient</h1>
         </Addtitle>
    </Section3>
+   <Section2b>
+     <IngredientsDiv>
       <input type="number" name="quantity" onChange={inputHandler} />
+     </IngredientsDiv>
+     <IngredientsDiv>
       <DropDown
         listUrl={getAlUnitsUrl}
         name="unit_id"
         inputHandler={inputHandler}
-      />
+        />
+     </IngredientsDiv>
+
+     <IngredientsDiv>
       <DropDown
         listUrl={getAllIngredientsUrl}
         name="ingredient_id"
         inputHandler={inputHandler}
-      />
+        />
+     </IngredientsDiv>
       <br></br>
-      <button onClick={addIngredient} type="button">
-        Add
-      </button>
-
+      <div
+        onClick={addIngredient}
+        style={{"margin" : "0 auto"}}
+        >
+        <AddCircleOutlineTwoToneIcon cgit style={{ fontSize: 40, color: '#0AB38A' }} />
+        </div>
       <div>
         {ingredientsArray.length
           ? ingredientsDisplayArray.map((ing, i) => (
@@ -112,8 +126,9 @@ function Step3(props) {
               </p>
             </AddItem>
             ))
-          : null}
+            : null}
       </div>
+    </Section2b>
     </form>
   );
 }

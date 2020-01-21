@@ -56,11 +56,11 @@ function Step2(props) {
         </button>
         </NavigationSection1>
         <Addtitle>
-        {/* <h1>{title}</h1> */}
+       <h1>
+        Upload Image
+        </h1>
         </Addtitle>
       </Section3>
-      
-      <span>Upload Image </span>
       <input
         type="file"
         onChange={uploadImage}

@@ -47,7 +47,7 @@ function Step5(props){
             <Link to='/profile'>
               <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
             </Link>
-          <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
+          <button type='submit' onClick={submitRecipe} style={{"border":"none", "background": "inherit", "outline":"none"}}>
           <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
         </button>
         </NavigationSection1>
@@ -56,7 +56,7 @@ function Step5(props){
         </Addtitle>
       </Section1>
     <img src={images[0]} />
-    <button onClick={submitRecipe} >Submit</button>
+    {/* <button onClick={submitRecipe} >Submit</button> */}
   </div>)
 }
 

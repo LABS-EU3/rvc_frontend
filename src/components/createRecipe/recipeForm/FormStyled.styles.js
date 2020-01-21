@@ -318,6 +318,8 @@ export const Section2b = styled.div `
 display: flex;
 flex-direction: column;
 margin-top:15px;
+margin-left:2%;
+margin-right:2%;
 h1 {
   font-style: normal;
   font-weight: normal;
@@ -361,6 +363,17 @@ align-content:flex-start;
 background: rgba(10, 179, 138, 0.08);
 border-radius: 2px;
 box-sizing: content-box;
-    p{
-      font-size: 20px;
-    }`
+  p{
+    font-size: 20px;
+  }`
+
+  export const IngredientsDiv =styled.div`
+    display:flex;
+  `
+  export const IngredientsMainDiv =styled.div`
+  display:flex;
+  margin-top:2%;
+  margin-left:2%;
+  margin-right:2%;
+  // width:5rem;
+  `

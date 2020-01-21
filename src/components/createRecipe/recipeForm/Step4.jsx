@@ -18,7 +18,6 @@ import {
   AddItem
 } from "./FormStyled.styles";
 
-
 function Step4(props) {
   const { goForward, addInstructionsToBody } = props;
 
@@ -60,7 +59,6 @@ function Step4(props) {
       <Section2b>
       <TextField
           id="filled-full-width"
-          style={{ margin: 8 }}
           placeholder="Add instruction"
           helperText="click on the plus button to add your instruction!"
           fullWidth
@@ -80,14 +78,9 @@ function Step4(props) {
         <div
         onClick={addInstruction}
         style={{"margin" : "0 auto"}}
-
         >
         <AddCircleOutlineTwoToneIcon cgit style={{ fontSize: 40, color: '#0AB38A' }} />
         </div>
-        
-      {/* <button type="button" onClick={addInstruction}>
-        Add Instruction
-      </button> */}
       <div>
         {instructionsArray.length
           ? instructionsArray.map((ing, i) => 
