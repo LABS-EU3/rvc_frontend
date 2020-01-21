@@ -65,20 +65,24 @@ function Step2(props) {
       </Section3>
       <ExportImg>
         <div>
+          <div>
           {imgUrl
             ? <img alt="image to uploaded" src={imgUrl} />
             : <img src={foodplaceholder} alt="A display of the already finished recipe" />
           }
-      <input
-        type="file"
-        onChange={uploadImage}
-        name="imageUrl"
-        placeholder="imageUrl"
-      />
+          </div>
+          <div>
+          <input
+            type="file"
+            onChange={uploadImage}
+            name="imageUrl"
+            placeholder="imageUrl"
+          />
+        </div>
         </div>
     </ExportImg>
+   </form>
       
-    </form>
   );
 }
 
