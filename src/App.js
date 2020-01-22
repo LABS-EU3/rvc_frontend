@@ -11,6 +11,7 @@ import EditProfile from "./components/profile/editProfile/EditProfile";
 import IngredientView from "./components/ingredients/ingredientView/IngredientView";
 import InstructionView from "./components/instructions/instructionView/InstructionView";
 import CreateRecipe from "./components/createRecipe/createRecipe/CreateRecipe";
+import ErrorModal from './components/notification/errorModal/ErrorModal';
 
 import "./App.css";
 
@@ -30,6 +31,8 @@ function App() {
       <PrivateRoute path='/createrecipe' component={ CreateRecipe}/>
       <Route path="/ingredient" component={IngredientView} />
       <Route path="/instruction" component={InstructionView} />
+
+      <ErrorModal message="[ERROR] [ERROR] [ERROR] [ERROR] [ERROR] [ERROR] [ERROR] [ERROR]"/>
     </div>
   );
 }
