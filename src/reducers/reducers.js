@@ -369,7 +369,7 @@ const dummyProfileState = {
   message: "",
 };
 
-export const profileReducer = (state = initialProfileState, action) => {
+export const profileReducer = (state = dummyProfileState, action) => {
   switch (action.type) {
     case types.GET_PROFILE:
       return {

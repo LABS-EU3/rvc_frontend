@@ -21,6 +21,7 @@ import profilePlaceholderImage from '../../../images/profile_placeholder_1.png';
 export function ProfileView(props) {
   const { 
     profile_pic,
+    username,
     first_name,
     last_name,
     bio,
@@ -28,7 +29,7 @@ export function ProfileView(props) {
     liked_recipes,
     forked_recipes_count,
     recipe_count,
-    recipes_forked_count
+    recipes_forked_count,
   } = props;
 
   // Need to do this as the Recipe component expects recipe objects of the following form:
@@ -40,7 +41,7 @@ export function ProfileView(props) {
       time_required: recipe.time_required,
       difficulty: recipe.difficulty,
       budget: recipe.budget,
-      imageUrl: (recipe.images[0] ? recipe.images[0] : "https://cdn.nappiesrus.co.uk/media/catalog/product/cache/92d7b7a0b47864d5986012ed77aee082/i/m/img_0066.jpg"),
+      imageUrl: recipe.images[0]
     }));
   };
 
@@ -68,7 +69,7 @@ export function ProfileView(props) {
             }
           </div>
 
-          <Popup modal trigger={<h4>@[USERNAME]</h4>}>
+          <Popup modal trigger={<h4>{username}</h4>}>
             {close => <EditProfile close={close} />}
           </Popup>
 
@@ -109,7 +110,7 @@ export function ProfileView(props) {
               sanitisedUserRecipes.length === 0 ?
                 <div className="container">
                   <p>
-                    "X"
+                    Recipes you create appear here!
                   </p>
                 </div> : 
                 <div className="container">
@@ -122,10 +123,10 @@ export function ProfileView(props) {
           ||
           (selectedRecipes === 'forked' &&
             (
-              sanitisedLikedRecipes.length > 0 ?
+              sanitisedLikedRecipes.length === 0 ?
               <div className="container">
                 <p>
-                  "Y"
+                  Recipes you 'fork' appear here!
                 </p>
               </div> :
               <div className="container">
@@ -144,4 +145,4 @@ export function ProfileView(props) {
   );
 }
 
-export default connect(state => state.profile, actionCreators)(ProfileView);
+export default connect(state => ({...state.profile, username: state.onboard.username}), actionCreators)(ProfileView);

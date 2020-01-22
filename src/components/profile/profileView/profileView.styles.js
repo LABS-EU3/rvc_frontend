@@ -54,19 +54,17 @@ export const StyledProfile = styled.div`
 
       #divider {
         border-width: 1px;
-        background-color: rgb(0, 172, 238);
+        /* background-color: rgb(0, 172, 238); */
         padding: 0 12px;
       }
     }
     
-    .profile-food {
-      margin-bottom: 6rem;
-
-      .profile-recipe-image {
-        width: 45%;
-        height: 100%;
-        margin: 0 2px;
-      }
+    .container {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      /* overflow: auto; */
     }
   }
 `;
