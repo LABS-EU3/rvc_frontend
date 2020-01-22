@@ -319,13 +319,6 @@ const dummyProfileState = {
   last_name: "Dummyname",
   bio: "Oh boy, here I go cookin' again!",
   // The following need their own request(s)...
-  // id,
-  // recipe_title,
-  // author,
-  // time_required,
-  // difficulty,
-  // budget,
-  // imageUrl
   user_recipes: [
     {
       id: 2,
