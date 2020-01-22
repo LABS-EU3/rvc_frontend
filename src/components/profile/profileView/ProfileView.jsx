@@ -1,65 +1,148 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import Popup from "reactjs-popup";
+import { connect } from "react-redux";
+import * as actionCreators from "../../../actions/actionCreators";
 
 import Footer from "../../navigation/footerNav/FooterNav";
+import EditProfile from "../editProfile/EditProfile";
+import Recipe from '../../recipe/Recipe';
+
 import bookmark from "../../../globals/design-elements/bookmark.png";
 import more from "../../../globals/design-elements/more.png";
 import copy from "../../../globals/design-elements/copy-item.png";
-import EditProfile from "../editProfile/EditProfile";
-import { Link } from 'react-router-dom';
-import { StyledParagraph } from './profileView.styles'
+
+import { StyledProfile } from './profileView.styles';
+import profilePlaceholderImage from '../../../images/profile_placeholder_1.png';
+// import profilePlaceholderImage from '../../../images/profile_placeholder_2.png';
+// Not sure which is nicer!
 
 
-export default function CreateProfile() {
+export function ProfileView(props) {
+  const { 
+    profile_pic,
+    username,
+    first_name,
+    last_name,
+    bio,
+    user_recipes,
+    liked_recipes,
+    forked_recipes_count,
+    recipe_count,
+    recipes_forked_count,
+  } = props;
+
+  // Need to do this as the Recipe component expects recipe objects of the following form:
+  const sanitiseRecipes = recipes => {
+    return recipes.map(recipe => ({
+      id: recipe.id,
+      recipe_title: recipe.recipe_title,
+      author: recipe.author,
+      time_required: recipe.time_required,
+      difficulty: recipe.difficulty,
+      budget: recipe.budget,
+      imageUrl: recipe.images[0]
+    }));
+  };
+
+  const sanitisedUserRecipes = sanitiseRecipes(user_recipes);
+  const sanitisedLikedRecipes = sanitiseRecipes(liked_recipes);
+
+  const [selectedRecipes, setSelectedRecipes] = useState('created');
+
+  const switchSelectedRecipes = selected => {
+    selected === 'created' ? 
+      setSelectedRecipes('created') :
+      setSelectedRecipes('forked');
+  };
+
   return (
-    <div className="profile-container">
-      <div className="profile-img">
-        <StyledParagraph>C</StyledParagraph>
-      </div>
+    <>
+      <StyledProfile>
+        <div className="profile-container">
+  
+          <div className="profile-img">
+            {
+              (profile_pic !== "" &&
+              <img src={profile_pic} alt="default profile" />) ||
+              <img src={profilePlaceholderImage} alt="default profile"/>
+            }
+          </div>
 
-      <Popup modal trigger={<h4>@Chelsea</h4>}>
-        {close => <EditProfile close={close} />}
-      </Popup>
-      <div className="num-likes-and-forks">
-        <div>
-          <p className="likes-paragraph">8</p>
-          <h4>Recipes</h4>
+          <Popup modal trigger={<h4>@{username}</h4>}>
+            {close => <EditProfile close={close} />}
+          </Popup>
+
+          <div className="name">
+            <p>{first_name + " " + last_name}</p>
+          </div>
+
+          <div className="num-likes-and-forks">
+            <div>
+          <p className="recipes">{recipe_count}</p>
+              <h4>Recipes</h4>
+            </div>
+            <div>
+          <p className="forked-recipes">{recipes_forked_count}</p>
+              <h4>Forked Recipes</h4>
+            </div>
+            <div>
+              <p className="forks">{forked_recipes_count}</p>
+              <h4>Forks</h4>
+            </div>
+          </div>
+        <p className="profile-bio">{bio}</p>
+          <div className="profile-icons">
+            <img className="profile-icons-image" src={copy} alt="" onClick={() => switchSelectedRecipes('created')} />
+            <img className="profile-icons-image" src={bookmark} alt="" onClick={() => switchSelectedRecipes('forked')}/>
+            <Link to='/createrecipe'>
+            <img className="profile-icons-image" src={more} alt="" />
+            </Link>
+          </div>
+
+          <div className="divider-wrapper">
+            {" "}
+            <hr id="divider" />
+          </div>
+
+          {(selectedRecipes === 'created' && 
+            (
+              sanitisedUserRecipes.length === 0 ?
+                <div className="container">
+                  <p>
+                    Recipes you create appear here!
+                  </p>
+                </div> : 
+                <div className="container">
+                  {sanitisedUserRecipes.map(recipe => (
+                    <Recipe key={recipe.id} recipe={recipe} />
+                  ))}
+                </div>
+            )
+          )
+          ||
+          (selectedRecipes === 'forked' &&
+            (
+              sanitisedLikedRecipes.length === 0 ?
+              <div className="container">
+                <p>
+                  Recipes you 'fork' appear here!
+                </p>
+              </div> :
+              <div className="container">
+                {sanitisedLikedRecipes.map(recipe => (
+                  <Recipe key={recipe.id} recipe={recipe} />
+                ))}
+              </div>
+            ) 
+          )}
+
         </div>
-        <div>
-          <p className="likes-paragraph">21</p>
-          <h4>Forked Recipes</h4>
-        </div>
-        <div>
-          <p className="likes-paragraph">1225</p>
-          <h4>Forks</h4>
-        </div>
-      </div>
-      <p className="profile-bio">...I enjoy cooking</p>
-      <div className="profile-icons">
-        <img className="profile-icons-image" src={bookmark} alt="" />
-        <img className="profile-icons-image" src={copy} alt="" />
-        <Link to='/createrecipe'>
-        <img className="profile-icons-image" src={more} alt="" />
-        </Link>
-      </div>
-      <div className="divider-wrapper">
-        {" "}
-        <hr id="divider" />
-      </div>
-      <div className="profile-food">
-        <img
-          className="profile-recipe-image"
-          src="https://images.unsplash.com/photo-1571809839227-b2ac3d261257?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-          alt=""
-        />
-        <img
-          className="profile-recipe-image"
-          src="https://images.unsplash.com/photo-1571809839227-b2ac3d261257?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-          alt=""
-        />
-      </div>
+      </StyledProfile>
 
       <Footer />
-    </div>
+    </>
   );
 }
+
+export default connect(state => ({...state.profile, username: state.onboard.username}), actionCreators)(ProfileView);

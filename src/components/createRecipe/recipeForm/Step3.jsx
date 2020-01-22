@@ -4,6 +4,23 @@ import * as dispatchers from "../../../actions/actionCreators"
 
 import DropDown from "../../dropDown/DropDown";
 
+import CheckIcon from '@material-ui/icons/Check';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import { Link } from "react-router-dom";
+import { TextField, Select, MenuItem } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import AddCircleOutlineTwoToneIcon from '@material-ui/icons/AddCircleOutlineTwoTone';
+import {
+  NavigationSection1,
+  Addtitle,
+  Section2b,
+  IngredientsDiv,
+  IngredientsMainDiv,
+  Title2,
+  Section3,
+  Section1,
+  AddItem
+} from "./FormStyled.styles";
 
 const getAllIngredientsUrl = "http://localhost:3333/api/ingredient";
 const getAlUnitsUrl = "http://localhost:3333/api/unit";
@@ -61,32 +78,57 @@ function Step3(props) {
 
   return (
     <form onSubmit={onSubmit}>
-      <button type="submit"> Next </button><br></br>
+      <Section3>
+      <NavigationSection1>
+         <Link to='/profile'>
+          <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+        </Link>
+        <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
+      <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+      </button>
+     </NavigationSection1>
+     <Addtitle>
+        <h1>Add ingredient</h1>
+        </Addtitle>
+   </Section3>
+   <Section2b>
+     <IngredientsDiv>
       <input type="number" name="quantity" onChange={inputHandler} />
+     </IngredientsDiv>
+     <IngredientsDiv>
       <DropDown
         listUrl={getAlUnitsUrl}
         name="unit_id"
         inputHandler={inputHandler}
-      />
+        />
+     </IngredientsDiv>
+
+     <IngredientsDiv>
       <DropDown
         listUrl={getAllIngredientsUrl}
         name="ingredient_id"
         inputHandler={inputHandler}
-      />
+        />
+     </IngredientsDiv>
       <br></br>
-      <button onClick={addIngredient} type="button">
-        Add
-      </button>
-
-      <ul>
+      <div
+        onClick={addIngredient}
+        style={{"margin" : "0 auto"}}
+        >
+        <AddCircleOutlineTwoToneIcon cgit style={{ fontSize: 40, color: '#0AB38A' }} />
+        </div>
+      <div>
         {ingredientsArray.length
           ? ingredientsDisplayArray.map((ing, i) => (
-              <li key={i}>
+            <AddItem>
+              <p key={i}>
                 {ing.quantity} {ing.unit_name} of {ing.ingredient_name}
-              </li>
+              </p>
+            </AddItem>
             ))
-          : null}
-      </ul>
+            : null}
+      </div>
+    </Section2b>
     </form>
   );
 }
