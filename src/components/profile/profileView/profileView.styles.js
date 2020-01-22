@@ -6,6 +6,7 @@ export const StyledProfile = styled.div`
     flex-direction: column;
     height: 100vh;
     justify-content: space-evenly;
+    position: relative;
 
     .profile-img {
       border: 2px solid #0ab28a;
@@ -64,7 +65,8 @@ export const StyledProfile = styled.div`
       display: flex;
       justify-content: center;
       margin-top: 1rem;
-      /* overflow: auto; */
+      overflow: auto;
+      flex-wrap: wrap;
     }
   }
 `;

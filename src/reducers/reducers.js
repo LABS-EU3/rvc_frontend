@@ -293,8 +293,8 @@ export const newRecipeReducerOld = (state = initialRecipeState, action) => {
 const initialProfileState = {
   // The following exist in the db as-is:
   profile_pic: "",
-  first_name: "[FIRST NAME]",
-  last_name: "[LAST NAME]",
+  first_name: "",
+  last_name: "",
   bio: "Tap your username above to edit your profile and add a short bio!",
   // The following need their own request(s)...
   user_recipes: [], // A
@@ -320,6 +320,28 @@ const dummyProfileState = {
   bio: "Oh boy, here I go cookin' again!",
   // The following need their own request(s)...
   user_recipes: [
+    {
+      id: 2,
+      recipe_title: "Pancakes",
+      author: "TEST",
+      time_required: 55,
+      difficulty: 1,
+      budget: 1,
+      images: [
+        "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
+      ],
+    },
+    {
+      id: 2,
+      recipe_title: "Pancakes",
+      author: "TEST",
+      time_required: 55,
+      difficulty: 1,
+      budget: 1,
+      images: [
+        "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
+      ],
+    },
     {
       id: 2,
       recipe_title: "Pancakes",
@@ -369,7 +391,7 @@ const dummyProfileState = {
   message: "",
 };
 
-export const profileReducer = (state = dummyProfileState, action) => {
+export const profileReducer = (state = initialProfileState, action) => {
   switch (action.type) {
     case types.GET_PROFILE:
       return {
