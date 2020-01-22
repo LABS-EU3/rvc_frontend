@@ -216,3 +216,10 @@ export const postRecipe = payload => dispatch => {
       dispatch({ type: types.POST_RECIPE_FAIL, payload: error });
     });
 };
+
+export const editRecipeInstruction = recipe_instructions => dispatch => {
+  dispatch({
+    type: types.EDIT_RECIPE_INGREDIENTS,
+    payload: recipe_instructions
+  });
+};

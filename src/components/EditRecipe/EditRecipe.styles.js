@@ -379,5 +379,17 @@ box-sizing: content-box;
   margin-top:2%;
   margin-left:2%;
   margin-right:2%;
-  // width:5rem;
+  `
+
+  export const EditDiv = styled.div`
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 29px;
+  text-align: left;
+  margin:5%;
+  h1{
+    margin-bottom: 40px;
+    border-bottom:1px solid black;
+  }
   `

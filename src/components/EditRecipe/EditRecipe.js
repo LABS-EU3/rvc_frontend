@@ -1,15 +1,13 @@
 import React from 'react';
 
 import CloseIcon from '@material-ui/icons/Close';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Link } from "react-router-dom";
 import {
   NavigationSection1,
   Addtitle,
   Section2b,
-  Title2,
   Section3,
-  AddItem
+  EditDiv
 } from "./EditRecipe.styles";
 
 const EditRecipe = ({}) => { 
@@ -18,7 +16,7 @@ const EditRecipe = ({}) => {
           <Section3>
       <NavigationSection1>
             <Link to='/profile'>
-              <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+              <CloseIcon  cgit style={{ fontSize: 40, color: 'white' }} />
             </Link>
         </NavigationSection1>
         <Addtitle>
@@ -28,11 +26,13 @@ const EditRecipe = ({}) => {
         </Addtitle>
       </Section3>
       <Section2b>
+          <EditDiv>
           <h1>Edit entire recipe</h1>
           <h1>Upload recipe info</h1>
           <h1>Upload new picture</h1>
           <h1>Modify ingredients</h1>
           <h1>Modify instructions</h1>
+          </EditDiv>
       </Section2b>
     
   </div>
@@ -40,3 +40,4 @@ const EditRecipe = ({}) => {
 }
 
 export default EditRecipe ;
+
