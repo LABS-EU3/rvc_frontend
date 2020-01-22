@@ -290,8 +290,8 @@ export const getProfile = () => dispatch => {
 }
 
 // for ErrorModal:
-export const setError = (error, display_timeout) => dispatch => {
-  dispatch({ type: types.SET_ERROR, payload: error });
+export const setError = (message, display_timeout) => dispatch => {
+  dispatch({ type: types.SET_ERROR, payload: message });
   setTimeout(
     dispatch({ type: types.HIDE_ERROR }),
   display_timeout);

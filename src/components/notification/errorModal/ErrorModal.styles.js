@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledDiv = styled.div`
   padding: 1rem 2rem;
-  width: 90%;
+  width: 80%;
   background: yellow;
   border-radius: 10px;
 
