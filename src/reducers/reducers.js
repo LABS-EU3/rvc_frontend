@@ -519,13 +519,13 @@ export function newlyAddedRecipe(state = initialNewlyAddedRecipe, action) {
   }
 }
 
-// General Error Reducer:
+// General Modal Reducer:
 const initialErrorState = { message: "", displaying: false };
 export function errorReducer (state = initialErrorState, action) {
   switch (action.type) {
-    case types.SET_ERROR:
+    case types.SET_MODAL:
       return { ...action.payload, displaying: true };
-    case types.HIDE_ERROR:
+    case types.DISMISS_MODAL:
         return { ...state, displaying: false };
     default:
       return state;

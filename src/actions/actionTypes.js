@@ -93,6 +93,6 @@ export const ADD_INSTRUCTIONS_TO_BODY = "ADD_INSTRUCTIONS_TO_BODY";
 export const POST_RECIPE_OK = "POST_RECIPE_OK";
 export const POST_RECIPE_FAIL = "POST_RECIPE_FAIL";
 
-// ACTION TYPES for ErrorModal
-export const SET_ERROR = "SET_ERROR";
-export const HIDE_ERROR = "HIDE_ERROR";
+// ACTION TYPES for Modal
+export const SET_MODAL = "SET_MODAL";
+export const DISMISS_MODAL = "DISMISS_MODAL";

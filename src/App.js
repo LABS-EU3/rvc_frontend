@@ -11,7 +11,7 @@ import EditProfile from "./components/profile/editProfile/EditProfile";
 import IngredientView from "./components/ingredients/ingredientView/IngredientView";
 import InstructionView from "./components/instructions/instructionView/InstructionView";
 import CreateRecipe from "./components/createRecipe/createRecipe/CreateRecipe";
-import ErrorModal from './components/notification/errorModal/ErrorModal';
+import Modal from './components/notification/modal/Modal';
 
 import "./App.css";
 
@@ -32,7 +32,7 @@ function App() {
       <Route path="/ingredient" component={IngredientView} />
       <Route path="/instruction" component={InstructionView} />
 
-      <ErrorModal />
+      <Modal />
     </div>
   );
 }
