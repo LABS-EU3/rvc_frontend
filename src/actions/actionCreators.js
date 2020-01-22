@@ -288,3 +288,11 @@ export const getProfile = () => dispatch => {
     })
     .catch(generalError);
 }
+
+// for ErrorModal:
+export const setError = (error, display_timeout) => dispatch => {
+  dispatch({ type: types.SET_ERROR, payload: error });
+  setTimeout(
+    dispatch({ type: types.HIDE_ERROR }),
+  display_timeout);
+}

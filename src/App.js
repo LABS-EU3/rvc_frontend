@@ -32,7 +32,7 @@ function App() {
       <Route path="/ingredient" component={IngredientView} />
       <Route path="/instruction" component={InstructionView} />
 
-      <ErrorModal message="[ERROR] [ERROR] [ERROR] [ERROR] [ERROR] [ERROR] [ERROR] [ERROR]"/>
+      <ErrorModal />
     </div>
   );
 }

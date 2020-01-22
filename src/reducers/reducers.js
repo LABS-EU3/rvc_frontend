@@ -518,3 +518,16 @@ export function newlyAddedRecipe(state = initialNewlyAddedRecipe, action) {
       return { ...state, data: action.payload };
   }
 }
+
+// General Error Reducer:
+const initialErrorState = { message: "", displaying: false };
+export function errorReducer (state = initialErrorState, action) {
+  switch (action.type) {
+    case types.SET_ERROR:
+      return { ...action.payload, displaying: true };
+    case types.HIDE_ERROR:
+        return { ...state, displaying: false };
+    default:
+      return state;
+  }
+}
