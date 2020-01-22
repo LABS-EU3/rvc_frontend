@@ -69,7 +69,7 @@ export function ProfileView(props) {
             }
           </div>
 
-          <Popup modal trigger={<h4>{username}</h4>}>
+          <Popup modal trigger={<h4>@{username}</h4>}>
             {close => <EditProfile close={close} />}
           </Popup>
 
