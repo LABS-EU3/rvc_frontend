@@ -10,6 +10,7 @@ import EditProfile from "./components/profile/editProfile/EditProfile";
 import IngredientView from "./components/ingredients/ingredientView/IngredientView";
 import InstructionView from "./components/instructions/instructionView/InstructionView";
 import CreateRecipe from "./components/createRecipe/createRecipe/CreateRecipe";
+import EditRecipeOptions from "./components/EditRecipe/EditRecipeOptions";
 import EditRecipe from "./components/EditRecipe/EditRecipe";
 import "./App.css";
 
@@ -29,7 +30,9 @@ function App() {
       {/* <Route path="/createrecipe" component={CreateRecipe} /> */}
       <Route path="/ingredient" component={IngredientView} />
       <Route path="/instruction" component={InstructionView} />
-      <Route path="/editrecipe" component={EditRecipe} />
+      <Route path='/editrecipe' exact component={EditRecipe} />
+      <Route path="/editrecipe/:block" render={props => <EditRecipe {...props} />} />
+      <Route path='/editoptions' component={EditRecipeOptions} />
     </div>
   );
 }

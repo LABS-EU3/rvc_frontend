@@ -1,43 +1,67 @@
-import React from 'react';
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import * as dispatchers from "../../actions/actionCreators"
+import Step1 from "./EditRecipeForm/Step1"
+import Step2 from "./EditRecipeForm/Step2";
+import Step3 from "./EditRecipeForm/Step3"
+import Step4 from "./EditRecipeForm/Step4";
+import Footer from "../navigation/footerNav/FooterNav"
 
-import CloseIcon from '@material-ui/icons/Close';
-import { Link } from "react-router-dom";
-import {
-  NavigationSection1,
-  Addtitle,
-  Section2b,
-  Section3,
-  EditDiv
-} from "./EditRecipe.styles";
 
-const EditRecipe = ({}) => { 
-  return (
-    <div>
-          <Section3>
-      <NavigationSection1>
-            <Link to='/profile'>
-              <CloseIcon  cgit style={{ fontSize: 40, color: 'white' }} />
-            </Link>
-        </NavigationSection1>
-        <Addtitle>
-       <h1>
-        Edit recipe
-        </h1>
-        </Addtitle>
-      </Section3>
-      <Section2b>
-          <EditDiv>
-          <h1>Edit entire recipe</h1>
-          <h1>Upload recipe info</h1>
-          <h1>Upload new picture</h1>
-          <h1>Modify ingredients</h1>
-          <h1>Modify instructions</h1>
-          </EditDiv>
-      </Section2b>
-    
-  </div>
-)
+const EditRecipe = ({match}) => { 
+
+  // const block = match.params.block.trim();
+  const block =  match.params.block ? match.params.block.trim() : '';
+
+  const [page, setPage] = useState(1);
+
+  const goForward = e => {
+    e.preventDefault();
+    setPage(page + 1);
+
+  };
+  switch(block){
+    case 'desc':
+    return (
+      <div className="App">
+      <Step1 goFoward={null}/>
+      <Footer></Footer>
+      </div>
+    )
+    case 'img':
+    return (
+      <div className="App">
+      <Step2 goFoward={null}/>
+      <Footer></Footer>
+      </div>
+    )
+    case 'ing':
+    return (
+      <div className="App">
+      <Step3 goFoward={null}/>
+      <Footer></Footer>
+    </div>
+    )
+    case 'inst':
+    return (
+      <div className="App">
+      <Step4 goFoward={null}/>
+      <Footer></Footer>
+    </div>
+    )
+    default:
+      return (
+        <div className="App">
+        {page === 1 && <Step1 goForward={goForward} />}
+        {page === 2 && <Step2 goForward={goForward} />}
+        {page === 3 && <Step3 goForward={goForward} />}
+        {page === 4 && <Step4 goForward={goForward} />}
+        <Footer></Footer>
+      </div>
+      )
+
+
+  }
 }
 
-export default EditRecipe ;
-
+export default EditRecipe;

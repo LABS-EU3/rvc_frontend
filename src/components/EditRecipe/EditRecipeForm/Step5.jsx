@@ -15,7 +15,7 @@ import {
   Section2,
   Title,
   SwitchDiv
-} from "./EditRecipe.styles";
+} from "../EditRecipe.styles";
 
 
 function Step5(props){

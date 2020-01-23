@@ -16,7 +16,7 @@ import {
   Title2,
   Section3,
   AddItem
-} from "./EditRecipe.styles";
+} from "../EditRecipe.styles";
 
 function Step4(props) {
   const { goForward, addInstructionsToBody } = props;

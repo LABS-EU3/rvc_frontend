@@ -229,17 +229,4 @@ export const postRecipe = payload => dispatch => {
    })
  }
  
- export const postEditedRecipe = payload = dispatch => { 
-  axiosWithAuth()
-  .put(`api/recipe/${id}`, payload)
-  .then(res => {
-    dispatch({ type: types.EDIT_RECIPE_OK, payload: res.data });
-  })
-  .catch(error => {
-    console.dir(error);
-    dispatch({ type: types.EDIT_RECIPE_FAIL, payload: error });
-  });
-};
 
-   
-   

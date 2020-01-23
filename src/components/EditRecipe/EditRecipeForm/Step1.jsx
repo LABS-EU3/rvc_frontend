@@ -14,7 +14,7 @@ import {
   Section2,
   Title,
   SwitchDiv
-} from "./EditRecipe.styles";
+} from "../EditRecipe.styles";
 
 const useStyles = makeStyles(theme => ({
   root: {

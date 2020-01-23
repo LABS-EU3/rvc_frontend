@@ -16,7 +16,7 @@ import {
   Title,
   Section2b,
   ExportImg
-} from "./EditRecipe.styles";
+} from "../EditRecipe.styles";
 
 import foodplaceholder from "../../../images/foodplaceholder.png";
 import axios from "axios";

@@ -20,7 +20,7 @@ import {
   Section3,
   Section1,
   AddItem
-} from "./EditRecipe.styles";
+} from "../EditRecipe.styles";
 
 const getAllIngredientsUrl = "http://localhost:3333/api/ingredient";
 const getAlUnitsUrl = "http://localhost:3333/api/unit";
