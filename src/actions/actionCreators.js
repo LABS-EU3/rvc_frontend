@@ -290,7 +290,7 @@ export const getProfile = () => dispatch => {
 }
 
 // for Modal:
-export const setModal = (message, buttonLink) => dispatch => {
+export const displayNotificationModal = (message, buttonLink) => dispatch => {
   const payload = ({ message, buttonLink });
   dispatch({ type: types.DISPLAY_NOTIFICATION_MODAL, payload });
 }

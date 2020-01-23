@@ -1,6 +1,8 @@
 import React from "react";
 import { Route } from "react-router-dom";
 
+import { connect } from "react-redux";
+
 import PrivateRoute from "./components/authentication/privateRoute/PrivateRoute";
 import FormikLoginForm from "./components/authentication/loginForm/LoginForm";
 import FormikRegisterForm from "./components/authentication/registerForm/RegisterForm";
@@ -15,9 +17,12 @@ import Modal from './components/notification/modal/Modal';
 
 import "./App.css";
 
-function App() {
+function App(props) {
+  const { isDisplaying } = props;
+  // ^Needed to stop the screen from scrolling when the modal is visible!
+
   return (
-    <div className="App">
+    <div className="App" style={{height: "100%", "overflow-y": isDisplaying ? "hidden" : "visible" }}>
       <Route exact path="/" component={RecipeView} />
       <Route path="/login" component={FormikLoginForm} />
       <Route path="/register" component={FormikRegisterForm} />
@@ -37,4 +42,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(state => state.modal)(App);
