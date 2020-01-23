@@ -34,9 +34,10 @@ function App(props) {
       <PrivateRoute path='/editprofile' component={EditProfile}/>
 
       <PrivateRoute path='/createrecipe' component={ CreateRecipe}/>
-      <Route path="/ingredient" component={IngredientView} />
-      <Route path="/instruction" component={InstructionView} />
 
+      <PrivateRoute path="/ingredient" component={IngredientView} />
+      <PrivateRoute path="/instruction" component={InstructionView} />
+      
       <Modal />
     </div>
   );
