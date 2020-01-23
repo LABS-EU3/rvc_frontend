@@ -387,3 +387,45 @@ export function newlyAddedRecipe(state = initialNewlyAddedRecipe, action) {
       return { ...state, data: action.payload };
   }
 }
+
+
+//EDIT RECIPE 
+
+export function editRecipeReducer(state = initialBody, action) { 
+  switch (action.type) { 
+    case types.EDIT_INSTRUCTIONS:
+      return { 
+        ...state,
+        instructions: state.instructions.map(instruction=> { 
+          if (instruction.id === action.payload.id) { 
+            return action.payload;
+          }
+          return instruction
+        })
+      }
+  }
+}
+
+export function deleteRecipeReducer(state = initialBody, action) {
+  switch(action.type) { 
+    case types.DELETE_INSTRUCTIONS:
+      return { 
+        ...state,
+        instructions: state.instructions.filter(instruction => instruction.id !== action.payload)
+      }
+  }
+}
+ 
+const initialNewlyEditedRecipe = { 
+  editedData: [],
+  error: ""
+};
+
+export function newlyEditRecipe ( state = initialNewlyEditedRecipe, action) {
+  switch (action.type) { 
+    case types.EDIT_RECIPE_FAIL: 
+      return { ...state, error: action.payload };
+    case types.EDIT_RECIPE_OK: 
+      return { ...state, data: action.payload }
+  }
+}

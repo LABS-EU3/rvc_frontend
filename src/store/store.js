@@ -3,6 +3,8 @@ import { combineReducers, createStore, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
 const monsterReducer = combineReducers({
+  editRecipe: reducers.editRecipeReducer,
+  deleteRecipe: reducers.deleteRecipeReducer,
   newRecipe : reducers.newRecipeReducer,
   onboard : reducers.onBoardingReducer,
   recipes : reducers.recipeViewReducer,

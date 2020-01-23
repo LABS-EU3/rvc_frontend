@@ -217,9 +217,36 @@ export const postRecipe = payload => dispatch => {
     });
 };
 
-export const editRecipeInstruction = recipe_instructions => dispatch => {
-  dispatch({
-    type: types.EDIT_RECIPE_INGREDIENTS,
-    payload: recipe_instructions
+
+
+
+//edit actions
+// export const editRecipeInstruction = recipe_instructions => dispatch => {
+//   dispatch({
+//     type: types.EDIT_RECIPE_INGREDIENTS,
+//     payload: recipe_instructions
+//   });
+// };
+
+
+ export const editInstructions = instructions => dispatch => {
+   dispatch({
+     type: types.EDIT_INSTRUCTIONS, 
+     payload: instructions
+   })
+ }
+ 
+ export const postEditedRecipe = payload = dispatch => { 
+  axiosWithAuth()
+  .put(`api/recipe/${id}`, payload)
+  .then(res => {
+    dispatch({ type: types.EDIT_RECIPE_OK, payload: res.data });
+  })
+  .catch(error => {
+    console.dir(error);
+    dispatch({ type: types.EDIT_RECIPE_FAIL, payload: error });
   });
 };
+
+   
+   
