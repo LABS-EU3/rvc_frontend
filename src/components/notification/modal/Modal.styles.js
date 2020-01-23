@@ -24,6 +24,9 @@ export const StyledDiv = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     
+    /* And to animate it: */
+    animation: fade-in 0.1s ease-in;
+
     .message {
       text-align: left;
       font-size: 1.5rem;
@@ -59,5 +62,10 @@ export const StyledDiv = styled.div`
         border: 1.5px solid white;
       }
     }
+  }
+
+  @keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
   }
 `;

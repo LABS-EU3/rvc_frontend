@@ -8,7 +8,8 @@ import * as actionCreators from "../../../actions/actionCreators";
 export function Modal(props) {
   const { isNotification, message, buttonLink, isDisplaying, dismissModal } = props;
   
-  const { displayNotificationModal, displayErrorModal } = props; // For testing purposes!
+  // const { displayNotificationModal, displayErrorModal } = props;
+  // ^For testing purposes!
 
   return (<>
     <StyledDiv style={{display: isDisplaying ? "inherit" : "none"}}>
@@ -36,8 +37,8 @@ export function Modal(props) {
     </StyledDiv>
 
     {/* For testing purposes! */}
-    {/* <button onClick={() => displayNotificationModal("yo", "/profile")} style={{position: "absolute", top: "50%"}}>NOTIF</button>
-    <button onClick={() => displayErrorModal("eyyyy")} style={{position: "absolute", top: "55%"}}>ERR</button> */}
+    {/* <button onClick={() => displayNotificationModal("The thing worked!", "/profile")} style={{position: "absolute", top: "50%"}}>NOTIF</button>
+    <button onClick={() => displayErrorModal("Error: ERRORERRORERROR.")} style={{position: "absolute", top: "55%"}}>ERR</button> */}
     </>
   )
 }
