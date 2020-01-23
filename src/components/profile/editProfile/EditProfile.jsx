@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { StyledDiv } from './editProfile.styles'
+import profilePlaceholderImage from "../../../images/profile_placeholder_1.png";
+
 
 export default function EditProfile({ close }) {
   const [profileFormData, setProfileFormData] = useState({
@@ -32,7 +34,7 @@ export default function EditProfile({ close }) {
         <img
           className="profile-pic"
           alt="profile display phot"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRwzk9us0OpvTp8XxAgvYAs3peCYVamG6PsGX_edQKrTPn1QBZz"
+          src={profilePlaceholderImage}
         />
       </div>
       <form className="edit-profile-form">
