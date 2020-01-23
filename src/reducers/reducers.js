@@ -521,7 +521,7 @@ export function newlyAddedRecipe(state = initialNewlyAddedRecipe, action) {
 
 // General Modal Reducer:
 const initialModalState = { 
-  isNotification: true,
+  isNotification: false,
   message: "",
   buttonLink: "/login",
   isDisplaying: false, 

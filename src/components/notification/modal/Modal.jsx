@@ -11,7 +11,7 @@ export function Modal(props) {
   return (
     <StyledDiv style={{display: isDisplaying ? "inherit" : "none"}}>
         <div className="message">
-          <h2>{message}</h2>
+          <p>{message}</p>
         </div>
         <div className="buttons">
           {
@@ -19,13 +19,13 @@ export function Modal(props) {
               ? 
                 <>
                   <div className="button-div" id="view" onClick={dismissModal}>
-                    <Link to={buttonLink}>View</Link>
+                    <Link to={buttonLink}>VIEW</Link>
                   </div>
-                  <div className="button-div" id="continue" onClick={dismissModal}>Continue</div>
+                  <div className="button-div" id="continue" onClick={dismissModal}>CONTINUE</div>
                 </>
               :
                 <div className="button-div" id="redirect" onClick={dismissModal}>
-                  <Link to={buttonLink}>Redirect</Link>
+                  <Link to={buttonLink}>REDIRECT</Link>
                 </div>
           }
         </div>
