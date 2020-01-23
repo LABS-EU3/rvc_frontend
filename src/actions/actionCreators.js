@@ -221,13 +221,6 @@ export const postRecipe = payload => dispatch => {
 
 
 //edit actions
-// export const editRecipeInstruction = recipe_instructions => dispatch => {
-//   dispatch({
-//     type: types.EDIT_RECIPE_INGREDIENTS,
-//     payload: recipe_instructions
-//   });
-// };
-
 
  export const editInstructions = instructions => dispatch => {
    dispatch({

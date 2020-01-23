@@ -393,6 +393,7 @@ export function newlyAddedRecipe(state = initialNewlyAddedRecipe, action) {
 
 export function editRecipeReducer(state = initialBody, action) { 
   switch (action.type) { 
+   
     case types.EDIT_INSTRUCTIONS:
       return { 
         ...state,

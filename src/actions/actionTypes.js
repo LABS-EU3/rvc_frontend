@@ -90,10 +90,21 @@ export const POST_RECIPE_OK = "POST_RECIPE_OK";
 export const POST_RECIPE_FAIL = "POST_RECIPE_FAIL";
 
 //EDIT RECIPE
-export const EDIT_RECIPE_INGREDIENTS="EDIT_RECIPE_INGREDIENTS";
-
+export const EDIT_RECIPE = "EDIT_RECIPE"
+export const EDIT_RECIPE_CATEGORIES="EDIT_RECIPE_CATEGORIES"
+export const EDIT_IMAGES="EDIT_IMAGES"
 export const EDIT_INSTRUCTIONS="EDIT_INSTRUCTIONS"
+// export const EDIT_RECIPE_TAGS="EDIT_RECIPE_TAGS"
+// export const EDIT_RECIPE_INGREDIENTS="EDIT_RECIPE_INGREDIENTS";
+//since recipe_tags & recipe_ingredients are stored for future use
+//we'll rather delete them and add what we'll prefer, rather than
+//edit them from the database  
 
+
+
+
+
+//DELETE RECIPE 
 export const DELETE_RECIPE_INSTRUCTIONS = "DELETE_RECIPE_INSTRUCTIONS"
 
 //SUBMIT EDITED RECIPE 
