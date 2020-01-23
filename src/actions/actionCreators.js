@@ -290,11 +290,13 @@ export const getProfile = () => dispatch => {
 }
 
 // for Modal:
-export const setModal = (isNotification, message, buttonLink = '/login') => dispatch => {
-  // Note: If isNotification is false, the modal is being used to display an error instead...
-  // ... and buttonLink defaults to '/login'!
-  const payload = ({ isNotification, message, buttonLink });
-  dispatch({ type: types.SET_MODAL, payload });
+export const setModal = (message, buttonLink) => dispatch => {
+  const payload = ({ message, buttonLink });
+  dispatch({ type: types.DISPLAY_NOTIFICATION_MODAL, payload });
+}
+
+export const displayErrorModal = message => dispatch => {
+  dispatch({ type: types.DISPLAY_ERROR_MODAL, payload: message });
 }
 
 export const dismissModal = () => dispatch => {

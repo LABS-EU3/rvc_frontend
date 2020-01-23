@@ -524,12 +524,23 @@ const initialModalState = {
   isNotification: false,
   message: "",
   buttonLink: "/login",
-  isDisplaying: false, 
+  isDisplaying: true, 
 };
 export function modalReducer (state = initialModalState, action) {
   switch (action.type) {
-    case types.SET_MODAL:
-      return { ...action.payload, isDisplaying: true };
+    case types.DISPLAY_NOTIFICATION_MODAL:
+      return {
+        isNotification: true,
+        isDisplaying: true,
+        ...action.payload
+      };
+    case types.DISPLAY_ERROR_MODAL:
+      return {
+        isNotification: false,
+        message: action.payload,
+        buttonLink: "/login",
+        isDisplaying: true,
+      }
     case types.DISMISS_MODAL:
         return initialModalState;
     default:
