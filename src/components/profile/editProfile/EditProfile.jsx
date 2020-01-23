@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { StyledDiv } from './editProfile.styles'
 
 export default function EditProfile({ close }) {
   const [profileFormData, setProfileFormData] = useState({
@@ -22,7 +23,7 @@ export default function EditProfile({ close }) {
   };
 
   return (
-    <div className="modal">
+    <StyledDiv>
       <p className="close" onClick={close}>
         &times;
       </p>
@@ -75,6 +76,6 @@ expertise.map(exp_val => <option>{exp_val.value}</option>)
         </select>
         <button onClick={handleFormSubmit}>Go</button>
       </form>
-    </div>
+    </StyledDiv>
   );
 }
