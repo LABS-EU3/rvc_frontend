@@ -520,13 +520,18 @@ export function newlyAddedRecipe(state = initialNewlyAddedRecipe, action) {
 }
 
 // General Modal Reducer:
-const initialErrorState = { message: "", displaying: false };
-export function errorReducer (state = initialErrorState, action) {
+const initialModalState = { 
+  isNotification: true,
+  message: "",
+  buttonLink: "/login",
+  isDisplaying: false, 
+};
+export function modalReducer (state = initialModalState, action) {
   switch (action.type) {
     case types.SET_MODAL:
-      return { ...action.payload, displaying: true };
+      return { ...action.payload, isDisplaying: true };
     case types.DISMISS_MODAL:
-        return { ...state, displaying: false };
+        return initialModalState;
     default:
       return state;
   }
