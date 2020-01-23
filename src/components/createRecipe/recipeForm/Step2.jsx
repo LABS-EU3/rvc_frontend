@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators"
+import imageUpload from '../../../utils/imageUpload'
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import DropDown from "../../dropDown/DropDown";
@@ -21,6 +22,7 @@ import axios from "axios";
 
 function Step2(props) {
   const [imgUrl, setImgUrl] = useState(false);
+  const [loading, setLoading] = useState(false)
   const { goForward, addImagesToBody } = props;
 
   const onSubmit = e => {
@@ -29,20 +31,9 @@ function Step2(props) {
     goForward(e);
   };
 
-  const uploadImage = async e => {
-    e.preventDefault();
-    try {
-      const files = e.target.files;
-      const data = new FormData();
-      data.append("file", files[0]);
-      data.append("upload_preset", "recipe_image");
-      const imageUrl = await axios .post("https://api.cloudinary.com/v1_1/dr34bum3p/image/upload", data)
-      // Then
-      setImgUrl([imageUrl.data.secure_url])
-    } catch (error) {
-      console.log(error)
-    }
-  };
+  const uploadImageToCloud = e => {
+    imageUpload(e, setLoading, setImgUrl );
+  }
 
   return (
     <form onSubmit={onSubmit}>
@@ -63,13 +54,16 @@ function Step2(props) {
       </Section3>
       <input
         type="file"
-        onChange={uploadImage}
+        onChange={uploadImageToCloud}
         name="imageUrl"
         placeholder="imageUrl"
       />
       {imgUrl
-        ? <img alt="image to uploaded" src={imgUrl} />
+        ? <img alt="imag to uploaded" src={imgUrl} />
         : <h2>image here</h2>
+      }
+      {
+        loading && <h5>File upload in progress...</h5>
       }
     </form>
   );
