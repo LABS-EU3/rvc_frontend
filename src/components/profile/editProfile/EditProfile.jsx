@@ -29,7 +29,6 @@ export default function EditProfile({ close }) {
       <p className="close" onClick={close}>
         &times;
       </p>
-      <h1>Profile</h1>
       <div className="profile-photo">
         <img
           className="profile-pic"
@@ -68,7 +67,7 @@ export default function EditProfile({ close }) {
           onChange={onInputChange}
         />
         <select name="expertise" onChange={onInputChange}>
-          <option value="">Expertise</option>
+          <option value="">Level</option>
           <option value="">Beginner</option>
           <option value="">Intermediate</option>
           <option value="">Expert</option>
@@ -76,7 +75,7 @@ export default function EditProfile({ close }) {
 expertise.map(exp_val => <option>{exp_val.value}</option>)
                   } */}
         </select>
-        <button onClick={handleFormSubmit}>Go</button>
+        <button onClick={handleFormSubmit}>Submit</button>
       </form>
     </StyledDiv>
   );
