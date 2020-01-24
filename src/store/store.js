@@ -9,6 +9,7 @@ const monsterReducer = combineReducers({
   recipes : reducers.recipeViewReducer,
   singleRecipe: reducers.singleRecipeReducer,
   ingredients : reducers.ingredientReducer,
+  profile : reducers.profileReducer,
 });
 
 const store = createStore(
