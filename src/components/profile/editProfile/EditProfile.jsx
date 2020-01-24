@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { StyledDiv } from './editProfile.styles'
+import profilePlaceholderImage from "../../../images/profile_placeholder_1.png";
+
 
 export default function EditProfile({ close }) {
   const [profileFormData, setProfileFormData] = useState({
@@ -22,7 +25,7 @@ export default function EditProfile({ close }) {
   };
 
   return (
-    <div className="modal">
+    <StyledDiv>
       <p className="close" onClick={close}>
         &times;
       </p>
@@ -31,7 +34,7 @@ export default function EditProfile({ close }) {
         <img
           className="profile-pic"
           alt="profile display phot"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRwzk9us0OpvTp8XxAgvYAs3peCYVamG6PsGX_edQKrTPn1QBZz"
+          src={profilePlaceholderImage}
         />
       </div>
       <form className="edit-profile-form">
@@ -75,6 +78,6 @@ expertise.map(exp_val => <option>{exp_val.value}</option>)
         </select>
         <button onClick={handleFormSubmit}>Go</button>
       </form>
-    </div>
+    </StyledDiv>
   );
 }
