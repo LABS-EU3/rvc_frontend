@@ -23,12 +23,12 @@ h2 {
 }
 
 .cancel-button {
-    height: 35px;
+    height: 7%;
     width: 8%;
     background-color: #e5e5e5;
     border-radius: 32%;
-    position: relative;
+    position: absolute;
     top: 0.5rem;
-    right: 20.5rem;
+    left: 6px;
   }
 `

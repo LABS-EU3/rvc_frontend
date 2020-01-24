@@ -289,6 +289,137 @@ export const newRecipeReducerOld = (state = initialRecipeState, action) => {
   }
 };
 
+// profile
+const initialProfileState = {
+  // The following exist in the db as-is:
+  profile_pic: "",
+  first_name: "",
+  last_name: "",
+  bio: "Tap your username above to edit your profile and add a short bio!",
+  // The following need their own request(s)...
+  user_recipes: [], // A
+  liked_recipes: [], // B
+  forked_recipes_count: 0,
+  // ... determining the following:
+  recipe_count: 0, // A
+  recipes_forked_count: 0, // B
+  // And the following are meta:
+  isFetchingProfile: false,
+  isFetchingUserRecipes: false,
+  isFetchingUserLikes: false,
+  isFetchingForkedRecipesCount: false,
+  error: "",
+  message: "",
+};
+
+const dummyProfileState = {
+  // The following exist in the db as-is:
+  profile_pic: "",
+  first_name: "Dummy",
+  last_name: "Dummyname",
+  bio: "Oh boy, here I go cookin' again!",
+  // The following need their own request(s)...
+  user_recipes: [
+    {
+      id: 2,
+      recipe_title: "Pancakes",
+      author: "TEST",
+      time_required: 55,
+      difficulty: 1,
+      budget: 1,
+      images: [
+        "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
+      ],
+    },
+    {
+      id: 2,
+      recipe_title: "Pancakes",
+      author: "TEST",
+      time_required: 55,
+      difficulty: 1,
+      budget: 1,
+      images: [
+        "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
+      ],
+    },
+    {
+      id: 2,
+      recipe_title: "Pancakes",
+      author: "TEST",
+      time_required: 55,
+      difficulty: 1,
+      budget: 1,
+      images: [
+        "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
+      ],
+    },
+    {
+      id: 2,
+      recipe_title: "Cakes",
+      author: "TEST",
+      time_required: 55,
+      difficulty: 1,
+      budget: 1,
+      images: [
+        "https://keyassets-p2.timeincuk.net/wp/prod/wp-content/uploads/sites/53/2019/07/pick-and-mix-choc-cake-920x605.jpg"
+      ],
+    },
+  ], // A
+  liked_recipes: [
+    {
+      id: 2,
+      recipe_title: "Cookies",
+      author: "TEST",
+      time_required: 55,
+      difficulty: 1,
+      budget: 1,
+      images: [
+        "https://www.handletheheat.com/wp-content/uploads/2018/02/BAKERY-STYLE-CHOCOLATE-CHIP-COOKIES-9.jpg"
+      ],
+    },
+  ], // B
+  forked_recipes_count: 0,
+  // ... determining the following:
+  recipe_count: 2, // A
+  recipes_forked_count: 1, // B
+  // And the following are meta:
+  isFetchingProfile: false,
+  isFetchingUserRecipes: false,
+  isFetchingUserLikes: false,
+  isFetchingForkedRecipesCount: false,
+  error: "",
+  message: "",
+};
+
+export const profileReducer = (state = initialProfileState, action) => {
+  switch (action.type) {
+    case types.GET_PROFILE:
+      return {
+        ...state,
+        isFetchingProfile: true,
+        isFetchingUserRecipes: true,
+        isFetchingUserLikes: true,
+      };
+    case types.GET_PROFILE_SUCCESS:
+      return {
+        ...state,
+        ...action.payload,
+        // Note: No 'isFetching___: false' here, because it's in the payload.
+        // Ditto for 'error' and 'message'!
+      };
+    case types.GET_PROFILE_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+        isFetchingProfile: false,
+        isFetchingUserRecipes: false,
+        isFetchingUserLikes: false,
+        isFetchingForkedRecipesCount: false,
+      };
+    default:
+      return state;
+  }
+}
 
 // THIS IS THE NEW STUFF DO NOT DELETE BELOW
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
+
 import PrivateRoute from "./components/authentication/privateRoute/PrivateRoute";
 import FormikLoginForm from "./components/authentication/loginForm/LoginForm";
 import FormikRegisterForm from "./components/authentication/registerForm/RegisterForm";
@@ -10,8 +11,6 @@ import EditProfile from "./components/profile/editProfile/EditProfile";
 import IngredientView from "./components/ingredients/ingredientView/IngredientView";
 import InstructionView from "./components/instructions/instructionView/InstructionView";
 import CreateRecipe from "./components/createRecipe/createRecipe/CreateRecipe";
-import EditRecipeOptions from "./components/EditRecipe/EditRecipeOptions";
-import EditRecipe from "./components/EditRecipe/EditRecipe";
 import "./App.css";
 
 function App() {
@@ -20,19 +19,16 @@ function App() {
       <Route exact path="/" component={RecipeView} />
       <Route path="/login" component={FormikLoginForm} />
       <Route path="/register" component={FormikRegisterForm} />
+
       <Route path="/recipes" exact component={RecipeView} />
       <Route path="/recipes/:id" render={props => <SeeRecipe {...props} />} />
-      {/* <PrivateRoute path='/profile' component={ProfileView}/> */}
-      {/* <PrivateRoute path='/editprofile' component={EditProfile}/> */}
+
+      <PrivateRoute path='/profile' component={ProfileView}/>
+      <PrivateRoute path='/editprofile' component={EditProfile}/>
+
       <PrivateRoute path='/createrecipe' component={ CreateRecipe}/>
-      <Route path="/profile" component={ProfileView} />
-      <Route path="/editprofile" component={EditProfile} />
-      {/* <Route path="/createrecipe" component={CreateRecipe} /> */}
-      <Route path="/ingredient" component={IngredientView} />
-      <Route path="/instruction" component={InstructionView} />
-      <Route path='/editrecipe' exact component={EditRecipe} />
-      <Route path="/editrecipe/:block" render={props => <EditRecipe {...props} />} />
-      <Route path='/editoptions' component={EditRecipeOptions} />
+      <PrivateRoute path="/ingredient" component={IngredientView} />
+      <PrivateRoute path="/instruction" component={InstructionView} />
     </div>
   );
 }
