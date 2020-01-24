@@ -422,6 +422,8 @@ export function editRecipeReducer(state = initialBody, action) {
         }
     case types.EDIT_INSTRUCTIONS:
       return { 
+
+        //edit by deleting/clearing up entries and refilling 
         ...state,
         instructions: state.instructions.map(instruction=> { 
           if (instruction.id === action.payload.id) { 
