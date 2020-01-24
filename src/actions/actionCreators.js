@@ -219,14 +219,44 @@ export const postRecipe = payload => dispatch => {
 
 
 
-
 //edit actions
 
- export const editInstructions = instructions => dispatch => {
-   dispatch({
-     type: types.EDIT_INSTRUCTIONS, 
-     payload: instructions
-   })
- }
- 
+export const editRecipeObj = recipe => dispatch => {
+  dispatch({ 
+    type: types.EDIT_RECIPE,
+    payload: recipe
+  })
+}
 
+export const editRecipeCategories = recipe_categories => dispatch => { 
+  dispatch({ 
+    types: types.EDIT_RECIPE_CATEGORIES,
+    payload: recipe_categories
+  })
+}
+
+export const editImages = images => dispatch => {
+  dispatch({ 
+    types: types.EDIT_IMAGES,
+    payload: images
+  })
+}
+
+export const editInstructions = instructions => dispatch => {
+  dispatch({
+    type: types.EDIT_INSTRUCTIONS, 
+    payload: instructions
+  })
+}
+
+export const editRecipe = (payload, id) => dispatch => { 
+  axiosWithAuth()
+  .put(`api/recipe/${id}`, payload)
+  .then(res => { 
+    dispatch({ type: types.EDIT_RECIPE_OK, payload: res.data});
+  })
+  .catch(error => { 
+    console.dir(error);
+    dispatch({ type: types.EDIT_RECIPE_FAIL, payload: error})
+  })
+}

@@ -10,7 +10,6 @@ import Footer from "../navigation/footerNav/FooterNav"
 
 const EditRecipe = ({match}) => { 
 
-  // const block = match.params.block.trim();
   const block =  match.params.block ? match.params.block.trim() : '';
 
   const [page, setPage] = useState(1);
@@ -64,4 +63,4 @@ const EditRecipe = ({match}) => {
   }
 }
 
-export default EditRecipe;
+export default connect(state => state.editRecipe, dispatchers)(EditRecipe)

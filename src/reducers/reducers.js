@@ -399,6 +399,27 @@ export function editRecipeReducer(state = initialBody, action) {
 
         
       }
+    case types.EDIT_RECIPE_CATEGORIES:
+      return { 
+        ...state,
+        recipe_categories: state.recipe_categories.map(
+          category=> {
+            if(category.id === action.payload.id) {
+              return action.payload
+            }
+            return category
+          })
+        }
+      case types.EDIT_IMAGES:
+        return { 
+          ...state,
+          images: state.images.map(image=>{
+            if (image.id === action.payload.id) { 
+              return action.payload;
+            }
+            return image
+          })
+        }
     case types.EDIT_INSTRUCTIONS:
       return { 
         ...state,
@@ -426,9 +447,7 @@ export function newlyEditRecipe ( state = initialNewlyEditedRecipe, action) {
     case types.EDIT_RECIPE_FAIL: 
       return { ...state, error: action.payload };
     case types.EDIT_RECIPE_OK: 
-      return { ...state, data: action.payload }
-      default:
-        return state;
+      return { ...state, editedData: action.payload }
       }
 }
     
