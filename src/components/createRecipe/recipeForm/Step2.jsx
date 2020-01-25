@@ -82,7 +82,7 @@ function Step2(props) {
         </div>
         </div>
     </ExportImg>
-   </form>
+   {/* </form> */}
       
       <input
         type="file"
