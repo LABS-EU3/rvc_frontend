@@ -55,24 +55,8 @@ function Step2(props) {
     <form onSubmit={onSubmit}>
       <Section3>
         <NavigationSection1>
-          <ArrowBackIcon
-            onClick={goBack}
-            cgit
-            style={{ fontSize: 40, color: "white" }}
-          />
-          <button
-            type="submit"
-            style={{ border: "none", background: "inherit", outline: "none" }}
-          >
-            <CheckIcon
-              cgit
-              style={{
-                fontSize: 40,
-                color: "white",
-                background: "transparent"
-              }}
-            />
-          </button>
+          <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
+          <CheckIcon className="check-icon" onClick={goForward} cgit />
         </NavigationSection1>
         <Addtitle>
           <h1>Upload Image</h1>

@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 import { connect } from "react-redux";
-import * as dispatchers from "../../../actions/actionCreators"
+import * as dispatchers from "../../../actions/actionCreators";
 
-import CheckIcon from '@material-ui/icons/Check';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import CheckIcon from "@material-ui/icons/Check";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import DropDown from "../../dropDown/DropDown";
 import { Link } from "react-router-dom";
-import { TextField, Select, MenuItem } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { TextField, Select, MenuItem } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   Section1,
   NavigationSection1,
@@ -17,8 +17,7 @@ import {
   SwitchDiv
 } from "./FormStyled.styles";
 
-
-function Step5(props){
+function Step5(props) {
   const {
     postRecipe,
     recipe,
@@ -40,31 +39,29 @@ function Step5(props){
       instructions
     };
     postRecipe(body);
-  }
+  };
 
   const goBack = e => {
-    goBackward()
-  }
+    goBackward();
+  };
 
-  return(<div>
-          <Section1>
-      <NavigationSection1>
-              <ArrowBackIcon onClick={goBack} cgit style={{ fontSize: 40, color: 'white' }} />           
-          <button type='submit' onClick={submitRecipe} style={{"border":"none", "background": "inherit", "outline":"none"}}>
-          <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
-        </button>
+  return (
+    <div>
+      <Section1>
+        <NavigationSection1>
+          <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
+          <CheckIcon className="check-icon" cgit onClick={submitRecipe} />
         </NavigationSection1>
         <Addtitle>
-           <h1>Preview of {recipe.title}</h1>
+          <h1>Preview of {recipe.title}</h1>
         </Addtitle>
       </Section1>
-    <img src={images[0]} />
-    {/* <button onClick={submitRecipe} >Submit</button> */}
-  </div>)
+      <img src={images[0]} alt="preview of newly created recipe"/>
+      {/* <button onClick={submitRecipe} >Submit</button> */}
+    </div>
+  );
 }
 
-function mapStateToProps(state){
-
-}
+function mapStateToProps(state) {}
 
 export default connect(state => state.newRecipe, dispatchers)(Step5);

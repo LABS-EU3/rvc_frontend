@@ -155,6 +155,15 @@ height: 15rem;
 width:100%;
 box-shadow: 0px 8px 30px #DAD9D9;
 margin-bottom:10px;
+.check-icon {
+  font-size: 40px;
+  background: transparent;
+  color: white;
+}
+.back-arrow {
+  font-size: 40px;
+  color: white;
+}
 `
 export const Section3 = styled.div`
 display:flex;
@@ -164,6 +173,17 @@ height: 11rem;
 width:100%;
 box-shadow: 0px 8px 30px #DAD9D9;
 margin-bottom:10px;
+
+.check-icon {
+  font-size: 40px;
+  background: transparent;
+  color: white;
+}
+
+.back-arrow {
+  font-size: 40px;
+  color: white;
+}
 `
 
 export const SwitchDiv = styled.div`
