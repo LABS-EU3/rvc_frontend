@@ -4,6 +4,13 @@ export const StyledDiv = styles.div`
 
   font-size: 12px;
 
+  .clear-icon {
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    font-size: 36px;
+  }
+
   .profile-photo {
     margin-top: 2rem;
   }
