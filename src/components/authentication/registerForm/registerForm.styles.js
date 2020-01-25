@@ -11,7 +11,8 @@ justify-content: space-evenly;
 `
 
 export const ArrowDiv = styled.div`
-margin-right: 298px;
+display:flex;
+margin-left: 5vh;
 `
 
 export const H1 =styled.h1`
@@ -34,7 +35,8 @@ margin-top: 0;
 `
 
 export const FooterDiv = styled.div`
-bottom: 2%;
+bottom: 5%;
+margin-top: 2rem;
 font-size: 18px;
 `;
 
