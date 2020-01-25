@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const RecipeTopDiv = styled.div`
   display: flex;
   justify-content: space-between;
-  // margin: 5%;
+  padding-top: 2rem;
 `;
 
 export const TopButtonDiv = styled.div`
@@ -37,8 +37,10 @@ export const ShareButton = styled.div`
 export const ImgRecipe = styled.div`
   width: 100%;
   height: 372px;
+  margin-bottom: 4rem;
   img {
     width: 100%;
+    height: 100%;
   }
 `;
 

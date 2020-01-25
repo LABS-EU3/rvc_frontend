@@ -34,7 +34,7 @@ export default function EditProfile({ close }) {
           src={profilePlaceholderImage}
         />
       </div>
-      <form className="edit-profile-form">
+      <form >
         <input
           type="text"
           placeholder="Name"
