@@ -385,6 +385,7 @@ border-radius: 2px;
 box-sizing: content-box;
   p{
     font-size: 20px;
+    padding-left: 2rem;
   }`
 
   export const IngredientsDiv1 =styled.div`

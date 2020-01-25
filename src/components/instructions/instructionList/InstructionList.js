@@ -2,7 +2,6 @@ import React from "react";
 import { SeeRecipePopup } from "./InstructionList.styles";
 
 export default function IngredientList({ instructions, close }) {
-  console.log("instruction are", instructions)
   return (
     <SeeRecipePopup>
       <button onClick={close} className="cancel-button">
