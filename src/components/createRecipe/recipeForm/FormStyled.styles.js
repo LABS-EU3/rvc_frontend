@@ -367,9 +367,36 @@ box-sizing: content-box;
     font-size: 20px;
   }`
 
+  export const IngredientsDiv1 =styled.div`
+  
+  width: 20%;
+
+  input, select {
+    width: 100%;    
+    height: 33px;
+  }    
+
+  }
+  `
   export const IngredientsDiv =styled.div`
+  
+  .dropdown{
+    height: 23px;
+
+  }
+  input, select {
+    width: 100%;    
+    height: 33px;
+    background-color: white;
+  }    
+
+  }
+  `
+  export const IngredientsWrapper =styled.div`
     display:flex;
   `
+
+  
   export const IngredientsMainDiv =styled.div`
   display:flex;
   margin-top:2%;

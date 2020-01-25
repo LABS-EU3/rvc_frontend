@@ -26,7 +26,8 @@ function Step5(props){
     recipe_tags,
     images,
     recipe_ingredients,
-    instructions
+    instructions,
+    goBackward
   } = props;
 
   const submitRecipe = () => {
@@ -41,12 +42,14 @@ function Step5(props){
     postRecipe(body);
   }
 
+  const goBack = e => {
+    goBackward()
+  }
+
   return(<div>
           <Section1>
       <NavigationSection1>
-            <Link to='/profile'>
-              <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
-            </Link>
+              <ArrowBackIcon onClick={goBack} cgit style={{ fontSize: 40, color: 'white' }} />           
           <button type='submit' onClick={submitRecipe} style={{"border":"none", "background": "inherit", "outline":"none"}}>
           <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
         </button>
