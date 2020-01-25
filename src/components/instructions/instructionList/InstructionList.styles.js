@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
 export const SeeRecipePopup = styled.div`
+.clear-icon {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  font-size: 36px;
+}
+
 h1 {
   font-family: Antic;
   font-style: normal;
