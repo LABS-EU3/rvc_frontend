@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { StyledDiv } from './editProfile.styles'
+import { StyledDiv } from "./editProfile.styles";
 import profilePlaceholderImage from "../../../images/profile_placeholder_1.png";
-
+import ClearIcon from "@material-ui/icons/Clear";
 
 export default function EditProfile({ close }) {
   const [profileFormData, setProfileFormData] = useState({
@@ -26,9 +26,7 @@ export default function EditProfile({ close }) {
 
   return (
     <StyledDiv>
-      <p className="close" onClick={close}>
-        &times;
-      </p>
+      <ClearIcon className="clear-icon" onClick={close} />
       <div className="profile-photo">
         <img
           className="profile-pic"
