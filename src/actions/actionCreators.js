@@ -288,3 +288,17 @@ export const getProfile = () => dispatch => {
     })
     .catch(generalError);
 }
+
+// for Modal:
+export const displayNotificationModal = (message, buttonLink) => dispatch => {
+  const payload = ({ message, buttonLink });
+  dispatch({ type: types.DISPLAY_NOTIFICATION_MODAL, payload });
+}
+
+export const displayErrorModal = message => dispatch => {
+  dispatch({ type: types.DISPLAY_ERROR_MODAL, payload: message });
+}
+
+export const dismissModal = () => dispatch => {
+  dispatch({ type: types.DISMISS_MODAL });
+}

@@ -518,3 +518,32 @@ export function newlyAddedRecipe(state = initialNewlyAddedRecipe, action) {
       return { ...state, data: action.payload };
   }
 }
+
+// General Modal Reducer:
+const initialModalState = { 
+  isNotification: false,
+  message: "",
+  buttonLink: "/login",
+  isDisplaying: false, 
+};
+export function modalReducer (state = initialModalState, action) {
+  switch (action.type) {
+    case types.DISPLAY_NOTIFICATION_MODAL:
+      return {
+        isNotification: true,
+        isDisplaying: true,
+        ...action.payload
+      };
+    case types.DISPLAY_ERROR_MODAL:
+      return {
+        isNotification: false,
+        message: action.payload,
+        buttonLink: "/login",
+        isDisplaying: true,
+      }
+    case types.DISMISS_MODAL:
+        return initialModalState;
+    default:
+      return state;
+  }
+}
