@@ -69,7 +69,7 @@ function FormTemplate({ touched, errors }) {
             Already have an account?
             <Link to="/login" style={{ textDecoration: "none" }}>
               {""}
-              <LinkFooter>Log in</LinkFooter>
+              <LinkFooter> Log in</LinkFooter>
             </Link>
           </p>
         </FooterDiv>

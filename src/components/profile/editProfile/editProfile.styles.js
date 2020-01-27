@@ -4,6 +4,38 @@ export const StyledDiv = styles.div`
 
   font-size: 12px;
 
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 70vh;
+    padding: 0 2px;
+
+    input, select {
+      height: 8%;
+      width: 100%;      
+    }
+
+    input::placeholder {
+      padding-left: 2rem;
+      color: green;
+    }
+
+    button {
+      width: 30%;
+      height: 7%;
+      margin: 0 auto;
+    }
+  }
+
+
+  .clear-icon {
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    font-size: 36px;
+  }
+
   .profile-photo {
     margin-top: 2rem;
   }

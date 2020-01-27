@@ -1,12 +1,11 @@
 import React from "react";
 import { SeeRecipePopup } from "./IngredientList.styles";
+import ClearIcon from "@material-ui/icons/Clear";
 
 export default function IngredientList({ ingredients, close }) {
   return (
     <SeeRecipePopup>
-      <button onClick={close} className="cancel-button">
-        x
-      </button>
+      <ClearIcon className="clear-icon" onClick={close} />
       <h1>Ingredients</h1>
       {/* <h2> 6 Tomatoes </h2> */}
       {ingredients.map((item, id) => (

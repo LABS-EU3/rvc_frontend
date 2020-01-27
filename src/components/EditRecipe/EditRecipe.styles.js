@@ -155,15 +155,6 @@ height: 15rem;
 width:100%;
 box-shadow: 0px 8px 30px #DAD9D9;
 margin-bottom:10px;
-.check-icon {
-  font-size: 40px;
-  background: transparent;
-  color: white;
-}
-.back-arrow {
-  font-size: 40px;
-  color: white;
-}
 `
 export const Section3 = styled.div`
 display:flex;
@@ -173,17 +164,6 @@ height: 11rem;
 width:100%;
 box-shadow: 0px 8px 30px #DAD9D9;
 margin-bottom:10px;
-
-.check-icon {
-  font-size: 40px;
-  background: transparent;
-  color: white;
-}
-
-.back-arrow {
-  font-size: 40px;
-  color: white;
-}
 `
 
 export const SwitchDiv = styled.div`
@@ -389,43 +369,27 @@ border-radius: 2px;
 box-sizing: content-box;
   p{
     font-size: 20px;
-    padding-left: 2rem;
   }`
 
-  export const IngredientsDiv1 =styled.div`
-  
-  width: 20%;
-
-  input, select {
-    width: 100%;    
-    height: 33px;
-  }    
-
-  }
-  `
   export const IngredientsDiv =styled.div`
-  
-  .dropdown{
-    height: 23px;
-
-  }
-  input, select {
-    width: 100%;    
-    height: 33px;
-    background-color: white;
-  }    
-
-  }
-  `
-  export const IngredientsWrapper =styled.div`
     display:flex;
   `
-
-  
   export const IngredientsMainDiv =styled.div`
   display:flex;
   margin-top:2%;
   margin-left:2%;
   margin-right:2%;
-  // width:5rem;
+  `
+
+  export const EditDiv = styled.div`
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 29px;
+  text-align: left;
+  margin:5%;
+  h1{
+    margin-bottom: 40px;
+    border-bottom:1px solid black;
+  }
   `

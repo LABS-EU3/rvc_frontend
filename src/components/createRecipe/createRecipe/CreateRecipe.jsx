@@ -10,20 +10,25 @@ import Footer from "../../navigation/footerNav/FooterNav";
 
 function App(props) {
 
-  const [page, setPage] = useState(3);
+  const [page, setPage] = useState(1);
 
   const goForward = e => {
     e.preventDefault();
     setPage(page + 1);
+
+  };
+
+  const goBackward = e => {
+    setPage(page - 1);
   };
 
   return (
     <div className="App">
-      {page === 1 && <Step1 goForward={goForward} />}
-      {page === 2 && <Step2 goForward={goForward} />}
-      {page === 3 && <Step3 goForward={goForward} />}
-      {page === 4 && <Step4 goForward={goForward} />}
-      {page === 5 && <Step5/>}
+      {page === 1 && <Step1 goForward={goForward} goBackward={goBackward} />}
+      {page === 2 && <Step2 goForward={goForward} goBackward={goBackward} />}
+      {page === 3 && <Step3 goForward={goForward} goBackward={goBackward} />}
+      {page === 4 && <Step4 goForward={goForward} goBackward={goBackward} />}
+      {page === 5 && <Step5 goBackward={goBackward} />}
       <Footer></Footer>
     </div>
   );
