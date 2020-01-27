@@ -370,6 +370,10 @@ flex-direction: column;
 align-items: center; 
 justify-content: space-between;
 margin-top: 6.5rem;
+img {
+  max-height: 397px;
+  width: 100%;
+}
 
 `
 

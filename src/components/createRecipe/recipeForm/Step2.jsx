@@ -67,7 +67,7 @@ function Step2(props) {
       <ExportImg>
           <div >
           {imgUrl 
-            ? <img style={{"max-height": "394px", "width": "100%"}} alt="img to uploaded" src={imgUrl} />
+            ? <img alt="img to uploaded" src={imgUrl} />
             : <img src={foodplaceholder} alt="A display of the already finished recipe" />
           }
           </div>
