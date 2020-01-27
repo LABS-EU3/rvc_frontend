@@ -361,15 +361,15 @@ h1 {
 
 export const ExportImg = styled.div `
 width: 100%;
-height: 397px;
+// height: 397px;
 max-width: 100%;
 max-height: 397px;
 background: rgba(10, 178, 138, 0.21);
-padding:0px;
 display:flex;
+flex-direction: column;
 align-items: center; 
-align-content: center;
-margin-bottom:35px;
+justify-content: space-between;
+margin-top: 6.5rem;
 
 `
 

@@ -65,10 +65,9 @@ function Step2(props) {
         </Addtitle>
       </Section3>
       <ExportImg>
-        <div>
           <div >
           {imgUrl 
-            ? <img style={{"max-height": "394px", "width": "100%"}} alt="image to uploaded" src={imgUrl} />
+            ? <img style={{"max-height": "394px", "width": "100%"}} alt="img to uploaded" src={imgUrl} />
             : <img src={foodplaceholder} alt="A display of the already finished recipe" />
           }
           </div>
@@ -80,11 +79,10 @@ function Step2(props) {
             placeholder="imageUrl"
           />
         </div>
-        </div>
     </ExportImg>
    {/* </form> */}
       
-      <input
+      {/* <input
         type="file"
         onChange={uploadImage}
         name="imageUrl"
@@ -94,7 +92,7 @@ function Step2(props) {
         <img alt="display pic to be uploaded" src={imgUrl} />
       ) : (
         <h2>image here</h2>
-      )}
+      )} */}
     </form>
   );
 }
