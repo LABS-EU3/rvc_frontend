@@ -134,12 +134,12 @@ function Step1(props) {
           <Addtitle>
             <TextField
               id="standard-full-width"
-              style={{ color: "white" }}
+              // style={{ color: "white" }}
               type="text"
               onChange={inputHandler}
               value={inputState.title}
               name="title"
-              placeholder="title"
+              placeholder="Enter recipe title"
               required
               fullWidth
               margin="normal"
@@ -153,25 +153,25 @@ function Step1(props) {
                 }
               }}
             />
-            <br></br>
+            <br />
           </Addtitle>
         </Section1>
         <Section2>
-          <Title htmlFor="recipeCategoryInput">Category:</Title>
+          <Title htmlFor="recipeCategoryInput">Category</Title>
           <DropDown
             listUrl={getAllCategoiresUrl}
             name="recipe_categories"
+            id="recipeCategoryInput"
             inputHandler={inputHandler}
           />
-          <Title htmlFor="recipeCategoryInput">Description:</Title>
+          <Title htmlFor="recipeDescriptionInput">Description</Title>
           <TextField
-            id="margin-none"
+            id="recipeDescriptionInput"
             className={classes.textField}
             type="text"
             onChange={inputHandler}
             value={inputState.description}
             name="description"
-            placeholder="description"
             fullWidth
             InputProps={{ classes: { root: classes.inputRoot2 } }}
             className={classes.textField}
@@ -183,9 +183,10 @@ function Step1(props) {
               }
             }}
           />
-          <br></br>
-          <Title htmlFor="recipeCategoryInput">Time required</Title>
+          <br />
+          <Title htmlFor="timeRequiredInput">Time required</Title>
           <TextField
+            id="timeRequiredInput"
             type="number"
             onChange={inputHandler}
             value={inputState.time_required}
@@ -203,9 +204,10 @@ function Step1(props) {
               }
             }}
           />
-          <br></br>
-          <Title htmlFor="recipeCategoryInput">Difficulty Level</Title>
+          <br />
+          <Title htmlFor="difficultyLevelInput">Difficulty Level</Title>
           <Select
+            id="difficultyLevelInput"
             type="number"
             onChange={inputHandler}
             value={inputState.difficulty}
@@ -218,9 +220,10 @@ function Step1(props) {
             <MenuItem value={3}>3</MenuItem>
             <MenuItem value={4}>4</MenuItem>
           </Select>
-          <br></br>
+          <br />
           <Title htmlFor="recipeCategoryInput">Budget</Title>
           <TextField
+            id="recipeCategoryInput"
             type="number"
             onChange={inputHandler}
             value={inputState.budget}
@@ -238,7 +241,7 @@ function Step1(props) {
             }}
             required
           />
-          <br></br>
+          <br />
           {/* <input
         type="text"
         onChange={inputHandler}
@@ -249,17 +252,20 @@ function Step1(props) {
         /> */}
           <br></br>
           <br></br>
-          <Title>Options:</Title>
+          {/* <Title>Options</Title> */}
           <SwitchDiv>
-            <div>
+            <div className="switch-container">
               <p>Private</p>
+              <label className="switch">
+                <input type="checkbox" name="options" value="Private" />
+                <span className="slider round"></span>
+              </label>
+            </div>
+
+            <div>
               <br></br>
               <p>The private option hides your recipe from other users</p>
             </div>
-            <label class="switch">
-              <input type="checkbox" name="options" value="Private" />
-              <span class="slider round"></span>
-            </label>
           </SwitchDiv>
           <Title>Add Tags</Title>
           <DropDown
@@ -271,7 +277,7 @@ function Step1(props) {
             placeholder="Add as many tags as you want to easily find your recipe"
             required
           />
-          <br></br>
+          <br />
         </Section2>
       </div>
     </form>

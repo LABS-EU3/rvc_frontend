@@ -189,10 +189,19 @@ margin-bottom:10px;
 export const SwitchDiv = styled.div`
 font-size: 1.6rem;
 display: flex;
-align-items: center;
+flex-direction: column;
 margin-bottom: 1.5rem;
 justify-content: space-between; 
 color: rgba(0, 0, 0, 0.51);
+.switch-container {
+  display: flex;
+  p {
+    margin-right: auto;
+    color: black;
+    font-weight: 300;
+    font-size: 20px;
+  }
+}
 .switch {
   position: relative;
   display: inline-block;
