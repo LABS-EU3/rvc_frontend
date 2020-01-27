@@ -369,10 +369,15 @@ display:flex;
 flex-direction: column;
 align-items: center; 
 justify-content: space-between;
-margin-top: 6.5rem;
+margin-top: 3.5rem;
+
 img {
   max-height: 397px;
   width: 100%;
+}
+
+input {
+  margin-bottom: 3rem;
 }
 
 `
