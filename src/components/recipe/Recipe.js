@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "../../App.css";
+import {
+  StyledRecipeCardOverlay
+} from "./Recipe.styles";
 
 const Recipe = ({ recipe }) => {
   console.log("Recipe.js > recipe: ", recipe);
@@ -30,7 +33,14 @@ const Recipe = ({ recipe }) => {
   return (
     <div className="box">
       <Link to={`/recipes/${id}`}>
-        <img className="recipe" src={imageUrl} alt="an " />
+        <div className="img-div" style={{position: "relative"}}>
+          <img className="recipe" src={imageUrl} alt="an " />
+          <StyledRecipeCardOverlay>
+            <div className="card-button" id="fork-button">
+              [X]
+            </div>
+          </StyledRecipeCardOverlay>
+        </div>
         <div className="recipe-card">
           <p>{author + lastLetter}</p>
           <h2>{recipe_title}</h2>

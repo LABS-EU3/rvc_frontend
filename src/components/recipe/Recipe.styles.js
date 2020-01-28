@@ -91,3 +91,13 @@ export const LgButton = styled.div`
   border-radius: 9px;
   color: white;
 `;
+
+// Liking/forking:
+export const StyledRecipeCardOverlay = styled.div`
+  background: rgba(255, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left:0;
+`;
