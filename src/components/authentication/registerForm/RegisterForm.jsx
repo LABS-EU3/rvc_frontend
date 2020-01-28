@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { withFormik, Form, Field } from "formik";
+import { withFormik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { register } from "../../../actions/actionCreators";
 import logo from "../../../globals/design-elements/logo.png";
@@ -19,6 +19,7 @@ import {
 } from "./registerForm.styles";
 
 function FormTemplate({ touched, errors }) {
+
   return (
     <MainDiv>
       <ArrowDiv>

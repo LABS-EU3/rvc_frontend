@@ -7,6 +7,7 @@ import { login } from '../../../actions/actionCreators';
 import logo from "../../../globals/design-elements/logo.png";
 import arrow from "../../../images/left-arrow.png";
 import "../../../index.css";
+// import ErrorMessage from "../ErrorMessage";
 import {
   MainDiv,
   ArrowDiv,
@@ -45,6 +46,7 @@ function FormTemplate({ touched, errors, onboard }) {
             placeholder="Username"
           />
         </div>
+        {/* <ErrorMessage errorValue={errors.username} /> */}
         <div className="spaced-div">
           {touched.password && errors.password}
           <Field

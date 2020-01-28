@@ -25,7 +25,7 @@ import {
   ProfilePicture,
   BottomButtonDiv,
   LgButton
-} from "./Recipe.styles";
+} from "./recipe.styles";
 
 function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
   console.log("SeeRecipe.js > recipe: ", recipe);
