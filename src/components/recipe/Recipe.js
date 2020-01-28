@@ -6,6 +6,8 @@ import {
   StyledRecipeCardOverlay
 } from "./Recipe.styles";
 
+import forkIcon from '../../images/fork-icon.png';
+
 const Recipe = ({ recipe }) => {
   console.log("Recipe.js > recipe: ", recipe);
 
@@ -37,7 +39,7 @@ const Recipe = ({ recipe }) => {
           <img className="recipe" src={imageUrl} alt="an " />
           <StyledRecipeCardOverlay>
             <div className="card-button" id="fork-button">
-              [X]
+              <img id="fork-icon" src={forkIcon} alt="fork-icon"/>
             </div>
           </StyledRecipeCardOverlay>
         </div>
