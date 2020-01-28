@@ -357,6 +357,10 @@ h1 {
   line-height: 38px;
   margin-bottom:10px;
 }
+.description-paragraph {
+  font-size: 1.4rem;
+  color: #c4c4c4;
+}
 `
 
 export const ExportImg = styled.div `
@@ -405,6 +409,9 @@ align-content:flex-start;
 background: rgba(10, 179, 138, 0.08);
 border-radius: 2px;
 box-sizing: content-box;
+input {
+  font-size: 20px;
+}
   p{
     font-size: 20px;
     padding-top: 6px;

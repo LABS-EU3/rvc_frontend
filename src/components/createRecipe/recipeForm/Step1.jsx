@@ -241,15 +241,7 @@ function Step1(props) {
             }}
             required
           />
-          <br />
-          {/* <input
-        type="text"
-        onChange={inputHandler}
-        value={inputState.user_id}
-        name="user_id"
-        placeholder="user_id"
-        disabled
-        /> */}
+          <br />        
           <br></br>
           <br></br>
           {/* <Title>Options</Title> */}
