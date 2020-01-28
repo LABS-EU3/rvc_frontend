@@ -224,7 +224,7 @@ const initialRecipeState = {
   difficulty: null,
 
   recipe_categories: [],
-  
+
   tags: [],
   recipe_tags: [],
 
@@ -309,7 +309,7 @@ const initialProfileState = {
   isFetchingUserLikes: false,
   isFetchingForkedRecipesCount: false,
   error: "",
-  message: "",
+  message: ""
 };
 
 const dummyProfileState = {
@@ -329,7 +329,7 @@ const dummyProfileState = {
       budget: 1,
       images: [
         "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
-      ],
+      ]
     },
     {
       id: 2,
@@ -340,7 +340,7 @@ const dummyProfileState = {
       budget: 1,
       images: [
         "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
-      ],
+      ]
     },
     {
       id: 2,
@@ -351,7 +351,7 @@ const dummyProfileState = {
       budget: 1,
       images: [
         "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
-      ],
+      ]
     },
     {
       id: 2,
@@ -362,8 +362,8 @@ const dummyProfileState = {
       budget: 1,
       images: [
         "https://keyassets-p2.timeincuk.net/wp/prod/wp-content/uploads/sites/53/2019/07/pick-and-mix-choc-cake-920x605.jpg"
-      ],
-    },
+      ]
+    }
   ], // A
   liked_recipes: [
     {
@@ -375,8 +375,8 @@ const dummyProfileState = {
       budget: 1,
       images: [
         "https://www.handletheheat.com/wp-content/uploads/2018/02/BAKERY-STYLE-CHOCOLATE-CHIP-COOKIES-9.jpg"
-      ],
-    },
+      ]
+    }
   ], // B
   forked_recipes_count: 0,
   // ... determining the following:
@@ -388,7 +388,7 @@ const dummyProfileState = {
   isFetchingUserLikes: false,
   isFetchingForkedRecipesCount: false,
   error: "",
-  message: "",
+  message: ""
 };
 
 export const profileReducer = (state = initialProfileState, action) => {
@@ -398,12 +398,12 @@ export const profileReducer = (state = initialProfileState, action) => {
         ...state,
         isFetchingProfile: true,
         isFetchingUserRecipes: true,
-        isFetchingUserLikes: true,
+        isFetchingUserLikes: true
       };
     case types.GET_PROFILE_SUCCESS:
       return {
         ...state,
-        ...action.payload,
+        ...action.payload
         // Note: No 'isFetching___: false' here, because it's in the payload.
         // Ditto for 'error' and 'message'!
       };
@@ -414,12 +414,12 @@ export const profileReducer = (state = initialProfileState, action) => {
         isFetchingProfile: false,
         isFetchingUserRecipes: false,
         isFetchingUserLikes: false,
-        isFetchingForkedRecipesCount: false,
+        isFetchingForkedRecipesCount: false
       };
     default:
       return state;
   }
-}
+};
 
 // THIS IS THE NEW STUFF DO NOT DELETE BELOW
 
@@ -516,71 +516,96 @@ export function newlyAddedRecipe(state = initialNewlyAddedRecipe, action) {
       return { ...state, error: action.payload };
     case types.POST_RECIPE_OK:
       return { ...state, data: action.payload };
-  }
-}
-
-
-//EDIT RECIPE 
-
-export function editRecipeReducer(state = initialBody, action) { 
-  switch (action.type) { 
-    case types.EDIT_RECIPE:
-      return{ 
-        ...state,
-
-        
-      }
-    case types.EDIT_RECIPE_CATEGORIES:
-      return { 
-        ...state,
-        recipe_categories: state.recipe_categories.map(
-          category=> {
-            if(category.id === action.payload.id) {
-              return action.payload
-            }
-            return category
-          })
-        }
-      case types.EDIT_IMAGES:
-        return { 
-          ...state,
-          images: state.images.map(image=>{
-            if (image.id === action.payload.id) { 
-              return action.payload;
-            }
-            return image
-          })
-        }
-    case types.EDIT_INSTRUCTIONS:
-      return { 
-
-        //edit by deleting/clearing up entries and refilling 
-        ...state,
-        instructions: state.instructions.map(instruction=> { 
-          if (instruction.id === action.payload.id) { 
-            return action.payload;
-          }
-          return instruction
-        })
-      }
     default:
       return state;
   }
-
 }
 
+//EDIT RECIPE
 
-const initialNewlyEditedRecipe = { 
+export function editRecipeReducer(state = initialBody, action) {
+  switch (action.type) {
+    case types.EDIT_RECIPE:
+      return {
+        ...state
+      };
+    case types.EDIT_RECIPE_CATEGORIES:
+      return {
+        ...state,
+        recipe_categories: state.recipe_categories.map(category => {
+          if (category.id === action.payload.id) {
+            return action.payload;
+          }
+          return category;
+        })
+      };
+    case types.EDIT_IMAGES:
+      return {
+        ...state,
+        images: state.images.map(image => {
+          if (image.id === action.payload.id) {
+            return action.payload;
+          }
+          return image;
+        })
+      };
+    case types.EDIT_INSTRUCTIONS:
+      return {
+        //edit by deleting/clearing up entries and refilling
+        ...state,
+        instructions: state.instructions.map(instruction => {
+          if (instruction.id === action.payload.id) {
+            return action.payload;
+          }
+          return instruction;
+        })
+      };
+    default:
+      return state;
+  }
+}
+
+const initialNewlyEditedRecipe = {
   editedData: [],
   error: ""
 };
 
-export function newlyEditRecipe ( state = initialNewlyEditedRecipe, action) {
-  switch (action.type) { 
-    case types.EDIT_RECIPE_FAIL: 
+export function newlyEditRecipe(state = initialNewlyEditedRecipe, action) {
+  switch (action.type) {
+    case types.EDIT_RECIPE_FAIL:
       return { ...state, error: action.payload };
-    case types.EDIT_RECIPE_OK: 
-      return { ...state, editedData: action.payload }
-      }
+    case types.EDIT_RECIPE_OK:
+      return { ...state, editedData: action.payload };
+    default:
+      return state;
+  }
 }
-    
+
+// General Modal Reducer:
+const initialModalState = {
+  isNotification: false,
+  message: "",
+  buttonLink: "/login",
+  isDisplaying: false
+};
+export function modalReducer(state = initialModalState, action) {
+  switch (action.type) {
+    case types.DISPLAY_NOTIFICATION_MODAL:
+      return {
+        isNotification: true,
+        isDisplaying: true,
+        ...action.payload
+      };
+    case types.DISPLAY_ERROR_MODAL:
+      return {
+        isNotification: false,
+        message: action.payload,
+        buttonLink: "/login",
+        isDisplaying: true
+      };
+    case types.DISMISS_MODAL:
+      return initialModalState;
+    default:
+      return state;
+  }
+}
