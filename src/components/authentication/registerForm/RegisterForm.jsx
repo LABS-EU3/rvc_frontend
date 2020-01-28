@@ -7,6 +7,7 @@ import { register } from "../../../actions/actionCreators";
 import logo from "../../../globals/design-elements/logo.png";
 import arrow from "../../../images/left-arrow.png";
 import "../../../index.css";
+import Snackbar from '@material-ui/core/Snackbar';
 import {
   MainDiv,
   ArrowDiv,

@@ -64,26 +64,6 @@ function Step2(props) {
           <h1>Upload Image</h1>
         </Addtitle>
       </Section3>
-      <ExportImg>
-        <div>
-          <div >
-          {imgUrl 
-            ? <img style={{"max-height": "394px", "width": "100%"}} alt="image to uploaded" src={imgUrl} />
-            : <img src={foodplaceholder} alt="A display of the already finished recipe" />
-          }
-          </div>
-          <div>
-          <input
-            type="file"
-            onChange={uploadImage}
-            name="imageUrl"
-            placeholder="imageUrl"
-          />
-        </div>
-        </div>
-    </ExportImg>
-   </form>
-      
       <input
         type="file"
         onChange={uploadImage}
