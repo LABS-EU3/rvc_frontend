@@ -92,27 +92,88 @@ export const LgButton = styled.div`
   color: white;
 `;
 
-// Liking/forking:
-export const StyledRecipeCardOverlay = styled.div`
-  background: rgba(0, 0, 0, 0.3);
+// Recipe Card:
+export const StyledRecipe = styled.div`
+  /* background-color: black; */
+  overflow: hidden;
+  break-inside: avoid;
   width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left:0;
+  padding: 10px;
+  
+  .recipe-img-box {
+    border-radius: 9px;
+    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
 
-  /* Copied from .recipe styles: */
-  border-radius:9px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 
-  .card-button {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
+    border-radius: 9px;
+    overflow: hidden;
+    /* border: 1px solid green; */
 
-    .img {
+    img {
       width: 100%;
       height: 100%;
+    }
+    
+    .overlay {
+      background: rgba(0, 0, 0, 0.3);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+  
+      display: flex;
+      flex-direction: row-reverse;
+  
+      border-radius:9px;
+      /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  
+      .card-button {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+  
+        .img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  a:last-of-type {
+    .recipe-card {
+      background: rgba(196, 196, 196, 0.12);
+      border-radius: 15px;
+      text-align: start;
+      padding: 2vh;
+      margin-top: 2vh;
+
+      .recipe-card-tag {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 45px;
+
+        .level-recipe {
+          color: transparent;
+          border: 1px solid;
+          border-radius: 50%;
+          width: 18px;
+          height: 18px;
+          background-color: red;
+        }
+
+        p {
+          margin: 5px 0 0;
+          padding: 0 0 10px;
+          font-size: 16px;
+        }
+      }
     }
   }
 `;

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import "../../App.css";
 import {
-  StyledRecipeCardOverlay
+  StyledRecipe
 } from "./Recipe.styles";
 
 import forkIcon from '../../images/fork-icon.png';
@@ -32,17 +32,22 @@ const Recipe = ({ recipe }) => {
   
   const lastLetter = author.substr(-1) === "s" ? "'" : "'s";
 
+  const [buttonsShowing, setButtonsShowing] = useState(false);
+  const showButtons = () => { setButtonsShowing(true) };
+  const hideButtons = () => { setButtonsShowing(false) };
+  const flipButtons = () => { setButtonsShowing(!buttonsShowing) };
+
   return (
-    <div className="box">
-      <Link to={`/recipes/${id}`}>
-        <div className="img-div" style={{position: "relative"}}>
-          <img className="recipe" src={imageUrl} alt="an " />
-          <StyledRecipeCardOverlay>
-            <div className="card-button" id="fork-button">
-              <img id="fork-icon" src={forkIcon} alt="fork-icon"/>
-            </div>
-          </StyledRecipeCardOverlay>
+    <StyledRecipe>
+      <div className="recipe-img-box">
+        <img className="recipe-img" src={imageUrl} alt="an " />
+        <div className="overlay" style={buttonsShowing ? {background: "rgba(0, 0, 0, 0.3)"} : {background: "rgba(0, 0, 0, 0)"}}>
+          <div className="card-button" id="fork-button" onClick={flipButtons}>
+            <img id="fork-icon" src={forkIcon} alt="fork-icon"/>
+          </div>
         </div>
+      </div>
+      <Link to={`/recipes/${id}`}>
         <div className="recipe-card">
           <p>{author + lastLetter}</p>
           <h2>{recipe_title}</h2>
@@ -61,7 +66,7 @@ const Recipe = ({ recipe }) => {
           </div>
         </div>
       </Link>
-    </div>
+    </StyledRecipe>
   );
 };
 
