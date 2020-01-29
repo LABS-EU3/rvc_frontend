@@ -221,7 +221,6 @@ export const getProfile = () => dispatch => {
   dispatch({ type: types.GET_PROFILE });
 
   const generalError = error => { // For use below!
-    console.log(error);
     dispatch({ type: types.GET_PROFILE_FAILURE, payload: error});
   }
 
@@ -284,7 +283,6 @@ export const getProfile = () => dispatch => {
 
   Promise.all([getProfileInfo, getUserRecipes, getUserLikes, getForkedRecipesCount])
     .then(res => {
-      console.log(res.data);
     })
     .catch(generalError);
 }
