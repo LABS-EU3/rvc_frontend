@@ -100,10 +100,8 @@ export const StyledRecipe = styled.div`
   width: 100%;
   padding: 10px;
   
+  
   .recipe-img-box {
-    border-radius: 9px;
-    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-
     width: 100%;
     height: 100%;
     display: flex;
@@ -113,6 +111,9 @@ export const StyledRecipe = styled.div`
     border-radius: 9px;
     overflow: hidden;
     /* border: 1px solid green; */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.25);
 
     img {
       width: 100%;
@@ -131,7 +132,6 @@ export const StyledRecipe = styled.div`
       flex-direction: row-reverse;
   
       border-radius:9px;
-      /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
   
       .card-button {
         width: 3rem;
@@ -159,8 +159,11 @@ export const StyledRecipe = styled.div`
 
   a:last-of-type {
     .recipe-card {
+      box-shadow: 2px 4px 4px 1px rgba(0, 0, 0, 0.25);
       background: rgba(196, 196, 196, 0.12);
       border-radius: 15px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
       text-align: start;
       padding: 2vh;
       /* margin-top: 2vh; */
