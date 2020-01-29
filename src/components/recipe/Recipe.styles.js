@@ -156,6 +156,19 @@ export const StyledRecipe = styled.div`
           height: 100%;
         }
       }
+
+      .likes {
+        background: #0ab28a;
+        width: 1rem;
+        height: 1rem;
+        color: white;
+        font-weight:bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        padding: 0.7rem;
+      }
     }
   }
 

@@ -21,7 +21,8 @@ const Recipe = ({ recipe }) => {
     time_required,
     difficulty,
     budget,
-    imageUrl
+    imageUrl,
+    likes
   } = recipe;
 
   // let color = "";
@@ -47,9 +48,11 @@ const Recipe = ({ recipe }) => {
           <div className="card-button" id="fork-button"
             onClick={flipButtons}
             onBlur={hideButtons} tabIndex="1"
-            style={buttonsShowing ? {background: "black"} : {}}>
+            style={buttonsShowing ? {background: "white"} : {}}
+          >
             <img id="fork-icon" src={forkIcon} alt="fork-icon"/>
           </div>
+          <p className="likes" style={buttonsShowing ? {background: "white", color: "#0ab28a"} : {}}>{likes}</p>
           <div className="card-button" id="options-button" style={buttonsShowing? {} : {display: "none"}}>
             <img id="fork-icon" src={optionsIcon} alt="fork-icon"/>
           </div>
