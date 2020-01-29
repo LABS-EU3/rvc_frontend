@@ -6,7 +6,10 @@ import {
   StyledRecipe
 } from "./Recipe.styles";
 
-import forkIcon from '../../images/fork-icon.png';
+import smallForkIcon from "../../images/small-fork-icon.png";
+import shareIcon from "../../images/small-share-icon.png";
+import optionsIcon from "../../images/small-options-icon.png";
+import forkIcon from "../../images/fork-icon.png";
 
 const Recipe = ({ recipe }) => {
   console.log("Recipe.js > recipe: ", recipe);
@@ -33,7 +36,6 @@ const Recipe = ({ recipe }) => {
   const lastLetter = author.substr(-1) === "s" ? "'" : "'s";
 
   const [buttonsShowing, setButtonsShowing] = useState(false);
-  const showButtons = () => { setButtonsShowing(true) };
   const hideButtons = () => { setButtonsShowing(false) };
   const flipButtons = () => { setButtonsShowing(!buttonsShowing) };
 
@@ -42,8 +44,20 @@ const Recipe = ({ recipe }) => {
       <div className="recipe-img-box">
         <img className="recipe-img" src={imageUrl} alt="an " />
         <div className="overlay" style={buttonsShowing ? {background: "rgba(0, 0, 0, 0.3)"} : {background: "rgba(0, 0, 0, 0)"}}>
-          <div className="card-button" id="fork-button" onClick={flipButtons} onBlur={hideButtons} tabIndex="1">
+          <div className="card-button" id="fork-button"
+            onClick={flipButtons}
+            onBlur={hideButtons} tabIndex="1"
+            style={buttonsShowing ? {background: "black"} : {}}>
             <img id="fork-icon" src={forkIcon} alt="fork-icon"/>
+          </div>
+          <div className="card-button" id="options-button" style={buttonsShowing? {} : {display: "none"}}>
+            <img id="fork-icon" src={optionsIcon} alt="fork-icon"/>
+          </div>
+          <div className="card-button" id="share-button" style={buttonsShowing? {} : {display: "none"}}>
+            <img id="fork-icon" src={shareIcon} alt="fork-icon"/>
+          </div>
+          <div className="card-button" id="small-fork-button" style={buttonsShowing? {} : {display: "none"}}>
+            <img id="fork-icon" src={smallForkIcon} alt="fork-icon"/>
           </div>
         </div>
       </div>
