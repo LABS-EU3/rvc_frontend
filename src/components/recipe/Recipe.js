@@ -42,7 +42,7 @@ const Recipe = ({ recipe }) => {
       <div className="recipe-img-box">
         <img className="recipe-img" src={imageUrl} alt="an " />
         <div className="overlay" style={buttonsShowing ? {background: "rgba(0, 0, 0, 0.3)"} : {background: "rgba(0, 0, 0, 0)"}}>
-          <div className="card-button" id="fork-button" onClick={flipButtons}>
+          <div className="card-button" id="fork-button" onClick={flipButtons} onBlur={hideButtons} tabIndex="1">
             <img id="fork-icon" src={forkIcon} alt="fork-icon"/>
           </div>
         </div>

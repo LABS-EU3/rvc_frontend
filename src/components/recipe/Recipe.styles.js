@@ -137,6 +137,7 @@ export const StyledRecipe = styled.div`
         width: 3rem;
         height: 3rem;
         border-radius: 50%;
+        outline: none;
   
         .img {
           width: 100%;
@@ -152,7 +153,7 @@ export const StyledRecipe = styled.div`
       border-radius: 15px;
       text-align: start;
       padding: 2vh;
-      margin-top: 2vh;
+      /* margin-top: 2vh; */
 
       .recipe-card-tag {
         display: flex;
