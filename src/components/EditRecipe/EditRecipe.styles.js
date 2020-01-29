@@ -275,6 +275,9 @@ input {
 export const NavigationSection1 = styled.div`
 display:flex;
 justify-content: space-between;
+button:hover { 
+  cursor: pointer
+}
 `
 
 export const Addtitle = styled.div `
@@ -392,4 +395,3 @@ box-sizing: content-box;
     margin-bottom: 40px;
     border-bottom:1px solid black;
   }
-  `

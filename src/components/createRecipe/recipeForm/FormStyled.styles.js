@@ -295,6 +295,9 @@ input {
 export const NavigationSection1 = styled.div`
 display:flex;
 justify-content: space-between;
+button:hover { 
+  cursor: pointer
+}
 `
 
 export const Addtitle = styled.div `
@@ -429,3 +432,6 @@ box-sizing: content-box;
   margin-right:2%;
   // width:5rem;
   `
+
+
+ 

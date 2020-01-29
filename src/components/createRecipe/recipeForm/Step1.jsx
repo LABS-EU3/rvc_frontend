@@ -13,7 +13,8 @@ import {
   Addtitle,
   Section2,
   Title,
-  SwitchDiv
+  SwitchDiv,
+  ButtonPointer
 } from "./FormStyled.styles";
 
 const useStyles = makeStyles(theme => ({
