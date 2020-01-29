@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators";
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Fab from '@material-ui/core/Fab';
 import DropDown from "../../dropDown/DropDown";
 import { Link } from "react-router-dom";
 import { TextField, Select, MenuItem } from '@material-ui/core';
@@ -119,10 +120,18 @@ function Step1(props) {
       <Section1>
       <NavigationSection1>
             <Link to='/profile'>
-              <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+             <Fab 
+              style={{background: "none"}}
+              >
+                <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+              </Fab>
             </Link>
           <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
-          <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+             <Fab 
+              style={{background: "none"}}
+              >
+                <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+              </Fab>
         </button>
         </NavigationSection1>
         <Addtitle>

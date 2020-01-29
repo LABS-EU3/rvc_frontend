@@ -300,6 +300,8 @@ button:hover {
 }
 `
 
+
+
 export const Addtitle = styled.div `
 margin-left:5%;
 margin-right:15%;

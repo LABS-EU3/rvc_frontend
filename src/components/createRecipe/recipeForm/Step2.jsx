@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators";
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import Fab from '@material-ui/core/Fab';
 import DropDown from "../../dropDown/DropDown";
 import { Link } from "react-router-dom";
 import { TextField, Select, MenuItem } from "@material-ui/core";
@@ -20,6 +21,7 @@ import {
 
 import foodplaceholder from "../../../images/foodplaceholder.png";
 import axios from "axios";
+import { pink } from "@material-ui/core/colors";
 
 function Step2(props) {
   const [imgUrl, setImgUrl] = useState(false);
@@ -52,12 +54,21 @@ function Step2(props) {
     }
   };
 
+
   return (
     <form onSubmit={onSubmit}>
       <Section3>
         <NavigationSection1>
-          <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
-          <CheckIcon className="check-icon" onClick={goForward} cgit />
+          <Fab 
+          style={{background: "none"}}
+          >
+            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
+          </Fab>
+          <Fab 
+          style={{background: "none"}}
+          >
+            <CheckIcon className="check-icon" onClick={goForward} cgit />
+          </Fab>
         </NavigationSection1>
         <Addtitle>
           <h1>Upload Image</h1>
