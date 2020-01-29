@@ -131,7 +131,9 @@ export const StyledRecipe = styled.div`
       display: flex;
       flex-direction: row-reverse;
   
-      border-radius:9px;
+      border-radius: 9px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
   
       .card-button {
         width: 3rem;
