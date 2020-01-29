@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import "../../App.css";
@@ -38,7 +38,19 @@ const Recipe = ({ recipe }) => {
 
   const [buttonsShowing, setButtonsShowing] = useState(false);
   const hideButtons = () => { setButtonsShowing(false) };
-  const flipButtons = () => { setButtonsShowing(!buttonsShowing) };
+  const toggleButtons = () => { setButtonsShowing(!buttonsShowing) };
+
+  const [localLikeState, setLocalLikeState] = useState(likes);
+
+  const toggleRecipeLike = () => {
+    if (localLikeState === likes) { // If 
+
+      setLocalLikeState(likes + 1);
+    } else {
+
+      setLocalLikeState(likes);
+    }
+  }
 
   return (
     <StyledRecipe>
@@ -46,7 +58,7 @@ const Recipe = ({ recipe }) => {
         <img className="recipe-img" src={imageUrl} alt="an " />
         <div className="overlay" style={buttonsShowing ? {background: "rgba(0, 0, 0, 0.3)"} : {background: "rgba(0, 0, 0, 0)"}}>
           <div className="card-button" id="fork-button"
-            onClick={flipButtons}
+            onClick={toggleButtons}
             onBlur={hideButtons} tabIndex="1"
             style={buttonsShowing ? {background: "white"} : {}}
           >

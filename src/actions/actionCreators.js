@@ -64,6 +64,43 @@ export const getRecipesById = id => dispatch => {
       dispatch({ type: types.GET_RECIPE_FAILURE, payload: error.message });
     });
 };
+
+const userLikesErrorHandler = (err, dispatch) => {
+  dispatch({ type: types.LIKE_REQUEST_FAILURE, payload: err });
+};
+export const likeRecipe = (user_id, recipe_id) => dispatch => {
+  dispatch({ type: types.LIKE_RECIPE });
+
+  axiosWithAuth()
+    .post("/api/likes", ({ user_id, recipe_id }))
+    .then(res => {
+      dispatch({ type: types.LIKE_RECIPE_SUCCESS, payload: res.data.id });
+      // ^Note: Only need res.data.id, here, as userLikes might as well be an array of recipe ids. :)
+    })
+    .catch(err => userLikesErrorHandler(err, dispatch));
+}
+export const unlikeRecipe = (user_id, recipe_id) => dispatch => {
+  dispatch({ type: types.UNLIKE_RECIPE });
+
+  axiosWithAuth()
+    .delete("/api/likes", ({ user_id, recipe_id }))
+    .then(res => {
+      dispatch({ type: types.UNLIKE_RECIPE_SUCCESS, payload: recipe_id});
+    })
+    .catch(err => userLikesErrorHandler(err, dispatch));
+}
+export const getUserLikes = user_id => dispatch => {
+  dispatch({ type: types.GET_USER_LIKES });
+
+  axiosWithAuth()
+    .get(`/api/likes/${user_id}`)
+    .then(res => {
+      const likedRecipeIds = res.data.map(recipe => recipe.id);
+      dispatch({ type: types.GET_USER_LIKES_SUCCESS, payload: likedRecipeIds });
+    })
+    .catch(err => userLikesErrorHandler(err, dispatch));
+}
+
 // Might not be needed
 export const addIngredient = ingredientData => dispatch => {
   dispatch({ type: types.REQUEST_START });
