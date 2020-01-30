@@ -583,7 +583,7 @@ export function newlyEditRecipe(state = initialNewlyEditedRecipe, action) {
 
 // General Modal Reducer:
 const initialModalState = {
-  isNotification: false,
+  modalType: "notification",
   message: "",
   buttonLink: "/login",
   isDisplaying: false
@@ -592,13 +592,19 @@ export function modalReducer(state = initialModalState, action) {
   switch (action.type) {
     case types.DISPLAY_NOTIFICATION_MODAL:
       return {
-        isNotification: true,
+        modalType: "notification",
         isDisplaying: true,
         ...action.payload
       };
+    case types.DISPLAY_LIKE_MODAL:
+        return {
+          modalType: "like",
+          isDisplaying: true,
+          ...action.payload,
+        }
     case types.DISPLAY_ERROR_MODAL:
       return {
-        isNotification: false,
+        modalType: "error",
         message: action.payload,
         buttonLink: "/login",
         isDisplaying: true

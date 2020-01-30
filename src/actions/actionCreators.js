@@ -331,8 +331,13 @@ export const getProfile = () => dispatch => {
 
 // for Modal:
 export const displayNotificationModal = (message, buttonLink) => dispatch => {
-  const payload = ({ message, buttonLink });
-  dispatch({ type: types.DISPLAY_NOTIFICATION_MODAL, payload });
+  dispatch({ type: types.DISPLAY_NOTIFICATION_MODAL, payload: ({ message, buttonLink })});
+}
+
+export const displayLikeModal = (message, buttonLink) => dispatch => {
+  dispatch({ type: types.DISPLAY_LIKE_MODAL, payload: ({ message, buttonLink })});
+
+  setTimeout(() => dispatch({ type: types.DISMISS_MODAL }), 3001);
 }
 
 export const displayErrorModal = message => dispatch => {

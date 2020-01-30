@@ -3,6 +3,11 @@ import styled from 'styled-components';
 export const StyledDiv = styled.div`
   /* Top level, here, is the screen cover: makes the page unclickable! */
   background: rgba(255, 255, 255, .5);
+
+  &#like-modal-div {
+    background: none;
+  }
+
   width: 100%;
   height: 100%;
   position: absolute;
@@ -25,12 +30,25 @@ export const StyledDiv = styled.div`
     transform: translate(-50%, -50%);
     
     /* And to animate it: */
-    animation: fade-in 0.1s ease-in;
+    animation: fade-in 0.15s ease-in;
+
+    &#like-modal {
+      top: 85%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      animation: fade-in-out 3s ease-in-out;
+    }
 
     .message {
       text-align: left;
       font-size: 1.5rem;
       margin-bottom: 1rem;
+
+      &#like-message {
+        margin-bottom: 0;
+      }
     }
 
     .buttons {
@@ -67,5 +85,12 @@ export const StyledDiv = styled.div`
   @keyframes fade-in {
     0% { opacity: 0; }
     100% { opacity: 1; }
+  }
+
+  @keyframes fade-in-out {
+    0% { opacity: 0; }
+    5% { opacity: 1; }
+    95% { opacity: 1; }
+    100% { opacity: 0; }
   }
 `;
