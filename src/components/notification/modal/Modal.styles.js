@@ -10,8 +10,9 @@ export const StyledDiv = styled.div`
   left: 0;
 
   &#like-modal-div {
-    background: none;
     position: fixed;
+    height: 8%;
+    top: 85%;
   }
   
   /* Scrolling needs to be disabled on the parent element, though. */
@@ -34,7 +35,8 @@ export const StyledDiv = styled.div`
 
     &#like-modal {
       background: rgba(255, 48, 100, 0.9);
-      top: 88%;
+      top: 0%;
+      transform: translate(-50%, 0%);
       display: flex;
       justify-content: space-between;
       align-items: center;
