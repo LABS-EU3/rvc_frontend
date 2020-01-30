@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <FooterBar>
       <Link to="/">
-        <HomeOutlinedIcon cgit style={{ fontSize: 40, color: "gray" }} />
+        <HomeOutlinedIcon cgit="true" style={{ fontSize: 40, color: "gray" }} />
       </Link>
       <Link to="/">
         <PlayCircleOutlineOutlinedIcon

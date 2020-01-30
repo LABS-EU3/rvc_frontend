@@ -4,18 +4,15 @@ import * as dispatchers from "../../../actions/actionCreators";
 
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import DropDown from "../../dropDown/DropDown";
 import Fab from '@material-ui/core/Fab';
 
-import { Link } from "react-router-dom";
-import { TextField, Select, MenuItem } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AddCircleOutlineTwoToneIcon from "@material-ui/icons/AddCircleOutlineTwoTone";
 import {
   NavigationSection1,
   Addtitle,
   Section2b,
-  Title2,
   Section3,
   AddItem
 } from "./FormStyled.styles";

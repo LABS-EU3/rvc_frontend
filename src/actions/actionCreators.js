@@ -223,7 +223,6 @@ export const getProfile = () => dispatch => {
   const generalError = error => { // For use below!
     dispatch({ type: types.GET_PROFILE_FAILURE, payload: error});
   }
-
   const getProfileInfo = axiosWithAuth()
     .get('/api/profile')
     .then(res => {
@@ -254,6 +253,7 @@ export const getProfile = () => dispatch => {
     })
     .catch(generalError);
 
+
   const getUserLikes = axiosWithAuth()
     .get('api/profile/liked') // **subject to change!**
     .then(res => {
@@ -281,11 +281,11 @@ export const getProfile = () => dispatch => {
     })
     .catch(generalError);
 
-  // Promise.all([getProfileInfo, getUserRecipes, getUserLikes, getForkedRecipesCount])
-  //   .then(res => {
-  //     console.log(res.data);
-  //   })
-  //   .catch(generalError);
+  Promise.all([getProfileInfo, getUserRecipes, getUserLikes, getForkedRecipesCount])
+    .then(res => {
+      console.log(res.data);
+    })
+    .catch(generalError);
 }
 
 // for Modal:
