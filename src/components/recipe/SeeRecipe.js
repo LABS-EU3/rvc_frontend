@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getRecipesById } from "../../actions/actionCreators";
+import * as actionCreators from "../../actions/actionCreators";
 import Popup from "reactjs-popup";
 
 import IngredientList from "../ingredients/ingredientList/IngredientList";
@@ -27,14 +27,40 @@ import {
   LgButton
 } from "./Recipe.styles";
 
-function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
+function SeeRecipe({
+  match,
+  recipe,
+  isFetching,
+  getRecipesById, 
+  userLikes,
+  getUserLikes,
+  likeRecipe,
+  unlikeRecipe,
+  displayLikeModal,
+  user_id
+}) {
   console.log("SeeRecipe.js > recipe: ", recipe);
   
   const recipeID = match.params.id.trim();
 
+  const [localLikeState, setLocalLikeState] = useState(userLikes.includes(parseInt(recipeID)));
+
   useEffect(() => {
     getRecipesById(recipeID);
-  }, [getRecipesById, recipeID]);
+    getUserLikes(user_id);
+  }, []);
+
+  const toggleLike = () => {
+    if (localLikeState) { // If the recipe is already liked:
+      unlikeRecipe(user_id, parseInt(recipeID));
+      setLocalLikeState(false);
+      displayLikeModal("Recipe removed from cookbook.", "/profile");
+    } else { // Otherwise:
+      likeRecipe(user_id, parseInt(recipeID));
+      setLocalLikeState(true);
+      displayLikeModal("Recipe added to cookbook!", "/profile");
+    }
+  }
 
   return (
     <div>
@@ -50,7 +76,10 @@ function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
             <h1>Share</h1>
           </ShareButton>
 
-          <ForkButton>
+          <ForkButton
+            style={localLikeState ? {border: "2px solid green"} : {}}
+            onClick={toggleLike}
+          >
             <h1>Fork</h1>
           </ForkButton>
         </TopButtonDiv>
@@ -103,6 +132,10 @@ function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
   );
 }
 
-export default connect(state => state.singleRecipe, {
-  getRecipesById
-})(SeeRecipe);
+export default connect(state => ({
+  ...state.singleRecipe,
+  // Likes:
+  userLikes: state.userLikes.likes,
+  user_id: state.onboard.user_id
+}),
+actionCreators)(SeeRecipe);

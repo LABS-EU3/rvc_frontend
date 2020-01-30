@@ -25,6 +25,10 @@ export const ForkButton = styled.div`
   height: 35px;
   background: rgba(255, 48, 100, 0.8);
   border-radius: 5px;
+
+  :active {
+    background: red;
+  }
 `;
 
 export const ShareButton = styled.div`
