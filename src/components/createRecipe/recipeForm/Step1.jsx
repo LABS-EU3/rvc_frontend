@@ -31,8 +31,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const getAllCategoiresUrl = "http://localhost:3333/api/category";
-const getAllTagsUrl = "http://localhost:3333/api/tag";
+const getAllCategoiresUrl = `${process.env.REACT_APP_API_BASE_URL}api/category`;
+const getAllTagsUrl = `${process.env.REACT_APP_API_BASE_URL}api/tag`;
 
 
 function Step1(props) {
