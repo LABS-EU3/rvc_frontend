@@ -14,7 +14,7 @@ import shareIcon from "../../images/small-share-icon.png";
 import optionsIcon from "../../images/small-options-icon.png";
 import forkIcon from "../../images/fork-icon.png";
 
-const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id }) => {
+const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id, displayLikeModal }) => {
   // console.log("Recipe.js > recipe: ", recipe);
 
   const {
@@ -49,9 +49,11 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id }) => {
     if (userLike) { // If the recipe has already been liked:
       unlikeRecipe(user_id, id);
       setLocalLikeCount(localLikeCount - 1);
+      displayLikeModal("Recipe removed from cookbook.", "/profile");
     } else { // Otherwise:
       likeRecipe(user_id, id);
       setLocalLikeCount(localLikeCount + 1);
+      displayLikeModal("Recipe added to cookbook!", "/profile");
     }
   }
   // Note: The above has the problem that localLikeCount is inc-/decremented whether or
