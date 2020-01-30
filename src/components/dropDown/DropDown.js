@@ -15,6 +15,7 @@ function DropDown(props) {
       setItemList(res.data)
     })
     .catch(err => {
+      console.log(err)
     })
     .finally(() => {
       setIsFetching(false)

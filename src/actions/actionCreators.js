@@ -281,10 +281,11 @@ export const getProfile = () => dispatch => {
     })
     .catch(generalError);
 
-  Promise.all([getProfileInfo, getUserRecipes, getUserLikes, getForkedRecipesCount])
-    .then(res => {
-    })
-    .catch(generalError);
+  // Promise.all([getProfileInfo, getUserRecipes, getUserLikes, getForkedRecipesCount])
+  //   .then(res => {
+  //     console.log(res.data);
+  //   })
+  //   .catch(generalError);
 }
 
 // for Modal:

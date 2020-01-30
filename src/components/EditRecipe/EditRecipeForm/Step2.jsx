@@ -42,6 +42,7 @@ function Step2(props) {
       // Then
       setImgUrl([imageUrl.data.secure_url])
     } catch (error) {
+      console.log(error)
     }
   };
 
