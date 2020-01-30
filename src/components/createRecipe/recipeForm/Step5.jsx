@@ -6,6 +6,7 @@ import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import DropDown from "../../dropDown/DropDown";
 import { Link } from "react-router-dom";
+import Fab from '@material-ui/core/Fab';
 import { TextField, Select, MenuItem } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -49,8 +50,18 @@ function Step5(props) {
     <div>
       <Section1>
         <NavigationSection1>
-          <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
-          <CheckIcon className="check-icon" cgit onClick={submitRecipe} />
+         <Fab 
+          style={{"background": "none", "box-shadow": "none", "outline": 'none'
+          }}
+          >
+            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
+         </Fab>
+          <Fab 
+          style={{"background": "none", "box-shadow": "none", "outline": 'none'
+          }}
+          >
+            <CheckIcon className="check-icon" cgit onClick={submitRecipe} />
+          </Fab>
         </NavigationSection1>
         <Addtitle>
           <h1>Preview of {recipe.title}</h1>
