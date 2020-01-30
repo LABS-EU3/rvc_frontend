@@ -54,6 +54,11 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id }) => {
       setLocalLikeCount(localLikeCount + 1);
     }
   }
+  // Note: The above has the problem that localLikeCount is inc-/decremented whether or
+  // not the like/unlike goes through. So could be in situation (if there's a network
+  // error, say) where localLikeCount changes, but nothing else.
+
+  // Should fix, but it's not a priority!
 
   return (
     <StyledRecipe>
