@@ -4,24 +4,15 @@ import * as dispatchers from "../../../actions/actionCreators";
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Fab from '@material-ui/core/Fab';
-import DropDown from "../../dropDown/DropDown";
-import { Link } from "react-router-dom";
-import { TextField, Select, MenuItem } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import {
-  Section1,
   NavigationSection1,
   Addtitle,
-  Section2,
   Section3,
-  Title,
-  Section2b,
   ExportImg
 } from "./FormStyled.styles";
 
 import foodplaceholder from "../../../images/foodplaceholder.png";
 import axios from "axios";
-import { pink } from "@material-ui/core/colors";
 
 function Step2(props) {
   const [imgUrl, setImgUrl] = useState(false);
