@@ -4,18 +4,11 @@ import * as dispatchers from "../../../actions/actionCreators";
 
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import DropDown from "../../dropDown/DropDown";
-import { Link } from "react-router-dom";
 import Fab from '@material-ui/core/Fab';
-import { TextField, Select, MenuItem } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import {
   Section1,
   NavigationSection1,
-  Addtitle,
-  Section2,
-  Title,
-  SwitchDiv
+  Addtitle
 } from "./FormStyled.styles";
 
 function Step5(props) {
@@ -73,6 +66,5 @@ function Step5(props) {
   );
 }
 
-function mapStateToProps(state) {}
 
 export default connect(state => state.newRecipe, dispatchers)(Step5);
