@@ -13,6 +13,7 @@ export const StyledDiv = styled.div`
     position: fixed;
     height: 8%;
     top: 85%;
+    background: none;
   }
   
   /* Scrolling needs to be disabled on the parent element, though. */
