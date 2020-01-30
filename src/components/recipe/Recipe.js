@@ -41,19 +41,17 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id }) => {
 
   const [buttonsShowing, setButtonsShowing] = useState(false);
   const hideButtons = () => { setButtonsShowing(false) };
+  const delayHideButtons = () => setTimeout(hideButtons, 0.5);
   const toggleButtons = () => { setButtonsShowing(!buttonsShowing) };
 
   const toggleRecipeLike = () => {
-    console.log("yo")
     if (userLike) { // If the recipe has already been liked:
       unlikeRecipe(user_id, id);
-      console.log("unlike")
     } else { // Otherwise:
-      console.log("like");
       likeRecipe(user_id, id);
-      console.log("Userid", user_id)
     }
   }
+
 
   return (
     <StyledRecipe>
@@ -62,20 +60,21 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id }) => {
         <div className="overlay" style={buttonsShowing ? {background: "rgba(0, 0, 0, 0.3)"} : {background: "rgba(0, 0, 0, 0)"}}>
           <div className="card-button" id="fork-button"
             onClick={toggleButtons}
-            onBlur={hideButtons} tabIndex="1"
+            onBlur={delayHideButtons} tabIndex="1"
             style={buttonsShowing ? {background: "white"} : {}}
           >
             <img id="fork-icon" src={forkIcon} alt="fork-icon"/>
           </div>
-          <p className="likes" style={buttonsShowing ? {background: "white", color: "#0ab28a"} : {}}>{likes}</p>
+          <p className="likes" style={buttonsShowing ? {background: "white", color: "#0ab28a"} : {}}>
+            {likes}
+          </p>
           <div className="card-button" id="options-button" style={buttonsShowing? {} : {display: "none"}}>
             <img id="fork-icon" src={optionsIcon} alt="fork-icon"/>
           </div>
           <div className="card-button" id="share-button" style={buttonsShowing? {} : {display: "none"}}>
             <img id="fork-icon" src={shareIcon} alt="fork-icon"/>
           </div>
-          <div
-            className="card-button"
+          <div className="card-button"
             id="small-fork-button"
             style={buttonsShowing ? {} : {display: "none"}}
             onClick={toggleRecipeLike}

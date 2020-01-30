@@ -23,7 +23,6 @@ const RecipeView = ({
     getUserLikes(user_id);
   }, [getRecipes, getUserLikes, user_id]);
 
-  console.log("user_id", user_id);
   console.log("userLikes", userLikes);
 
   return (

@@ -629,9 +629,9 @@ export function userLikesReducer(state = initialUserLikesState, action) {
     case types.LIKE_RECIPE_SUCCESS:
       return {
         ...state,
-        likes: [...state.likes, action.payload.id],
+        likes: [...state.likes, action.payload],
         isPosting: false,
-        message: `Like added for recipe ${action.payload.id}!`,
+        message: `Like added for recipe ${action.payload}!`,
       }
     case types.UNLIKE_RECIPE:
       return {
@@ -642,7 +642,7 @@ export function userLikesReducer(state = initialUserLikesState, action) {
     case types.UNLIKE_RECIPE_SUCCESS:
       return {
         ...state,
-        likes: state.likes.filter(like => like !== action.payload),
+        likes: [...state.likes].filter(like => like !== action.payload),
         isDeleting: false,
         message: `Like removed for recipe ${action.payload}.`,
       }
@@ -661,8 +661,8 @@ export function userLikesReducer(state = initialUserLikesState, action) {
       }
     case types.LIKE_REQUEST_FAILURE:
       return {
-        likes: state.likes,
         ...initialUserLikesState,
+        likes: state.likes,
         error: action.payload,
         message: "Like request failed."
       }

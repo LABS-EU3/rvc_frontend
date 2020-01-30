@@ -83,9 +83,12 @@ export const unlikeRecipe = (user_id, recipe_id) => dispatch => {
   dispatch({ type: types.UNLIKE_RECIPE });
 
   axiosWithAuth()
-    .delete("/api/likes", ({ user_id, recipe_id }))
-    .then(res => {
-      dispatch({ type: types.UNLIKE_RECIPE_SUCCESS, payload: recipe_id});
+  .delete("/api/likes", {
+    data: { user_id, recipe_id }
+    // ^Note: see https://github.com/axios/axios/issues/736
+  })
+  .then(res => {
+      dispatch({ type: types.UNLIKE_RECIPE_SUCCESS, payload: recipe_id });
     })
     .catch(err => userLikesErrorHandler(err, dispatch));
 }
