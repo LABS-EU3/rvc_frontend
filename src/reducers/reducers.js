@@ -611,7 +611,7 @@ export function modalReducer(state = initialModalState, action) {
 }
 
 const initialUserLikesState = {
-  userLikes: [],
+  likes: [],
   isGetting: false,
   isPosting: false,
   isDeleting: false,
@@ -629,7 +629,7 @@ export function userLikesReducer(state = initialUserLikesState, action) {
     case types.LIKE_RECIPE_SUCCESS:
       return {
         ...state,
-        userLikes: [...state.userLikes, action.payload.id],
+        likes: [...state.likes, action.payload.id],
         isPosting: false,
         message: `Like added for recipe ${action.payload.id}!`,
       }
@@ -642,7 +642,7 @@ export function userLikesReducer(state = initialUserLikesState, action) {
     case types.UNLIKE_RECIPE_SUCCESS:
       return {
         ...state,
-        userLikes: state.userLikes.fliter(like => like === action.payload),
+        likes: state.likes.filter(like => like !== action.payload),
         isDeleting: false,
         message: `Like removed for recipe ${action.payload}.`,
       }
@@ -655,13 +655,13 @@ export function userLikesReducer(state = initialUserLikesState, action) {
     case types.GET_USER_LIKES_SUCCESS:
       return {
         ...state,
-        userLikes: action.payload,
+        likes: action.payload,
         isGetting: false,
         message: "Likes fetched!",
       }
     case types.LIKE_REQUEST_FAILURE:
       return {
-        userLikes: state.userLikes,
+        likes: state.likes,
         ...initialUserLikesState,
         error: action.payload,
         message: "Like request failed."

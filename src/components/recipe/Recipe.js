@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import { connect } from "react-redux";
+import * as actionCreators from "../../actions/actionCreators";
+
 import "../../App.css";
 import {
   StyledRecipe
@@ -11,7 +14,7 @@ import shareIcon from "../../images/small-share-icon.png";
 import optionsIcon from "../../images/small-options-icon.png";
 import forkIcon from "../../images/fork-icon.png";
 
-const Recipe = ({ recipe }) => {
+const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id }) => {
   // console.log("Recipe.js > recipe: ", recipe);
 
   const {
@@ -40,15 +43,15 @@ const Recipe = ({ recipe }) => {
   const hideButtons = () => { setButtonsShowing(false) };
   const toggleButtons = () => { setButtonsShowing(!buttonsShowing) };
 
-  const [localLikeState, setLocalLikeState] = useState(likes);
-
   const toggleRecipeLike = () => {
-    if (localLikeState === likes) { // If 
-
-      setLocalLikeState(likes + 1);
-    } else {
-
-      setLocalLikeState(likes);
+    console.log("yo")
+    if (userLike) { // If the recipe has already been liked:
+      unlikeRecipe(user_id, id);
+      console.log("unlike")
+    } else { // Otherwise:
+      console.log("like");
+      likeRecipe(user_id, id);
+      console.log("Userid", user_id)
     }
   }
 
@@ -71,7 +74,12 @@ const Recipe = ({ recipe }) => {
           <div className="card-button" id="share-button" style={buttonsShowing? {} : {display: "none"}}>
             <img id="fork-icon" src={shareIcon} alt="fork-icon"/>
           </div>
-          <div className="card-button" id="small-fork-button" style={buttonsShowing? {} : {display: "none"}}>
+          <div
+            className="card-button"
+            id="small-fork-button"
+            style={buttonsShowing ? {} : {display: "none"}}
+            onClick={toggleRecipeLike}
+          >
             <img id="fork-icon" src={smallForkIcon} alt="fork-icon"/>
           </div>
         </div>
@@ -99,4 +107,4 @@ const Recipe = ({ recipe }) => {
   );
 };
 
-export default Recipe;
+export default connect(state => state.onboard, actionCreators)(Recipe);

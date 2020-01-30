@@ -9,12 +9,21 @@ import Loader from "../loader/Loader";
 
 import "../../App.css";
 
-const RecipeView = ({ getRecipes, recipeView, isFetching, getUserLikes, userLikes }) => {
+const RecipeView = ({
+    getRecipes,
+    recipeView,
+    isFetching,
+    // Likes:
+    userLikes,
+    getUserLikes,
+    user_id
+}) => {
   useEffect(() => {
     getRecipes();
-    getUserLikes();
-  }, [getRecipes, getUserLikes]);
+    getUserLikes(user_id);
+  }, [getRecipes, getUserLikes, user_id]);
 
+  console.log("user_id", user_id);
   console.log("userLikes", userLikes);
 
   return (
@@ -23,7 +32,12 @@ const RecipeView = ({ getRecipes, recipeView, isFetching, getUserLikes, userLike
       {isFetching ? <Loader /> : null}
       <div className="container">
         {recipeView.map(recipe => (
-          <Recipe key={recipe.id} recipe={recipe} />
+          <Recipe
+            key={recipe.id}
+            recipe={recipe}
+            userLike={userLikes.includes(recipe.id)}
+            user_id={user_id}
+          />
         ))}
       </div>
       <Footer />
@@ -31,4 +45,12 @@ const RecipeView = ({ getRecipes, recipeView, isFetching, getUserLikes, userLike
   );
 };
 
-export default connect(state => ({...state.recipes, ...state.userLikes }), actionCreators)(RecipeView);
+export default connect(state => {
+  return {
+    recipeView: state.recipes.recipeView,
+    isFetching: state.recipes.isFetching,
+    // Likes:
+    userLikes: state.userLikes.likes,
+    user_id: state.onboard.user_id
+  }
+}, actionCreators)(RecipeView);
