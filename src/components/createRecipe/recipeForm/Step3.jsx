@@ -88,12 +88,12 @@ function Step3(props) {
       <Section3>
         <NavigationSection1>
         <Fab 
-          style={{background: "none"}}
+          style={{background: "none", "box-shadow": "none", "outline": 'none'}}
         >
            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
         </Fab>
         <Fab 
-          style={{background: "none"}}
+          style={{background: "none", "box-shadow": "none", "outline": 'none'}}
           >
            <CheckIcon className="check-icon" onClick={goForward} cgit />
           </Fab>

@@ -121,14 +121,14 @@ function Step1(props) {
       <NavigationSection1>
             <Link to='/profile'>
              <Fab 
-              style={{background: "none"}}
+              style={{background: "none", "box-shadow": "none", "outline": 'none'}}
               >
                 <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
               </Fab>
             </Link>
           <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
              <Fab 
-              style={{background: "none"}}
+              style={{background: "none", "box-shadow": "none", "outline": 'none'}}
               >
                 <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
               </Fab>
