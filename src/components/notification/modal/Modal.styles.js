@@ -3,19 +3,19 @@ import styled from 'styled-components';
 export const StyledDiv = styled.div`
   /* Top level, here, is the screen cover: makes the page unclickable! */
   background: rgba(255, 255, 255, .5);
-
-  &#like-modal-div {
-    background: none;
-  }
-
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
+
+  &#like-modal-div {
+    background: none;
+    position: fixed;
+  }
   
   /* Scrolling needs to be disabled on the parent element, though. */
-  /* Solution: first line of return statement of the App component! */
+  /* Solution: first few lines of return statement of the App component! */
 
   .modal {
     padding: 0.5rem 1rem;
@@ -33,7 +33,7 @@ export const StyledDiv = styled.div`
     animation: fade-in 0.15s ease-in;
 
     &#like-modal {
-      top: 85%;
+      top: 88%;
       display: flex;
       justify-content: space-between;
       align-items: center;
