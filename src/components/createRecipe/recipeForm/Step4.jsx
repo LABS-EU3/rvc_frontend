@@ -22,9 +22,7 @@ import {
 
 function Step4(props) {
   const { goForward, goBackward, addInstructionsToBody } = props;
-
   const [inputState, setInputState] = useState("");
-
   const [instructionsArray, setInstructionsArray] = useState([]);
 
   const inputHandler = e => {
@@ -46,6 +44,40 @@ function Step4(props) {
   const goBack = e => {
     goBackward();
   };
+
+  const useStyles = makeStyles(theme => ({
+    inputRoot: {
+      fontSize: 30
+    },
+    inputRoot2: {
+      fontSize: 20
+    },
+    labelRoot: {
+      fontSize: 30,
+      color: "white",
+      "&$labelFocused": {
+        color: "white"
+      }
+    },
+    labelRoot2: {
+      fontSize: 15,
+      color: "white",
+      "&$labelFocused": {
+        color: "white"
+      }
+    },
+    root: {
+      display: "flex",
+      flexWrap: "wrap"
+    },
+    textField: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+      color: "white"
+    }
+  }));
+
+  const classes = useStyles();
 
   return (
     <form onSubmit={onSubmit}>
@@ -71,18 +103,17 @@ function Step4(props) {
       <Section2b>
         <TextField
           id="filled-full-width"
-          placeholder="Add instruction"
-          helperText="click on the plus button to add your instruction!"
+          placeholder="Add instruction"          
           fullWidth
           margin="normal"
-          InputLabelProps={{
-            shrink: true
-          }}
+          InputProps={{ classes: { root: classes.inputRoot2 } }}
+          className={classes.textField}          
           variant="filled"
           onChange={inputHandler}
           type="text"
           name="instruction"
         />
+        <p className="description-paragraph">click on the plus button to add your instruction!</p>
         <div onClick={addInstruction} style={{ margin: "0 auto" }}></div>
         <div onClick={addInstruction} style={{ margin: "0 auto" }}>
         <Fab 

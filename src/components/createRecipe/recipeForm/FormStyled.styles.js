@@ -189,10 +189,19 @@ margin-bottom:10px;
 export const SwitchDiv = styled.div`
 font-size: 1.6rem;
 display: flex;
-align-items: center;
+flex-direction: column;
 margin-bottom: 1.5rem;
 justify-content: space-between; 
 color: rgba(0, 0, 0, 0.51);
+.switch-container {
+  display: flex;
+  p {
+    margin-right: auto;
+    color: black;
+    font-weight: 300;
+    font-size: 20px;
+  }
+}
 .switch {
   position: relative;
   display: inline-block;
@@ -353,19 +362,32 @@ h1 {
   line-height: 38px;
   margin-bottom:10px;
 }
+.description-paragraph {
+  font-size: 1.4rem;
+  color: #c4c4c4;
+}
 `
 
 export const ExportImg = styled.div `
 width: 100%;
-height: 397px;
+// height: 397px;
 max-width: 100%;
 max-height: 397px;
 background: rgba(10, 178, 138, 0.21);
-padding:0px;
 display:flex;
+flex-direction: column;
 align-items: center; 
-align-content: center;
-margin-bottom:35px;
+justify-content: space-between;
+margin-top: 3.5rem;
+
+img {
+  max-height: 397px;
+  width: 100%;
+}
+
+input {
+  margin-bottom: 3rem;
+}
 
 `
 
@@ -383,17 +405,21 @@ margin-left:5%;
 
 export const AddItem = styled.div `
 color: currentColor;
-  width: 100%;
-  border: 0;
-  height: 25px;
-  margin-top:2%;
+width: 100%;
+border: 0;
+height: 4.5rem;
+margin-top:2%;
 display: flex;
 align-content:flex-start;
 background: rgba(10, 179, 138, 0.08);
 border-radius: 2px;
 box-sizing: content-box;
+input {
+  font-size: 20px;
+}
   p{
     font-size: 20px;
+    padding-top: 6px;
     padding-left: 2rem;
   }`
 
