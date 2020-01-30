@@ -96,8 +96,14 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id }) => {
           </div>
           <div className="card-button"
             id="small-fork-button"
-            style={buttonsShowing ? {} : {display: "none"}}
             onClick={toggleRecipeLike}
+            style={
+              userLike && buttonsShowing ?
+                {background: "#FF3064"} :
+              !userLike && buttonsShowing ?
+                {} :
+              {display: "none"}
+            }
           >
             <img id="fork-icon" src={smallForkIcon} alt="fork-icon"/>
           </div>
