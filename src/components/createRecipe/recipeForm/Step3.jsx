@@ -7,21 +7,15 @@ import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Fab from '@material-ui/core/Fab';
 
-import { Link } from "react-router-dom";
-import { TextField, Select, MenuItem } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import AddCircleOutlineTwoToneIcon from "@material-ui/icons/AddCircleOutlineTwoTone";
 import {
   NavigationSection1,
   Addtitle,
   Section2b,
   IngredientsDiv,
-  IngredientsMainDiv,
   IngredientsDiv1,
   IngredientsWrapper,
-  Title2,
   Section3,
-  Section1,
   AddItem
 } from "./FormStyled.styles";
 
