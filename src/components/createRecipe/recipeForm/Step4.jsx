@@ -4,16 +4,15 @@ import * as dispatchers from "../../../actions/actionCreators";
 
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import DropDown from "../../dropDown/DropDown";
-import { Link } from "react-router-dom";
-import { TextField, Select, MenuItem } from "@material-ui/core";
+import Fab from '@material-ui/core/Fab';
+
+import { TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AddCircleOutlineTwoToneIcon from "@material-ui/icons/AddCircleOutlineTwoTone";
 import {
   NavigationSection1,
   Addtitle,
   Section2b,
-  Title2,
   Section3,
   AddItem
 } from "./FormStyled.styles";
@@ -81,9 +80,18 @@ function Step4(props) {
     <form onSubmit={onSubmit}>
       <Section3>
         <NavigationSection1>
-          <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
-
-          <CheckIcon className="check-icon" onClick={goForward} cgit />
+         <Fab 
+          style={{"background": "none", "box-shadow": "none", "outline": 'none'
+          }}
+          >
+            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
+          </Fab>
+          <Fab 
+          style={{"background": "none", "box-shadow": "none", "outline": 'none'
+          }}
+          >
+            <CheckIcon className="check-icon" onClick={goForward} cgit />
+          </Fab>
         </NavigationSection1>
         <Addtitle>
           <h1>Add instruction</h1>
@@ -105,10 +113,17 @@ function Step4(props) {
         <p className="description-paragraph">click on the plus button to add your instruction!</p>
         <div onClick={addInstruction} style={{ margin: "0 auto" }}></div>
         <div onClick={addInstruction} style={{ margin: "0 auto" }}>
-          <AddCircleOutlineTwoToneIcon
+        <Fab 
+          style={{"background": "none",
+           "box-shadow": "none", 
+           "outline": 'none'
+          }}
+          >
+             <AddCircleOutlineTwoToneIcon
             cgit
             style={{ fontSize: 40, color: "#0AB38A" }}
           />
+          </Fab>
         </div>
         <div>
           {instructionsArray.length
