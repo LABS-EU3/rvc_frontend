@@ -33,6 +33,7 @@ export const StyledDiv = styled.div`
     animation: fade-in 0.15s ease-in;
 
     &#like-modal {
+      background: rgba(255, 48, 100, 0.9);
       top: 88%;
       display: flex;
       justify-content: space-between;
