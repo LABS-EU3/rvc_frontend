@@ -9,10 +9,13 @@ import Loader from "../loader/Loader";
 
 import "../../App.css";
 
-const RecipeView = ({ getRecipes, recipeView, isFetching }) => {
+const RecipeView = ({ getRecipes, recipeView, isFetching, getUserLikes, userLikes }) => {
   useEffect(() => {
     getRecipes();
-  }, [getRecipes]);
+    getUserLikes();
+  }, [getRecipes, getUserLikes]);
+
+  console.log("userLikes", userLikes);
 
   return (
     <div>
@@ -28,4 +31,4 @@ const RecipeView = ({ getRecipes, recipeView, isFetching }) => {
   );
 };
 
-export default connect(state => state.recipes, actionCreators)(RecipeView);
+export default connect(state => ({...state.recipes, ...state.userLikes }), actionCreators)(RecipeView);

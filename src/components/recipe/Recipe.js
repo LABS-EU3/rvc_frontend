@@ -12,7 +12,7 @@ import optionsIcon from "../../images/small-options-icon.png";
 import forkIcon from "../../images/fork-icon.png";
 
 const Recipe = ({ recipe }) => {
-  console.log("Recipe.js > recipe: ", recipe);
+  // console.log("Recipe.js > recipe: ", recipe);
 
   const {
     id,
