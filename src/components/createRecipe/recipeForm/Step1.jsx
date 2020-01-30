@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators";
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Fab from '@material-ui/core/Fab';
 import DropDown from "../../dropDown/DropDown";
 import { Link } from "react-router-dom";
 import { TextField, Select, MenuItem } from '@material-ui/core';
@@ -13,7 +14,8 @@ import {
   Addtitle,
   Section2,
   Title,
-  SwitchDiv
+  SwitchDiv,
+  ButtonPointer
 } from "./FormStyled.styles";
 
 const useStyles = makeStyles(theme => ({
@@ -29,8 +31,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const getAllCategoiresUrl = "http://localhost:3333/api/category";
-const getAllTagsUrl = "http://localhost:3333/api/tag";
+const getAllCategoiresUrl = `${process.env.REACT_APP_API_BASE_URL}api/category`;
+const getAllTagsUrl = `${process.env.REACT_APP_API_BASE_URL}api/tag`;
 
 
 function Step1(props) {
@@ -118,10 +120,18 @@ function Step1(props) {
       <Section1>
       <NavigationSection1>
             <Link to='/profile'>
-              <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+             <Fab 
+              style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+              >
+                <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+              </Fab>
             </Link>
           <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
-          <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+             <Fab 
+              style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+              >
+                <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+              </Fab>
         </button>
         </NavigationSection1>
         <Addtitle>
@@ -246,7 +256,7 @@ function Step1(props) {
         /> */}
       <br></br>
       <br></br>
-      <Title>Options:</Title>
+      {/* <Title>Options:</Title>
           <SwitchDiv>
             <div>
             <p>Private</p><br></br>
@@ -256,7 +266,7 @@ function Step1(props) {
               <input type="checkbox" name="options" value="Private" />
               <span class="slider round"></span>
             </label>
-          </SwitchDiv>
+          </SwitchDiv> */}
       <Title>Add Tags</Title>
         <DropDown
           listUrl={getAllTagsUrl}

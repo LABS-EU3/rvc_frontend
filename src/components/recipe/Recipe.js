@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../../App.css";
 
 const Recipe = ({ recipe }) => {
-  console.log("Recipe.js > recipe: ", recipe);
+  console.log("Recipe.js > recipe: ", recipe)
 
   const {
     id,

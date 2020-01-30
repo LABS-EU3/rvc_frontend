@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators";
 
 import DropDown from "../../dropDown/DropDown";
-
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import Fab from '@material-ui/core/Fab';
+
 import { Link } from "react-router-dom";
 import { TextField, Select, MenuItem } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -24,8 +25,9 @@ import {
   AddItem
 } from "./FormStyled.styles";
 
-const getAllIngredientsUrl = "http://localhost:3333/api/ingredient";
-const getAlUnitsUrl = "http://localhost:3333/api/unit";
+const getAllIngredientsUrl = `${process.env.REACT_APP_API_BASE_URL}api/ingredient`;
+const getAlUnitsUrl = `${process.env.REACT_APP_API_BASE_URL}api/unit`;
+
 
 function Step3(props) {
   const { goForward, goBackward, addRecipeIngredientsToBody } = props;
@@ -85,9 +87,16 @@ function Step3(props) {
     <form onSubmit={onSubmit}>
       <Section3>
         <NavigationSection1>
-          <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
-
-          <CheckIcon className="check-icon" onClick={goForward} cgit />
+        <Fab 
+          style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+        >
+           <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
+        </Fab>
+        <Fab 
+          style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+          >
+           <CheckIcon className="check-icon" onClick={goForward} cgit />
+          </Fab>
         </NavigationSection1>
         <Addtitle>
           <h1>Add ingredient</h1>
@@ -117,10 +126,14 @@ function Step3(props) {
         </IngredientsWrapper>
         <br></br>
         <div onClick={addIngredient} style={{ margin: "0 auto" }}>
-          <AddCircleOutlineTwoToneIcon
+        <Fab 
+          style={{"background": "none", "box-shadow": "none", "outline": 'none'}}
+          >
+            <AddCircleOutlineTwoToneIcon
             cgit
             style={{ fontSize: 40, color: "#0AB38A" }}
           />
+          </Fab>
         </div>
         <div>
           {ingredientsArray.length
