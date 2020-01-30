@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
@@ -40,18 +40,20 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id }) => {
   const lastLetter = author.substr(-1) === "s" ? "'" : "'s";
 
   const [buttonsShowing, setButtonsShowing] = useState(false);
-  const hideButtons = () => { setButtonsShowing(false) };
-  const delayHideButtons = () => setTimeout(hideButtons, 0.5);
+  const hideButtons = () => setTimeout(() => setButtonsShowing(false), 0.5);
   const toggleButtons = () => { setButtonsShowing(!buttonsShowing) };
+
+  const [localLikeCount, setLocalLikeCount] = useState(parseInt(likes));
 
   const toggleRecipeLike = () => {
     if (userLike) { // If the recipe has already been liked:
       unlikeRecipe(user_id, id);
+      setLocalLikeCount(localLikeCount - 1);
     } else { // Otherwise:
       likeRecipe(user_id, id);
+      setLocalLikeCount(localLikeCount + 1);
     }
   }
-
 
   return (
     <StyledRecipe>
@@ -60,13 +62,31 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id }) => {
         <div className="overlay" style={buttonsShowing ? {background: "rgba(0, 0, 0, 0.3)"} : {background: "rgba(0, 0, 0, 0)"}}>
           <div className="card-button" id="fork-button"
             onClick={toggleButtons}
-            onBlur={delayHideButtons} tabIndex="1"
-            style={buttonsShowing ? {background: "white"} : {}}
+            onBlur={hideButtons} tabIndex="1"
+            style={
+              userLike && buttonsShowing ? 
+                {background: "white"} :  
+              userLike && !buttonsShowing ?
+                {background: "#FF3064"} :
+              !userLike && buttonsShowing ?
+                {background: "white"} :
+              {}
+            }
           >
             <img id="fork-icon" src={forkIcon} alt="fork-icon"/>
           </div>
-          <p className="likes" style={buttonsShowing ? {background: "white", color: "#0ab28a"} : {}}>
-            {likes}
+          <p className="likes"
+            style={
+              userLike && buttonsShowing ?
+                {background: "white", color: "#FF3064"} :
+              userLike && !buttonsShowing ?
+                {background: "#FF3064", color: "white"} :
+              !userLike && buttonsShowing ?
+                {background: "white", color: "#0ab28a"} :
+              {background: "#0ab28a", color: "white"}
+            }
+          >
+            {localLikeCount}
           </p>
           <div className="card-button" id="options-button" style={buttonsShowing? {} : {display: "none"}}>
             <img id="fork-icon" src={optionsIcon} alt="fork-icon"/>

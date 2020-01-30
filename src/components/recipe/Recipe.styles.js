@@ -158,10 +158,8 @@ export const StyledRecipe = styled.div`
       }
 
       .likes {
-        background: #0ab28a;
         width: 1rem;
         height: 1rem;
-        color: white;
         font-weight:bold;
         display: flex;
         justify-content: center;
