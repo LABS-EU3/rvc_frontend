@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
+import styles from 'styled-components';
 import axios from "axios";
+
+const Select = styles.select`
+ height: 40px;
+ margin-bottom: 1rem;
+ background-color: white;
+`
 
 function DropDown(props) {
   const { listUrl, name, inputHandler } = props;
-
   const [itemList, setItemList] = useState([]);
   const [option, setOption] = useState("");
-
   const [isFetching, setIsFetching] = useState(true);
 
   useEffect(() => {
@@ -29,16 +34,16 @@ function DropDown(props) {
   }
 
   if(isFetching){
-    return <h1>Loading</h1>
+    return <h4>...</h4>
   }
   if (itemList) {
     return (
-      <select name={name} value={option} onChange={optionHandle}>
+      <Select name={name} value={option} onChange={optionHandle}>
         <option defaultValue disabled>Select a type of dish</option>
         {itemList.map(option => (
           <option key={option.id} value={option.id}>{option.name}</option>
         ))}
-      </select>
+      </Select>
     );
   }
 }

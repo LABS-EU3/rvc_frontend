@@ -12,7 +12,6 @@ export const TopButtonDiv = styled.div`
   width: 200px;
   text-align: center;
   font-size: 16px;
-
   h1 {
     margin-top: 7px;
     font-size: 16px;
@@ -25,7 +24,6 @@ export const ForkButton = styled.div`
   height: 35px;
   background: rgba(255, 48, 100, 0.8);
   border-radius: 5px;
-
   :active {
     background: red;
   }
@@ -111,14 +109,12 @@ export const StyledRecipe = styled.div`
     display: flex;
     flex-direction: column;
     position: relative;
-
     border-radius: 9px;
     overflow: hidden;
     /* border: 1px solid green; */
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.25);
-
     img {
       width: 100%;
       height: 100%;
@@ -144,7 +140,6 @@ export const StyledRecipe = styled.div`
         height: 3rem;
         border-radius: 50%;
         outline: none;
-
         &:nth-of-type(n + 2) {
           width: 2.5rem;
           height: 2.5rem;
@@ -160,7 +155,6 @@ export const StyledRecipe = styled.div`
           height: 100%;
         }
       }
-
       .likes {
         width: 1rem;
         height: 1rem;
@@ -173,7 +167,6 @@ export const StyledRecipe = styled.div`
       }
     }
   }
-
   a:last-of-type {
     .recipe-card {
       box-shadow: 2px 4px 4px 1px rgba(0, 0, 0, 0.25);
@@ -184,12 +177,10 @@ export const StyledRecipe = styled.div`
       text-align: start;
       padding: 2vh;
       /* margin-top: 2vh; */
-
       .recipe-card-tag {
         display: flex;
         justify-content: space-between;
         margin-right: 45px;
-
         .level-recipe {
           color: transparent;
           border: 1px solid;
@@ -198,7 +189,6 @@ export const StyledRecipe = styled.div`
           height: 18px;
           background-color: red;
         }
-
         p {
           margin: 5px 0 0;
           padding: 0 0 10px;

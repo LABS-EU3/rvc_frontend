@@ -275,6 +275,10 @@ input {
 export const NavigationSection1 = styled.div`
 display:flex;
 justify-content: space-between;
+button:hover
+ { 
+  cursor: pointer
+}
 `
 
 export const Addtitle = styled.div `

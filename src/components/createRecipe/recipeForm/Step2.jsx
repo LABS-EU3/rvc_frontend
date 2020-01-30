@@ -3,18 +3,11 @@ import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators";
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import DropDown from "../../dropDown/DropDown";
-import { Link } from "react-router-dom";
-import { TextField, Select, MenuItem } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import Fab from '@material-ui/core/Fab';
 import {
-  Section1,
   NavigationSection1,
   Addtitle,
-  Section2,
   Section3,
-  Title,
-  Section2b,
   ExportImg
 } from "./FormStyled.styles";
 
@@ -49,16 +42,25 @@ function Step2(props) {
       // Then
       setImgUrl([imageUrl.data.secure_url]);
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
   };
+
 
   return (
     <form onSubmit={onSubmit}>
       <Section3>
         <NavigationSection1>
-          <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
-          <CheckIcon className="check-icon" onClick={goForward} cgit />
+          <Fab 
+          style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+          >
+            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
+          </Fab>
+          <Fab 
+          style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+          >
+            <CheckIcon className="check-icon" onClick={goForward} cgit />
+          </Fab>
         </NavigationSection1>
         <Addtitle>
           <h1>Upload Image</h1>
@@ -66,35 +68,23 @@ function Step2(props) {
       </Section3>
       <ExportImg>
         <div>
-          <div >
-          {imgUrl 
-            ? <img style={{"max-height": "394px", "width": "100%"}} alt="image to uploaded" src={imgUrl} />
-            : <img src={foodplaceholder} alt="A display of the already finished recipe" />
-          }
-          </div>
-          <div>
+          {imgUrl ? (
+            <img alt="Img file to be uploaded" src={imgUrl} />
+          ) : (
+            <img
+              src={foodplaceholder}
+              alt="A display of the already finished recipe"
+            />
+          )}
+        </div>
+        <div>
           <input
             type="file"
             onChange={uploadImage}
             name="imageUrl"
-            placeholder="imageUrl"
           />
         </div>
-        </div>
-    </ExportImg>
-   {/* </form> */}
-      
-      <input
-        type="file"
-        onChange={uploadImage}
-        name="imageUrl"
-        placeholder="imageUrl"
-      />
-      {imgUrl ? (
-        <img alt="display pic to be uploaded" src={imgUrl} />
-      ) : (
-        <h2>image here</h2>
-      )}
+      </ExportImg>
     </form>
   );
 }

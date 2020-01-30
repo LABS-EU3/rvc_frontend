@@ -4,17 +4,11 @@ import * as dispatchers from "../../../actions/actionCreators";
 
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import DropDown from "../../dropDown/DropDown";
-import { Link } from "react-router-dom";
-import { TextField, Select, MenuItem } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import Fab from '@material-ui/core/Fab';
 import {
   Section1,
   NavigationSection1,
-  Addtitle,
-  Section2,
-  Title,
-  SwitchDiv
+  Addtitle
 } from "./FormStyled.styles";
 
 function Step5(props) {
@@ -49,8 +43,18 @@ function Step5(props) {
     <div>
       <Section1>
         <NavigationSection1>
-          <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
-          <CheckIcon className="check-icon" cgit onClick={submitRecipe} />
+         <Fab 
+          style={{"background": "none", "box-shadow": "none", "outline": 'none'
+          }}
+          >
+            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
+         </Fab>
+          <Fab 
+          style={{"background": "none", "box-shadow": "none", "outline": 'none'
+          }}
+          >
+            <CheckIcon className="check-icon" cgit onClick={submitRecipe} />
+          </Fab>
         </NavigationSection1>
         <Addtitle>
           <h1>Preview of {recipe.title}</h1>
@@ -62,6 +66,5 @@ function Step5(props) {
   );
 }
 
-function mapStateToProps(state) {}
 
 export default connect(state => state.newRecipe, dispatchers)(Step5);

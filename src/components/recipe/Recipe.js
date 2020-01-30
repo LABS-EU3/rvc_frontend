@@ -28,12 +28,6 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id, displayLi
     likes
   } = recipe;
 
-  // let color = "";
-  // if (difficulty === 1) color = "green";
-  // else if (difficulty === 2) color = "orange";
-  // else color = "red";
-  
-  // Refactored the above for functionality (i.e. no mutability!), variable name expressivenesss, and concision:
   const difficultyColors = ['green', 'orange', 'red'];
   const difficultyColor = difficultyColors[difficulty - 1]; // Note: _difficulty_ is either 1, 2, or 3.
   

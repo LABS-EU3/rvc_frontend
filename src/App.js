@@ -27,7 +27,7 @@ function App(props) {
       style={
         {
           height: "100%",
-          "overflow-y": isDisplaying && modalType !== "like" ? 
+          "overflowY": isDisplaying && modalType !== "like" ? 
             "hidden" :
             "visible" 
         }
