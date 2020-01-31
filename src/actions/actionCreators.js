@@ -327,3 +327,17 @@ export const cloneRecipe = (id, cloneData) => dispatch => {
     dispatch({ type: types.POST_RECIPE_FAIL})
   })
 }
+
+export const editImage = (id , image) => dispatch => { 
+  dispatch({ type: types.GET_IMAGES})
+  axiosWithAuth()
+  .post(`api/recipe/${id}/image`, image)
+
+  .then(res => { dispatch({
+    type: types.EDIT_IMAGES_OK, payload:res.data
+  })})
+  .catch(error => { 
+    console.ldir(error);
+    dispatch({ type: types.EDIT_IMAGES_FAIL, payload: error})
+  })
+}

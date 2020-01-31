@@ -524,43 +524,74 @@ export function newlyAddedRecipe(state = initialNewlyAddedRecipe, action) {
 
 //EDIT RECIPE
 
-export function editRecipeReducer(state = initialBody, action) {
+const initialEditBody = {
+  recipe: {
+    title: "",
+    description: "",
+    budget: null,
+    time_required: null,
+    difficulty: null
+  },
+
+  recipe_categories: [],
+
+  tags: [],
+
+  recipe_tags: [],
+
+  images: [],
+
+  ingredients: [],
+
+  recipe_ingredients: [],
+
+  instructions: [],
+  isFetchingImage: false,
+  error: ''
+};
+
+export function editRecipeReducer(state = initialEditBody, action) {
   switch (action.type) {
-    case types.EDIT_RECIPE:
-      return {
-        ...state
-      };
-    case types.EDIT_RECIPE_CATEGORIES:
+    // case types.EDIT_RECIPE:
+    //   return {
+    //     ...state
+    //   };
+    // case types.EDIT_RECIPE_CATEGORIES:
+    //   return {
+    //     ...state,
+    //     recipe_categories: state.recipe_categories.map(category => {
+    //       if (category.id === action.payload.id) {
+    //         return action.payload;
+    //       }
+    //       return category;
+    //     })
+    //   };
+    case types.EDIT_IMAGES: 
       return {
         ...state,
-        recipe_categories: state.recipe_categories.map(category => {
-          if (category.id === action.payload.id) {
-            return action.payload;
-          }
-          return category;
-        })
-      };
-    case types.EDIT_IMAGES:
+        isFetchingImage: true
+      }
+    case types.EDIT_IMAGES_OK:
       return {
         ...state,
-        images: state.images.map(image => {
-          if (image.id === action.payload.id) {
-            return action.payload;
-          }
-          return image;
-        })
+        images: action.payload,
+        isFetchingImage: false
       };
-    case types.EDIT_INSTRUCTIONS:
-      return {
-        //edit by deleting/clearing up entries and refilling
+    case types.EDIT_IMAGES_FAIL: 
+      return{
         ...state,
-        instructions: state.instructions.map(instruction => {
-          if (instruction.id === action.payload.id) {
-            return action.payload;
-          }
-          return instruction;
-        })
-      };
+        error: action.payload,
+      }
+    // case types.EDIT_INSTRUCTIONS:
+    //   return {
+    //     ...state,
+    //     instructions: state.instructions.map(instruction => {
+    //       if (instruction.id === action.payload.id) {
+    //         return action.payload;
+    //       }
+    //       return instruction;
+    //     })
+    //   };
     default:
       return state;
   }
