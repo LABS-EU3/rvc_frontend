@@ -301,3 +301,29 @@ export const displayErrorModal = message => dispatch => {
 export const dismissModal = () => dispatch => {
   dispatch({ type: types.DISMISS_MODAL });
 }
+
+//edit
+
+export const editRecipe = (id, payload) => dispatch => { 
+  axiosWithAuth()
+  .put(`api/recipe/${id}`, payload)
+  .then(res =>  { dispatch({ 
+    type: types.EDIT_RECIPE_OK, payload: res.data
+  })})
+  .catch(error => {
+    console.dir(error);
+    dispatch({ type: types.EDIT_RECIPE_FAIL, payload: error });
+  });
+}
+
+export const cloneRecipe = (id, cloneData) => dispatch => { 
+  axiosWithAuth()
+  .post(`api/recipe/${id}`, cloneData) 
+  .then(res => { dispatch({
+    type: types.POST_RECIPE_OK})
+  })
+  .catch(error => { 
+    console.dir(error);
+    dispatch({ type: types.POST_RECIPE_FAIL})
+  })
+}

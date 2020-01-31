@@ -105,8 +105,6 @@ export const EDIT_INSTRUCTIONS="EDIT_INSTRUCTIONS"
 //we'll rather delete them and add what we'll prefer, rather than
 //edit them from the database  
 
-
-
 //SUBMIT EDITED RECIPE 
 export const EDIT_RECIPE_FAIL="EDIT_RECIPE_FAIL";
 export const EDIT_RECIPE_OK= "EDIT_RECIPE_OK";
