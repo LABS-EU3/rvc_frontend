@@ -394,25 +394,15 @@ const initialProfileState = {
 
 export const profileReducer = (state = initialProfileState, action) => {
   switch (action.type) {
-    case types.GET_PROFILE_INFO:
+    case types.GET_PROFILE:
       return {
         ...state,
         isFetchingProfileInfo: true,
-      }
-    case types.GET_USER_RECIPES:
-      return {
-        ...state,
         isFetchingUserRecipes: true,
-      }
-    case types.GET_LIKED_RECIPES:
-      return {
-        ...state,
         isFetchingLikedRecipes: true,
-      }
-    case types.GET_FORKED_RECIPES_COUNT:
-      return {
-        ...state,
         isFetchingForkedRecipesCount: true,
+        error: "",
+        message: "",
       }
     case types.GET_PROFILE_INFO_SUCCESS:
       return {
