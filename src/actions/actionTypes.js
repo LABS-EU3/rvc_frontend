@@ -94,22 +94,23 @@ export const POST_RECIPE_OK = "POST_RECIPE_OK";
 export const POST_RECIPE_FAIL = "POST_RECIPE_FAIL";
 
 //EDIT RECIPE
-
-export const EDIT_RECIPE = "EDIT_RECIPE"
-export const EDIT_RECIPE_CATEGORIES="EDIT_RECIPE_CATEGORIES"
-export const EDIT_INSTRUCTIONS="EDIT_INSTRUCTIONS"
-// export const EDIT_RECIPE_TAGS="EDIT_RECIPE_TAGS"
-// export const EDIT_RECIPE_INGREDIENTS="EDIT_RECIPE_INGREDIENTS";
-//since recipe_tags & recipe_ingredients are stored for future use
-//we'll rather delete them and add what we'll prefer, rather than
-//edit them from the database  
-
-//SUBMIT EDITED RECIPE 
 export const EDIT_RECIPE_FAIL="EDIT_RECIPE_FAIL";
 export const EDIT_RECIPE_OK= "EDIT_RECIPE_OK";
 export const EDIT_IMAGE= "EDIT_IMAGE";
-export const EDIT_IMAGES_FAIL ="EDIT_IMAGES_FAIL";
-export const EDIT_IMAGES_OK ="EDIT_IMAGES_OK"
+export const EDIT_IMAGE_FAIL ="EDIT_IMAGE_FAIL";
+export const EDIT_IMAGE_OK ="EDIT_IMAGE_OK";
+export const EDIT_CATEGORY_OK = "EDIT_CATEGORY_OK";
+export const EDIT_CATEGORY_FAIL = "EDIT_CATEGORY_FAIL";
+export const EDIT_TAG_OK = "EDIT_TAG_OK";
+export const EDIT_TAG_FAIL = "EDIT_TAG_FAIL";
+export const EDIT_INGREDIENT_OK = "EDIT_INGREDIENT_OK";
+export const EDIT_INGREDIENT_FAIL = "EDIT_INGREDIENT_FAIL";
+export const POST_INGREDIENT = "POST_INGREDIENT";
+export const POST_INGREDIENT_OK ="POST_INGREDIENT_OK";
+export const POST_INGREDIENT_FAIL= "POST_INGREDIENT_FAIL";
+export const EDIT_INSTRUCTION_OK = "EDIT_INSTRUCTION_OK"
+export const EDIT_INSTRUCTION_FAIL = "EDIT_INSTRUCTION_FAIL"
+
 // ACTION TYPES for Modal
 export const DISPLAY_NOTIFICATION_MODAL = "DISPLAY_NOTIFICATION_MODAL";
 export const DISPLAY_ERROR_MODAL = "DISPLAY_ERROR_MODAL";

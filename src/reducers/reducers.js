@@ -566,22 +566,79 @@ export function editRecipeReducer(state = initialEditBody, action) {
     //       return category;
     //     })
     //   };
-    case types.EDIT_IMAGES: 
+    case types.EDIT_IMAGE: 
       return {
         ...state,
         isFetchingImage: true
       }
-    case types.EDIT_IMAGES_OK:
+    case types.EDIT_IMAGE_OK:
       return {
         ...state,
         images: action.payload,
         isFetchingImage: false
       };
-    case types.EDIT_IMAGES_FAIL: 
+    case types.EDIT_IMAGE_FAIL: 
       return{
         ...state,
         error: action.payload,
-      }
+      };
+    case types.EDIT_CATEGORY_OK:
+      return { 
+        ...state, 
+        recipe_categories: action.payload.new
+      };
+    case types.EDIT_CATEGORY_FAIL: 
+    return { 
+      ...state, 
+      error: action.payload
+    }
+    case types.EDIT_TAG_OK:
+      return { 
+        ...state, 
+        tags: action.payload.new
+      };
+    case types.EDIT_TAG_FAIL: 
+    return { 
+      ...state, 
+      error: action.payload
+    }
+    case types.EDIT_INGREDIENT_OK:
+      return{ 
+        ...state, 
+        recipe_ingredients: action.payload.index
+      };
+    case types.EDIT_INGREDIENT_FAIL:
+      return{ 
+        ...state,
+        error: action.payload
+      };
+    case types.POST_INGREDIENT:
+      return{ 
+        ...state, 
+        isFetchingIngredient: true
+      };
+    case types.POST_INGREDIENT_OK: 
+      return{ 
+        ...state,
+        recipe_ingredient: action.payload,
+        isFetching: false
+      };
+    case types.POST_INGREDIENT_FAIL:
+      return{ 
+        ...state,
+        error: action.payload
+      };
+    case types.EDIT_INSTRUCTION_OK:
+      return { 
+        ...state, 
+        instructions: action.payload
+      };
+    case types.EDIT_INSTRUCTION_FAIL: 
+    return { 
+      ...state, 
+      error: action.payload
+    }
+
     // case types.EDIT_INSTRUCTIONS:
     //   return {
     //     ...state,

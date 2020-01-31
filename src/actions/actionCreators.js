@@ -328,16 +328,73 @@ export const cloneRecipe = (id, cloneData) => dispatch => {
   })
 }
 
+export const editIngredient = (id, ingredient) => dispatch => { 
+  axiosWithAuth()
+  .put(`api/recipe/${id}/ingredient`, ingredient)
+  .then(res => { dispatch({ 
+    type: types.EDIT_INGREDIENT_OK, payload: res.data
+  })})
+  .catch(error => { 
+    dispatch({ type: types.EDIT_INGREDIENT_FAIL, payload: error})
+  })
+}
+
+export const addNewIngredient = (id, newIngredient) => dispatch => { 
+  dispatch({ type: types.POST_INGREDIENT})
+  axiosWithAuth()
+  .post(`api/recipe/${id}/ingredient`, newIngredient)
+  .then(res => { dispatch({ 
+    type: types.POST_INGREDIENT_OK, payload: res.data
+  })})
+  .catch(error => { 
+    dispatch({ type: types.POST_INGREDIENT_FAIL })
+  })
+}
 export const editImage = (id , image) => dispatch => { 
-  dispatch({ type: types.GET_IMAGES})
+  dispatch({ type: types.GET_IMAGE})
   axiosWithAuth()
   .post(`api/recipe/${id}/image`, image)
 
   .then(res => { dispatch({
-    type: types.EDIT_IMAGES_OK, payload:res.data
+    type: types.EDIT_IMAGE_OK, payload:res.data
   })})
   .catch(error => { 
     console.ldir(error);
-    dispatch({ type: types.EDIT_IMAGES_FAIL, payload: error})
+    dispatch({ type: types.EDIT_IMAGE_FAIL, payload: error})
+  })
+}
+
+export const editCategory = ( id, category) => dispatch => { 
+  axiosWithAuth()
+  .put(`api/category/${id}`, category)
+  .then(res => { dispatch({ 
+    type: types.EDIT_CATEGORY_OK, payload: res.data
+  })})
+  .catch(error => { 
+    console.dir(error);
+    dispatch({ type: types.EDIT_CATEGORY_FAIL, payload:error})
+  })
+}
+export const editTag = ( id, tag) => dispatch => { 
+  axiosWithAuth()
+  .put(`api/tag/${id}`, tag)
+  .then(res => { dispatch({ 
+    type: types.EDIT_TAG_OK, payload: res.data
+  })})
+  .catch(error => { 
+    console.dir(error);
+    dispatch({ type: types.EDIT_TAG_FAIL, payload:error})
+  })
+}
+
+export const editInstruction = ( id, instruction) => dispatch => { 
+  axiosWithAuth()
+  .put( `api/instruction/${id}`, instruction)
+  .then(res => { dispatch({ 
+    type: types.EDIT_INSTRUCTION_OK, payload: res.data
+  })})
+  .catch(error => { 
+    console.dir(error);
+    dispatch({ type: types.EDIT_INSTRUCTION_FAIL, payload: error})
   })
 }
