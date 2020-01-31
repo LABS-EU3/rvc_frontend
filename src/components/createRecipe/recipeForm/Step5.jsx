@@ -8,7 +8,8 @@ import Fab from '@material-ui/core/Fab';
 import {
   Section1,
   NavigationSection1,
-  Addtitle
+  Addtitle,
+  Section2b
 } from "./FormStyled.styles";
 
 function Step5(props) {
@@ -60,8 +61,17 @@ function Step5(props) {
           <h1>Preview of {recipe.title}</h1>
         </Addtitle>
       </Section1>
-      <img src={images[0]} alt="preview of newly created recipe"/>
-      {/* <button onClick={submitRecipe} >Submit</button> */}
+      <Section2b>
+      <img src={images} alt="preview of newly created recipe"/>
+      <p>
+      {recipe.description}
+      </p>
+      <h2>Ingredients</h2>
+        {recipe_ingredients}
+      <h2>Instruction</h2>
+        {instructions}
+
+      </Section2b>
     </div>
   );
 }
