@@ -5,8 +5,6 @@ import { connect } from "react-redux";
 import * as actionCreators from "../../../actions/actionCreators";
 
 import Banner from "./Banner";
-import Navigation from "../../navigation/hamburgerNav/HamburgerNav";
-import SearchBar from "../../navigation/searchBar/SearchBar";
 import Footer from "../../navigation/footerNav/FooterNav";
 import EditProfile from "../editProfile/EditProfile";
 import Recipe from "../../recipe/Recipe";
