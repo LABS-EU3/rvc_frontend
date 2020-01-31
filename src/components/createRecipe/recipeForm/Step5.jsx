@@ -9,7 +9,7 @@ import {
   Section1,
   NavigationSection1,
   Addtitle,
-  Section2b
+  PreviewDiv
 } from "./FormStyled.styles";
 
 function Step5(props) {
@@ -61,8 +61,8 @@ function Step5(props) {
           <h1>Preview of {recipe.title}</h1>
         </Addtitle>
       </Section1>
-      <Section2b>
-      <img src={images} alt="preview of newly created recipe"/>
+      <PreviewDiv>
+      <img src={images} className="preview-image" alt="preview of newly created recipe"/>
       <p>
       {recipe.description}
       </p>
@@ -71,7 +71,7 @@ function Step5(props) {
       <h2>Instruction</h2>
         {instructions}
 
-      </Section2b>
+      </PreviewDiv>
     </div>
   );
 }
