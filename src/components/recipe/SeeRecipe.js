@@ -28,7 +28,8 @@ import {
 } from "./Recipe.styles";
 
 function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
-  
+  let shortDescription = (recipe.description + "").substr(0, 20);
+
   const recipeID = match.params.id.trim();
 
   useEffect(() => {
@@ -53,7 +54,6 @@ function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
             <h1>Fork</h1>
           </ForkButton>
         </TopButtonDiv>
-
       </RecipeTopDiv>
 
       <CardDiv>
@@ -76,7 +76,12 @@ function SeeRecipe({ match, recipe, isFetching, getRecipesById }) {
             </h1>
           </ProfilePicture>
 
-          <DetailsRecipe>{recipe.recipe_title || ""}</DetailsRecipe>
+          <DetailsRecipe>
+            <p className="recipe-title">{recipe.recipe_title || ""}</p>
+            <Popup modal trigger={<p className="recipe-description">{`${shortDescription}...`}</p>}>
+              {close => <p close={close}>{recipe.description}</p>}
+            </Popup>
+          </DetailsRecipe>
         </DescriptionDiv>
 
         <BottomButtonDiv>
