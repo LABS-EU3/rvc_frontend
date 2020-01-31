@@ -552,20 +552,7 @@ const initialEditBody = {
 
 export function editRecipeReducer(state = initialEditBody, action) {
   switch (action.type) {
-    // case types.EDIT_RECIPE:
-    //   return {
-    //     ...state
-    //   };
-    // case types.EDIT_RECIPE_CATEGORIES:
-    //   return {
-    //     ...state,
-    //     recipe_categories: state.recipe_categories.map(category => {
-    //       if (category.id === action.payload.id) {
-    //         return action.payload;
-    //       }
-    //       return category;
-    //     })
-    //   };
+  
     case types.EDIT_IMAGE: 
       return {
         ...state,
@@ -638,17 +625,7 @@ export function editRecipeReducer(state = initialEditBody, action) {
       ...state, 
       error: action.payload
     }
-
-    // case types.EDIT_INSTRUCTIONS:
-    //   return {
-    //     ...state,
-    //     instructions: state.instructions.map(instruction => {
-    //       if (instruction.id === action.payload.id) {
-    //         return action.payload;
-    //       }
-    //       return instruction;
-    //     })
-    //   };
+    
     default:
       return state;
   }
