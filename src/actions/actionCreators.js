@@ -351,7 +351,7 @@ export const addNewIngredient = (id, newIngredient) => dispatch => {
   })
 }
 export const editImage = (id , image) => dispatch => { 
-  dispatch({ type: types.GET_IMAGE})
+  dispatch({ type: types.EDIT_IMAGE})
   axiosWithAuth()
   .post(`api/recipe/${id}/image`, image)
 
