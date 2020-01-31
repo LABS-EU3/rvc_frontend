@@ -106,14 +106,14 @@ export function ProfileView(props) {
               alt=""
               onClick={() => switchSelectedRecipes("created")}
             />
-          <div class="vl"></div>
+          <div className="vl"></div>
             <img
               className="profile-icons-image"
               src={bookmark}
               alt=""
               onClick={() => switchSelectedRecipes("forked")}
             />
-          <div class="vl"></div>
+          <div className="vl"></div>
             <Link to="/createrecipe">
               <img className="profile-icons-image" src={more} alt="" />
             </Link>
