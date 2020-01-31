@@ -304,9 +304,9 @@ const initialProfileState = {
   recipe_count: 0, // A
   recipes_forked_count: 0, // B
   // And the following are meta:
-  isFetchingProfile: false,
+  isFetchingProfileInfo: false,
   isFetchingUserRecipes: false,
-  isFetchingUserLikes: false,
+  isFetchingLikedRecipes: false,
   isFetchingForkedRecipesCount: false,
   error: "",
   message: ""
@@ -384,9 +384,9 @@ const initialProfileState = {
 //   recipe_count: 2, // A
 //   recipes_forked_count: 1, // B
 //   // And the following are meta:
-//   isFetchingProfile: false,
+//   isFetchingProfileInfo: false,
 //   isFetchingUserRecipes: false,
-//   isFetchingUserLikes: false,
+//   isFetchingLikedRecipes: false,
 //   isFetchingForkedRecipesCount: false,
 //   error: "",
 //   message: ""
@@ -394,29 +394,82 @@ const initialProfileState = {
 
 export const profileReducer = (state = initialProfileState, action) => {
   switch (action.type) {
-    case types.GET_PROFILE:
+    case types.GET_PROFILE_INFO:
       return {
         ...state,
-        isFetchingProfile: true,
+        isFetchingProfileInfo: true,
+      }
+    case types.GET_USER_RECIPES:
+      return {
+        ...state,
         isFetchingUserRecipes: true,
-        isFetchingUserLikes: true
-      };
-    case types.GET_PROFILE_SUCCESS:
+      }
+    case types.GET_LIKED_RECIPES:
       return {
         ...state,
-        ...action.payload
-        // Note: No 'isFetching___: false' here, because it's in the payload.
-        // Ditto for 'error' and 'message'!
-      };
-    case types.GET_PROFILE_FAILURE:
+        isFetchingLikedRecipes: true,
+      }
+    case types.GET_FORKED_RECIPES_COUNT:
       return {
         ...state,
-        error: action.payload,
-        isFetchingProfile: false,
+        isFetchingForkedRecipesCount: true,
+      }
+    case types.GET_PROFILE_INFO_SUCCESS:
+      return {
+        ...state,
+        ...action.payload, // includes profile_pic, first_name, last_name, bio
+        isFetchingProfileInfo: false,
+        message: state.message + " Successfully fetched profile information.",
+      }
+    case types.GET_USER_RECIPES_SUCCESS:
+      return {
+        ...state,
+        ...action.payload, // user_recipes, recipe_count
         isFetchingUserRecipes: false,
-        isFetchingUserLikes: false,
-        isFetchingForkedRecipesCount: false
-      };
+        message: state.message + " Successfully fetched user_recipes and recipe_count."
+      }
+    case types.GET_LIKED_RECIPES_SUCCESS:
+      return {
+        ...state,
+        ...action.payload, // liked_recipes, recipes_forked_count
+        isFetchingLikedRecipes: false,
+        message: state.message + " Successfully fetched liked_recipes and recipes_forked_count."
+      }
+    case types.GET_FORKED_RECIPES_COUNT_SUCCESS:
+      return {
+        ...state,
+        ...action.payload, // forked_recipes_count
+        isFetchingForkedRecipesCount: false,
+        message: state.message + " Successfully fetched forked_recipes_count."
+      }
+    case types.GET_PROFILE_INFO_FAILURE:
+      return {
+        ...state,
+        isFetchingProfileInfo: false,
+        error: action.payload,
+        message: state.message + " Failed to fetch profile information."
+      }
+    case types.GET_USER_RECIPES_FAILURE:
+      return {
+        ...state,
+        isFetchingUserRecipes: false,
+        error: action.payload,
+        message: state.message + " Failed to fetch user_recipes and recipe_count."
+      }
+    case types.GET_LIKED_RECIPES_FAILURE:
+      return {
+        ...state,
+        isFetchingLikedRecipes: false,
+        error: action.payload,
+        message: state.message + " Failed to fetch liked_recipes and recipes_forked_count."
+      }
+    case types.GET_FORKED_RECIPES_COUNT_FAILURE:
+      return {
+        ...state,
+        isFetchingForkedRecipesCount: false,
+        error: action.payload,
+        message: state.message + " Failed to fetch forked_recipes_count."
+      }
     default:
       return state;
   }
