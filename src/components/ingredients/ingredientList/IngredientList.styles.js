@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
 export const SeeRecipePopup = styled.div`
+
+.clear-icon {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  font-size: 36px;
+}
+
 h1 {
   font-family: Antic;
   font-style: normal;
@@ -23,12 +31,12 @@ h2 {
 }
 
 .cancel-button {
-    height: 35px;
+    height: 7%;
     width: 8%;
     background-color: #e5e5e5;
     border-radius: 32%;
-    position: relative;
+    position: absolute;
     top: 0.5rem;
-    right: 20.5rem;
+    left: 6px;
   }
 `

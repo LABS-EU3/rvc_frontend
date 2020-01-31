@@ -66,7 +66,7 @@ function FormTemplate({ touched, errors, onboard }) {
       </Form>
       <FooterDiv>
         <p>
-          Don't have an account?{" "}
+          Don't have an account? {" "}
           <Link to="/register" style={{ textDecoration: "none" }}>
             <LinkFooter> Register</LinkFooter>
           </Link>{" "}

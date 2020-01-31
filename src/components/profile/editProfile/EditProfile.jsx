@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { StyledDiv } from "./editProfile.styles";
+import profilePlaceholderImage from "../../../images/profile_placeholder_1.png";
+import ClearIcon from "@material-ui/icons/Clear";
 
 export default function EditProfile({ close }) {
   const [profileFormData, setProfileFormData] = useState({
@@ -22,19 +25,16 @@ export default function EditProfile({ close }) {
   };
 
   return (
-    <div className="modal">
-      <p className="close" onClick={close}>
-        &times;
-      </p>
-      <h1>Profile</h1>
+    <StyledDiv>
+      <ClearIcon className="clear-icon" onClick={close} />
       <div className="profile-photo">
         <img
           className="profile-pic"
           alt="profile display phot"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRwzk9us0OpvTp8XxAgvYAs3peCYVamG6PsGX_edQKrTPn1QBZz"
+          src={profilePlaceholderImage}
         />
       </div>
-      <form className="edit-profile-form">
+      <form >
         <input
           type="text"
           placeholder="Name"
@@ -65,7 +65,7 @@ export default function EditProfile({ close }) {
           onChange={onInputChange}
         />
         <select name="expertise" onChange={onInputChange}>
-          <option value="">Expertise</option>
+          <option value="">Level</option>
           <option value="">Beginner</option>
           <option value="">Intermediate</option>
           <option value="">Expert</option>
@@ -73,8 +73,8 @@ export default function EditProfile({ close }) {
 expertise.map(exp_val => <option>{exp_val.value}</option>)
                   } */}
         </select>
-        <button onClick={handleFormSubmit}>Go</button>
+        <button onClick={handleFormSubmit}>Submit</button>
       </form>
-    </div>
+    </StyledDiv>
   );
 }

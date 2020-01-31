@@ -221,10 +221,8 @@ export const getProfile = () => dispatch => {
   dispatch({ type: types.GET_PROFILE });
 
   const generalError = error => { // For use below!
-    console.log(error);
     dispatch({ type: types.GET_PROFILE_FAILURE, payload: error});
   }
-
   const getProfileInfo = axiosWithAuth()
     .get('/api/profile')
     .then(res => {
@@ -254,6 +252,7 @@ export const getProfile = () => dispatch => {
       dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload});
     })
     .catch(generalError);
+
 
   const getUserLikes = axiosWithAuth()
     .get('api/profile/liked') // **subject to change!**
@@ -287,4 +286,18 @@ export const getProfile = () => dispatch => {
       console.log(res.data);
     })
     .catch(generalError);
+}
+
+// for Modal:
+export const displayNotificationModal = (message, buttonLink) => dispatch => {
+  const payload = ({ message, buttonLink });
+  dispatch({ type: types.DISPLAY_NOTIFICATION_MODAL, payload });
+}
+
+export const displayErrorModal = message => dispatch => {
+  dispatch({ type: types.DISPLAY_ERROR_MODAL, payload: message });
+}
+
+export const dismissModal = () => dispatch => {
+  dispatch({ type: types.DISMISS_MODAL });
 }

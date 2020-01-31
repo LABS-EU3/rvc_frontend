@@ -1,24 +1,17 @@
-import React from 'react';
+import React from "react";
 import { connect } from "react-redux";
-import * as dispatchers from "../../../actions/actionCreators"
+import * as dispatchers from "../../../actions/actionCreators";
 
-import CheckIcon from '@material-ui/icons/Check';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import DropDown from "../../dropDown/DropDown";
-import { Link } from "react-router-dom";
-import { TextField, Select, MenuItem } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import CheckIcon from "@material-ui/icons/Check";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import Fab from '@material-ui/core/Fab';
 import {
   Section1,
   NavigationSection1,
-  Addtitle,
-  Section2,
-  Title,
-  SwitchDiv
+  Addtitle
 } from "./FormStyled.styles";
 
-
-function Step5(props){
+function Step5(props) {
   const {
     postRecipe,
     recipe,
@@ -26,7 +19,8 @@ function Step5(props){
     recipe_tags,
     images,
     recipe_ingredients,
-    instructions
+    instructions,
+    goBackward
   } = props;
 
   const submitRecipe = () => {
@@ -39,29 +33,38 @@ function Step5(props){
       instructions
     };
     postRecipe(body);
-  }
+  };
 
-  return(<div>
-          <Section1>
-      <NavigationSection1>
-            <Link to='/profile'>
-              <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
-            </Link>
-          <button type='submit' onClick={submitRecipe} style={{"border":"none", "background": "inherit", "outline":"none"}}>
-          <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
-        </button>
+  const goBack = e => {
+    goBackward();
+  };
+
+  return (
+    <div>
+      <Section1>
+        <NavigationSection1>
+         <Fab 
+          style={{"background": "none", "box-shadow": "none", "outline": 'none'
+          }}
+          >
+            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
+         </Fab>
+          <Fab 
+          style={{"background": "none", "box-shadow": "none", "outline": 'none'
+          }}
+          >
+            <CheckIcon className="check-icon" cgit onClick={submitRecipe} />
+          </Fab>
         </NavigationSection1>
         <Addtitle>
-           <h1>Preview of {recipe.title}</h1>
+          <h1>Preview of {recipe.title}</h1>
         </Addtitle>
       </Section1>
-    <img src={images[0]} />
-    {/* <button onClick={submitRecipe} >Submit</button> */}
-  </div>)
+      <img src={images[0]} alt="preview of newly created recipe"/>
+      {/* <button onClick={submitRecipe} >Submit</button> */}
+    </div>
+  );
 }
 
-function mapStateToProps(state){
-
-}
 
 export default connect(state => state.newRecipe, dispatchers)(Step5);

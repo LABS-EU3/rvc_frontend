@@ -92,3 +92,25 @@ export const ADD_INSTRUCTIONS_TO_BODY = "ADD_INSTRUCTIONS_TO_BODY";
 // ACTION TYPES FOR newlyAddedRecipe
 export const POST_RECIPE_OK = "POST_RECIPE_OK";
 export const POST_RECIPE_FAIL = "POST_RECIPE_FAIL";
+
+//EDIT RECIPE
+
+export const EDIT_RECIPE = "EDIT_RECIPE"
+export const EDIT_RECIPE_CATEGORIES="EDIT_RECIPE_CATEGORIES"
+export const EDIT_IMAGES="EDIT_IMAGES"
+export const EDIT_INSTRUCTIONS="EDIT_INSTRUCTIONS"
+// export const EDIT_RECIPE_TAGS="EDIT_RECIPE_TAGS"
+// export const EDIT_RECIPE_INGREDIENTS="EDIT_RECIPE_INGREDIENTS";
+//since recipe_tags & recipe_ingredients are stored for future use
+//we'll rather delete them and add what we'll prefer, rather than
+//edit them from the database  
+
+
+
+//SUBMIT EDITED RECIPE 
+export const EDIT_RECIPE_FAIL="EDIT_RECIPE_FAIL";
+export const EDIT_RECIPE_OK= "EDIT_RECIPE_OK";
+// ACTION TYPES for Modal
+export const DISPLAY_NOTIFICATION_MODAL = "DISPLAY_NOTIFICATION_MODAL";
+export const DISPLAY_ERROR_MODAL = "DISPLAY_ERROR_MODAL";
+export const DISMISS_MODAL = "DISMISS_MODAL";

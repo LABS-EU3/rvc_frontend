@@ -155,15 +155,6 @@ height: 15rem;
 width:100%;
 box-shadow: 0px 8px 30px #DAD9D9;
 margin-bottom:10px;
-.check-icon {
-  font-size: 40px;
-  background: transparent;
-  color: white;
-}
-.back-arrow {
-  font-size: 40px;
-  color: white;
-}
 `
 export const Section3 = styled.div`
 display:flex;
@@ -173,35 +164,15 @@ height: 11rem;
 width:100%;
 box-shadow: 0px 8px 30px #DAD9D9;
 margin-bottom:10px;
-
-.check-icon {
-  font-size: 40px;
-  background: transparent;
-  color: white;
-}
-
-.back-arrow {
-  font-size: 40px;
-  color: white;
-}
 `
 
 export const SwitchDiv = styled.div`
 font-size: 1.6rem;
 display: flex;
-flex-direction: column;
+align-items: center;
 margin-bottom: 1.5rem;
 justify-content: space-between; 
 color: rgba(0, 0, 0, 0.51);
-.switch-container {
-  display: flex;
-  p {
-    margin-right: auto;
-    color: black;
-    font-weight: 300;
-    font-size: 20px;
-  }
-}
 .switch {
   position: relative;
   display: inline-block;
@@ -304,12 +275,11 @@ input {
 export const NavigationSection1 = styled.div`
 display:flex;
 justify-content: space-between;
-button:hover { 
+button:hover
+ { 
   cursor: pointer
 }
 `
-
-
 
 export const Addtitle = styled.div `
 margin-left:5%;
@@ -362,32 +332,19 @@ h1 {
   line-height: 38px;
   margin-bottom:10px;
 }
-.description-paragraph {
-  font-size: 1.4rem;
-  color: #c4c4c4;
-}
 `
 
 export const ExportImg = styled.div `
 width: 100%;
-// height: 397px;
+height: 397px;
 max-width: 100%;
 max-height: 397px;
 background: rgba(10, 178, 138, 0.21);
+padding:0px;
 display:flex;
-flex-direction: column;
 align-items: center; 
-justify-content: space-between;
-margin-top: 3.5rem;
-
-img {
-  max-height: 397px;
-  width: 100%;
-}
-
-input {
-  margin-bottom: 3rem;
-}
+align-content: center;
+margin-bottom:35px;
 
 `
 
@@ -405,61 +362,38 @@ margin-left:5%;
 
 export const AddItem = styled.div `
 color: currentColor;
-width: 100%;
-border: 0;
-height: 4.5rem;
-margin-top:2%;
+  width: 100%;
+  border: 0;
+  height: 25px;
+  margin-top:2%;
 display: flex;
 align-content:flex-start;
 background: rgba(10, 179, 138, 0.08);
 border-radius: 2px;
 box-sizing: content-box;
-input {
-  font-size: 20px;
-}
   p{
     font-size: 20px;
-    padding-top: 6px;
-    padding-left: 2rem;
   }`
 
-  export const IngredientsDiv1 =styled.div`
-  
-  width: 20%;
-
-  input, select {
-    width: 100%;    
-    height: 33px;
-  }    
-
-  }
-  `
   export const IngredientsDiv =styled.div`
-  
-  .dropdown{
-    height: 23px;
-
-  }
-  input, select {
-    width: 100%;    
-    height: 33px;
-    background-color: white;
-  }    
-
-  }
-  `
-  export const IngredientsWrapper =styled.div`
     display:flex;
   `
-
-  
   export const IngredientsMainDiv =styled.div`
   display:flex;
   margin-top:2%;
   margin-left:2%;
   margin-right:2%;
-  // width:5rem;
   `
 
-
- 
+  export const EditDiv = styled.div`
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 29px;
+  text-align: left;
+  margin:5%;
+  h1{
+    margin-bottom: 40px;
+    border-bottom:1px solid black;
+  }
+  `
