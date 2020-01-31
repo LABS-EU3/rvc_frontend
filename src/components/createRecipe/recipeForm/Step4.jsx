@@ -36,7 +36,7 @@ function Step4(props) {
 
   const addInstruction = e => {
     e.preventDefault();
-    if(inputState) setInstructionsArray([...instructionsArray, inputState]);
+    setInstructionsArray([...instructionsArray, inputState]);
   };
 
   const removeInstruction = (e, ing, i) => {
