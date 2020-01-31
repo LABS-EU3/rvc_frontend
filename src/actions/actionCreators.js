@@ -257,75 +257,71 @@ export const postRecipe = payload => dispatch => {
     });
 };
 
-export const getProfile = () => dispatch => {
+export const getProfile = user_id => dispatch => {
   dispatch({ type: types.GET_PROFILE });
 
-  const generalError = error => { // For use below!
-    dispatch({ type: types.GET_PROFILE_FAILURE, payload: error});
-  }
-  const getProfileInfo = axiosWithAuth()
-    .get('/api/profile')
-    .then(res => {
-      const payload = res.data;
-      const massagedPayload = {
-        profile_pic: payload.profile_pic,
-        first_name: payload.first_name,
-        last_name: payload.last_name,
-        bio: payload.bio,
-        isFetchingProfile: false,
-      }
+  const getProfileInfo = axiosWithAuth().get('/api/profile');
+  const getUserRecipes = axiosWithAuth().get('/api/profile/recipes') // **subject to change!**
+  const getUserLikes = axiosWithAuth().get(`api/likes/${user_id}`) // **subject to change!**
+  const getForkedRecipesCount = axiosWithAuth().get('api/profile/forked') // **subject to change!**
 
-      dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload});
+  Promise.all([getProfileInfo/*, getUserRecipes, getUserLikes, getForkedRecipesCount */])
+  .then(res => {
+    console.log(res);
+    debugger
+      // const profileInfoPayload = {
+      //   profile_pic: 
+      //   first_name
+      //   last_name
+      //   bio
+      // }
+      //   const payload = res.data;
+      //   const massagedPayload = {
+      //     profile_pic: payload.profile_pic,
+      //     first_name: payload.first_name,
+      //     last_name: payload.last_name,
+      //     bio: payload.bio,
+      //     isFetchingProfile: false,
+      //   }
+    
+      //   dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload});
+      // })
+
+      // .then(res => {
+      //   const payload = res.data; // an array of recipe objects
+      //   const massagedPayload = {
+      //     user_recipes: payload,
+      //     recipe_count: payload.length,
+      //     isFetchingUserRecipes: false,
+      //   }
+  
+      //   dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload});
+      // })
+
+      // .then(res => {
+      //   const payload = res.data; // an array of recipe objects
+      //   const massagedPayload = {
+      //     liked_recipes: payload,
+      //     recipes_forked_count: payload.length,
+      //     isFetchingUserLikes: false,
+      //   }
+  
+      //   dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload });
+      // })
+
+      // .then(res => {
+      //   const payload = res.data; // an integer
+      //   const massagedPayload = {
+      //     forked_recipes_count: payload,
+      //     isFetchingForkedRecipesCount: false,
+      //   }
+  
+      //   dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload });
+      // })
     })
-    .catch(generalError);
-
-  const getUserRecipes = axiosWithAuth()
-    .get('/api/profile/recipes') // **subject to change!**
-    .then(res => {
-      const payload = res.data; // an array of recipe objects
-      const massagedPayload = {
-        user_recipes: payload,
-        recipe_count: payload.length,
-        isFetchingUserRecipes: false,
-      }
-
-      dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload});
-    })
-    .catch(generalError);
-
-
-  const getUserLikes = axiosWithAuth()
-    .get('api/profile/liked') // **subject to change!**
-    .then(res => {
-      const payload = res.data; // an array of recipe objects
-      const massagedPayload = {
-        liked_recipes: payload,
-        recipes_forked_count: payload.length,
-        isFetchingUserLikes: false,
-      }
-
-      dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload });
-    })
-    .catch(generalError);
-
-  const getForkedRecipesCount = axiosWithAuth()
-    .get('api/profile/forked') // **subject to change!**
-    .then(res => {
-      const payload = res.data; // an integer
-      const massagedPayload = {
-        forked_recipes_count: payload,
-        isFetchingForkedRecipesCount: false,
-      }
-
-      dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload });
-    })
-    .catch(generalError);
-
-  Promise.all([getProfileInfo, getUserRecipes, getUserLikes, getForkedRecipesCount])
-    .then(res => {
-      console.log(res.data);
-    })
-    .catch(generalError);
+    .catch(error => {
+      dispatch({ type: types.GET_PROFILE_FAILURE, payload: error});
+    });
 }
 
 // for Modal:
