@@ -133,7 +133,7 @@ function Step1(props) {
       <div>
       <Section1>
       <NavigationSection1>
-            <Link to='/profile'>
+            <Link to='/editrecipe'>
             <Fab 
               style={{background: "none", "box-shadow": "none", "outline": 'none'}}
               >
@@ -148,6 +148,7 @@ function Step1(props) {
             </Fab>
         </button>
         </NavigationSection1>
+        <h2 style={{color:'white'}}>update recipe info</h2>
         <Addtitle>
       <TextField
       id="standard-full-width"

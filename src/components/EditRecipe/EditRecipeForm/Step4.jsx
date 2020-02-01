@@ -47,7 +47,7 @@ function Step4(props) {
     <form onSubmit={onSubmit}>
       <Section3>
       <NavigationSection1>
-          <Link to='/profile'>
+          <Link to='/editrecipe'>
             <Fab 
           style={{background: "none", "box-shadow": "none", "outline": 'none'}}
               >
@@ -63,7 +63,7 @@ function Step4(props) {
         </button>
         </NavigationSection1>
         <Addtitle>
-        <h1>Add instruction</h1>
+        <h1>Modify instruction</h1>
         </Addtitle>
       </Section3>
       <Section2b>

@@ -82,7 +82,7 @@ function Step3(props) {
     <form onSubmit={onSubmit}>
       <Section3>
       <NavigationSection1>
-         <Link to='/profile'>
+         <Link to='/editrecipe'>
            <Fab 
             style={{background: "none", "box-shadow": "none", "outline": 'none'}}
             >
@@ -98,7 +98,7 @@ function Step3(props) {
       </button>
      </NavigationSection1>
      <Addtitle>
-        <h1>Add ingredient</h1>
+        <h1>Modify ingredient</h1>
         </Addtitle>
    </Section3>
    <Section2b>

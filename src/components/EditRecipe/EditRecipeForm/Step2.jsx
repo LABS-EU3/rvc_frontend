@@ -51,7 +51,7 @@ function Step2(props) {
     <form onSubmit={onEditSubmit}>
       <Section3>
       <NavigationSection1>
-        <Link to='/profile'>
+        <Link to='/editrecipe'>
           <Fab 
             style={{background: "none", "box-shadow": "none", "outline": 'none'}}
             >
@@ -66,9 +66,10 @@ function Step2(props) {
           </Fab>
         </button>
         </NavigationSection1>
+
         <Addtitle>
        <h1>
-        Upload Image
+        Change Image
         </h1>
         </Addtitle>
       </Section3>
