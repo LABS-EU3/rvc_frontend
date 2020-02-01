@@ -22,7 +22,11 @@ function App(props) {
   // ^Needed to stop the screen from scrolling when the modal is visible!
 
   return (
-    <div className="App" style={{height: "100%", "overflowY": isDisplaying ? "hidden" : "visible" }}>
+    <div  className="App" 
+     style={{height: "100%",
+      "overflowY": isDisplaying ? "hidden" : "visible", 
+       }}
+    >
       <Route exact path="/" component={RecipeView} />
       <Route path="/login" component={FormikLoginForm} />
       <Route path="/register" component={FormikRegisterForm} />

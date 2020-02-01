@@ -17,6 +17,12 @@
 
 .App {
   text-align: center;
+
+  /* background: url("./images/doodle.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
 }
 
 .App-logo {
@@ -549,3 +555,5 @@ input::placeholder {
 .material-icons.md-light.md-inactive {
   color: rgba(255, 255, 255, 0.3);
 }
+
+

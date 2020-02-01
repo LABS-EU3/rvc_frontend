@@ -359,7 +359,7 @@ export const editImage = (id , image) => dispatch => {
     type: types.EDIT_IMAGE_OK, payload:res.data
   })})
   .catch(error => { 
-    console.ldir(error);
+    console.dir(error);
     dispatch({ type: types.EDIT_IMAGE_FAIL, payload: error})
   })
 }

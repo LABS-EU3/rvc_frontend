@@ -552,7 +552,15 @@ const initialEditBody = {
 
 export function editRecipeReducer(state = initialEditBody, action) {
   switch (action.type) {
-  
+    case types.EDIT_RECIPE_OK:
+      return { 
+        ...state,
+         recipe: action.payload
+         };
+    case types.EDIT_RECIPE_FAIL:
+      return { 
+        ...state, error: action.payload 
+      };
     case types.EDIT_IMAGE: 
       return {
         ...state,
@@ -624,28 +632,27 @@ export function editRecipeReducer(state = initialEditBody, action) {
     return { 
       ...state, 
       error: action.payload
-    }
-    
+    };
     default:
       return state;
   }
 }
 
-const initialNewlyEditedRecipe = {
-  editedData: [],
-  error: ""
-};
+// const initialNewlyEditedRecipe = {
+//   editedData: [],
+//   error: ""
+// };
 
-export function newlyEditRecipe(state = initialNewlyEditedRecipe, action) {
-  switch (action.type) {
-    case types.EDIT_RECIPE_FAIL:
-      return { ...state, error: action.payload };
-    case types.EDIT_RECIPE_OK:
-      return { ...state, editedData: action.payload };
-    default:
-      return state;
-  }
-}
+// export function newlyEditRecipe(state = initialNewlyEditedRecipe, action) {
+//   switch (action.type) {
+//     case types.EDIT_RECIPE_FAIL:
+//       return { ...state, error: action.payload };
+//     case types.EDIT_RECIPE_OK:
+//       return { ...state, editedData: action.payload };
+//     default:
+//       return state;
+//   }
+// }
 
 // General Modal Reducer:
 const initialModalState = {

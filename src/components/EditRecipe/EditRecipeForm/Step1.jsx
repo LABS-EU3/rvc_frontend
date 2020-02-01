@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators";
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Fab from '@material-ui/core/Fab';
 import DropDown from "../../dropDown/DropDown";
 import { Link } from "react-router-dom";
 import { TextField, Select, MenuItem } from '@material-ui/core';
@@ -13,33 +14,36 @@ import {
   Addtitle,
   Section2,
   Title,
-  SwitchDiv
 } from "../EditRecipe.styles";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    color: 'white'
-    // font-size: 18px
-  },
-}));
+// const useStyles = makeStyles(theme => ({
+//   root: {
+//     display: 'flex',
+//     flexWrap: 'wrap',
+//   },
+//   textField: {
+//     marginLeft: theme.spacing(1),
+//     marginRight: theme.spacing(1),
+//     color: 'white'
+//     // font-size: 18px
+//   },
+// }));
 
-const getAllCategoiresUrl = "http://localhost:3333/api/category";
-const getAllTagsUrl = "http://localhost:3333/api/tag";
+const getAllCategoiresUrl = `${process.env.REACT_APP_API_BASE_URL}api/category`;
+const getAllTagsUrl = `${process.env.REACT_APP_API_BASE_URL}api/tag`;
 
 
 function Step1(props) {
 
   const {
     goForward,
-    addRecipeToBody,
-    addRecipeCategoriesToBody,
-    addRecipeTagsToBody
+    // addRecipeToBody,
+    // addRecipeCategoriesToBody,
+    // addRecipeTagsToBody,
+    editRecipe,
+    editCategory,
+    editTag
+
   } = props;
 
   const [inputState, setInputState] = useState({
@@ -58,24 +62,36 @@ function Step1(props) {
     setInputState({ ...inputState, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = e => {
-    e.preventDefault();
+  // const onSubmit = e => {
+  //   e.preventDefault();
 
-    // body.recipe
+  //   // body.recipe
+  //   const recipe = { ...inputState };
+  //   delete recipe.tags;
+  //   delete recipe.recipe_categories;
+  //   delete recipe.recipe_tags;
+  //   addRecipeToBody(recipe);
+
+  //   // body.recipe_categories
+  //   addRecipeCategoriesToBody([inputState.recipe_categories])
+
+  //   // body.recipe_tags
+  //   addRecipeTagsToBody([inputState.recipe_tags])
+    
+  //   goForward(e);
+  // };
+
+  const onEditSubmit = e => {
     const recipe = { ...inputState };
     delete recipe.tags;
     delete recipe.recipe_categories;
     delete recipe.recipe_tags;
-    addRecipeToBody(recipe);
+    editRecipe(recipe);
 
-    // body.recipe_categories
-    addRecipeCategoriesToBody([inputState.recipe_categories])
+    editCategory([inputState.recipe_categories])
 
-    // body.recipe_tags
-    addRecipeTagsToBody([inputState.recipe_tags])
-    
-    goForward(e);
-  };
+    editTag([inputState.recipe_tags])
+   }
 
   const useStyles = makeStyles(theme => ({
     inputRoot: {
@@ -113,12 +129,16 @@ function Step1(props) {
   const classes = useStyles();
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onEditSubmit}>
       <div>
       <Section1>
       <NavigationSection1>
             <Link to='/profile'>
-              <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+            <Fab 
+              style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+              >
+               <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+            </Fab>
             </Link>
           <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
           <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
