@@ -42,7 +42,8 @@ function App(props) {
 
       <PrivateRoute path="/ingredient" component={IngredientView} />
       <PrivateRoute path="/instruction" component={InstructionView} />
-      <Route path="/editrecipe" component={EditRecipeOptions} />
+      {/* <Route path="/editrecipe/:block" render={props=> <EditRecipeOptions { ...props} />} /> */}
+      {/* <Route path="/editrecipe" component={EditRecipeOptions} /> */}
       
       <Modal />
     </div>
