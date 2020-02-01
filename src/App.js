@@ -14,6 +14,7 @@ import IngredientView from "./components/ingredients/ingredientView/IngredientVi
 import InstructionView from "./components/instructions/instructionView/InstructionView";
 import CreateRecipe from "./components/createRecipe/createRecipe/CreateRecipe";
 import Modal from './components/notification/modal/Modal';
+import EditRecipeOptions from "./components/EditRecipe/EditRecipeOptions" 
 
 import "./App.css";
 
@@ -41,6 +42,7 @@ function App(props) {
 
       <PrivateRoute path="/ingredient" component={IngredientView} />
       <PrivateRoute path="/instruction" component={InstructionView} />
+      <Route path="/editrecipe" component={EditRecipeOptions} />
       
       <Modal />
     </div>
