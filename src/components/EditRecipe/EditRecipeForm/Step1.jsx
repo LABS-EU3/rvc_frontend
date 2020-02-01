@@ -141,7 +141,11 @@ function Step1(props) {
             </Fab>
             </Link>
           <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
-          <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+           <Fab 
+              style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+              >
+              <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+            </Fab>
         </button>
         </NavigationSection1>
         <Addtitle>

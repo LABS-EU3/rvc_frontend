@@ -5,6 +5,8 @@ import * as dispatchers from "../../../actions/actionCreators"
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import DropDown from "../../dropDown/DropDown";
+import Fab from '@material-ui/core/Fab';
+
 import { Link } from "react-router-dom";
 import { TextField, Select, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -45,11 +47,19 @@ function Step4(props) {
     <form onSubmit={onSubmit}>
       <Section3>
       <NavigationSection1>
-            <Link to='/profile'>
-              <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
-            </Link>
+          <Link to='/profile'>
+            <Fab 
+          style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+              >
+               <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+            </Fab>
+          </Link>
           <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
-          <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+            <Fab 
+          style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+              >
+              <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+            </Fab>
         </button>
         </NavigationSection1>
         <Addtitle>
