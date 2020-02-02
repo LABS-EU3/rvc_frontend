@@ -4,6 +4,7 @@ import Popup from "reactjs-popup";
 import { connect } from "react-redux";
 import * as actionCreators from "../../../actions/actionCreators";
 
+import Banner from "./Banner";
 import Footer from "../../navigation/footerNav/FooterNav";
 import EditProfile from "../editProfile/EditProfile";
 import Recipe from "../../recipe/Recipe";
@@ -70,6 +71,7 @@ export function ProfileView(props) {
     <>
       <StyledProfile>
         <div className="profile-container">
+      <Banner />
           <Popup
             modal
             trigger={
@@ -115,22 +117,20 @@ export function ProfileView(props) {
               alt=""
               onClick={() => switchSelectedRecipes("created")}
             />
+          <div className="vl"></div>
             <img
               className="profile-icons-image"
               src={bookmark}
               alt=""
               onClick={() => switchSelectedRecipes("forked")}
             />
+          <div className="vl"></div>
             <Link to="/createrecipe">
               <img className="profile-icons-image" src={more} alt="" />
             </Link>
           </div>
-
-          <div className="divider-wrapper">
-            {" "}
-            <hr id="divider" />
-          </div>
-
+          <StyledProfile/>
+         <hr/>
           {(selectedRecipes === "created" &&
             (sanitisedUserRecipes.length === 0 ? (
               <div className="container">
