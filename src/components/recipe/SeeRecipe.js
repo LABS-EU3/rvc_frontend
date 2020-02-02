@@ -77,10 +77,10 @@ function SeeRecipe({
           </ShareButton>
 
           <ForkButton
-            style={localLikeState ? {border: "2px solid green"} : {}}
             onClick={toggleLike}
+            className={localLikeState ? "liked" : null}
           >
-            <h1>Fork</h1>
+            <h1>{localLikeState ? "Forked" : "Fork"}</h1>
           </ForkButton>
         </TopButtonDiv>
 
