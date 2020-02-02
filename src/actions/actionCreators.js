@@ -282,7 +282,7 @@ export const getProfile = user_id => dispatch => {
         user_likes,
         recipes_liked_count: user_likes.length,
       }
-      dispatch({ type: types.GET_USER_LIKES_SUCCESS, payload: userLikesPayload });
+      dispatch({ type: types.GET_LIKED_RECIPES_SUCCESS, payload: userLikesPayload });
 
       // const forked_recipes_count = responses[3].data;
       // dispatch({ type: types.GET_FORKED_RECIPES_COUNT_SUCCESS, payload: forked_recipes_count })

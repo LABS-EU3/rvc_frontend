@@ -308,7 +308,7 @@ const initialProfileState = {
   isFetchingUserRecipes: false,
   isFetchingLikedRecipes: false,
   isFetchingForkedRecipesCount: false,
-  error: "",
+  error: {},
   message: ""
 };
 
@@ -388,7 +388,7 @@ const initialProfileState = {
 //   isFetchingUserRecipes: false,
 //   isFetchingLikedRecipes: false,
 //   isFetchingForkedRecipesCount: false,
-//   error: "",
+//   error: {},
 //   message: ""
 // };
 
@@ -418,7 +418,7 @@ export const profileReducer = (state = initialProfileState, action) => {
         isFetchingUserRecipes: false,
         message: state.message + " Successfully fetched user_recipes and recipe_count."
       }
-    case types.GET_USER_LIKES_SUCCESS:
+    case types.GET_LIKED_RECIPES_SUCCESS:
       return {
         ...state,
         ...action.payload, // user_likes, recipes_liked_count
