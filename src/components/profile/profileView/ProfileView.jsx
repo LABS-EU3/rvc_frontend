@@ -58,9 +58,6 @@ export function ProfileView(props) {
     }));
   };
 
-  console.log(sanitisedUserRecipes, sanitisedLikedRecipes);
-  console.log(user_likes);
-
   const [selectedRecipes, setSelectedRecipes] = useState("created");
 
   const switchSelectedRecipes = selected => {

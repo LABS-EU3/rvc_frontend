@@ -23,8 +23,6 @@ const RecipeView = ({
     getUserLikes(user_id);
   }, [getRecipes, getUserLikes, user_id]);
 
-  console.log("userLikes", userLikes);
-
   return (
     <div>
       <SearchBar />
