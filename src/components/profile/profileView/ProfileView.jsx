@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Popup from "reactjs-popup";
 import { connect } from "react-redux";
@@ -28,8 +28,25 @@ export function ProfileView(props) {
     liked_recipes,
     forked_recipes_count,
     recipe_count,
-    recipes_forked_count
+    recipes_forked_count,
+    getProfile,
+    error,
+    user_id
   } = props;
+
+  const [profileExists, setProfileExists] = useState(false);
+  const [sanitisedUserRecipes, setSanitisedUserRecipes] = useState([]);
+  const [sanitisedLikedRecipes, setSanitisedLikedRecipes] = useState([]);
+
+  useEffect(() => {
+    getProfile(user_id);
+    setProfileExists(error.message === "Request failed with status code 404");
+
+    if (profileExists) {
+      setSanitisedUserRecipes(sanitiseRecipes(user_recipes));
+      setSanitisedLikedRecipes(sanitiseRecipes(liked_recipes));
+    } 
+  }, []);
 
   // Need to do this as the Recipe component expects recipe objects of the following form:
   const sanitiseRecipes = recipes => {
@@ -43,9 +60,6 @@ export function ProfileView(props) {
       imageUrl: recipe.images[0]
     }));
   };
-
-  const sanitisedUserRecipes = sanitiseRecipes(user_recipes);
-  const sanitisedLikedRecipes = sanitiseRecipes(liked_recipes);
 
   const [selectedRecipes, setSelectedRecipes] = useState("created");
 
@@ -153,6 +167,10 @@ export function ProfileView(props) {
 }
 
 export default connect(
-  state => ({ ...state.profile, username: state.onboard.username }),
+  state => ({
+    ...state.profile,
+    username: state.onboard.username,
+    user_id: state.onboard.user_id
+  }),
   actionCreators
 )(ProfileView);

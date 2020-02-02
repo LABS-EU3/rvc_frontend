@@ -261,63 +261,31 @@ export const getProfile = user_id => dispatch => {
   dispatch({ type: types.GET_PROFILE });
 
   const getProfileInfo = axiosWithAuth().get('/api/profile');
-  const getUserRecipes = axiosWithAuth().get('/api/profile/recipes') // **subject to change!**
-  const getUserLikes = axiosWithAuth().get(`api/likes/${user_id}`) // **subject to change!**
-  const getForkedRecipesCount = axiosWithAuth().get('api/profile/forked') // **subject to change!**
+  // const getUserRecipes = axiosWithAuth().get('/api/profile/recipes'); // **subject to change!**
+  const getUserLikes = axiosWithAuth().get(`api/likes/${user_id}`);
+  // const getForkedRecipesCount = axiosWithAuth().get('api/profile/forked'); // **subject to change!**
 
-  Promise.all([getProfileInfo/*, getUserRecipes, getUserLikes, getForkedRecipesCount */])
-  .then(res => {
-    console.log(res);
-    debugger
-      // const profileInfoPayload = {
-      //   profile_pic: 
-      //   first_name
-      //   last_name
-      //   bio
+  Promise.all([getProfileInfo, /* getUserRecipes, */ getUserLikes /*, getForkedRecipesCount */])
+    .then(responses => {      
+      const profileInfoPayload = { ...responses[0].data };
+      dispatch({ type: types.GET_PROFILE_INFO_SUCCESS, payload: profileInfoPayload });
+
+      // const user_recipes = [ ...responses[1].data ];
+      // const userRecipesPayload = {
+      //   user_recipes,
+      //   recipe_count: user_recipes.length,
       // }
-      //   const payload = res.data;
-      //   const massagedPayload = {
-      //     profile_pic: payload.profile_pic,
-      //     first_name: payload.first_name,
-      //     last_name: payload.last_name,
-      //     bio: payload.bio,
-      //     isFetchingProfile: false,
-      //   }
-    
-      //   dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload});
-      // })
+      // dispatch({ type: types.GET_USER_RECIPES_SUCCESS, payload: userRecipesPayload });
 
-      // .then(res => {
-      //   const payload = res.data; // an array of recipe objects
-      //   const massagedPayload = {
-      //     user_recipes: payload,
-      //     recipe_count: payload.length,
-      //     isFetchingUserRecipes: false,
-      //   }
-  
-      //   dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload});
-      // })
+      const user_likes = [ ...responses[1].data ];
+      const userLikesPayload = {
+        user_likes,
+        recipes_liked_count: user_likes.length,
+      }
+      dispatch({ type: types.GET_USER_LIKES_SUCCESS, payload: userLikesPayload });
 
-      // .then(res => {
-      //   const payload = res.data; // an array of recipe objects
-      //   const massagedPayload = {
-      //     liked_recipes: payload,
-      //     recipes_forked_count: payload.length,
-      //     isFetchingUserLikes: false,
-      //   }
-  
-      //   dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload });
-      // })
-
-      // .then(res => {
-      //   const payload = res.data; // an integer
-      //   const massagedPayload = {
-      //     forked_recipes_count: payload,
-      //     isFetchingForkedRecipesCount: false,
-      //   }
-  
-      //   dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload });
-      // })
+      // const forked_recipes_count = responses[3].data;
+      // dispatch({ type: types.GET_FORKED_RECIPES_COUNT_SUCCESS, payload: forked_recipes_count })
     })
     .catch(error => {
       dispatch({ type: types.GET_PROFILE_FAILURE, payload: error});
