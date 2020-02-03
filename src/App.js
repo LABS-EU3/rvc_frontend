@@ -13,7 +13,6 @@ import EditProfile from "./components/profile/editProfile/EditProfile";
 import IngredientView from "./components/ingredients/ingredientView/IngredientView";
 import InstructionView from "./components/instructions/instructionView/InstructionView";
 import CreateRecipe from "./components/createRecipe/createRecipe/CreateRecipe";
-import marketingPage from './components/marketingPage/MarketingPage'
 import Modal from './components/notification/modal/Modal';
 
 import "./App.css";

@@ -48,6 +48,12 @@ align-items: center;
     }
 }
 
+.section-heading {
+    h1 {
+        font-size: 2.8rem;
+    }
+}
+
 section {
     margin: 3rem 0 0   0;
     background-color: #FFF9F5;
