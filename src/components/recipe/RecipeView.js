@@ -9,10 +9,19 @@ import Loader from "../loader/Loader";
 
 import "../../App.css";
 
-const RecipeView = ({ getRecipes, recipeView, isFetching }) => {
+const RecipeView = ({
+    getRecipes,
+    recipeView,
+    isFetching,
+    // Likes:
+    userLikes,
+    getUserLikes,
+    user_id
+}) => {
   useEffect(() => {
     getRecipes();
-  }, [getRecipes]);
+    getUserLikes(user_id);
+  }, [getRecipes, getUserLikes, user_id]);
 
   return (
     <div>
@@ -20,7 +29,12 @@ const RecipeView = ({ getRecipes, recipeView, isFetching }) => {
       {isFetching ? <Loader /> : null}
       <div className="container">
         {recipeView.map(recipe => (
-          <Recipe key={recipe.id} recipe={recipe} />
+          <Recipe
+            key={recipe.id}
+            recipe={recipe}
+            userLike={userLikes.includes(recipe.id)}
+            user_id={user_id}
+          />
         ))}
       </div>
       <Footer />
@@ -28,4 +42,12 @@ const RecipeView = ({ getRecipes, recipeView, isFetching }) => {
   );
 };
 
-export default connect(state => state.recipes, actionCreators)(RecipeView);
+export default connect(state => {
+  return {
+    recipeView: state.recipes.recipeView,
+    isFetching: state.recipes.isFetching,
+    // Likes:
+    userLikes: state.userLikes.likes,
+    user_id: state.onboard.user_id
+  }
+}, actionCreators)(RecipeView);

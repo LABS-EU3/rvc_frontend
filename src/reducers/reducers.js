@@ -298,17 +298,17 @@ const initialProfileState = {
   bio: "Tap your username above to edit your profile and add a short bio!",
   // The following need their own request(s)...
   user_recipes: [], // A
-  liked_recipes: [], // B
+  user_likes: [], // B
   forked_recipes_count: 0,
   // ... determining the following:
   recipe_count: 0, // A
-  recipes_forked_count: 0, // B
+  recipes_liked_count: 0, // B
   // And the following are meta:
-  isFetchingProfile: false,
+  isFetchingProfileInfo: false,
   isFetchingUserRecipes: false,
-  isFetchingUserLikes: false,
+  isFetchingLikedRecipes: false,
   isFetchingForkedRecipesCount: false,
-  error: "",
+  error: {},
   message: ""
 };
 
@@ -366,7 +366,7 @@ const initialProfileState = {
 //       ]
 //     }
 //   ], // A
-//   liked_recipes: [
+//   user_likes: [
 //     {
 //       id: 2,
 //       recipe_title: "Cookies",
@@ -382,13 +382,13 @@ const initialProfileState = {
 //   forked_recipes_count: 0,
 //   // ... determining the following:
 //   recipe_count: 2, // A
-//   recipes_forked_count: 1, // B
+//   recipes_liked_count: 1, // B
 //   // And the following are meta:
-//   isFetchingProfile: false,
+//   isFetchingProfileInfo: false,
 //   isFetchingUserRecipes: false,
-//   isFetchingUserLikes: false,
+//   isFetchingLikedRecipes: false,
 //   isFetchingForkedRecipesCount: false,
-//   error: "",
+//   error: {},
 //   message: ""
 // };
 
@@ -397,26 +397,51 @@ export const profileReducer = (state = initialProfileState, action) => {
     case types.GET_PROFILE:
       return {
         ...state,
-        isFetchingProfile: true,
+        isFetchingProfileInfo: true,
         isFetchingUserRecipes: true,
-        isFetchingUserLikes: true
-      };
-    case types.GET_PROFILE_SUCCESS:
+        isFetchingLikedRecipes: true,
+        isFetchingForkedRecipesCount: true,
+        error: "",
+        message: "",
+      }
+    case types.GET_PROFILE_INFO_SUCCESS:
       return {
         ...state,
-        ...action.payload
-        // Note: No 'isFetching___: false' here, because it's in the payload.
-        // Ditto for 'error' and 'message'!
-      };
+        ...action.payload, // includes profile_pic, first_name, last_name, bio
+        isFetchingProfileInfo: false,
+        message: state.message + " Successfully fetched profile information.",
+      }
+    case types.GET_USER_RECIPES_SUCCESS:
+      return {
+        ...state,
+        ...action.payload, // user_recipes, recipe_count
+        isFetchingUserRecipes: false,
+        message: state.message + " Successfully fetched user_recipes and recipe_count."
+      }
+    case types.GET_LIKED_RECIPES_SUCCESS:
+      return {
+        ...state,
+        ...action.payload, // user_likes, recipes_liked_count
+        isFetchingLikedRecipes: false,
+        message: state.message + " Successfully fetched liked_recipes and recipes_forked_count."
+      }
+    case types.GET_FORKED_RECIPES_COUNT_SUCCESS:
+      return {
+        ...state,
+        ...action.payload, // forked_recipes_count
+        isFetchingForkedRecipesCount: false,
+        message: state.message + " Successfully fetched forked_recipes_count."
+      }
     case types.GET_PROFILE_FAILURE:
       return {
         ...state,
-        error: action.payload,
-        isFetchingProfile: false,
+        isFetchingProfileInfo: false,
         isFetchingUserRecipes: false,
-        isFetchingUserLikes: false,
-        isFetchingForkedRecipesCount: false
-      };
+        isFetchingLikedRecipes: false,
+        isFetchingForkedRecipesCount: false,
+        error: action.payload,
+        message: "Failed to fetch profile."
+      }
     default:
       return state;
   }
@@ -584,7 +609,7 @@ export function newlyEditRecipe(state = initialNewlyEditedRecipe, action) {
 
 // General Modal Reducer:
 const initialModalState = {
-  isNotification: false,
+  modalType: "notification",
   message: "",
   buttonLink: "/login",
   isDisplaying: false
@@ -593,19 +618,86 @@ export function modalReducer(state = initialModalState, action) {
   switch (action.type) {
     case types.DISPLAY_NOTIFICATION_MODAL:
       return {
-        isNotification: true,
+        modalType: "notification",
         isDisplaying: true,
         ...action.payload
       };
+    case types.DISPLAY_LIKE_MODAL:
+        return {
+          modalType: "like",
+          isDisplaying: true,
+          ...action.payload,
+        }
     case types.DISPLAY_ERROR_MODAL:
       return {
-        isNotification: false,
+        modalType: "error",
         message: action.payload,
         buttonLink: "/login",
         isDisplaying: true
       };
     case types.DISMISS_MODAL:
       return initialModalState;
+    default:
+      return state;
+  }
+}
+
+const initialUserLikesState = {
+  likes: [],
+  isGetting: false,
+  isPosting: false,
+  isDeleting: false,
+  error: {},
+  message: "",
+}
+export function userLikesReducer(state = initialUserLikesState, action) {
+  switch (action.type) {
+    case types.LIKE_RECIPE:
+      return {
+        ...state,
+        isPosting: true,
+        message: "",
+      }
+    case types.LIKE_RECIPE_SUCCESS:
+      return {
+        ...state,
+        likes: [...state.likes, action.payload],
+        isPosting: false,
+        message: `Like added for recipe ${action.payload}!`,
+      }
+    case types.UNLIKE_RECIPE:
+      return {
+        ...state,
+        isDeleting: true,
+        message: "",
+      }
+    case types.UNLIKE_RECIPE_SUCCESS:
+      return {
+        ...state,
+        likes: [...state.likes].filter(like => like !== action.payload),
+        isDeleting: false,
+        message: `Like removed for recipe ${action.payload}.`,
+      }
+    case types.GET_USER_LIKES:
+      return {
+        ...state,
+        isGetting: true,
+        message: "",
+      }
+    case types.GET_USER_LIKES_SUCCESS:
+      return {
+        ...state,
+        likes: action.payload,
+        isGetting: false,
+        message: "Likes fetched!",
+      }
+    case types.LIKE_REQUEST_FAILURE:
+      return {
+        ...initialUserLikesState,
+        likes: state.likes,
+        error: action.payload,
+        message: "Like request failed."
+      }
     default:
       return state;
   }
