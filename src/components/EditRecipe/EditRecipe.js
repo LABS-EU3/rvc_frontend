@@ -21,17 +21,17 @@ const EditRecipe = ({match}) => {
 
   
   switch(block){
-    // case 'all':
-    //   return (
-    //     <div className="App">
-    //     {page === 1 && <Step1 goForward={goForward} />}
-    //     {page === 2 && <Step2 goForward={goForward} />}
-    //     {page === 3 && <Step3 goForward={goForward} />}
-    //     {page === 4 && <Step4 goForward={goForward} 
-    //     />}
-    //     <Footer></Footer>
-    //   </div>
-    //     )
+    case 'all':
+      return (
+        <div className="App">
+        {page === 1 && <Step1 goForward={goForward} />}
+        {page === 2 && <Step2 goForward={goForward} />}
+        {page === 3 && <Step3 goForward={goForward} />}
+        {page === 4 && <Step4 goForward={goForward} 
+        />}
+        <Footer></Footer>
+      </div>
+        )
     case 'desc':
     return (
       <div className="App">
