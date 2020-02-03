@@ -8,7 +8,7 @@ import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Fab from '@material-ui/core/Fab';
 
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { TextField, Select, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import AddCircleOutlineTwoToneIcon from '@material-ui/icons/AddCircleOutlineTwoTone';
@@ -31,9 +31,8 @@ function Step3(props) {
   const { goForward, addRecipeIngredientsToBody,
   editIngredient,
   displayNotificationModal,
-  match
  } = props;
- const recipeID = match.params.id.trim();
+ const recipeID = useParams().id.trim()
 
   const [inputState, setInputState] = useState({
     unit_id: "",
@@ -89,7 +88,7 @@ function Step3(props) {
     <form onSubmit={onSubmit}>
       <Section3>
       <NavigationSection1>
-         <Link to='/editrecipe'>
+         <Link to='/editrecipe/:id'>
            <Fab 
             style={{background: "none", "box-shadow": "none", "outline": 'none'}}
             >

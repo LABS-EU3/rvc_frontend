@@ -5,7 +5,7 @@ import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Fab from '@material-ui/core/Fab';
 import DropDown from "../../dropDown/DropDown";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { TextField, Select, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -41,10 +41,9 @@ console.log('ataa',props)
     editCategory,
     editTag,
     displayNotificationModal,
-    match
   } = props;
-  
-  const recipeID = match.params.id.trim();
+
+  const recipeID = useParams().id.trim()
 
   const [inputState, setInputState] = useState({
     title: "",
@@ -119,7 +118,7 @@ console.log('ataa',props)
       <div>
       <Section1>
       <NavigationSection1>
-            <Link to='/editrecipe'>
+            <Link to='/editrecipe/:id'>
             <Fab 
               style={{background: "none", "box-shadow": "none", "outline": 'none'}}
               >

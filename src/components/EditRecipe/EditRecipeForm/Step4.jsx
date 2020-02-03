@@ -7,7 +7,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import DropDown from "../../dropDown/DropDown";
 import Fab from '@material-ui/core/Fab';
 
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { TextField, Select, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import AddCircleOutlineTwoToneIcon from '@material-ui/icons/AddCircleOutlineTwoTone';
@@ -23,13 +23,11 @@ import {
 function Step4(props) {
   const { 
     goForward,
-    addInstructionsToBody,
     editInstruction,
     displayNotificationModal,
-    match
    } = props;
 
-  const recipeID = match.params.id.trim();
+   const recipeID = useParams().id.trim()
   
   const [inputState, setInputState] = useState("");
 
@@ -56,7 +54,7 @@ function Step4(props) {
     <form onSubmit={onEditSubmit}>
       <Section3>
       <NavigationSection1>
-          <Link to='/editrecipe'>
+          <Link to='/editrecipe/:id'>
             <Fab 
           style={{background: "none", "box-shadow": "none", "outline": 'none'}}
               >

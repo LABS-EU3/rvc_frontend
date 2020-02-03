@@ -7,11 +7,11 @@ import Step3 from "./EditRecipeForm/Step3"
 import Step4 from "./EditRecipeForm/Step4";
 import Footer from "../navigation/footerNav/FooterNav"
 
-
+import { withRouter } from 'react-router-dom'
 const EditRecipe = ({match}) => { 
 
   const block =  match.params.block ? match.params.block.trim() : '';
-
+  
   const [page, setPage] = useState(1);
 
   const goForward = e => {
@@ -78,5 +78,6 @@ const EditRecipe = ({match}) => {
       )
   }
 }
-
-export default connect(state => state.editRecipe, dispatchers)(EditRecipe)
+export default connect(state => state, dispatchers)(EditRecipe)
+// export const matchLink = withRouter(EditRecipe);
+// export default withRouter(connect(state => state, dispatchers(EditRecipe)))
