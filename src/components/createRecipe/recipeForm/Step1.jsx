@@ -16,18 +16,6 @@ import {
   Title,
 } from "./FormStyled.styles";
 
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//     display: 'flex',
-//     flexWrap: 'wrap',
-//   },
-//   textField: {
-//     marginLeft: theme.spacing(1),
-//     marginRight: theme.spacing(1),
-//     color: 'white'
-//     // font-size: 18px
-//   },
-// }));
 
 const getAllCategoiresUrl = `${process.env.REACT_APP_API_BASE_URL}api/category`;
 const getAllTagsUrl = `${process.env.REACT_APP_API_BASE_URL}api/tag`;

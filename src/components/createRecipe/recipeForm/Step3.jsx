@@ -99,7 +99,9 @@ function Step3(props) {
       <Section2b>
         <IngredientsWrapper>
           <IngredientsDiv1>
-            <input type="number" name="quantity" onChange={inputHandler} />
+            <input type="number" name="quantity" onChange={inputHandler} 
+           
+            />
           </IngredientsDiv1>
           <IngredientsDiv>
             <DropDown

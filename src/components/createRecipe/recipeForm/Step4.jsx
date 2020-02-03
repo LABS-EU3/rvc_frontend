@@ -24,6 +24,7 @@ function Step4(props) {
 
   const inputHandler = e => {
     e.preventDefault();
+    
     setInputState(e.target.value);
   };
 
@@ -107,8 +108,10 @@ function Step4(props) {
           className={classes.textField}          
           variant="filled"
           onChange={inputHandler}
+          value={inputState.instruction}
           type="text"
           name="instruction"
+          required
         />
         <p className="description-paragraph">click on the plus button to add your instruction!</p>
         <div onClick={addInstruction} style={{ margin: "0 auto" }}></div>
