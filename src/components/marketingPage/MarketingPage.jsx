@@ -44,9 +44,9 @@ export default function MarketingPage() {
         </section>
 
         <footer>
-          <p>About</p>
-          <p>Team</p>
-          <p>Contact</p>
+          <h3>About</h3>
+          <h3>Team</h3>
+          <h3>Contact</h3>
 
           <p>Terms & conditions | Privacy Policy</p>
         </footer>

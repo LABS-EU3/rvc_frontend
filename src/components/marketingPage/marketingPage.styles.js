@@ -49,7 +49,7 @@ align-items: center;
 }
 
 section {
-    margin: 3rem 0;
+    margin: 3rem 0 0   0;
     background-color: #FFF9F5;
     article {
         h2 {
@@ -62,5 +62,18 @@ section {
             font-size: 2.2rem;
         }
     } 
+}
+
+footer {
+    width: 100%
+    text-align: left;
+    padding: 4rem 0 4rem 1rem;
+    background: rgba(10, 179, 138, 0.08);
+    p {
+        font-size: 1.2rem;
+        position: fixed;
+        bottom: 5px;
+        left: 98px;
+    }
 }
 `
