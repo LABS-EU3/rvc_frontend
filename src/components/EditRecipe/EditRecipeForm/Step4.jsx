@@ -21,7 +21,12 @@ import {
 } from "../EditRecipe.styles";
 
 function Step4(props) {
-  const { goForward, addInstructionsToBody, displayNotificationModal } = props;
+  const { 
+    goForward,
+    addInstructionsToBody,
+    editInstruction,
+    displayNotificationModal
+   } = props;
 
   const [inputState, setInputState] = useState("");
 

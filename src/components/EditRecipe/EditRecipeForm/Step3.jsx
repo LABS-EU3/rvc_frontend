@@ -28,7 +28,10 @@ const getAllIngredientsUrl = "http://localhost:3333/api/ingredient";
 const getAlUnitsUrl = "http://localhost:3333/api/unit";
 
 function Step3(props) {
-  const { goForward, addRecipeIngredientsToBody, displayNotificationModal } = props;
+  const { goForward, addRecipeIngredientsToBody,
+  editIngredient,
+  displayNotificationModal
+ } = props;
 
   const [inputState, setInputState] = useState({
     unit_id: "",

@@ -37,9 +37,6 @@ function Step1(props) {
 
   const {
     goForward,
-    // addRecipeToBody,
-    // addRecipeCategoriesToBody,
-    // addRecipeTagsToBody,
     editRecipe,
     editCategory,
     editTag,

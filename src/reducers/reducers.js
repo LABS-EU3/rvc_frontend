@@ -122,11 +122,11 @@ export const singleRecipeReducer = (state = initialSingleRecipe, action) => {
   }
 };
 
-const initialIngredient = {
-  ingredientView: [],
-  error: "",
-  isFetching: false
-};
+// const initialIngredient = {
+//   ingredientView: [],
+//   error: "",
+//   isFetching: false
+// };
 
 export const ingredientReducer = (state = initialIngredient, action) => {
   switch (action.type) {
@@ -169,11 +169,11 @@ export const ingredientReducer = (state = initialIngredient, action) => {
   }
 };
 
-const initialInstruction = {
-  instructionView: [],
-  error: "",
-  isFetching: false
-};
+// const initialInstruction = {
+//   instructionView: [],
+//   error: "",
+//   isFetching: false
+// };
 
 export const instructionReducer = (state = initialInstruction, action) => {
   switch (action.type) {
@@ -524,33 +524,36 @@ export function newlyAddedRecipe(state = initialNewlyAddedRecipe, action) {
 
 //EDIT RECIPE
 
-const initialEditBody = {
-  recipe: {
-    title: "",
-    description: "",
-    budget: null,
-    time_required: null,
-    difficulty: null
-  },
 
-  recipe_categories: [],
-
-  tags: [],
-
-  recipe_tags: [],
-
-  images: [],
-
-  ingredients: [],
-
-  recipe_ingredients: [],
-
-  instructions: [],
-  isFetchingImage: false,
+const initialRecipe = {
+  editedRecipe: [],
   error: ''
-};
+}
+const initialCategory = {
+  editedCategory: [],
+  error: ''
+}
+const initialTag = { 
+  editedTag: [],
+  error: ''
+}
+const initialImage= { 
+  editedImage: [],
+  error: '',
+  isFetching: false 
+}
+const initialIngredient= { 
+  editedIngredient: [],
+  error: '',
+  isFetching: false
+}
+const initialInstruction = { 
+  editedInstruction: [],
+  error: '',
+}
+ 
 
-export function editRecipeReducer(state = initialEditBody, action) {
+export function editRecipeReducer(state = initialRecipe, action) {
   switch (action.type) {
     case types.EDIT_RECIPE_OK:
       return { 
@@ -561,32 +564,30 @@ export function editRecipeReducer(state = initialEditBody, action) {
       return { 
         ...state, error: action.payload 
       };
-    case types.EDIT_IMAGE: 
-      return {
-        ...state,
-        isFetchingImage: true
-      }
-    case types.EDIT_IMAGE_OK:
-      return {
-        ...state,
-        images: action.payload,
-        isFetchingImage: false
-      };
-    case types.EDIT_IMAGE_FAIL: 
-      return{
-        ...state,
-        error: action.payload,
-      };
+    default: 
+      return state
+  }
+}
+
+export function editCategoryReducer (state= initialCategory, action) { 
+  switch(action.type) { 
     case types.EDIT_CATEGORY_OK:
       return { 
         ...state, 
         recipe_categories: action.payload.new
       };
     case types.EDIT_CATEGORY_FAIL: 
-    return { 
+     return { 
       ...state, 
       error: action.payload
     }
+    default: 
+      return state
+  }
+}
+
+export function editTagReducer (state=initialTag, action){ 
+  switch(action.type) { 
     case types.EDIT_TAG_OK:
       return { 
         ...state, 
@@ -597,32 +598,69 @@ export function editRecipeReducer(state = initialEditBody, action) {
       ...state, 
       error: action.payload
     }
-    case types.EDIT_INGREDIENT_OK:
-      return{ 
-        ...state, 
-        recipe_ingredients: action.payload.index
-      };
-    case types.EDIT_INGREDIENT_FAIL:
-      return{ 
+    default: 
+    return state
+  }
+}
+
+export function editImageReducer(state=initialImage, action) { 
+  switch(action.type) { 
+    case types.EDIT_IMAGE: 
+      return {
         ...state,
-        error: action.payload
-      };
-    case types.POST_INGREDIENT:
-      return{ 
-        ...state, 
-        isFetchingIngredient: true
-      };
-    case types.POST_INGREDIENT_OK: 
-      return{ 
+        isFetchingImage: true
+    }
+    case types.EDIT_IMAGE_OK:
+      return {
         ...state,
-        recipe_ingredient: action.payload,
-        isFetching: false
-      };
-    case types.POST_INGREDIENT_FAIL:
-      return{ 
+        images: action.payload,
+        isFetchingImage: false
+    };
+    case types.EDIT_IMAGE_FAIL: 
+      return{
         ...state,
-        error: action.payload
+        error: action.payload,
       };
+      default: 
+      return state
+    }
+  }
+    
+  export function editIngredientReducer (state= initialIngredient, action) { 
+    switch(action.type){
+      case types.EDIT_INGREDIENT_OK:
+        return{ 
+          ...state, 
+          recipe_ingredients: action.payload.index
+        };
+      case types.EDIT_INGREDIENT_FAIL:
+        return{ 
+          ...state,
+          error: action.payload
+        };
+      case types.POST_INGREDIENT:
+        return{ 
+          ...state, 
+          isFetchingIngredient: true
+        };
+      case types.POST_INGREDIENT_OK: 
+        return{ 
+          ...state,
+          recipe_ingredient: action.payload,
+          isFetching: false
+        };
+      case types.POST_INGREDIENT_FAIL:
+        return{ 
+          ...state,
+          error: action.payload
+        };
+      default:
+        return state
+    }
+
+  }
+export function editInstructionReducer(state=initialInstruction, action) { 
+  switch(action.type){ 
     case types.EDIT_INSTRUCTION_OK:
       return { 
         ...state, 
@@ -635,24 +673,10 @@ export function editRecipeReducer(state = initialEditBody, action) {
     };
     default:
       return state;
+    }
   }
-}
 
-// const initialNewlyEditedRecipe = {
-//   editedData: [],
-//   error: ""
-// };
 
-// export function newlyEditRecipe(state = initialNewlyEditedRecipe, action) {
-//   switch (action.type) {
-//     case types.EDIT_RECIPE_FAIL:
-//       return { ...state, error: action.payload };
-//     case types.EDIT_RECIPE_OK:
-//       return { ...state, editedData: action.payload };
-//     default:
-//       return state;
-//   }
-// }
 
 // General Modal Reducer:
 const initialModalState = {
