@@ -16,18 +16,19 @@ import {
   SwitchDiv
 } from "./FormStyled.styles";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex",
-    flexWrap: "wrap"
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    color: "white"
-    // font-size: 18px
-  }
-}));
+// not used
+// const useStyles = makeStyles(theme => ({
+//   root: {
+//     display: "flex",
+//     flexWrap: "wrap"
+//   },
+//   textField: {
+//     marginLeft: theme.spacing(1),
+//     marginRight: theme.spacing(1),
+//     color: "white"
+//     // font-size: 18px
+//   }
+// }));
 
 const getAllCategoiresUrl = "http://localhost:3333/api/category";
 const getAllTagsUrl = "http://localhost:3333/api/tag";
@@ -174,7 +175,6 @@ function Step1(props) {
             name="description"
             fullWidth
             InputProps={{ classes: { root: classes.inputRoot2 } }}
-            className={classes.textField}
             InputLabelProps={{
               shrink: true,
               classes: {
