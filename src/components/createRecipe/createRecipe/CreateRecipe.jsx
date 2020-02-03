@@ -10,7 +10,7 @@ import Footer from "../../navigation/footerNav/FooterNav";
 
 function App(props) {
 
-  const [page, setPage] = useState(3);
+  const [page, setPage] = useState(1);
 
   const goForward = e => {
     e.preventDefault();

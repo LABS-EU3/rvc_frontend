@@ -20,7 +20,7 @@ import {
 } from "./FormStyled.styles";
 
 const getAllIngredientsUrl = `${process.env.REACT_APP_API_BASE_URL}api/ingredient`;
-const getAlUnitsUrl = `${process.env.REACT_APP_API_BASE_URL}api/unit`;
+const getAllUnitsUrl = `${process.env.REACT_APP_API_BASE_URL}api/unit`;
 
 
 function Step3(props) {
@@ -106,7 +106,7 @@ function Step3(props) {
           <IngredientsDiv>
             <DropDown
               className="dropdown"
-              listUrl={getAlUnitsUrl}
+              listUrl={getAllUnitsUrl}
               name="unit_id"
               inputHandler={inputHandler}
             />
