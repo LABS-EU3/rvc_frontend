@@ -3,18 +3,10 @@ import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators";
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import DropDown from "../../dropDown/DropDown";
-import { Link } from "react-router-dom";
-import { TextField, Select, MenuItem } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import {
-  Section1,
   NavigationSection1,
   Addtitle,
-  Section2,
   Section3,
-  Title,
-  Section2b,
   ExportImg
 } from "./FormStyled.styles";
 
