@@ -157,7 +157,7 @@ function Step2(props) {
           </Fab>
         </NavigationSection1>
         <Addtitle>
-          <h1>Upload Image</h1>
+          <h1>Upload Image!</h1>
         </Addtitle>
       </Section3>
       <ExportImg>
