@@ -30,18 +30,21 @@ import {
 // }));
 
 const getAllCategoiresUrl = `${process.env.REACT_APP_API_BASE_URL}api/category`;
-const getAllTagsUrl = `${process.env.REACT_APP_API_BASE_URL}api/tag`;
+const getAlTagsUrl = `${process.env.REACT_APP_API_BASE_URL}api/tag`;
 
 
 function Step1(props) {
-
+console.log('ataa',props)
   const {
     goForward,
     editRecipe,
     editCategory,
     editTag,
-    displayNotificationModal
+    displayNotificationModal,
+    match
   } = props;
+  
+  const recipeID = match.params.id.trim();
 
   const [inputState, setInputState] = useState({
     title: "",
@@ -54,6 +57,7 @@ function Step1(props) {
     recipe_tags: ""
   });
 
+
   const inputHandler = e => {
     e.preventDefault();
     setInputState({ ...inputState, [e.target.name]: e.target.value });
@@ -64,11 +68,11 @@ function Step1(props) {
     delete recipe.tags;
     delete recipe.recipe_categories;
     delete recipe.recipe_tags;
-    editRecipe(recipe);
+    editRecipe(recipeID, recipe);
 
-    editCategory([inputState.recipe_categories])
+    editCategory(recipeID,[inputState.recipe_categories])
 
-    editTag([inputState.recipe_tags])
+    editTag(recipeID, [inputState.recipe_tags])
     
     goForward(e);
     displayNotificationModal('The edited recipe has been added to your cookbook!', '/seerecipe/:id');
@@ -266,7 +270,7 @@ function Step1(props) {
           </SwitchDiv> */}
       <Title>Add Tags</Title>
         <DropDown
-          listUrl={getAllTagsUrl}
+          listUrl={getAlTagsUrl}
           name="recipe_tags"
           inputHandler={inputHandler}
           className="category"

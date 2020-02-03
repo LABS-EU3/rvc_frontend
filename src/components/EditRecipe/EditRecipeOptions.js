@@ -30,19 +30,19 @@ const EditRecipeOptions = () => {
       <Section2b>
           <EditDiv>
           <h1> 
-            <Link to='/editrecipe/all'>Edit entire recipe</Link>
+            <Link to='/editrecipe/:id/all'>Edit entire recipe</Link>
           </h1>
           <h1> 
-            <Link to='/editrecipe/desc' >Update recipe description</Link>
+            <Link to='/editrecipe/:id/desc' >Update recipe description</Link>
           </h1>
           <h1> 
-           <Link to='/editrecipe/img'>Upload new picture</Link>
+           <Link to='/editrecipe/:id/img'>Upload new picture</Link>
           </h1>
           <h1> 
-            <Link to='/editrecipe/ing'>Modify ingredients</Link>
+            <Link to='/editrecipe/:id/ing'>Modify ingredients</Link>
           </h1>
           <h1>
-            <Link to='/editrecipe/inst'>Modify instructions</Link>
+            <Link to='/editrecipe/:id/inst'>Modify instructions</Link>
           </h1>
           </EditDiv>
       </Section2b>

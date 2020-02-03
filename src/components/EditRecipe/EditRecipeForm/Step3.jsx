@@ -24,14 +24,16 @@ import {
   AddItem
 } from "../EditRecipe.styles";
 
-const getAllIngredientsUrl = "http://localhost:3333/api/ingredient";
-const getAlUnitsUrl = "http://localhost:3333/api/unit";
+const getAllIngredientsUrl =  `${process.env.REACT_APP_API_BASE_URL}api/ingredient`;
+const getAlUnitsUrl =  `${process.env.REACT_APP_API_BASE_URL}api/unit`;
 
 function Step3(props) {
   const { goForward, addRecipeIngredientsToBody,
   editIngredient,
-  displayNotificationModal
+  displayNotificationModal,
+  match
  } = props;
+ const recipeID = match.params.id.trim();
 
   const [inputState, setInputState] = useState({
     unit_id: "",

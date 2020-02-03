@@ -25,9 +25,12 @@ function Step4(props) {
     goForward,
     addInstructionsToBody,
     editInstruction,
-    displayNotificationModal
+    displayNotificationModal,
+    match
    } = props;
 
+  const recipeID = match.params.id.trim();
+  
   const [inputState, setInputState] = useState("");
 
   const [instructionsArray, setInstructionsArray] = useState([]);
@@ -37,9 +40,9 @@ function Step4(props) {
     setInputState(e.target.value);
   };
 
-  const onSubmit = e => {
+  const onEditSubmit = e => {
     e.preventDefault();
-    addInstructionsToBody(instructionsArray);
+    editInstruction(recipeID, instructionsArray);
     goForward(e);
     displayNotificationModal('The edited recipe has been added to your cookbook!', '/seerecipe/:id');
   };
@@ -50,7 +53,7 @@ function Step4(props) {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onEditSubmit}>
       <Section3>
       <NavigationSection1>
           <Link to='/editrecipe'>
