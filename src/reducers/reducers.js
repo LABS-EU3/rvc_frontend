@@ -312,84 +312,85 @@ const initialProfileState = {
   message: ""
 };
 
-const dummyProfileState = {
-  // The following exist in the db as-is:
-  profile_pic: "",
-  first_name: "Dummy",
-  last_name: "Dummyname",
-  bio: "Oh boy, here I go cookin' again!",
-  // The following need their own request(s)...
-  user_recipes: [
-    {
-      id: 2,
-      recipe_title: "Pancakes",
-      author: "TEST",
-      time_required: 55,
-      difficulty: 1,
-      budget: 1,
-      images: [
-        "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
-      ]
-    },
-    {
-      id: 2,
-      recipe_title: "Pancakes",
-      author: "TEST",
-      time_required: 55,
-      difficulty: 1,
-      budget: 1,
-      images: [
-        "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
-      ]
-    },
-    {
-      id: 2,
-      recipe_title: "Pancakes",
-      author: "TEST",
-      time_required: 55,
-      difficulty: 1,
-      budget: 1,
-      images: [
-        "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
-      ]
-    },
-    {
-      id: 2,
-      recipe_title: "Cakes",
-      author: "TEST",
-      time_required: 55,
-      difficulty: 1,
-      budget: 1,
-      images: [
-        "https://keyassets-p2.timeincuk.net/wp/prod/wp-content/uploads/sites/53/2019/07/pick-and-mix-choc-cake-920x605.jpg"
-      ]
-    }
-  ], // A
-  liked_recipes: [
-    {
-      id: 2,
-      recipe_title: "Cookies",
-      author: "TEST",
-      time_required: 55,
-      difficulty: 1,
-      budget: 1,
-      images: [
-        "https://www.handletheheat.com/wp-content/uploads/2018/02/BAKERY-STYLE-CHOCOLATE-CHIP-COOKIES-9.jpg"
-      ]
-    }
-  ], // B
-  forked_recipes_count: 0,
-  // ... determining the following:
-  recipe_count: 2, // A
-  recipes_forked_count: 1, // B
-  // And the following are meta:
-  isFetchingProfile: false,
-  isFetchingUserRecipes: false,
-  isFetchingUserLikes: false,
-  isFetchingForkedRecipesCount: false,
-  error: "",
-  message: ""
-};
+// not used
+// const dummyProfileState = {
+//   // The following exist in the db as-is:
+//   profile_pic: "",
+//   first_name: "Dummy",
+//   last_name: "Dummyname",
+//   bio: "Oh boy, here I go cookin' again!",
+//   // The following need their own request(s)...
+//   user_recipes: [
+//     {
+//       id: 2,
+//       recipe_title: "Pancakes",
+//       author: "TEST",
+//       time_required: 55,
+//       difficulty: 1,
+//       budget: 1,
+//       images: [
+//         "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
+//       ]
+//     },
+//     {
+//       id: 2,
+//       recipe_title: "Pancakes",
+//       author: "TEST",
+//       time_required: 55,
+//       difficulty: 1,
+//       budget: 1,
+//       images: [
+//         "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
+//       ]
+//     },
+//     {
+//       id: 2,
+//       recipe_title: "Pancakes",
+//       author: "TEST",
+//       time_required: 55,
+//       difficulty: 1,
+//       budget: 1,
+//       images: [
+//         "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273477_8.jpg?itok=6VhpTntM"
+//       ]
+//     },
+//     {
+//       id: 2,
+//       recipe_title: "Cakes",
+//       author: "TEST",
+//       time_required: 55,
+//       difficulty: 1,
+//       budget: 1,
+//       images: [
+//         "https://keyassets-p2.timeincuk.net/wp/prod/wp-content/uploads/sites/53/2019/07/pick-and-mix-choc-cake-920x605.jpg"
+//       ]
+//     }
+//   ], // A
+//   liked_recipes: [
+//     {
+//       id: 2,
+//       recipe_title: "Cookies",
+//       author: "TEST",
+//       time_required: 55,
+//       difficulty: 1,
+//       budget: 1,
+//       images: [
+//         "https://www.handletheheat.com/wp-content/uploads/2018/02/BAKERY-STYLE-CHOCOLATE-CHIP-COOKIES-9.jpg"
+//       ]
+//     }
+//   ], // B
+//   forked_recipes_count: 0,
+//   // ... determining the following:
+//   recipe_count: 2, // A
+//   recipes_forked_count: 1, // B
+//   // And the following are meta:
+//   isFetchingProfile: false,
+//   isFetchingUserRecipes: false,
+//   isFetchingUserLikes: false,
+//   isFetchingForkedRecipesCount: false,
+//   error: "",
+//   message: ""
+// };
 
 export const profileReducer = (state = initialProfileState, action) => {
   switch (action.type) {
