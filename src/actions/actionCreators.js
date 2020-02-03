@@ -354,7 +354,6 @@ export const editImage = (id , image) => dispatch => {
   dispatch({ type: types.EDIT_IMAGE})
   axiosWithAuth()
   .post(`api/recipe/${id}/image`, image)
-
   .then(res => { dispatch({
     type: types.EDIT_IMAGE_OK, payload:res.data
   })})
@@ -364,7 +363,7 @@ export const editImage = (id , image) => dispatch => {
   })
 }
 
-export const editCategory = ( id, category) => dispatch => { 
+export const editCategory = (id, category) => dispatch => { 
   axiosWithAuth()
   .put(`api/category/${id}`, category)
   .then(res => { dispatch({ 
@@ -375,7 +374,7 @@ export const editCategory = ( id, category) => dispatch => {
     dispatch({ type: types.EDIT_CATEGORY_FAIL, payload:error})
   })
 }
-export const editTag = ( id, tag) => dispatch => { 
+export const editTag = (id, tag) => dispatch => { 
   axiosWithAuth()
   .put(`api/tag/${id}`, tag)
   .then(res => { dispatch({ 
@@ -387,7 +386,7 @@ export const editTag = ( id, tag) => dispatch => {
   })
 }
 
-export const editInstruction = ( id, instruction) => dispatch => { 
+export const editInstruction = (id, instruction) => dispatch => { 
   axiosWithAuth()
   .put( `api/instruction/${id}`, instruction)
   .then(res => { dispatch({ 

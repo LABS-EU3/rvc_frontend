@@ -28,7 +28,7 @@ const getAllIngredientsUrl = "http://localhost:3333/api/ingredient";
 const getAlUnitsUrl = "http://localhost:3333/api/unit";
 
 function Step3(props) {
-  const { goForward, addRecipeIngredientsToBody } = props;
+  const { goForward, addRecipeIngredientsToBody, displayNotificationModal } = props;
 
   const [inputState, setInputState] = useState({
     unit_id: "",
@@ -70,6 +70,8 @@ function Step3(props) {
     e.preventDefault();
     addRecipeIngredientsToBody(ingredientsArray)
     goForward(e);
+    displayNotificationModal('The edited recipe has been added to your cookbook!', '/seerecipe/:id');
+
   };
 
   const addIngredient = e => {

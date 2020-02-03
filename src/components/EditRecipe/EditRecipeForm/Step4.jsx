@@ -21,7 +21,7 @@ import {
 } from "../EditRecipe.styles";
 
 function Step4(props) {
-  const { goForward, addInstructionsToBody } = props;
+  const { goForward, addInstructionsToBody, displayNotificationModal } = props;
 
   const [inputState, setInputState] = useState("");
 
@@ -36,6 +36,7 @@ function Step4(props) {
     e.preventDefault();
     addInstructionsToBody(instructionsArray);
     goForward(e);
+    displayNotificationModal('The edited recipe has been added to your cookbook!', '/seerecipe/:id');
   };
 
   const addInstruction = e => {

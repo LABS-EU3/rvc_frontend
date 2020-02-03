@@ -42,8 +42,8 @@ function Step1(props) {
     // addRecipeTagsToBody,
     editRecipe,
     editCategory,
-    editTag
-
+    editTag,
+    displayNotificationModal
   } = props;
 
   const [inputState, setInputState] = useState({
@@ -62,25 +62,6 @@ function Step1(props) {
     setInputState({ ...inputState, [e.target.name]: e.target.value });
   };
 
-  // const onSubmit = e => {
-  //   e.preventDefault();
-
-  //   // body.recipe
-  //   const recipe = { ...inputState };
-  //   delete recipe.tags;
-  //   delete recipe.recipe_categories;
-  //   delete recipe.recipe_tags;
-  //   addRecipeToBody(recipe);
-
-  //   // body.recipe_categories
-  //   addRecipeCategoriesToBody([inputState.recipe_categories])
-
-  //   // body.recipe_tags
-  //   addRecipeTagsToBody([inputState.recipe_tags])
-    
-  //   goForward(e);
-  // };
-
   const onEditSubmit = e => {
     const recipe = { ...inputState };
     delete recipe.tags;
@@ -91,6 +72,10 @@ function Step1(props) {
     editCategory([inputState.recipe_categories])
 
     editTag([inputState.recipe_tags])
+    
+    goForward(e);
+    displayNotificationModal('The edited recipe has been added to your cookbook!', '/seerecipe/:id');
+
    }
 
   const useStyles = makeStyles(theme => ({

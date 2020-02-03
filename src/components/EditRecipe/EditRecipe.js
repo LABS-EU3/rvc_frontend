@@ -16,50 +16,66 @@ const EditRecipe = ({match}) => {
 
   const goForward = e => {
     e.preventDefault();
-    setPage(page + 1);
+    setPage(page + 1)
+  }
 
-  };
+  
   switch(block){
+    // case 'all':
+    //   return (
+    //     <div className="App">
+    //     {page === 1 && <Step1 goForward={goForward} />}
+    //     {page === 2 && <Step2 goForward={goForward} />}
+    //     {page === 3 && <Step3 goForward={goForward} />}
+    //     {page === 4 && <Step4 goForward={goForward} 
+    //     />}
+    //     <Footer></Footer>
+    //   </div>
+    //     )
     case 'desc':
     return (
       <div className="App">
-      <Step1 goFoward={null}/>
+      <Step1 goFoward={null}
+      />
       <Footer></Footer>
       </div>
     )
     case 'img':
     return (
       <div className="App">
-      <Step2 goFoward={null}/>
+      <Step2 goFoward={null}
+      />
       <Footer></Footer>
       </div>
     )
     case 'ing':
     return (
       <div className="App">
-      <Step3 goFoward={null}/>
+      <Step3 goFoward={null}
+      />
       <Footer></Footer>
     </div>
     )
     case 'inst':
     return (
       <div className="App">
-      <Step4 goFoward={null}/>
+      <Step4 goFoward={null}
+      />
       <Footer></Footer>
     </div>
     )
+    
     default:
       return (
         <div className="App">
         {page === 1 && <Step1 goForward={goForward} />}
         {page === 2 && <Step2 goForward={goForward} />}
         {page === 3 && <Step3 goForward={goForward} />}
-        {page === 4 && <Step4 goForward={goForward} />}
+        {page === 4 && <Step4 goForward={goForward} 
+        />}
         <Footer></Footer>
       </div>
       )
-
-
   }
 }
 

@@ -30,7 +30,7 @@ const EditRecipeOptions = () => {
       <Section2b>
           <EditDiv>
           <h1> 
-            <Link to='/editrecipe/desc'>Edit entire recipe</Link>
+            <Link to='/editrecipe/all'>Edit entire recipe</Link>
           </h1>
           <h1> 
             <Link to='/editrecipe/desc' >Update recipe description</Link>

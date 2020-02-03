@@ -24,12 +24,14 @@ import axios from "axios";
 
 function Step2(props) {
   const [imgUrl, setImgUrl] = useState(false);
-  const { goForward, editImage } = props;
+  const { goForward, editImage, displayNotificationModal } = props;
 
   const onEditSubmit = e => {
     e.preventDefault();
     editImage(imgUrl)
     goForward(e);
+    displayNotificationModal('The edited recipe has been added to your cookbook!', '/seerecipe/:id');
+
   };
 
   const uploadImage = async e => {
