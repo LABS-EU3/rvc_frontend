@@ -13,9 +13,11 @@ import EditProfile from "./components/profile/editProfile/EditProfile";
 import IngredientView from "./components/ingredients/ingredientView/IngredientView";
 import InstructionView from "./components/instructions/instructionView/InstructionView";
 import CreateRecipe from "./components/createRecipe/createRecipe/CreateRecipe";
+import marketingPage from './components/marketingPage/MarketingPage'
 import Modal from './components/notification/modal/Modal';
 
 import "./App.css";
+import MarketingPage from "./components/marketingPage/MarketingPage";
 
 function App(props) {
   const { isDisplaying } = props;
@@ -26,6 +28,7 @@ function App(props) {
       <Route exact path="/" component={RecipeView} />
       <Route path="/login" component={FormikLoginForm} />
       <Route path="/register" component={FormikRegisterForm} />
+      <Route path="/welcome" component={MarketingPage} />
 
       <Route path="/recipes" exact component={RecipeView} />
       <Route path="/recipes/:id" render={props => <SeeRecipe {...props} />} />
