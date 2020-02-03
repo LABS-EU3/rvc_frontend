@@ -447,7 +447,7 @@ border: 0;
 height: 4.5rem;
 margin-top:2%;
 display: flex;
-align-content:flex-start;
+justify-content: space-between;
 background: rgba(10, 179, 138, 0.08);
 border-radius: 2px;
 box-sizing: content-box;

@@ -64,6 +64,13 @@ export const DetailsRecipe = styled.div`
   padding-left: 2rem;
   width: 80%;
   font-size: 2rem;
+  .recipe-title {
+    color: rgba(255,48,100,0.8);
+    font-weight: 700;
+  }
+  .recipe-description {
+    font-size: large;
+  }
 `;
 
 export const ProfilePicture = styled.div`

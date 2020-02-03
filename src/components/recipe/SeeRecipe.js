@@ -39,8 +39,9 @@ function SeeRecipe({
   displayLikeModal,
   user_id
 }) {
-  console.log("SeeRecipe.js > recipe: ", recipe);
   
+  const shortDescription = (recipe.description + "").substr(0, 20);
+
   const recipeID = match.params.id.trim();
 
   const [localLikeState, setLocalLikeState] = useState(userLikes.includes(parseInt(recipeID)));
@@ -83,7 +84,6 @@ function SeeRecipe({
             <h1>{localLikeState ? "Forked" : "Fork"}</h1>
           </ForkButton>
         </TopButtonDiv>
-
       </RecipeTopDiv>
 
       <CardDiv>
@@ -106,7 +106,12 @@ function SeeRecipe({
             </h1>
           </ProfilePicture>
 
-          <DetailsRecipe>{recipe.recipe_title || ""}</DetailsRecipe>
+          <DetailsRecipe>
+            <p className="recipe-title">{recipe.recipe_title || ""}</p>
+            <Popup modal trigger={<p className="recipe-description">{`${shortDescription}...`}</p>}>
+              {close => <p close={close}>{recipe.description}</p>}
+            </Popup>
+          </DetailsRecipe>
         </DescriptionDiv>
 
         <BottomButtonDiv>
