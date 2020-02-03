@@ -38,6 +38,12 @@ function Step4(props) {
     setInstructionsArray([...instructionsArray, inputState]);
   };
 
+  const removeInstruction = (e, ing, i) => {
+    e.preventDefault();
+    setInstructionsArray(instructionsArray.filter(instruction => instruction !== ing))
+    
+  }
+
   const goBack = e => {
     goBackward();
   };
@@ -110,8 +116,8 @@ function Step4(props) {
           type="text"
           name="instruction"
         />
+
         <p className="description-paragraph">click on the plus button to add your instruction!</p>
-        <div onClick={addInstruction} style={{ margin: "0 auto" }}></div>
         <div onClick={addInstruction} style={{ margin: "0 auto" }}>
         <Fab 
           style={{"background": "none",
@@ -130,6 +136,7 @@ function Step4(props) {
             ? instructionsArray.map((ing, i) => (
                 <AddItem>
                   <p key={i}>{ing}</p>
+                  <button onClick={ e => {removeInstruction(e, ing, i)} }>X</button>                  
                 </AddItem>
               ))
             : null}
