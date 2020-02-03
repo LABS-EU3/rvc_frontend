@@ -27,11 +27,15 @@ function Step2(props) {
   const { goForward, editImage, displayNotificationModal } = props;
 
   const recipeID = useParams().id.trim()
+  const modalActivator = useParams().block
 
   const onEditSubmit = e => {
     e.preventDefault();
     editImage(recipeID,imgUrl)
-    goForward(e);
+    modalActivator === 'all'
+    ? 
+    goForward(e)
+    :
     displayNotificationModal('The edited recipe has been added to your cookbook!', '/seerecipe/:id');
 
   };

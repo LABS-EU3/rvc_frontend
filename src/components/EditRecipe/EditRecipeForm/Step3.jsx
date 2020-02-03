@@ -33,6 +33,7 @@ function Step3(props) {
   displayNotificationModal,
  } = props;
  const recipeID = useParams().id.trim()
+ const modalActivator = useParams().block
 
   const [inputState, setInputState] = useState({
     unit_id: "",
@@ -73,7 +74,10 @@ function Step3(props) {
   const onSubmit = e => {
     e.preventDefault();
     addRecipeIngredientsToBody(ingredientsArray)
-    goForward(e);
+    modalActivator === 'all'
+    ? 
+    goForward(e)
+    :
     displayNotificationModal('The edited recipe has been added to your cookbook!', '/seerecipe/:id');
 
   };

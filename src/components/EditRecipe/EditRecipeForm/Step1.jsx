@@ -44,7 +44,8 @@ console.log('ataa',props)
   } = props;
 
   const recipeID = useParams().id.trim()
-
+  const modalActivator = useParams().block
+  console.log('black' ,useParams())
   const [inputState, setInputState] = useState({
     title: "",
     description: "",
@@ -73,8 +74,12 @@ console.log('ataa',props)
 
     editTag(recipeID, [inputState.recipe_tags])
     
-    goForward(e);
+    modalActivator === 'all'
+    ? 
+    goForward(e)
+    :
     displayNotificationModal('The edited recipe has been added to your cookbook!', '/seerecipe/:id');
+    goForward(e);
 
    }
 

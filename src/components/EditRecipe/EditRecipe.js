@@ -79,5 +79,3 @@ const EditRecipe = ({match}) => {
   }
 }
 export default connect(state => state, dispatchers)(EditRecipe)
-// export const matchLink = withRouter(EditRecipe);
-// export default withRouter(connect(state => state, dispatchers(EditRecipe)))
