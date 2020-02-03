@@ -32,6 +32,10 @@ export const ForkButton = styled.div`
       font-weight: bold;
     }
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const ShareButton = styled.div`
@@ -39,6 +43,10 @@ export const ShareButton = styled.div`
   height: 35px;
   background: rgba(182, 182, 182, 0.6);
   border-radius: 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const ImgRecipe = styled.div`
@@ -104,6 +112,10 @@ export const LgButton = styled.div`
   background: rgba(10, 179, 138, 0.74);
   border-radius: 9px;
   color: white;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 // Recipe Card:
