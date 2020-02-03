@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../../App.css";
 
 const Recipe = ({ recipe }) => {
+
   const {
     id,
     recipe_title,

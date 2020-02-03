@@ -4,17 +4,12 @@ import * as dispatchers from "../../../actions/actionCreators";
 
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import DropDown from "../../dropDown/DropDown";
-import { Link } from "react-router-dom";
-import { TextField, Select, MenuItem } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import Fab from '@material-ui/core/Fab';
 import {
   Section1,
   NavigationSection1,
   Addtitle,
-  Section2,
-  Title,
-  SwitchDiv
+  PreviewDiv
 } from "./FormStyled.styles";
 
 function Step5(props) {
@@ -49,19 +44,37 @@ function Step5(props) {
     <div>
       <Section1>
         <NavigationSection1>
-          <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
-          <CheckIcon className="check-icon" cgit onClick={submitRecipe} />
+         <Fab 
+          style={{"background": "none", "box-shadow": "none", "outline": 'none'
+          }}
+          >
+            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
+         </Fab>
+          <Fab 
+          style={{"background": "none", "box-shadow": "none", "outline": 'none'
+          }}
+          >
+            <CheckIcon className="check-icon" cgit onClick={submitRecipe} />
+          </Fab>
         </NavigationSection1>
         <Addtitle>
           <h1>Preview of {recipe.title}</h1>
         </Addtitle>
       </Section1>
-      <img src={images[0]} alt="preview of newly created recipe"/>
-      {/* <button onClick={submitRecipe} >Submit</button> */}
+      <PreviewDiv>
+      <img src={images} className="preview-image" alt="preview of newly created recipe"/>
+      <p>
+      {recipe.description}
+      </p>
+      <h2>Ingredients</h2>
+        {recipe_ingredients}
+      <h2>Instruction</h2>
+        {instructions}
+
+      </PreviewDiv>
     </div>
   );
 }
 
-function mapStateToProps(state) {}
 
 export default connect(state => state.newRecipe, dispatchers)(Step5);

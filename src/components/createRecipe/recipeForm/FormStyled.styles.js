@@ -304,7 +304,12 @@ input {
 export const NavigationSection1 = styled.div`
 display:flex;
 justify-content: space-between;
+button:hover { 
+  cursor: pointer
+}
 `
+
+
 
 export const Addtitle = styled.div `
 margin-left:5%;
@@ -362,6 +367,43 @@ h1 {
   color: #c4c4c4;
 }
 `
+
+export const PreviewDiv = styled.div `
+display: flex;
+flex-direction: column;
+margin-top:10%;
+margin-left:2%;
+margin-right:2%;
+.preview-image {
+  width: 100%;
+  max-width: 100%;
+  max-height: 397px;
+  background: rgba(10, 178, 138, 0.21);
+  display:flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: space-between;
+  margin-top: 3.5rem;
+
+  .img {
+    max-height: 397px;
+    width: 100%;
+  }
+}
+.h1 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 38px;
+  margin-bottom:10px;
+}
+.description-paragraph {
+  font-size: 1.4rem;
+  color: #c4c4c4;
+}
+`
+
+
 
 export const ExportImg = styled.div `
 width: 100%;
@@ -455,3 +497,6 @@ input {
   margin-right:2%;
   // width:5rem;
   `
+
+
+ 

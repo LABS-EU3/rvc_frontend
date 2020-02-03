@@ -246,7 +246,7 @@ function Step1(props) {
         /> */}
       <br></br>
       <br></br>
-      <Title>Options:</Title>
+      {/* <Title>Options:</Title>
           <SwitchDiv>
             <div>
             <p>Private</p><br></br>
@@ -256,7 +256,7 @@ function Step1(props) {
               <input type="checkbox" name="options" value="Private" />
               <span class="slider round"></span>
             </label>
-          </SwitchDiv>
+          </SwitchDiv> */}
       <Title>Add Tags</Title>
         <DropDown
           listUrl={getAllTagsUrl}

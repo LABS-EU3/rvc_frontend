@@ -312,7 +312,7 @@ const initialProfileState = {
   message: ""
 };
 
-// not used
+// not used at the moment might be used later
 // const dummyProfileState = {
 //   // The following exist in the db as-is:
 //   profile_pic: "",

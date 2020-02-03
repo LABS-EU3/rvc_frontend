@@ -221,10 +221,8 @@ export const getProfile = () => dispatch => {
   dispatch({ type: types.GET_PROFILE });
 
   const generalError = error => { // For use below!
-    console.log(error);
     dispatch({ type: types.GET_PROFILE_FAILURE, payload: error});
   }
-
   const getProfileInfo = axiosWithAuth()
     .get('/api/profile')
     .then(res => {
@@ -254,6 +252,7 @@ export const getProfile = () => dispatch => {
       dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload});
     })
     .catch(generalError);
+
 
   const getUserLikes = axiosWithAuth()
     .get('api/profile/liked') // **subject to change!**
