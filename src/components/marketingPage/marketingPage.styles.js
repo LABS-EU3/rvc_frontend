@@ -18,10 +18,11 @@ align-items: center;
     display: flex;
     flex-direction: column;
     .banner-image {
+        margin: 4rem auto;
         width: 52%;
         height: 65%;
         background-color: white;
-        margin: auto;
+        // margin-: auto;
         transform: rotate(5deg);
         img {
             width: 100%;
@@ -29,6 +30,10 @@ align-items: center;
             border-radius: 1rem;
         }
     }
+}
+
+.carousel .slide {
+    background: inherit;
 }
 
 .button-section {

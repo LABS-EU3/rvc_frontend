@@ -1,4 +1,6 @@
 import React from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 import { StyledDiv } from "./marketingPage.styles";
 import food1 from "../../../src/images/dish1.jpg";
 import one from "../../../src/images/one.png";
@@ -30,9 +32,23 @@ export default function MarketingPage() {
       <StyledDiv>
         <h1 className="header">Find Real recipes</h1>
         <div className="banner-image-section">
-          <div className="banner-image">
+          {/* <div className="banner-image">
             <img src={food1} alt="pic for food" />
-          </div>
+          </div> */}
+          <Carousel showArrows={true}  style={{"background-color": "white"}}>
+                <div className="banner-image">
+                <img src={food1} alt="pic for food" />
+                    {/* <p className="legend">Legend 1</p> */}
+                </div>
+                <div className="banner-image">
+                <img src={food1} alt="pic for food" />
+                    {/* <p className="legend">Legend 2</p> */}
+                </div>
+                <div className="banner-image">
+                <img src={food1} alt="pic for food" />
+                    {/* <p className="legend">Legend 3</p> */}
+                </div>
+            </Carousel>
           <div className="recipe-details"></div>
         </div>
         <div className="button-section">
