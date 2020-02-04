@@ -7,7 +7,6 @@ import Step3 from "./EditRecipeForm/Step3"
 import Step4 from "./EditRecipeForm/Step4";
 import Footer from "../navigation/footerNav/FooterNav"
 
-import { withRouter } from 'react-router-dom'
 const EditRecipe = ({match}) => { 
 
   const block =  match.params.block ? match.params.block.trim() : '';
@@ -16,7 +15,7 @@ const EditRecipe = ({match}) => {
 
   const goForward = e => {
     e.preventDefault();
-    setPage(page + 1)
+    setPage(page + 1);
   }
 
   
@@ -71,8 +70,7 @@ const EditRecipe = ({match}) => {
         {page === 1 && <Step1 goForward={goForward} />}
         {page === 2 && <Step2 goForward={goForward} />}
         {page === 3 && <Step3 goForward={goForward} />}
-        {page === 4 && <Step4 goForward={goForward} 
-        />}
+        {page === 4 && <Step4 goForward={goForward} />}
         <Footer></Footer>
       </div>
       )

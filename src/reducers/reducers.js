@@ -538,51 +538,15 @@ export function editRecipeReducer(state = initialRecipe, action) {
          recipe: action.payload
          };
     case types.EDIT_RECIPE_FAIL:
-      return { 
-        ...state, error: action.payload 
-      };
+      return { ...state, error: action.payload };
     default: 
       return state
   }
 }
+
 const initialCategory = {
   editedCategory: [],
   error: ''
-}
-const initialTag = { 
-  editedTag: [],
-  error: ''
-}
-const initialImage= { 
-  editedImage: [],
-  error: '',
-  isFetching: false 
-}
-const initialIngredient= { 
-  editedIngredient: [],
-  error: '',
-  isFetching: false
-}
-const initialInstruction = { 
-  instructions: [],
-  error: '',
-}
- 
-export function editInstructionReducer(state= initialInstruction, action) { 
-  switch(action.type){ 
-    case types.EDIT_INSTRUCTION_OK:
-      return { 
-        ...state, 
-        instructions: action.payload
-      };
-    case types.EDIT_INSTRUCTION_FAIL: 
-    return { 
-      ...state, 
-      error: action.payload
-    };
-    default:
-      return state;
-    }
 }
 
 export function editCategoryReducer (state= initialCategory, action) { 
@@ -593,13 +557,15 @@ export function editCategoryReducer (state= initialCategory, action) {
         recipe_categories: action.payload.new
       };
     case types.EDIT_CATEGORY_FAIL: 
-     return { 
-      ...state, 
-      error: action.payload
-    }
+     return { ...state, error: action.payload }
     default: 
       return state
   }
+}
+
+const initialTag = { 
+  editedTag: [],
+  error: ''
 }
 
 export function editTagReducer (state=initialTag, action){ 
@@ -610,13 +576,16 @@ export function editTagReducer (state=initialTag, action){
         tags: action.payload.new
       };
     case types.EDIT_TAG_FAIL: 
-    return { 
-      ...state, 
-      error: action.payload
-    }
+      return { ...state, error: action.payload }
     default: 
-    return state
+      return state
   }
+}
+
+const initialImage= { 
+  images: [],
+  error: '',
+  isFetchingImage: false 
 }
 
 export function editImageReducer(state=initialImage, action) { 
@@ -633,50 +602,74 @@ export function editImageReducer(state=initialImage, action) {
         isFetchingImage: false
     };
     case types.EDIT_IMAGE_FAIL: 
-      return{
-        ...state,
-        error: action.payload,
+      return{ ...state, error: action.payload,
       };
       default: 
-      return state
-    }
-  }
-    
-  export function editIngredientReducer (state= initialIngredient, action) { 
-    switch(action.type){
-      case types.EDIT_INGREDIENT_OK:
-        return{ 
-          ...state, 
-          recipe_ingredients: action.payload.index
-        };
-      case types.EDIT_INGREDIENT_FAIL:
-        return{ 
-          ...state,
-          error: action.payload
-        };
-      case types.POST_INGREDIENT:
-        return{ 
-          ...state, 
-          isFetchingIngredient: true
-        };
-      case types.POST_INGREDIENT_OK: 
-        return{ 
-          ...state,
-          recipe_ingredient: action.payload,
-          isFetching: false
-        };
-      case types.POST_INGREDIENT_FAIL:
-        return{ 
-          ...state,
-          error: action.payload
-        };
-      default:
         return state
     }
-
   }
 
+const initialIngredient= { 
+  editedIngredient: [],
+  error: '',
+  isFetching: false
+}
 
+export function editIngredientReducer (state= initialIngredient, action) { 
+  switch(action.type){
+    case types.EDIT_INGREDIENT_OK:
+      return{ 
+        ...state, 
+        recipe_ingredients: action.payload.index
+      };
+    case types.EDIT_INGREDIENT_FAIL:
+      return{ 
+        ...state,
+        error: action.payload
+      };
+    case types.POST_INGREDIENT:
+      return{ 
+        ...state, 
+        isFetchingIngredient: true
+      };
+    case types.POST_INGREDIENT_OK: 
+      return{ 
+        ...state,
+        recipe_ingredient: action.payload,
+        isFetching: false
+      };
+    case types.POST_INGREDIENT_FAIL:
+      return{ 
+        ...state,
+        error: action.payload
+      };
+    default:
+      return state
+  }
+
+}
+
+
+
+const initialInstruction = { 
+  instructions: [],
+  error: '',
+}
+
+export function editInstructionReducer(state= initialInstruction, action) { 
+  switch(action.type){ 
+    case types.EDIT_INSTRUCTION_OK:
+      return { 
+        ...state, 
+        instructions: action.payload
+      };
+    case types.EDIT_INSTRUCTION_FAIL: 
+    return { ...state, error: action.payload
+    };
+    default:
+      return state;
+    }
+}
 
 
 // General Modal Reducer:

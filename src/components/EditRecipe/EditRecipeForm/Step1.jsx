@@ -30,11 +30,10 @@ import {
 // }));
 
 const getAllCategoiresUrl = `${process.env.REACT_APP_API_BASE_URL}api/category`;
-const getAlTagsUrl = `${process.env.REACT_APP_API_BASE_URL}api/tag`;
+const getAllTagsUrl = `${process.env.REACT_APP_API_BASE_URL}api/tag`;
 
 
 function Step1(props) {
-console.log('ataa',props)
   const {
     goForward,
     editRecipe,
@@ -45,7 +44,6 @@ console.log('ataa',props)
 
   const recipeID = useParams().id.trim()
   const modalActivator = useParams().block
-  console.log('black' ,useParams())
   const [inputState, setInputState] = useState({
     title: "",
     description: "",
@@ -272,7 +270,7 @@ console.log('ataa',props)
           </SwitchDiv> */}
       <Title>Add Tags</Title>
         <DropDown
-          listUrl={getAlTagsUrl}
+          listUrl={getAllTagsUrl}
           name="recipe_tags"
           inputHandler={inputHandler}
           className="category"

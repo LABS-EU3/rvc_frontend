@@ -356,7 +356,7 @@ export const editImage = (id , image) => dispatch => {
   axiosWithAuth()
   .post(`api/recipe/${id}/image`, image)
   .then(res => { dispatch({
-    type: types.EDIT_IMAGE_OK, payload:res.data
+    type: types.EDIT_IMAGE_OK, payload:res.data.url
   })})
   .catch(error => { 
     console.dir(error);
