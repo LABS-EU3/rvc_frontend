@@ -22,7 +22,6 @@ import {
 
 function Step4(props) {
   const { 
-    goForward,
     editInstruction,
     displayNotificationModal,
    } = props;

@@ -73,14 +73,12 @@ console.log('ataa',props)
     editCategory(recipeID,[inputState.recipe_categories])
 
     editTag(recipeID, [inputState.recipe_tags])
-    
+
     modalActivator === 'all'
     ? 
     goForward(e)
     :
     displayNotificationModal('The edited recipe has been added to your cookbook!', '/seerecipe/:id');
-    goForward(e);
-
    }
 
   const useStyles = makeStyles(theme => ({

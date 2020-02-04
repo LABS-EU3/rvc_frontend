@@ -526,8 +526,24 @@ export function newlyAddedRecipe(state = initialNewlyAddedRecipe, action) {
 
 
 const initialRecipe = {
-  editedRecipe: [],
+  recipe: {},
   error: ''
+}
+
+export function editRecipeReducer(state = initialRecipe, action) {
+  switch (action.type) {
+    case types.EDIT_RECIPE_OK:
+      return { 
+        ...state,
+         recipe: action.payload
+         };
+    case types.EDIT_RECIPE_FAIL:
+      return { 
+        ...state, error: action.payload 
+      };
+    default: 
+      return state
+  }
 }
 const initialCategory = {
   editedCategory: [],
@@ -548,26 +564,37 @@ const initialIngredient= {
   isFetching: false
 }
 const initialInstruction = { 
-  editedInstruction: [],
+  instructions: [],
   error: '',
 }
  
-
-export function editRecipeReducer(state = initialRecipe, action) {
-  switch (action.type) {
-    case types.EDIT_RECIPE_OK:
+export function editInstructionReducer(state= initialInstruction, action) { 
+  switch(action.type){ 
+    case types.EDIT_INSTRUCTION_OK:
       return { 
-        ...state,
-         recipe: action.payload
-         };
-    case types.EDIT_RECIPE_FAIL:
-      return { 
-        ...state, error: action.payload 
+        ...state, 
+        instructions: action.payload
       };
-    default: 
-      return state
+      // return{ 
+        // ...state,
+        // instructions: state.instructions.map(instruction =>
+        //   instruction.step === action.payload.step
+        //   ?
+        //   action.payload
+        //   :
+        //   instruction
+        //   )
+      }
+      
+    case types.EDIT_INSTRUCTION_FAIL: 
+    return { 
+      ...state, 
+      error: action.payload
+    };
+    default:
+      return state;
+    }
   }
-}
 
 export function editCategoryReducer (state= initialCategory, action) { 
   switch(action.type) { 
@@ -659,22 +686,7 @@ export function editImageReducer(state=initialImage, action) {
     }
 
   }
-export function editInstructionReducer(state=initialInstruction, action) { 
-  switch(action.type){ 
-    case types.EDIT_INSTRUCTION_OK:
-      return { 
-        ...state, 
-        instructions: action.payload
-      };
-    case types.EDIT_INSTRUCTION_FAIL: 
-    return { 
-      ...state, 
-      error: action.payload
-    };
-    default:
-      return state;
-    }
-  }
+
 
 
 
