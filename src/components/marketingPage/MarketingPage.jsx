@@ -1,14 +1,34 @@
 import React from "react";
 import { StyledDiv } from "./marketingPage.styles";
 import food1 from "../../../src/images/dish1.jpg";
+import one from "../../../src/images/one.png";
 import two from "../../../src/images/two.png";
 import three from "../../../src/images/three.png";
+ import { Link } from "react-router-dom";
+
+import Navigation from "../navigation/hamburgerNav/HamburgerNav";
 
 export default function MarketingPage() {
   return (
-    <div className="App">
+    <div>
+      <div className="menu-container">
+      <nav role="navigation">
+        <div id="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            <li>
+                Home
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
       <StyledDiv>
-        <h1>Find Real recipes</h1>
+        <h1 className="header">Find Real recipes</h1>
         <div className="banner-image-section">
           <div className="banner-image">
             <img src={food1} alt="pic for food" />
@@ -23,21 +43,36 @@ export default function MarketingPage() {
         </div>
         <section className="recipe-steps">
           <article className="explore">
-            <h2>EXPLORE <span><img style={{"width":"25%"}} src={two}/></span> </h2>
+            <h2>
+              <div>
+                <img alt="number pic" style={{ width: "25%" }} src={one} />
+              </div>
+              EXPLORE{" "}
+            </h2>
             <p>
               Discover hundreds of recipes based on the level of difficulty,
               your budget or time of preparation
             </p>
           </article>
           <article className="explore">
-          <h2>INNOVATE <span><img style={{"width":"25%"}} src={two}/></span></h2>
+            <h2>
+              INNOVATE{" "}
+              <div>
+                <img alt="number pic" style={{ width: "25%" }} src={two} />
+              </div>
+            </h2>
             <p>
               Save - or FORK IT as we like to say - the recipe you like in your
               own personal cookbook. Edit every forked recipe to your own taste!
             </p>
           </article>
           <article className="explore">
-          <h2><span><img style={{"width":"25%"}} src={three}/></span> CREATE</h2>
+            <h2>
+              <div>
+                <img alt="number pic" style={{ width: "25%" }} src={three} />
+              </div>{" "}
+              CREATE
+            </h2>
             <p>
               Create in 4 steps your own recipe and share it on your profile
               with your followers
