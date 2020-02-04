@@ -23,14 +23,15 @@ function Step2(props) {
     imageUpload(e, setLoading, setImgUrl);
   };
   const [imgUrl, setImgUrl] = useState(false);
-  const { goForward, 
+  const { 
+        goForward, 
         addImagesToBody, 
         goBackward 
       } = props;
 
   const onSubmit = e => {
     e.preventDefault();
-    addImagesToBody(imgUrl)
+    addImagesToBody(imgUrl);
     goForward(e);
   };
 
@@ -45,7 +46,7 @@ function Step2(props) {
       const data = new FormData();
       data.append("file", files[0]);
       data.append("upload_preset", "recipe_image");
-      const imageUrl = await axios .post("https://api.cloudinary.com/v1_1/dr34bum3p/image/upload", data)
+      const imageUrl = await axios.post("https://api.cloudinary.com/v1_1/dr34bum3p/image/upload", data)
       // Then
       setImgUrl([imageUrl.data.secure_url])
     } catch (error) {

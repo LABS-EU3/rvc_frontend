@@ -62,14 +62,14 @@ function Step5(props) {
         </Addtitle>
       </Section1>
       <PreviewDiv>
-      <img src={images} className="preview-image" alt="preview of newly created recipe"/>
+      <img src={images[0]} className="preview-image" alt="preview of newly created recipe"/>
       <p>
       {recipe.description}
       </p>
       <h2>Ingredients</h2>
-        {recipe_ingredients}
+        {recipe_ingredients.map(ingr => <p>{ingr.name}</p>)}
       <h2>Instruction</h2>
-        {instructions}
+        {instructions.map(instr => <p>{instr}</p>)}
 
       </PreviewDiv>
     </div>

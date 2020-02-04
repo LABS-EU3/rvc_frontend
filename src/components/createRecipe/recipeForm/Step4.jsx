@@ -136,7 +136,8 @@ function Step4(props) {
           />
           </Fab>
         </div>
-        {instructionsArray.length
+        {
+          instructionsArray.length
           ? instructionsArray.map((ing, i) => 
           <AddItem>
           <p key={i}>{ing}</p>
