@@ -24,8 +24,8 @@ const getAlUnitsUrl = `${process.env.REACT_APP_API_BASE_URL}api/unit`;
 
 function Step3(props) {
   const { goForward, goBackward, addRecipeIngredientsToBody } = props;
-  const [ingredientsError, setIngredientsError] = useState(false)
-
+  const [ingredientsError, setIngredientsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [inputState, setInputState] = useState({
     unit_id: "",
@@ -75,23 +75,28 @@ function Step3(props) {
       inputState.unit_name &&
       inputState.quantity &&
       inputState.ingredient_name
-    ){
+    ) {
       setIngredientsDisplayArray([...ingredientsDisplayArray, inputState]);
-    }else{
-      setIngredientsError(true)
-        setTimeout(() => {
-          setIngredientsError(false)
-        }, 2000)
-     
+    } else {
+      let errorMsg = "";
+      setIngredientsError(true);
+
+      if (!inputState.unit_name) errorMsg = "Select a unit type!";
+      if (!inputState.quantity) errorMsg = "Enter ingredient quantity!";
+      if (!inputState.ingredient_name) errorMsg = "Select a ingredient name!";
+      setErrorMessage(errorMsg);
+      setTimeout(() => {
+        setIngredientsError(false);
+      }, 2000);
     }
-      
   };
 
   const removeIngredients = (e, ing, i) => {
     e.preventDefault();
-    setIngredientsDisplayArray(ingredientsDisplayArray.filter(ingredient => ingredient !== ing))
-    
-  }
+    setIngredientsDisplayArray(
+      ingredientsDisplayArray.filter(ingredient => ingredient !== ing)
+    );
+  };
 
   const goBack = e => {
     goBackward();
@@ -149,21 +154,33 @@ function Step3(props) {
           </IngredientsDiv>
         </IngredientsWrapper>
         <br></br>
-        { ingredientsError && <p className="warning-paragraph">Add at least one instruction!</p> }
-        <p className="description-paragraph">click on the plus button to add your ingredients!</p>
+        {ingredientsError && (
+          <p className="warning-paragraph">{errorMessage}</p>
+        )}
+        <p className="description-paragraph">
+          click on the plus button to add your ingredients!
+        </p>
         <AddCircleOutlineTwoToneIcon
           // cgit
           style={{ margin: "0 auto", fontSize: 40, color: "#0AB38A" }}
           onClick={addIngredient}
         />
-        <div>          
+        <div>
           {ingredientsArray.length
             ? ingredientsDisplayArray.map((ing, i) => (
                 <AddItem>
                   <p key={i}>
-                    {ing.quantity} {ing.unit_name === "No Unit" ? "" : ing.unit_name + " of"} {ing.ingredient_name}
+                    {ing.quantity}{" "}
+                    {ing.unit_name === "No Unit" ? "" : ing.unit_name + " of"}{" "}
+                    {ing.ingredient_name}
                   </p>
-                    <button onClick={ e => {removeIngredients(e, ing, i)} }>X</button> 
+                  <button
+                    onClick={e => {
+                      removeIngredients(e, ing, i);
+                    }}
+                  >
+                    X
+                  </button>
                 </AddItem>
               ))
             : null}
