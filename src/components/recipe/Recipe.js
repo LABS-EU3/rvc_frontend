@@ -61,7 +61,7 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id, displayLi
   }, [likes])
 
   return (
-    <StyledRecipe>
+    <StyledRecipe className="recipe-div">
       <div className="recipe-img-box">
         <img className="recipe-img" src={imageUrl} alt="an " />
         <div className="overlay" style={buttonsShowing ? {background: "rgba(0, 0, 0, 0.3)"} : {background: "rgba(0, 0, 0, 0)"}}>
