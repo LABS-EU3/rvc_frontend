@@ -44,7 +44,7 @@ export default function MarketingPage() {
         <section className="recipe-steps">
           <article className="explore">
             <h2>
-              <div>
+              <div className="number-images">
                 <img alt="number pic" style={{ width: "25%" }} src={one} />
               </div>
               EXPLORE{" "}
@@ -57,7 +57,7 @@ export default function MarketingPage() {
           <article className="explore">
             <h2>
               INNOVATE{" "}
-              <div>
+              <div className="number-images">
                 <img alt="number pic" style={{ width: "25%" }} src={two} />
               </div>
             </h2>
@@ -68,7 +68,7 @@ export default function MarketingPage() {
           </article>
           <article className="explore">
             <h2>
-              <div>
+              <div className="number-images">
                 <img alt="number pic" style={{ width: "25%" }} src={three} />
               </div>{" "}
               CREATE

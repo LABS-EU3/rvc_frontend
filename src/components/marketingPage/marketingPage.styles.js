@@ -72,6 +72,9 @@ section {
             padding: 3rem;
             font-size: 2.2rem;
         }
+        .number-images {
+            display: inline;
+        }
     } 
 }
 
