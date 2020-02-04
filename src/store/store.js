@@ -16,6 +16,7 @@ const monsterReducer = combineReducers({
   ingredients : reducers.ingredientReducer,
   profile : reducers.profileReducer,
   modal: reducers.modalReducer,
+  userLikes: reducers.userLikesReducer,
 });
 
 const store = createStore(

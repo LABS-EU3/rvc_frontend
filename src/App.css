@@ -233,24 +233,24 @@ a:hover {
   margin-top: 15%;
 }
 
-.container .box {
+/* .container .box {
   width: 100%;
   margin: 0 0 10px;
   padding: 10px;
-  /* background-color: black; */
+  background-color: black;
   overflow: hidden;
   break-inside: avoid;
-}
+} */
 
-.container .box img {
+/* .container .box img {
   max-width: 100%;
-}
+} */
 
-.container .box p {
+/* .container .box p {
   margin: 5px 0 0;
   padding: 0 0 10px;
   font-size: 16px;
-}
+} */
 
 @media (max-width: 1200px) {
   .container {
@@ -272,7 +272,8 @@ a:hover {
   }
 }
 
-.recipe {
+/* These are duplicate!! */
+/* .recipe {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 9px;
 }
@@ -288,7 +289,7 @@ a:hover {
 .recipe-card-tag {
   display: flex;
   justify-content: space-between;
-  /* margin-right: 45px; */
+  margin-right: 45px;
 }
 
 .level-recipe {
@@ -298,7 +299,7 @@ a:hover {
   width: 18px;
   height: 18px;
   background-color: red;
-}
+} */
 
 /* index.css */
 .modal {
@@ -455,34 +456,12 @@ select {
   top: 0.5rem;
   right: 20.5rem;
 }
-.recipe {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 9px;
-}
-.recipe-card {
-  background: rgba(196, 196, 196, 0.12);
-  border-radius: 15px;
-  text-align: start;
-  padding: 2vh;
-  margin-top: 2vh;
-}
-.recipe-card-tag {
-  display: flex;
-  justify-content: space-between;
-  /* margin-right: 45px; */
-}
-.level-recipe {
-  color: transparent;
-  border: 1px solid;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  background-color: red;
-}
-.recipe-nav {
+
+/* What is this? It isn't used anywhere! */
+/* .recipe-nav {
   background-color: #0ab28a;
   height: 12rem;
-}
+} */
 .back-arrow-container {
   width: 37px;
   height: 30px;

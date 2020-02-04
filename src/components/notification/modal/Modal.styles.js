@@ -8,9 +8,16 @@ export const StyledDiv = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+
+  &#like-modal-div {
+    position: fixed;
+    height: 8%;
+    top: 85%;
+    background: none;
+  }
   
   /* Scrolling needs to be disabled on the parent element, though. */
-  /* Solution: first line of return statement of the App component! */
+  /* Solution: first few lines of return statement of the App component! */
 
   .modal {
     padding: 0.5rem 1rem;
@@ -25,12 +32,27 @@ export const StyledDiv = styled.div`
     transform: translate(-50%, -50%);
     
     /* And to animate it: */
-    animation: fade-in 0.1s ease-in;
+    animation: fade-in 0.15s ease-in;
+
+    &#like-modal {
+      background: rgba(255, 48, 100, 0.9);
+      top: 0%;
+      transform: translate(-50%, 0%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      animation: fade-in-out 3s ease-in-out;
+    }
 
     .message {
       text-align: left;
       font-size: 1.5rem;
       margin-bottom: 1rem;
+
+      &#like-message {
+        margin-bottom: 0;
+      }
     }
 
     .buttons {
@@ -67,5 +89,12 @@ export const StyledDiv = styled.div`
   @keyframes fade-in {
     0% { opacity: 0; }
     100% { opacity: 1; }
+  }
+
+  @keyframes fade-in-out {
+    0% { opacity: 0; }
+    5% { opacity: 1; }
+    95% { opacity: 1; }
+    100% { opacity: 0; }
   }
 `;

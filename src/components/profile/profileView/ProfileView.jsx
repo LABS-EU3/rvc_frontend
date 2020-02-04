@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Popup from "reactjs-popup";
 import { connect } from "react-redux";
 import * as actionCreators from "../../../actions/actionCreators";
 
+import Banner from "./Banner";
 import Footer from "../../navigation/footerNav/FooterNav";
 import EditProfile from "../editProfile/EditProfile";
 import Recipe from "../../recipe/Recipe";
@@ -25,11 +26,25 @@ export function ProfileView(props) {
     last_name,
     bio,
     user_recipes,
-    liked_recipes,
+    user_likes,
     forked_recipes_count,
     recipe_count,
-    recipes_forked_count
+    recipes_liked_count,
+    getProfile,
+    user_id
   } = props;
+
+  const [sanitisedUserRecipes, setSanitisedUserRecipes] = useState([]);
+  const [sanitisedLikedRecipes, setSanitisedLikedRecipes] = useState([]);
+
+  useEffect(() => {
+    getProfile(user_id);
+  });
+
+  useEffect(() => {
+    setSanitisedUserRecipes(sanitiseRecipes(user_recipes));
+    setSanitisedLikedRecipes(sanitiseRecipes(user_likes));
+  }, [user_recipes, user_likes]);
 
   // Need to do this as the Recipe component expects recipe objects of the following form:
   const sanitiseRecipes = recipes => {
@@ -40,12 +55,9 @@ export function ProfileView(props) {
       time_required: recipe.time_required,
       difficulty: recipe.difficulty,
       budget: recipe.budget,
-      imageUrl: recipe.images[0]
+      imageUrl: recipe.imageURL
     }));
   };
-
-  const sanitisedUserRecipes = sanitiseRecipes(user_recipes);
-  const sanitisedLikedRecipes = sanitiseRecipes(liked_recipes);
 
   const [selectedRecipes, setSelectedRecipes] = useState("created");
 
@@ -59,6 +71,7 @@ export function ProfileView(props) {
     <>
       <StyledProfile>
         <div className="profile-container">
+      <Banner />
           <Popup
             modal
             trigger={
@@ -88,7 +101,7 @@ export function ProfileView(props) {
               <h4>Recipes</h4>
             </div>
             <div>
-              <p className="forked-recipes">{recipes_forked_count}</p>
+              <p className="forked-recipes">{recipes_liked_count}</p>
               <h4>Forked Recipes</h4>
             </div>
             <div>
@@ -104,22 +117,20 @@ export function ProfileView(props) {
               alt=""
               onClick={() => switchSelectedRecipes("created")}
             />
+          <div className="vl"></div>
             <img
               className="profile-icons-image"
               src={bookmark}
               alt=""
               onClick={() => switchSelectedRecipes("forked")}
             />
+          <div className="vl"></div>
             <Link to="/createrecipe">
               <img className="profile-icons-image" src={more} alt="" />
             </Link>
           </div>
-
-          <div className="divider-wrapper">
-            {" "}
-            <hr id="divider" />
-          </div>
-
+          <StyledProfile/>
+         <hr/>
           {(selectedRecipes === "created" &&
             (sanitisedUserRecipes.length === 0 ? (
               <div className="container">
@@ -153,6 +164,10 @@ export function ProfileView(props) {
 }
 
 export default connect(
-  state => ({ ...state.profile, username: state.onboard.username }),
+  state => ({
+    ...state.profile,
+    username: state.onboard.username,
+    user_id: state.onboard.user_id
+  }),
   actionCreators
 )(ProfileView);
