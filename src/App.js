@@ -20,14 +20,20 @@ import EditRecipe from './components/EditRecipe/EditRecipe'
 import "./App.css";
 
 function App(props) {
-  const { isDisplaying } = props;
+  const { isDisplaying, modalType  } = props;
   // ^Needed to stop the screen from scrolling when the modal is visible!
+  // (Doesn't apply to the like modal.)
 
   return (
-    <div  className="App" 
-     style={{height: "100%",
-      "overflowY": isDisplaying ? "hidden" : "visible", 
-       }}
+    <div className="App"
+      style={
+        {
+          height: "100%",
+          "overflowY": isDisplaying && modalType !== "like" ? 
+            "hidden" :
+            "visible" 
+        }
+      }
     >
       <Route exact path="/" component={RecipeView} />
       <Route path="/login" component={FormikLoginForm} />
