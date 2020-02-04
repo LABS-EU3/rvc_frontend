@@ -24,6 +24,8 @@ const getAlUnitsUrl = `${process.env.REACT_APP_API_BASE_URL}api/unit`;
 
 function Step3(props) {
   const { goForward, goBackward, addRecipeIngredientsToBody } = props;
+  const [ingredientsError, setIngredientsError] = useState(false)
+
 
   const [inputState, setInputState] = useState({
     unit_id: "",
@@ -73,8 +75,16 @@ function Step3(props) {
       inputState.unit_name &&
       inputState.quantity &&
       inputState.ingredient_name
-    )
+    ){
       setIngredientsDisplayArray([...ingredientsDisplayArray, inputState]);
+    }else{
+      setIngredientsError(true)
+        setTimeout(() => {
+          setIngredientsError(false)
+        }, 2000)
+     
+    }
+      
   };
 
   const removeIngredients = (e, ing, i) => {
@@ -139,12 +149,14 @@ function Step3(props) {
           </IngredientsDiv>
         </IngredientsWrapper>
         <br></br>
+        { ingredientsError && <p className="warning-paragraph">Add at least one instruction!</p> }
+        <p className="description-paragraph">click on the plus button to add your ingredients!</p>
         <AddCircleOutlineTwoToneIcon
           // cgit
           style={{ margin: "0 auto", fontSize: 40, color: "#0AB38A" }}
           onClick={addIngredient}
         />
-        <div>
+        <div>          
           {ingredientsArray.length
             ? ingredientsDisplayArray.map((ing, i) => (
                 <AddItem>
