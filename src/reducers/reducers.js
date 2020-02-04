@@ -575,17 +575,6 @@ export function editInstructionReducer(state= initialInstruction, action) {
         ...state, 
         instructions: action.payload
       };
-      // return{ 
-        // ...state,
-        // instructions: state.instructions.map(instruction =>
-        //   instruction.step === action.payload.step
-        //   ?
-        //   action.payload
-        //   :
-        //   instruction
-        //   )
-      }
-      
     case types.EDIT_INSTRUCTION_FAIL: 
     return { 
       ...state, 
@@ -594,7 +583,7 @@ export function editInstructionReducer(state= initialInstruction, action) {
     default:
       return state;
     }
-  }
+}
 
 export function editCategoryReducer (state= initialCategory, action) { 
   switch(action.type) { 

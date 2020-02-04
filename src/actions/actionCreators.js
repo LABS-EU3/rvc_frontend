@@ -364,7 +364,7 @@ export const editImage = (id , image) => dispatch => {
   })
 }
 
-export const editCategory = (id, category) => dispatch => { 
+export const editCategoryReducer = (id, category) => dispatch => { 
   axiosWithAuth()
   .put(`api/category/${id}`, category)
   .then(res => { dispatch({ 
