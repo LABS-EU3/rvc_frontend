@@ -31,15 +31,20 @@ export function ProfileView(props) {
     recipe_count,
     recipes_liked_count,
     getProfile,
+    // Likes:
+    userLikes,
+    getUserLikes,
     user_id
   } = props;
 
+  debugger
   const [sanitisedUserRecipes, setSanitisedUserRecipes] = useState([]);
   const [sanitisedLikedRecipes, setSanitisedLikedRecipes] = useState([]);
 
   useEffect(() => {
     getProfile(user_id);
-  }, [getProfile, user_id]);
+    getUserLikes(user_id)
+  }, [getProfile, getUserLikes, user_id]);
 
   useEffect(() => {
     setSanitisedUserRecipes(sanitiseRecipes(user_recipes));
@@ -55,7 +60,8 @@ export function ProfileView(props) {
       time_required: recipe.time_required,
       difficulty: recipe.difficulty,
       budget: recipe.budget,
-      imageUrl: recipe.imageURL
+      imageUrl: recipe.imageUrl,
+      likes: recipe.likes
     }));
   };
 
@@ -139,7 +145,12 @@ export function ProfileView(props) {
             ) : (
               <div className="container">
                 {sanitisedUserRecipes.map(recipe => (
-                  <Recipe key={recipe.id} recipe={recipe} />
+                  <Recipe
+                    key={recipe.id}
+                    recipe={recipe}
+                    userLike={userLikes.includes(recipe.id)}
+                    user_id={user_id}
+                  />
                 ))}
               </div>
             ))) ||
@@ -151,7 +162,12 @@ export function ProfileView(props) {
               ) : (
                 <div className="container">
                   {sanitisedLikedRecipes.map(recipe => (
-                    <Recipe key={recipe.id} recipe={recipe} />
+                    <Recipe
+                      key={recipe.id}
+                      recipe={recipe}
+                      userLike={userLikes.includes(recipe.id)}
+                      user_id={user_id}
+                    />
                   ))}
                 </div>
               )))}
@@ -167,7 +183,9 @@ export default connect(
   state => ({
     ...state.profile,
     username: state.onboard.username,
-    user_id: state.onboard.user_id
+    user_id: state.onboard.user_id,
+    // Likes:
+    userLikes: state.userLikes.likes
   }),
   actionCreators
 )(ProfileView);
