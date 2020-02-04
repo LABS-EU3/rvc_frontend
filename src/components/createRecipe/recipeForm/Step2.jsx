@@ -1,6 +1,9 @@
-// import React, { useState } from "react";
-// import { connect } from "react-redux";
-// import * as dispatchers from "../../../actions/actionCreators";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import * as dispatchers from "../../../actions/actionCreators"
+
+import axios from "axios";
+
 import imageUpload from "../../../utils/imageUpload";
 import foodplaceholder from "../../../images/foodplaceholder.png";
 import CheckIcon from "@material-ui/icons/Check";
@@ -12,87 +15,6 @@ import {
   Section3,
   ExportImg
 } from "./FormStyled.styles";
-
-
-// function Step2(props) {
-
-//   const { 
-//     goForward, 
-//     goBackward, 
-//     addImagesToBody 
-//   } = props;
-  
-//   const [imgUrl, setImgUrl] = useState(false);
-
-//   const onSubmit = e => {
-  //     e.preventDefault();
-  //     addImagesToBody(imgUrl);
-  //     goForward(e);
-  //   };
-  
-  //   const [loading, setLoading] = useState(false);
-//   const uploadImageToCloud = e => {
-//     imageUpload(e, setLoading, setImgUrl);
-//   };
-//   const goBack = e => {
-//     goBackward();
-//   };
-
-//   return (
-//     <form onSubmit={onSubmit}>
-//       <Section3>
-//         <NavigationSection1>
-//           <Fab
-//             style={{
-//               background: "none",
-//               "box-shadow": "none",
-//               outline: "none"
-//             }}
-//           >
-//             <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
-//           </Fab>
-//           <Fab
-//             style={{
-//               background: "none",
-//               "box-shadow": "none",
-//               outline: "none"
-//             }}
-//           >
-//             <CheckIcon className="check-icon" onClick={goForward} cgit />
-//           </Fab>
-//         </NavigationSection1>
-//         <Addtitle>
-//           <h1>Upload Image</h1>
-//         </Addtitle>
-//       </Section3>
-
-//       <ExportImg>
-//         <div>
-//           {imgUrl ? (
-//             <img alt="Img file to be uploaded" src={imgUrl} />
-//           ) : (
-//             <img
-//               src={foodplaceholder}
-//               alt="A display of the already finished recipe"
-//             />
-//           )}
-//         </div>
-//         <div>
-//           <input type="file" onChange={uploadImageToCloud} name="imageUrl" />
-//         </div>
-//         {loading && <h4>File upload in progress...</h4>}
-//       </ExportImg>
-//     </form>
-//   );
-// }
-
-// export default connect(state => state, dispatchers)(Step2);
-
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import * as dispatchers from "../../../actions/actionCreators"
-
-import axios from "axios";
 
 function Step2(props) {
 
@@ -157,7 +79,7 @@ function Step2(props) {
           </Fab>
         </NavigationSection1>
         <Addtitle>
-          <h1>Upload Image!</h1>
+          <h1>Upload Image</h1>
         </Addtitle>
       </Section3>
       <ExportImg>
