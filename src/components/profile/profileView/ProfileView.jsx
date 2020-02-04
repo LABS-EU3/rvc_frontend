@@ -43,7 +43,7 @@ export function ProfileView(props) {
   useEffect(() => {
     getProfile(user_id);
     getUserLikes(user_id)
-  }, [getProfile, getUserLikes, user_id]);
+  }, [getProfile, getUserLikes, user_id, user_recipes]);
 
   useEffect(() => {
     setSanitisedUserRecipes(sanitiseRecipes(user_recipes));
