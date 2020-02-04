@@ -1,14 +1,15 @@
 import styles from 'styled-components';
 
 export const StyledDiv = styles.div`
+.header {
+    margin-top: 9rem;
+    font-size: 2.8rem;
+}
 display: flex;
 flex-direction: column; 
 align-items: center;
 
 .banner-image-section {
-    // position: relative;
-    // left: 5.9px;
-    // top: -4.88px;
     height: 40rem;
     width: 55.8rem;
     background: #FFF9F5;
@@ -49,17 +50,21 @@ align-items: center;
 }
 
 .section-heading {
+    // background-color: red;
+    transform: rotate(-5deg)
     h1 {
-        font-size: 2.8rem;
+        font-size: 2.4rem;
     }
+    
 }
 
 section {
     margin: 3rem 0 0   0;
     background-color: #FFF9F5;
     article {
+        padding-top: 5rem;
         h2 {
-            font-size: 2rem;
+            font-size: 2.8rem;
         }
         p {
             line-height: 3.5rem;
