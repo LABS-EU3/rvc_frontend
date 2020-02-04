@@ -462,7 +462,13 @@ input {
     font-size: 20px;
     padding-top: 6px;
     padding-left: 2rem;
-  }`
+  }
+  button {
+    outline: none;
+    background: transparent;
+    border: 0;
+  }
+  `
 
   export const IngredientsDiv1 =styled.div`
   
