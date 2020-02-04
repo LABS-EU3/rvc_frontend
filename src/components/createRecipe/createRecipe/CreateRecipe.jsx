@@ -15,7 +15,6 @@ function App(props) {
   const goForward = e => {
     e.preventDefault();
     setPage(page + 1);
-
   };
 
   const goBackward = e => {
