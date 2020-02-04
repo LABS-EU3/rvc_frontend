@@ -37,7 +37,6 @@ export function ProfileView(props) {
     user_id
   } = props;
 
-  debugger
   const [sanitisedUserRecipes, setSanitisedUserRecipes] = useState([]);
   const [sanitisedLikedRecipes, setSanitisedLikedRecipes] = useState([]);
 

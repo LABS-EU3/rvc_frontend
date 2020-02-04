@@ -96,19 +96,37 @@ export const StyledProfile = styled.div`
     }
     
     .container {
-      flex-grow: 1;
       display: flex;
+      flex-grow: 1;
       justify-content: center;
       margin-top: 1rem;
       overflow: auto;
       flex-wrap: wrap;
+      padding-bottom: 3rem;
 
-      font-style: normal;
-      font-weight: normal;
       font-size: 1.6rem;
       line-height: 26px;
-      text-align: center;
       color: rgba(255, 48, 100, 0.9);
+
+      .recipe-div {
+        display: flex;
+        max-height: 80%;
+
+        .recipe-img-box {
+          border-bottom-left-radius: 15px;
+          border-top-right-radius: 0;
+          height: 100%;
+          box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
+          font-size: 1rem;
+        }
+
+        .recipe-card {
+          border-top-right-radius: 15px;
+          border-bottom-left-radius: 0;
+          height: 100%;
+        }
+
+      }
     }
   }
 `;
