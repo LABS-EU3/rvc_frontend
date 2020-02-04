@@ -57,8 +57,6 @@ export const StyledProfile = styled.div`
       align-items: center;
       text-align: center;
 
-      
-
       .likes-paragraph {
         font-size: 1.6rem;
       }
@@ -95,8 +93,6 @@ export const StyledProfile = styled.div`
       border: 1px solid rgba(0, 0, 0, 0.1);
       margin: 1em 0;
       padding: 0;
-  }
-
     }
     
     .container {
@@ -106,8 +102,7 @@ export const StyledProfile = styled.div`
       margin-top: 1rem;
       overflow: auto;
       flex-wrap: wrap;
-      .p {
-      }
+
       font-style: normal;
       font-weight: normal;
       font-size: 1.6rem;
@@ -119,20 +114,20 @@ export const StyledProfile = styled.div`
 `;
 
 export const Banner = styled.div`
-position:fixed;
-top: 0;
-left: 0;
-right: 0;
-width: 100%;
-display: flex;
-flex-direction: flex-end;
-background-color: #0AB38A;
-padding-top: 15px;
-padding-bottom: 15px;
-padding-left: 2.7%;
-box-sizing: border-box;
-box-shadow: 0px 8px 30px #DAD9D9;
-justify-content: center;
-align-item:center;
-letter-spacing: 2px; 
-`
+  position:fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: flex-end;
+  background-color: #0AB38A;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 2.7%;
+  box-sizing: border-box;
+  box-shadow: 0px 8px 30px #DAD9D9;
+  justify-content: center;
+  align-items:center;
+  letter-spacing: 2px; 
+`;
