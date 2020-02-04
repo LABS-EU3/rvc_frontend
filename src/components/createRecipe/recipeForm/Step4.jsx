@@ -20,6 +20,7 @@ import {
 function Step4(props) {
   const { goForward, goBackward, addInstructionsToBody } = props;
   const [inputState, setInputState] = useState("");
+  const [ingredientFlag, setIngredientFlag] = useState(false)
   const [instructionsArray, setInstructionsArray] = useState([]);
 
   const inputHandler = e => {
@@ -35,7 +36,14 @@ function Step4(props) {
 
   const addInstruction = e => {
     e.preventDefault();
-    setInstructionsArray([...instructionsArray, inputState]);
+    if(inputState){
+      setInstructionsArray([...instructionsArray, inputState])
+    }else {
+      setIngredientFlag(true)
+      setTimeout(() => {
+        setIngredientFlag(false)
+      }, 2000)
+    } ;
   };
 
   const removeInstruction = (e, ing, i) => {
@@ -117,6 +125,7 @@ function Step4(props) {
           name="instruction"
         />
 
+        { ingredientFlag && <p className="warning-paragraph">Add at least one instruction!</p> }
         <p className="description-paragraph">click on the plus button to add your instruction!</p>
         <div onClick={addInstruction} style={{ margin: "0 auto" }}>
         <Fab 

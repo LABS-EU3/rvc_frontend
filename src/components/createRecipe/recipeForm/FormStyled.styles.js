@@ -366,6 +366,10 @@ h1 {
   font-size: 1.4rem;
   color: #c4c4c4;
 }
+.warning-paragraph {
+  font-size: 1.4rem;
+  color: red;
+}
 `
 
 export const PreviewDiv = styled.div `
