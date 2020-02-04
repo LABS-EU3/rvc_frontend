@@ -545,7 +545,7 @@ export function editRecipeReducer(state = initialRecipe, action) {
 }
 
 const initialCategory = {
-  editedCategory: [],
+  recipe_categories: [],
   error: ''
 }
 
@@ -564,7 +564,7 @@ export function editCategoryReducer (state= initialCategory, action) {
 }
 
 const initialTag = { 
-  editedTag: [],
+  recipe_tags: [],
   error: ''
 }
 
@@ -573,7 +573,7 @@ export function editTagReducer (state=initialTag, action){
     case types.EDIT_TAG_OK:
       return { 
         ...state, 
-        tags: action.payload.new
+        recipe_tags: action.payload.new
       };
     case types.EDIT_TAG_FAIL: 
       return { ...state, error: action.payload }
@@ -610,7 +610,7 @@ export function editImageReducer(state=initialImage, action) {
   }
 
 const initialIngredient= { 
-  editedIngredient: [],
+  recipe_ingredients: [],
   error: '',
   isFetching: false
 }

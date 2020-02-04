@@ -398,3 +398,4 @@ export const editInstruction = (id, instruction) => dispatch => {
     dispatch({ type: types.EDIT_INSTRUCTION_FAIL, payload: error})
   })
 }
+
