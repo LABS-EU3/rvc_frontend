@@ -77,6 +77,12 @@ function Step3(props) {
       setIngredientsDisplayArray([...ingredientsDisplayArray, inputState]);
   };
 
+  const removeIngredients = (e, ing, i) => {
+    e.preventDefault();
+    setIngredientsDisplayArray(ingredientsDisplayArray.filter(ingredient => ingredient !== ing))
+    
+  }
+
   const goBack = e => {
     goBackward();
   };
@@ -143,8 +149,9 @@ function Step3(props) {
             ? ingredientsDisplayArray.map((ing, i) => (
                 <AddItem>
                   <p key={i}>
-                    {ing.quantity} {ing.unit_name === "No Unit" ? "" : ing.unit_name + "of"} {ing.ingredient_name}
+                    {ing.quantity} {ing.unit_name === "No Unit" ? "" : ing.unit_name + " of"} {ing.ingredient_name}
                   </p>
+                    <button onClick={ e => {removeIngredients(e, ing, i)} }>X</button> 
                 </AddItem>
               ))
             : null}
