@@ -315,6 +315,8 @@ export const dismissModal = () => dispatch => {
 //edit
 
 export const editRecipe = (id, payload) => dispatch => { 
+  dispatch({ type: types.EDIT_RECIPE})
+
   axiosWithAuth()
   .put(`api/recipe/${id}`, payload)
   .then(res =>  { dispatch({ 
@@ -339,6 +341,7 @@ export const cloneRecipe = (id, cloneData) => dispatch => {
 }
 
 export const editIngredient = (id, ingredient) => dispatch => { 
+  dispatch({ type: types.EDIT_INGREDIENT})
   axiosWithAuth()
   .put(`api/recipe/${id}/ingredient`, ingredient)
   .then(res => { dispatch({ 
@@ -374,6 +377,7 @@ export const editImage = (id , image) => dispatch => {
 }
 
 export const editCategoryReducer = (id, category) => dispatch => { 
+  dispatch({ type: types.EDIT_CATEGORY})
   axiosWithAuth()
   .put(`api/category/${id}`, category)
   .then(res => { dispatch({ 
@@ -385,6 +389,7 @@ export const editCategoryReducer = (id, category) => dispatch => {
   })
 }
 export const editTag = (id, tag) => dispatch => { 
+  dispatch({ type: types.EDIT_TAG})
   axiosWithAuth()
   .put(`api/tag/${id}`, tag)
   .then(res => { dispatch({ 
@@ -396,7 +401,8 @@ export const editTag = (id, tag) => dispatch => {
   })
 }
 
-export const editInstruction = (id, instruction) => dispatch => { 
+export const editInstruction = (id, instruction) => dispatch => {
+  dispatch({ type: types.EDIT_INSTRUCTION})
   axiosWithAuth()
   .put( `api/instruction/${id}`, instruction)
   .then(res => { dispatch({ 

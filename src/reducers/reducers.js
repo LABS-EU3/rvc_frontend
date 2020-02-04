@@ -552,15 +552,22 @@ export function newlyAddedRecipe(state = initialNewlyAddedRecipe, action) {
 
 const initialRecipe = {
   recipe: {},
-  error: ''
+  error: '',
+  isFetchingRecipe: false
 }
 
 export function editRecipeReducer(state = initialRecipe, action) {
   switch (action.type) {
+    case types.EDIT_RECIPE: 
+      return { 
+        ...state,
+        isFetchingRecipe: true
+      }
     case types.EDIT_RECIPE_OK:
       return { 
         ...state,
-         recipe: action.payload
+        recipe: action.payload,
+        isFetchingRecipe: false
          };
     case types.EDIT_RECIPE_FAIL:
       return { ...state, error: action.payload };
@@ -571,18 +578,26 @@ export function editRecipeReducer(state = initialRecipe, action) {
 
 const initialCategory = {
   recipe_categories: [],
-  error: ''
+  isFetchingCategory: false,
+  error: '',
+
 }
 
 export function editCategoryReducer (state= initialCategory, action) { 
   switch(action.type) { 
+    case types.EDIT_CATEGORY: 
+      return { 
+        ...state,
+        isFetchingCategory: true
+      };
     case types.EDIT_CATEGORY_OK:
       return { 
         ...state, 
-        recipe_categories: action.payload.new
+        recipe_categories: action.payload.new,
+        isFetchingCategory: false
       };
     case types.EDIT_CATEGORY_FAIL: 
-     return { ...state, error: action.payload }
+     return { ...state, error: action.payload };
     default: 
       return state
   }
@@ -590,15 +605,22 @@ export function editCategoryReducer (state= initialCategory, action) {
 
 const initialTag = { 
   recipe_tags: [],
+  isFetchingTag: false,
   error: ''
 }
 
 export function editTagReducer (state=initialTag, action){ 
   switch(action.type) { 
+    case types.EDIT_TAG:
+      return { 
+        ...state,
+        isFetchingTag: true,
+      };
     case types.EDIT_TAG_OK:
       return { 
         ...state, 
-        recipe_tags: action.payload.new
+        recipe_tags: action.payload.new,
+        isFetchingTag: false
       };
     case types.EDIT_TAG_FAIL: 
       return { ...state, error: action.payload }
@@ -619,7 +641,7 @@ export function editImageReducer(state=initialImage, action) {
       return {
         ...state,
         isFetchingImage: true
-    }
+    };
     case types.EDIT_IMAGE_OK:
       return {
         ...state,
@@ -637,15 +659,21 @@ export function editImageReducer(state=initialImage, action) {
 const initialIngredient= { 
   recipe_ingredients: [],
   error: '',
-  isFetching: false
+  isFetchingIngredient: false
 }
 
 export function editIngredientReducer (state= initialIngredient, action) { 
   switch(action.type){
+    case types.EDIT_INGREDIENT: 
+      return{ 
+        ...state,
+        isFetchingIngredient: true
+      };
     case types.EDIT_INGREDIENT_OK:
       return{ 
         ...state, 
-        recipe_ingredients: action.payload.index
+        recipe_ingredients: action.payload.index,
+        isFetchingIngredient: false
       };
     case types.EDIT_INGREDIENT_FAIL:
       return{ 
@@ -678,15 +706,22 @@ export function editIngredientReducer (state= initialIngredient, action) {
 
 const initialInstruction = { 
   instructions: [],
-  error: '',
+  isFetchingInstruction: false,
+  error: ''
 }
 
 export function editInstructionReducer(state= initialInstruction, action) { 
   switch(action.type){ 
+    case types.EDIT_INSTRUCTION: 
+      return{ 
+        ...state, 
+        isFetchingInstruction: true
+      };
     case types.EDIT_INSTRUCTION_OK:
       return { 
         ...state, 
-        instructions: action.payload
+        instructions: action.payload,
+        isFetchingInstruction: false
       };
     case types.EDIT_INSTRUCTION_FAIL: 
     return { ...state, error: action.payload
