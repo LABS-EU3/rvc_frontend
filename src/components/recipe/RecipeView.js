@@ -24,7 +24,7 @@ const RecipeView = ({
 
   useEffect(() => {
     getRecipes();
-  });
+  }, [getRecipes]);
 
   return (
     <div>

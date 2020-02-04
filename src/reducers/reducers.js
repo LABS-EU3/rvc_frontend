@@ -549,7 +549,6 @@ export function newlyAddedRecipe(state = initialNewlyAddedRecipe, action) {
 
 //EDIT RECIPE
 
-
 const initialRecipe = {
   recipe: {},
   error: '',
@@ -593,7 +592,7 @@ export function editCategoryReducer (state= initialCategory, action) {
     case types.EDIT_CATEGORY_OK:
       return { 
         ...state, 
-        recipe_categories: action.payload.new,
+        recipe_categories:[ action.payload.new],
         isFetchingCategory: false
       };
     case types.EDIT_CATEGORY_FAIL: 

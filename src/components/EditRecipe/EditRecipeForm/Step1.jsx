@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators";
 import CheckIcon from '@material-ui/icons/Check';
@@ -40,7 +40,81 @@ function Step1(props) {
     editCategory,
     editTag,
     displayNotificationModal,
+    // getRecipesById
   } = props;
+  
+  //attempt at prefilling form 
+  /*
+  const modalActivator = useParams().block
+
+  const [formData, setFormData] = useState({ 
+    recipeID: useParams().id.trim(),
+    title: "",
+    description: "",
+    time_required: "",
+    difficulty: "",
+    budget: "",
+    user_id: localStorage.getItem("userID"),
+    recipe_categories: "",
+    recipe_tags: ""
+  })
+
+  const { recipeID, title, description, time_required, difficulty, budget, user_id, recipe_categories, recipe_tags } = formData;
+  
+  useEffect(() => { 
+    getRecipesById(recipeID);
+  }, [recipeID, getRecipesById]);
+
+  const useIsMounted = () => { 
+    const isMounted = useRef(false);
+    useEffect(() => { 
+      isMounted.current = true;
+      return () => (isMounted.current = false);
+    }, []);
+    return isMounted 
+  };
+
+  const isMounted = useIsMounted();
+  useEffect(() => { 
+    if(isMounted.current){ 
+      // const { recepeID, title, description, time_required, difficulty, budget } = recipe;
+      setFormData({ 
+        recipeID,
+        title,
+        description,
+        time_required,
+        difficulty,
+        budget,
+        user_id,
+        recipe_categories,
+        recipe_tags
+      })
+    }
+  }, [ isMounted])
+
+  const inputHandler = e => {
+    e.preventDefault();
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const onEditSubmit = e => {
+    const recipe = { ...formData };
+    delete recipe.tags;
+    delete recipe.recipe_categories;
+    delete recipe.recipe_tags;
+    editRecipe(recipeID, recipe);
+
+    editCategory(recipeID,[formData.recipe_categories])
+
+    editTag(recipeID, [formData.recipe_tags])
+
+    modalActivator === 'all'
+    ? 
+    goForward(e)
+    :
+    displayNotificationModal('The edited recipe has been added to your cookbook!', '/seerecipe/:id');
+   }
+   */
 
   const recipeID = useParams().id.trim()
   const modalActivator = useParams().block
@@ -142,6 +216,7 @@ function Step1(props) {
       type="text"
       onChange={inputHandler}
       value={inputState.title}
+      // value={formData.title}
       name="title"
       placeholder="title"
       required
@@ -156,7 +231,7 @@ function Step1(props) {
           focused: classes.labelFocused
         }
       }}
-        
+
       />
       <br></br>
         </Addtitle>
@@ -175,6 +250,7 @@ function Step1(props) {
         type="text"
         onChange={inputHandler}
         value={inputState.description}
+        // value={formData.description}
         name="description"
         placeholder="description"
         fullWidth
@@ -194,6 +270,7 @@ function Step1(props) {
             type="number"
             onChange={inputHandler}
             value={inputState.time_required}
+            // value={formData.time_required}
             name="time_required"
             placeholder="time_required"
             min='1'
@@ -215,6 +292,7 @@ function Step1(props) {
         type="number"
         onChange={inputHandler}
         value={inputState.difficulty}
+        // value={formData.difficulty}
         name="difficulty"
         placeholder="difficulty"
         min="1"
@@ -231,6 +309,7 @@ function Step1(props) {
         type="number"
         onChange={inputHandler}
         value={inputState.budget}
+        // value={formData.budget}
         name="budget"
         placeholder="budget"
         min="1"

@@ -49,7 +49,7 @@ function SeeRecipe({
   useEffect(() => {
     getRecipesById(recipeID);
     getUserLikes(user_id);
-  });
+  }, [getRecipesById, getUserLikes, recipeID, user_id]);
 
   const toggleLike = () => {
     if (localLikeState) { // If the recipe is already liked:
