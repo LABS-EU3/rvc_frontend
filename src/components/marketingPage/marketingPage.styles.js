@@ -22,7 +22,7 @@ align-items: center;
     flex-direction: column;
     .banner-image {
         margin: 5rem auto;
-        width: 45%;
+        width: 65%;
         height: 60%;
         background-color: white;
         // transform: rotate(5deg);
