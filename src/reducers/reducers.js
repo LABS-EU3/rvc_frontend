@@ -428,7 +428,7 @@ export const profileReducer = (state = initialProfileState, action) => {
     case types.GET_FORKED_RECIPES_COUNT_SUCCESS:
       return {
         ...state,
-        ...action.payload, // forked_recipes_count
+        forked_recipes_count: action.payload, // forked_recipes_count
         isFetchingForkedRecipesCount: false,
         message: state.message + " Successfully fetched forked_recipes_count."
       }

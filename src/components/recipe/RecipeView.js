@@ -19,14 +19,17 @@ const RecipeView = ({
     user_id
 }) => {
   useEffect(() => {
-    getRecipes();
     getUserLikes(user_id);
-  }, [getRecipes, getUserLikes, user_id]);
+  }, [getUserLikes, user_id]);
+
+  useEffect(() => {
+    getRecipes();
+  }, [getRecipes]);
 
   return (
     <div>
       <SearchBar />
-      {isFetching ? <Loader /> : null}
+      {(isFetching && recipeView.length === 0) ? <Loader /> : null}
       <div className="container">
         {recipeView.map(recipe => (
           <Recipe

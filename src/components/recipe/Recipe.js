@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
@@ -56,8 +56,12 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id, displayLi
 
   // Should fix, but it's not a priority!
 
+  useEffect(() => {
+    setLocalLikeCount(parseInt(likes));
+  }, [likes])
+
   return (
-    <StyledRecipe>
+    <StyledRecipe className="recipe-div">
       <div className="recipe-img-box">
         <img className="recipe-img" src={imageUrl} alt="an " />
         <div className="overlay" style={buttonsShowing ? {background: "rgba(0, 0, 0, 0.3)"} : {background: "rgba(0, 0, 0, 0)"}}>

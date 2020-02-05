@@ -383,7 +383,7 @@ margin-right:2%;
   flex-direction: column;
   align-items: center; 
   justify-content: space-between;
-  margin-top: 3.5rem;
+  margin-top: 1.5rem;
 
   .img {
     max-height: 397px;

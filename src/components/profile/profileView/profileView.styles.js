@@ -57,8 +57,6 @@ export const StyledProfile = styled.div`
       align-items: center;
       text-align: center;
 
-      
-
       .likes-paragraph {
         font-size: 1.6rem;
       }
@@ -95,44 +93,59 @@ export const StyledProfile = styled.div`
       border: 1px solid rgba(0, 0, 0, 0.1);
       margin: 1em 0;
       padding: 0;
-  }
-
     }
     
     .container {
-      flex-grow: 1;
       display: flex;
+      flex-grow: 1;
       justify-content: center;
       margin-top: 1rem;
       overflow: auto;
       flex-wrap: wrap;
-      .p {
-      }
-      font-style: normal;
-      font-weight: normal;
+      padding-bottom: 3rem;
+
       font-size: 1.6rem;
       line-height: 26px;
-      text-align: center;
       color: rgba(255, 48, 100, 0.9);
+
+      .recipe-div {
+        display: flex;
+        max-height: 80%;
+
+        .recipe-img-box {
+          border-bottom-left-radius: 15px;
+          border-top-right-radius: 0;
+          height: 100%;
+          box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
+          font-size: 1rem;
+        }
+
+        .recipe-card {
+          border-top-right-radius: 15px;
+          border-bottom-left-radius: 0;
+          height: 100%;
+        }
+
+      }
     }
   }
 `;
 
 export const Banner = styled.div`
-position:fixed;
-top: 0;
-left: 0;
-right: 0;
-width: 100%;
-display: flex;
-flex-direction: flex-end;
-background-color: #0AB38A;
-padding-top: 15px;
-padding-bottom: 15px;
-padding-left: 2.7%;
-box-sizing: border-box;
-box-shadow: 0px 8px 30px #DAD9D9;
-justify-content: center;
-align-item:center;
-letter-spacing: 2px; 
-`
+  position:fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: flex-end;
+  background-color: #0AB38A;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 2.7%;
+  box-sizing: border-box;
+  box-shadow: 0px 8px 30px #DAD9D9;
+  justify-content: center;
+  align-items:center;
+  letter-spacing: 2px; 
+`;

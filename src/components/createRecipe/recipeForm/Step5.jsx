@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators";
-
+import { useHistory, useParams } from 'react-router-dom';
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Fab from '@material-ui/core/Fab';
@@ -9,7 +9,9 @@ import {
   Section1,
   NavigationSection1,
   Addtitle,
-  PreviewDiv
+  PreviewDiv,
+  AddItem,
+  Title 
 } from "./FormStyled.styles";
 
 function Step5(props) {
@@ -24,6 +26,13 @@ function Step5(props) {
     goBackward
   } = props;
 
+  // const recipeID = useParams().id.trim();
+  // console.log(props)
+
+  // // const move = () => {
+  // //   useHistory().push(`/recipe/${recipeID} `);
+  // //  }
+  
   const submitRecipe = () => {
     const body = {
       recipe,
@@ -35,6 +44,7 @@ function Step5(props) {
     };
     postRecipe(body);
   };
+
 
   const goBack = e => {
     goBackward();
@@ -66,10 +76,20 @@ function Step5(props) {
       <p>
       {recipe.description}
       </p>
-      <h2>Ingredients</h2>
-        {recipe_ingredients.map(ingr => <p>{ingr.name}</p>)}
-      <h2>Instruction</h2>
-        {instructions.map(instr => <p>{instr}</p>)}
+      <Title>
+        Ingredients
+      </Title>
+        {recipe_ingredients.map(ingr =>  
+        <AddItem> 
+          <p>{ingr.name}</p>
+        </AddItem> )}
+        <Title>
+        Instruction
+      </Title>
+        {instructions.map(instr => 
+        <AddItem> 
+          <p>{instr}</p> 
+        </AddItem> )}
 
       </PreviewDiv>
     </div>
