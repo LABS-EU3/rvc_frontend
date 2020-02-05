@@ -10,8 +10,8 @@ import {
 } from "./Recipe.styles";
 
 import smallForkIcon from "../../images/small-fork-icon.png";
-import shareIcon from "../../images/small-share-icon.png";
-import optionsIcon from "../../images/small-options-icon.png";
+// import shareIcon from "../../images/small-share-icon.png";
+// import optionsIcon from "../../images/small-options-icon.png";
 import forkIcon from "../../images/fork-icon.png";
 
 const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id, displayLikeModal }) => {

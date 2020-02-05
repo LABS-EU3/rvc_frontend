@@ -255,7 +255,6 @@ function Step1(props) {
         placeholder="description"
         fullWidth
         InputProps={{ classes: { root: classes.inputRoot2 } }}
-        className={classes.textField}
         InputLabelProps={{
           shrink: true,
           classes: {
