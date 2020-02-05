@@ -8,7 +8,7 @@ export const RecipeTopDiv = styled.div`
 
 export const TopButtonDiv = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   width: 300px;
   text-align: center;
   font-size: 16px;
@@ -24,6 +24,7 @@ export const ForkButton = styled.div`
   height: 35px;
   background: rgba(255, 48, 100, 0.8);
   border-radius: 5px;
+  margin-right: 1rem;
 
   &.liked {
     color: white;

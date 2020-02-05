@@ -73,9 +73,9 @@ function SeeRecipe({
         </div>
 
         <TopButtonDiv>
-          <ShareButton>
+          {/* <ShareButton>
             <h1>Share</h1>
-          </ShareButton>
+          </ShareButton> */}
           <ForkButton
             className={localLikeState ? "liked" : "disabled" }
           >
