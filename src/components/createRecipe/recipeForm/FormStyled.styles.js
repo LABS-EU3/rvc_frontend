@@ -366,6 +366,10 @@ h1 {
   font-size: 1.4rem;
   color: #c4c4c4;
 }
+.warning-paragraph {
+  font-size: 1.4rem;
+  color: red;
+}
 `
 
 export const PreviewDiv = styled.div `
@@ -458,7 +462,13 @@ input {
     font-size: 20px;
     padding-top: 6px;
     padding-left: 2rem;
-  }`
+  }
+  button {
+    outline: none;
+    background: transparent;
+    border: 0;
+  }
+  `
 
   export const IngredientsDiv1 =styled.div`
   
@@ -487,6 +497,7 @@ input {
   `
   export const IngredientsWrapper =styled.div`
     display:flex;
+    justify-content: center;
   `
 
   
