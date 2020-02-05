@@ -51,6 +51,10 @@ align-items: center;
     margin-bottom: 9rem;
 }
 
+.carousel.carousel-slider {
+    // transform: rotate(5deg)
+}
+
 .recipe-card {
     display: flex;
     flex-direction: column;
@@ -63,6 +67,7 @@ align-items: center;
     position: relative;
     bottom: 15rem;   
     font-size: 1.5rem;
+    // transform: rotate(5deg);
     h2 {
         font-weight: bolder;
         font-size: 2.2rem;
@@ -77,7 +82,7 @@ align-items: center;
 }
 
 .button-section {
-    padding: 4rem;
+    margin-bottom: 4rem;
     button {
         width: 169px;
         height: 4.8rem;
