@@ -4,6 +4,11 @@ import thunk from "redux-thunk";
 
 const monsterReducer = combineReducers({
   editRecipe: reducers.editRecipeReducer,
+  editCategory: reducers.editCategoryReducer,
+  editTag: reducers.editTagReducer,
+  editImage: reducers.editImageReducer,
+  editIngredient: reducers.editIngredientReducer,
+  editInstruction: reducers.editInstructionReducer,
   newRecipe : reducers.newRecipeReducer,
   onboard : reducers.onBoardingReducer,
   recipes : reducers.recipeViewReducer,

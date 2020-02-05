@@ -394,6 +394,9 @@ box-sizing: content-box;
   margin:5%;
   h1{
     margin-bottom: 40px;
-    border-bottom:1px solid black;
+    border-bottom: 1px solid black ;
+  }
+  h1:hover{ 
+    border-bottom: 2px solid  black;
   }
   `
