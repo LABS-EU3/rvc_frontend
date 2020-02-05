@@ -1,11 +1,6 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import * as dispatchers from "../../../actions/actionCreators";
-
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import Fab from '@material-ui/core/Fab';
-
+import Fab from "@material-ui/core/Fab";
 import { TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AddCircleOutlineTwoToneIcon from "@material-ui/icons/AddCircleOutlineTwoTone";
@@ -17,15 +12,23 @@ import {
   AddItem
 } from "./FormStyled.styles";
 
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import * as dispatchers from "../../../actions/actionCreators";
+
 function Step4(props) {
   const { goForward, goBackward, addInstructionsToBody } = props;
   const [inputState, setInputState] = useState("");
-  const [instructionError, setInstructionError] = useState(false)
+  const [instructionError, setInstructionError] = useState(false);
   const [instructionsArray, setInstructionsArray] = useState([]);
 
   const inputHandler = e => {
     e.preventDefault();
     setInputState(e.target.value);
+  };
+
+  const goBack = e => {
+    goBackward();
   };
 
   const onSubmit = e => {
@@ -36,24 +39,21 @@ function Step4(props) {
 
   const addInstruction = e => {
     e.preventDefault();
-    if(inputState){
-      setInstructionsArray([...instructionsArray, inputState])
-    }else {
-      setInstructionError(true)
+    if (inputState) {
+      setInstructionsArray([...instructionsArray, inputState]);
+    } else {
+      setInstructionError(true);
       setTimeout(() => {
-        setInstructionError(false)
-      }, 2000)
-    } ;
+        setInstructionError(false);
+      }, 2000);
+    }
   };
 
   const removeInstruction = (e, ing, i) => {
     e.preventDefault();
-    setInstructionsArray(instructionsArray.filter(instruction => instruction !== ing))
-    
-  }
-
-  const goBack = e => {
-    goBackward();
+    setInstructionsArray(
+      instructionsArray.filter(instruction => instruction !== ing)
+    );
   };
 
   const useStyles = makeStyles(theme => ({
@@ -82,8 +82,6 @@ function Step4(props) {
       flexWrap: "wrap"
     },
     textField: {
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
       color: "white"
     }
   }));
@@ -94,17 +92,25 @@ function Step4(props) {
     <form onSubmit={onSubmit}>
       <Section3>
         <NavigationSection1>
-         <Fab 
-          style={{"background": "none", "box-shadow": "none", "outline": 'none'
-          }}
+          <Fab
+            style={{
+              background: "none",
+              "box-shadow": "none",
+              outline: "none"
+            }}
           >
             <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
           </Fab>
-          <Fab 
-          style={{"background": "none", "box-shadow": "none", "outline": 'none'
-          }}
+          <Fab
+            style={{
+              background: "none",
+              "box-shadow": "none",
+              outline: "none"
+            }}
           >
-            <CheckIcon className="check-icon" onClick={goForward} cgit />
+            <button type="submit">
+              <CheckIcon className="check-icon" cgit />
+            </button>
           </Fab>
         </NavigationSection1>
         <Addtitle>
@@ -112,44 +118,46 @@ function Step4(props) {
         </Addtitle>
       </Section3>
       <Section2b>
+        <br></br>
         <TextField
           id="filled-full-width"
-          placeholder="Add instruction"          
+          placeholder="Add instruction"
           fullWidth
           margin="normal"
           InputProps={{ classes: { root: classes.inputRoot2 } }}
-          className={classes.textField}          
+          className={classes.textField}
           variant="filled"
-          onChange={inputHandler}
           type="text"
           name="instruction"
+          onChange={inputHandler}
         />
 
-        { instructionError && <p className="warning-paragraph">Add at least one instruction!</p> }
-        <p className="description-paragraph">click on the plus button to add your instruction!</p>
+        {instructionError && (
+          <p className="warning-paragraph">Add at least one instruction!</p>
+        )}
+        <p className="description-paragraph">
+          click on the plus button to add your instruction!
+        </p>
         <div onClick={addInstruction} style={{ margin: "0 auto" }}>
-        <Fab 
-          style={{"background": "none",
-           "box-shadow": "none", 
-           "outline": 'none'
-          }}
-          >
-             <AddCircleOutlineTwoToneIcon
+          <AddCircleOutlineTwoToneIcon
             cgit
             style={{ fontSize: 40, color: "#0AB38A" }}
           />
-          </Fab>
         </div>
-        <div>
-          {instructionsArray.length
-            ? instructionsArray.map((ing, i) => (
-                <AddItem>
-                  <p key={i}>{ing}</p>
-                  <button onClick={ e => {removeInstruction(e, ing, i)} }>X</button>                  
-                </AddItem>
-              ))
-            : null}
-        </div>
+        {instructionsArray.length
+          ? instructionsArray.map((ing, i) => (
+              <AddItem>
+                <p key={i}>{ing}</p>
+                <button
+                  onClick={e => {
+                    removeInstruction(e, ing, i);
+                  }}
+                >
+                  X
+                </button>
+              </AddItem>
+            ))
+          : null}
       </Section2b>
     </form>
   );

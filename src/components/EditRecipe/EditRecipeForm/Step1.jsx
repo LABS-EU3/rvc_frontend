@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators";
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Fab from '@material-ui/core/Fab';
 import DropDown from "../../dropDown/DropDown";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { TextField, Select, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -13,35 +14,110 @@ import {
   Addtitle,
   Section2,
   Title,
-  SwitchDiv
 } from "../EditRecipe.styles";
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    color: 'white'
-    // font-size: 18px
-  },
-}));
+// const useStyles = makeStyles(theme => ({
+//   root: {
+//     display: 'flex',
+//     flexWrap: 'wrap',
+//   },
+//   textField: {
+//     marginLeft: theme.spacing(1),
+//     marginRight: theme.spacing(1),
+//     color: 'white'
+//     // font-size: 18px
+//   },
+// }));
 
-const getAllCategoiresUrl = "http://localhost:3333/api/category";
-const getAllTagsUrl = "http://localhost:3333/api/tag";
+const getAllCategoiresUrl = `${process.env.REACT_APP_API_BASE_URL}api/category`;
+const getAllTagsUrl = `${process.env.REACT_APP_API_BASE_URL}api/tag`;
 
 
 function Step1(props) {
-
   const {
     goForward,
-    addRecipeToBody,
-    addRecipeCategoriesToBody,
-    addRecipeTagsToBody
+    editRecipe,
+    editCategory,
+    editTag,
+    displayNotificationModal,
+    // getRecipesById
   } = props;
+  
+  //attempt at prefilling form 
+  /*
+  const modalActivator = useParams().block
 
+  const [formData, setFormData] = useState({ 
+    recipeID: useParams().id.trim(),
+    title: "",
+    description: "",
+    time_required: "",
+    difficulty: "",
+    budget: "",
+    user_id: localStorage.getItem("userID"),
+    recipe_categories: "",
+    recipe_tags: ""
+  })
+
+  const { recipeID, title, description, time_required, difficulty, budget, user_id, recipe_categories, recipe_tags } = formData;
+  
+  useEffect(() => { 
+    getRecipesById(recipeID);
+  }, [recipeID, getRecipesById]);
+
+  const useIsMounted = () => { 
+    const isMounted = useRef(false);
+    useEffect(() => { 
+      isMounted.current = true;
+      return () => (isMounted.current = false);
+    }, []);
+    return isMounted 
+  };
+
+  const isMounted = useIsMounted();
+  useEffect(() => { 
+    if(isMounted.current){ 
+      // const { recepeID, title, description, time_required, difficulty, budget } = recipe;
+      setFormData({ 
+        recipeID,
+        title,
+        description,
+        time_required,
+        difficulty,
+        budget,
+        user_id,
+        recipe_categories,
+        recipe_tags
+      })
+    }
+  }, [ isMounted])
+
+  const inputHandler = e => {
+    e.preventDefault();
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const onEditSubmit = e => {
+    const recipe = { ...formData };
+    delete recipe.tags;
+    delete recipe.recipe_categories;
+    delete recipe.recipe_tags;
+    editRecipe(recipeID, recipe);
+
+    editCategory(recipeID,[formData.recipe_categories])
+
+    editTag(recipeID, [formData.recipe_tags])
+
+    modalActivator === 'all'
+    ? 
+    goForward(e)
+    :
+    displayNotificationModal('The edited recipe has been added to your cookbook!', '/seerecipe/:id');
+   }
+   */
+
+  const recipeID = useParams().id.trim()
+  const modalActivator = useParams().block
   const [inputState, setInputState] = useState({
     title: "",
     description: "",
@@ -53,29 +129,29 @@ function Step1(props) {
     recipe_tags: ""
   });
 
+
   const inputHandler = e => {
     e.preventDefault();
     setInputState({ ...inputState, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = e => {
-    e.preventDefault();
-
-    // body.recipe
+  const onEditSubmit = e => {
     const recipe = { ...inputState };
     delete recipe.tags;
     delete recipe.recipe_categories;
     delete recipe.recipe_tags;
-    addRecipeToBody(recipe);
+    editRecipe(recipeID, recipe);
 
-    // body.recipe_categories
-    addRecipeCategoriesToBody([inputState.recipe_categories])
+    editCategory(recipeID,[inputState.recipe_categories])
 
-    // body.recipe_tags
-    addRecipeTagsToBody([inputState.recipe_tags])
-    
-    goForward(e);
-  };
+    editTag(recipeID, [inputState.recipe_tags])
+
+    modalActivator === 'all'
+    ? 
+    goForward(e)
+    :
+    displayNotificationModal('The edited recipe has been added to your cookbook!', '/seerecipe/:id');
+   }
 
   const useStyles = makeStyles(theme => ({
     inputRoot: {
@@ -113,17 +189,26 @@ function Step1(props) {
   const classes = useStyles();
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onEditSubmit}>
       <div>
       <Section1>
       <NavigationSection1>
-            <Link to='/profile'>
-              <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+            <Link to='/editrecipe/:id'>
+            <Fab 
+              style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+              >
+               <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+            </Fab>
             </Link>
           <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
-          <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+           <Fab 
+              style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+              >
+              <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+            </Fab>
         </button>
         </NavigationSection1>
+        <h2 style={{color:'white'}}>update recipe info</h2>
         <Addtitle>
       <TextField
       id="standard-full-width"
@@ -131,6 +216,7 @@ function Step1(props) {
       type="text"
       onChange={inputHandler}
       value={inputState.title}
+      // value={formData.title}
       name="title"
       placeholder="title"
       required
@@ -145,7 +231,7 @@ function Step1(props) {
           focused: classes.labelFocused
         }
       }}
-        
+
       />
       <br></br>
         </Addtitle>
@@ -164,6 +250,7 @@ function Step1(props) {
         type="text"
         onChange={inputHandler}
         value={inputState.description}
+        // value={formData.description}
         name="description"
         placeholder="description"
         fullWidth
@@ -183,6 +270,7 @@ function Step1(props) {
             type="number"
             onChange={inputHandler}
             value={inputState.time_required}
+            // value={formData.time_required}
             name="time_required"
             placeholder="time_required"
             min='1'
@@ -204,6 +292,7 @@ function Step1(props) {
         type="number"
         onChange={inputHandler}
         value={inputState.difficulty}
+        // value={formData.difficulty}
         name="difficulty"
         placeholder="difficulty"
         min="1"
@@ -220,6 +309,7 @@ function Step1(props) {
         type="number"
         onChange={inputHandler}
         value={inputState.budget}
+        // value={formData.budget}
         name="budget"
         placeholder="budget"
         min="1"

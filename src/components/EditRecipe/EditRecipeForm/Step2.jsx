@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators"
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import Fab from '@material-ui/core/Fab';
 import DropDown from "../../dropDown/DropDown";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { TextField, Select, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -23,12 +24,20 @@ import axios from "axios";
 
 function Step2(props) {
   const [imgUrl, setImgUrl] = useState(false);
-  const { goForward, addImagesToBody } = props;
+  const { goForward, editImage, displayNotificationModal } = props;
 
-  const onSubmit = e => {
+  const recipeID = useParams().id.trim()
+  const modalActivator = useParams().block
+
+  const onEditSubmit = e => {
     e.preventDefault();
-    addImagesToBody(imgUrl)
-    goForward(e);
+    editImage(recipeID,imgUrl)
+    modalActivator === 'all'
+    ? 
+    goForward(e)
+    :
+    displayNotificationModal('The edited recipe has been added to your cookbook!', '/seerecipe/:id');
+
   };
 
   const uploadImage = async e => {
@@ -47,19 +56,28 @@ function Step2(props) {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onEditSubmit}>
       <Section3>
       <NavigationSection1>
-            <Link to='/profile'>
+        <Link to='/editrecipe/:id'>
+          <Fab 
+            style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+            >
               <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
-            </Link>
+          </Fab>
+        </Link>
           <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
-          <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+            <Fab 
+          style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+          >
+            <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+          </Fab>
         </button>
         </NavigationSection1>
+
         <Addtitle>
        <h1>
-        Upload Image
+        Change Image
         </h1>
         </Addtitle>
       </Section3>

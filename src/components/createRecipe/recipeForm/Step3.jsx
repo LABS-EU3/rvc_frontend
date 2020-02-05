@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators";
-
 import DropDown from "../../dropDown/DropDown";
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Fab from "@material-ui/core/Fab";
-
 import AddCircleOutlineTwoToneIcon from "@material-ui/icons/AddCircleOutlineTwoTone";
 import {
   NavigationSection1,
@@ -19,14 +17,10 @@ import {
   AddItem
 } from "./FormStyled.styles";
 
-const getAllIngredientsUrl = `${process.env.REACT_APP_API_BASE_URL}api/ingredient`;
-const getAlUnitsUrl = `${process.env.REACT_APP_API_BASE_URL}api/unit`;
-
 function Step3(props) {
   const { goForward, goBackward, addRecipeIngredientsToBody } = props;
   const [ingredientsError, setIngredientsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
   const [inputState, setInputState] = useState({
     unit_id: "",
     unit_name: "",
@@ -34,6 +28,13 @@ function Step3(props) {
     ingredient_id: "",
     ingredient_name: ""
   });
+
+  const getAllIngredientsUrl = `${process.env.REACT_APP_API_BASE_URL}api/ingredient`;
+  const getAllUnitsUrl = `${process.env.REACT_APP_API_BASE_URL}api/unit`;
+
+  const goBack = e => {
+    goBackward();
+  };
 
   const [cleanState, setCleanState] = useState({
     unit_id: "",
@@ -98,10 +99,6 @@ function Step3(props) {
     );
   };
 
-  const goBack = e => {
-    goBackward();
-  };
-
   return (
     <form onSubmit={onSubmit}>
       <Section3>
@@ -137,7 +134,7 @@ function Step3(props) {
           <IngredientsDiv>
             <DropDown
               className="dropdown"
-              listUrl={getAlUnitsUrl}
+              listUrl={getAllUnitsUrl}
               name="unit_id"
               name2="unit"
               inputHandler={inputHandler}

@@ -16,18 +16,6 @@ import {
   Title,
 } from "./FormStyled.styles";
 
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//     display: 'flex',
-//     flexWrap: 'wrap',
-//   },
-//   textField: {
-//     marginLeft: theme.spacing(1),
-//     marginRight: theme.spacing(1),
-//     color: 'white'
-//     // font-size: 18px
-//   },
-// }));
 
 const getAllCategoiresUrl = `${process.env.REACT_APP_API_BASE_URL}api/category`;
 const getAllTagsUrl = `${process.env.REACT_APP_API_BASE_URL}api/tag`;
@@ -140,7 +128,7 @@ function Step1(props) {
       onChange={inputHandler}
       value={inputState.title}
       name="title"
-      placeholder="title"
+      placeholder="Enter a recipe name"
       required
       fullWidth
       margin="normal"
@@ -163,6 +151,7 @@ function Step1(props) {
       <DropDown
         listUrl={getAllCategoiresUrl}
         name="recipe_categories"
+        name2="category"
         inputHandler={inputHandler}
         />
       <Title htmlFor="recipeCategoryInput">Description:</Title>
@@ -173,7 +162,7 @@ function Step1(props) {
         onChange={inputHandler}
         value={inputState.description}
         name="description"
-        placeholder="description"
+        placeholder="Give a short description of your recipe"
         fullWidth
         InputProps={{ classes: { root: classes.inputRoot2 } }}
         InputLabelProps={{
@@ -191,7 +180,7 @@ function Step1(props) {
             onChange={inputHandler}
             value={inputState.time_required}
             name="time_required"
-            placeholder="time_required"
+            placeholder="e.g 2mins"
             min='1'
             max='1000'
             required
@@ -268,6 +257,7 @@ function Step1(props) {
         <DropDown
           listUrl={getAllTagsUrl}
           name="recipe_tags"
+          name2="tag"
           inputHandler={inputHandler}
           className="category"
           type="text"
