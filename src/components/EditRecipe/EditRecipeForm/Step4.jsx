@@ -52,7 +52,7 @@ function Step4(props) {
     <form onSubmit={onEditSubmit}>
       <Section3>
       <NavigationSection1>
-          <Link to='/editrecipe/:id'>
+        <Link to={`/editrecipe/${recipeID}`}>
             <Fab 
           style={{background: "none", "box-shadow": "none", "outline": 'none'}}
               >

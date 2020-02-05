@@ -76,6 +76,13 @@ function SeeRecipe({
           <ShareButton>
             <h1>Share</h1>
           </ShareButton>
+          <ForkButton
+            className={localLikeState ? "liked" : "disabled" }
+          >
+            <h1>
+              <Link to={`/editrecipe/${recipeID}`}>Edit</Link>
+            </h1>
+          </ForkButton>
 
           <ForkButton
             onClick={toggleLike}
