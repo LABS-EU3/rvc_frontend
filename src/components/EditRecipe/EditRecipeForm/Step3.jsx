@@ -26,7 +26,7 @@ function Step3(props) {
   const { goForward, addRecipeIngredientsToBody,
   displayNotificationModal,
  } = props;
-//  const recipeID = useParams().id.trim()
+ const recipeID = useParams().id.trim()
  const modalActivator = useParams().block
 
   const [inputState, setInputState] = useState({
