@@ -23,8 +23,12 @@ export default function MarketingPage() {
             <span></span>
             <span></span>
             <ul id="menu">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/register">Get Started</Link></li>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/register">Get Started</Link>
+              </li>
             </ul>
           </div>
         </nav>
@@ -32,7 +36,15 @@ export default function MarketingPage() {
       <StyledDiv>
         <h1 className="header">Find Real recipes</h1>
         <div className="banner-image-section">
-          <Carousel label={{ leftArrow: {left}, rightArrow: {right}}} infiniteLoop={true} autoPlay={true} showThumbs={false} showArrows={true} style={{ "background-color": "white" }}>
+          <Carousel
+            stopOnHover={false}
+            centerMode={true}
+            infiniteLoop={true}
+            autoPlay={true}
+            showThumbs={false}
+            showArrows={true}
+            style={{ "background-color": "white" }}
+          >
             <div className="banner-image">
               <img src={dish1} alt="pic for food" />
             </div>
@@ -42,7 +54,6 @@ export default function MarketingPage() {
             <div className="banner-image">
               <img src={dish3} alt="pic for food" />
             </div>
-            
           </Carousel>
           <div className="recipe-card">
             <p>Chelsea's</p>
@@ -52,11 +63,12 @@ export default function MarketingPage() {
               <span>Simple</span>
               <span className="time-taken">5 mins</span>
             </div>
-            
           </div>
         </div>
         <div className="button-section">
-          <Link to="/register"><button>Start Here</button></Link>
+          <Link to="/register">
+            <button>Start Here</button>
+          </Link>
         </div>
         <div className="section-heading">
           <h1>A faster way to manage your recipes</h1>
@@ -65,7 +77,7 @@ export default function MarketingPage() {
           <article className="explore">
             <h2>
               <div className="number-images">
-                <img alt="number pic"  src={one} />
+                <img alt="number pic" src={one} />
               </div>
               EXPLORE{" "}
             </h2>
@@ -94,8 +106,8 @@ export default function MarketingPage() {
               CREATE
             </h2>
             <p>
-              In 4 simple steps, create your own recipe and share it on your profile
-              with your followers
+              In 4 simple steps, create your own recipe and share it on your
+              profile with your followers
             </p>
           </article>
         </section>
