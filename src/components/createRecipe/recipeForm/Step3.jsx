@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators";
-import DropDown from "../../dropDown/DropDown";
+import DropDownTwo from "../../dropDown/DropDownTwo";
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Fab from "@material-ui/core/Fab";
@@ -132,7 +132,7 @@ function Step3(props) {
             <input type="number" name="quantity" onChange={inputHandler} />
           </IngredientsDiv1>
           <IngredientsDiv>
-            <DropDown
+            <DropDownTwo
               className="dropdown"
               listUrl={getAllUnitsUrl}
               name="unit_id"
@@ -142,7 +142,7 @@ function Step3(props) {
           </IngredientsDiv>
 
           <IngredientsDiv>
-            <DropDown
+            <DropDownTwo
               listUrl={getAllIngredientsUrl}
               name="ingredient_id"
               name2="ingredient"
