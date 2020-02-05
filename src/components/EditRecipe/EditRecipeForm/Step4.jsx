@@ -37,7 +37,8 @@ function Step4(props) {
   const onEditSubmit = e => {
     e.preventDefault();
     editInstruction(recipeID, instructionsArray);
-    displayNotificationModal('The edited recipe has been added to your cookbook!', '/seerecipe/:id');
+    displayNotificationModal('The edited recipe has been added to your cookbook!', `/recipes/${recipeID}`
+    );
   };
 
   const addInstruction = e => {
