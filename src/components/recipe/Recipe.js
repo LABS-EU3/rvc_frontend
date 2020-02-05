@@ -93,12 +93,12 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id, displayLi
           >
             {localLikeCount}
           </p>
-          <div className="card-button" id="options-button" style={buttonsShowing? {} : {display: "none"}}>
+          {/* <div className="card-button" id="options-button" style={buttonsShowing? {} : {display: "none"}}>
             <img id="fork-icon" src={optionsIcon} alt="fork-icon"/>
           </div>
           <div className="card-button" id="share-button" style={buttonsShowing? {} : {display: "none"}}>
             <img id="fork-icon" src={shareIcon} alt="fork-icon"/>
-          </div>
+          </div> */}
           <div className="card-button"
             id="small-fork-button"
             onClick={toggleRecipeLike}

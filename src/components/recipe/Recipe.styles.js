@@ -169,10 +169,10 @@ export const StyledRecipe = styled.div`
         height: 3rem;
         border-radius: 50%;
         outline: none;
+
         &:nth-of-type(n + 2) {
           width: 2.5rem;
           height: 2.5rem;
-          /* border: 2px solid green; */
           background: #0ab28a;
           padding: 0.5rem;
           margin-top: 2rem;
