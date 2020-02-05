@@ -85,6 +85,25 @@ export const DetailsRecipe = styled.div`
   .recipe-description {
     font-size: large;
   }
+
+  .recipe-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+
+    .recipe-difficulty {
+      display: flex;
+      align-items: flex-end;
+
+      div { 
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        margin-left: 1rem;
+      }
+    }
+  }
 `;
 
 export const ProfilePicture = styled.div`

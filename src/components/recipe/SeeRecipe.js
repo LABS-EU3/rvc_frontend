@@ -61,6 +61,11 @@ function SeeRecipe({
     }
   }
 
+  const { time_required, budget, difficulty } = recipe;
+
+  const difficultyColors = ['green', 'orange', 'red'];
+  const difficultyColor = difficultyColors[difficulty - 1];
+
   return (
     <div>
       <RecipeTopDiv>
@@ -117,6 +122,14 @@ function SeeRecipe({
             {/* <Popup modal trigger={<p className="recipe-description">{recipe.description}</p>}>
               {close => <p close={close}>{recipe.description}</p>}
             </Popup> */}
+            <div className="recipe-info">
+              <span>Time required: {time_required} mins</span>
+              <span>Budget: ${budget}</span>
+              <div className="recipe-difficulty">
+                <span>Difficulty:</span>
+                <div style={{ backgroundColor: difficultyColor }} className="level-recipe"/>
+              </div>
+            </div>
           </DetailsRecipe>
         </DescriptionDiv>
 
