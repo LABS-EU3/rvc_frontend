@@ -1,3 +1,4 @@
+
 import * as types from "./actionTypes";
 import { Axios, axiosWithAuth } from "../utils/axios";
 
@@ -310,3 +311,106 @@ export const displayErrorModal = message => dispatch => {
 export const dismissModal = () => dispatch => {
   dispatch({ type: types.DISMISS_MODAL });
 }
+
+//edit
+
+export const editRecipe = (id, payload) => dispatch => { 
+  dispatch({ type: types.EDIT_RECIPE})
+
+  axiosWithAuth()
+  .put(`api/recipe/${id}`, payload)
+  .then(res =>  { dispatch({ 
+    type: types.EDIT_RECIPE_OK, payload: res.data
+  })})
+  .catch(error => {
+    console.dir(error);
+    dispatch({ type: types.EDIT_RECIPE_FAIL, payload: error });
+  });
+}
+
+export const cloneRecipe = (id, cloneData) => dispatch => { 
+  axiosWithAuth()
+  .post(`api/recipe/${id}`, cloneData) 
+  .then(res => { dispatch({
+    type: types.POST_RECIPE_OK})
+  })
+  .catch(error => { 
+    console.dir(error);
+    dispatch({ type: types.POST_RECIPE_FAIL})
+  })
+}
+
+export const editIngredient = (id, ingredient) => dispatch => { 
+  dispatch({ type: types.EDIT_INGREDIENT})
+  axiosWithAuth()
+  .put(`api/recipe/${id}/ingredient`, ingredient)
+  .then(res => { dispatch({ 
+    type: types.EDIT_INGREDIENT_OK, payload: res.data
+  })})
+  .catch(error => { 
+    dispatch({ type: types.EDIT_INGREDIENT_FAIL, payload: error})
+  })
+}
+
+export const addNewIngredient = (id, newIngredient) => dispatch => { 
+  dispatch({ type: types.POST_INGREDIENT})
+  axiosWithAuth()
+  .post(`api/recipe/${id}/ingredient`, newIngredient)
+  .then(res => { dispatch({ 
+    type: types.POST_INGREDIENT_OK, payload: res.data
+  })})
+  .catch(error => { 
+    dispatch({ type: types.POST_INGREDIENT_FAIL })
+  })
+}
+export const editImage = (id , image) => dispatch => { 
+  dispatch({ type: types.EDIT_IMAGE})
+  axiosWithAuth()
+  .post(`api/recipe/${id}/image`, image)
+  .then(res => { dispatch({
+    type: types.EDIT_IMAGE_OK, payload:res.data.url
+  })})
+  .catch(error => { 
+    console.dir(error);
+    dispatch({ type: types.EDIT_IMAGE_FAIL, payload: error})
+  })
+}
+
+export const editCategory = (id, category) => dispatch => { 
+  dispatch({ type: types.EDIT_CATEGORY})
+  axiosWithAuth()
+  .put(`api/category/${id}`, category)
+  .then(res => { dispatch({ 
+    type: types.EDIT_CATEGORY_OK, payload: res.data
+  })})
+  .catch(error => { 
+    console.dir(error);
+    dispatch({ type: types.EDIT_CATEGORY_FAIL, payload:error})
+  })
+}
+export const editTag = (id, tag) => dispatch => { 
+  dispatch({ type: types.EDIT_TAG})
+  axiosWithAuth()
+  .put(`api/tag/${id}`, tag)
+  .then(res => { dispatch({ 
+    type: types.EDIT_TAG_OK, payload: res.data
+  })})
+  .catch(error => { 
+    console.dir(error);
+    dispatch({ type: types.EDIT_TAG_FAIL, payload:error})
+  })
+}
+
+export const editInstruction = (id, instruction) => dispatch => {
+  dispatch({ type: types.EDIT_INSTRUCTION})
+  axiosWithAuth()
+  .put( `api/instruction/${id}`, instruction)
+  .then(res => { dispatch({ 
+    type: types.EDIT_INSTRUCTION_OK, payload: res.data
+  })})
+  .catch(error => { 
+    console.dir(error);
+    dispatch({ type: types.EDIT_INSTRUCTION_FAIL, payload: error})
+  })
+}
+

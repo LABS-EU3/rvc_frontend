@@ -4,23 +4,27 @@ import * as dispatchers from "../../../actions/actionCreators"
 
 import CheckIcon from '@material-ui/icons/Check';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import DropDown from "../../dropDown/DropDown";
-import { Link } from "react-router-dom";
-import { TextField, Select, MenuItem } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import Fab from '@material-ui/core/Fab';
+
+import { useParams, Link } from "react-router-dom";
+import { TextField } from '@material-ui/core';
 import AddCircleOutlineTwoToneIcon from '@material-ui/icons/AddCircleOutlineTwoTone';
 import {
   NavigationSection1,
   Addtitle,
   Section2b,
-  Title2,
   Section3,
   AddItem
 } from "../EditRecipe.styles";
 
 function Step4(props) {
-  const { goForward, addInstructionsToBody } = props;
+  const { 
+    editInstruction,
+    displayNotificationModal,
+   } = props;
 
+   const recipeID = useParams().id.trim()
+  
   const [inputState, setInputState] = useState("");
 
   const [instructionsArray, setInstructionsArray] = useState([]);
@@ -30,10 +34,10 @@ function Step4(props) {
     setInputState(e.target.value);
   };
 
-  const onSubmit = e => {
+  const onEditSubmit = e => {
     e.preventDefault();
-    addInstructionsToBody(instructionsArray);
-    goForward(e);
+    editInstruction(recipeID, instructionsArray);
+    displayNotificationModal('The edited recipe has been added to your cookbook!', '/seerecipe/:id');
   };
 
   const addInstruction = e => {
@@ -42,18 +46,26 @@ function Step4(props) {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onEditSubmit}>
       <Section3>
       <NavigationSection1>
-            <Link to='/profile'>
-              <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
-            </Link>
+        <Link to={`/editrecipe/${recipeID}`}>
+            <Fab 
+          style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+              >
+               <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+            </Fab>
+          </Link>
           <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
-          <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+            <Fab 
+          style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+              >
+              <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+            </Fab>
         </button>
         </NavigationSection1>
         <Addtitle>
-        <h1>Add instruction</h1>
+        <h1>Modify instruction</h1>
         </Addtitle>
       </Section3>
       <Section2b>

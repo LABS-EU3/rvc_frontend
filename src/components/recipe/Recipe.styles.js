@@ -8,8 +8,8 @@ export const RecipeTopDiv = styled.div`
 
 export const TopButtonDiv = styled.div`
   display: flex;
-  justify-content: space-around;
-  width: 200px;
+  justify-content: space-evenly;
+  width: 300px;
   text-align: center;
   font-size: 16px;
   h1 {
@@ -27,6 +27,9 @@ export const ForkButton = styled.div`
 
   &.liked {
     color: white;
+  &.disabled{ 
+    display: none;
+  }
 
     h1 {
       font-weight: bold;
@@ -204,7 +207,7 @@ export const StyledRecipe = styled.div`
       .recipe-card-tag {
         display: flex;
         justify-content: space-between;
-        margin-right: 45px;
+        // margin-right: 45px;
         .level-recipe {
           color: transparent;
           border: 1px solid;

@@ -9,7 +9,7 @@ const Select = styles.select`
 `
 
 function DropDown(props) {
-  const { listUrl, name, inputHandler } = props;
+  const { listUrl, name, name2, inputHandler } = props;
   const [itemList, setItemList] = useState([]);
   const [option, setOption] = useState("");
   const [isFetching, setIsFetching] = useState(true);
@@ -39,9 +39,9 @@ function DropDown(props) {
   if (itemList) {
     return (
       <Select name={name} value={option} onChange={optionHandle}>
-        <option defaultValue disabled>Select a type of dish</option>
+        <option>{`Select ${name2}`}</option>
         {itemList.map(option => (
-          <option key={option.id} value={option.id}>{option.name}</option>
+          <option required key={option.id} value={option.id}>{option.name === "no unit; REPLACE W/ EMPTY STRING" ? "No Unit" : option.name}</option>
         ))}
       </Select>
     );
