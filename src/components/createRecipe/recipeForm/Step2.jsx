@@ -41,12 +41,14 @@ function Step2(props) {
       const data = new FormData();
       data.append("file", files[0]);
       data.append("upload_preset", "recipe_image");
+      setLoading(true)
       const imageUrl = await axios.post(
         "https://api.cloudinary.com/v1_1/dr34bum3p/image/upload",
         data
       );
       // Then
       setImgUrl([imageUrl.data.secure_url]);
+      setLoading(false)
     } catch (error) {
       console.log(error);
     }
