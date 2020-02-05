@@ -207,7 +207,7 @@ export const StyledRecipe = styled.div`
       .recipe-card-tag {
         display: flex;
         justify-content: space-between;
-        margin-right: 45px;
+        // margin-right: 45px;
         .level-recipe {
           color: transparent;
           border: 1px solid;

@@ -50,8 +50,6 @@ display: inline;
 `;
 
 export const Logo = styled.div`
-display:flex;
-
 img {
   width: 50%;
 }

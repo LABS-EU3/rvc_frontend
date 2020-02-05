@@ -262,31 +262,31 @@ export const getProfile = user_id => dispatch => {
   dispatch({ type: types.GET_PROFILE });
 
   const getProfileInfo = axiosWithAuth().get('/api/profile');
-  // const getUserRecipes = axiosWithAuth().get('/api/profile/recipes'); // **subject to change!**
+  const getUserRecipes = axiosWithAuth().get(`/api/recipe/user/${user_id}`);
   const getUserLikes = axiosWithAuth().get(`api/likes/${user_id}`);
-  // const getForkedRecipesCount = axiosWithAuth().get('api/profile/forked'); // **subject to change!**
+  const getForkedRecipesCount = axiosWithAuth().get(`api/likes/count/${user_id}`);
 
-  Promise.all([getProfileInfo, /* getUserRecipes, */ getUserLikes /*, getForkedRecipesCount */])
-    .then(responses => {      
+  Promise.all([ getProfileInfo, getUserRecipes, getUserLikes, getForkedRecipesCount ])
+    .then(responses => {
       const profileInfoPayload = { ...responses[0].data };
       dispatch({ type: types.GET_PROFILE_INFO_SUCCESS, payload: profileInfoPayload });
 
-      // const user_recipes = [ ...responses[1].data ];
-      // const userRecipesPayload = {
-      //   user_recipes,
-      //   recipe_count: user_recipes.length,
-      // }
-      // dispatch({ type: types.GET_USER_RECIPES_SUCCESS, payload: userRecipesPayload });
+      const user_recipes = [ ...responses[1].data ];
+      const userRecipesPayload = {
+        user_recipes,
+        recipe_count: user_recipes.length,
+      }
+      dispatch({ type: types.GET_USER_RECIPES_SUCCESS, payload: userRecipesPayload });
 
-      const user_likes = [ ...responses[1].data ];
+      const user_likes = [ ...responses[2].data ];
       const userLikesPayload = {
         user_likes,
         recipes_liked_count: user_likes.length,
       }
       dispatch({ type: types.GET_LIKED_RECIPES_SUCCESS, payload: userLikesPayload });
 
-      // const forked_recipes_count = responses[3].data;
-      // dispatch({ type: types.GET_FORKED_RECIPES_COUNT_SUCCESS, payload: forked_recipes_count })
+      const forked_recipes_count = responses[3].data.likes;
+      dispatch({ type: types.GET_FORKED_RECIPES_COUNT_SUCCESS, payload: forked_recipes_count });
     })
     .catch(error => {
       dispatch({ type: types.GET_PROFILE_FAILURE, payload: error});
