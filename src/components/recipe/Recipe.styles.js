@@ -157,7 +157,6 @@ export const StyledRecipe = styled.div`
   break-inside: avoid;
   width: 100%;
   padding: 10px;
-  z-index: -1;
   
   .recipe-img-box {
     width: 100%;

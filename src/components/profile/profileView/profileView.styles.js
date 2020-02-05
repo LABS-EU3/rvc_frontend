@@ -149,4 +149,5 @@ export const Banner = styled.div`
   justify-content: center;
   align-items:center;
   letter-spacing: 2px; 
+  z-index: 3;
 `;
