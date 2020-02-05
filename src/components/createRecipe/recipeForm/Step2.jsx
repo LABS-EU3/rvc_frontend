@@ -61,16 +61,16 @@ function Step2(props) {
           <Fab
             style={{
               background: "none",
-              "box-shadow": "none",
+              "boxShadow": "none",
               outline: "none"
             }}
           >
-            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
+            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit="true" />
           </Fab>
           <Fab
             style={{
               background: "none",
-              "box-shadow": "none",
+              "boxShadow": "none",
               outline: "none"
             }}
           >

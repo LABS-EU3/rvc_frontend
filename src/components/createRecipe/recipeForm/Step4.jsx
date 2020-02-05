@@ -95,21 +95,21 @@ function Step4(props) {
           <Fab
             style={{
               background: "none",
-              "box-shadow": "none",
+              "boxShadow": "none",
               outline: "none"
             }}
           >
-            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
+            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit="true" />
           </Fab>
           <Fab
             style={{
               background: "none",
-              "box-shadow": "none",
+              "boxShadow": "none",
               outline: "none"
             }}
           >
             <button type="submit">
-              <CheckIcon className="check-icon" cgit />
+              <CheckIcon className="check-icon" cgit="true" />
             </button>
           </Fab>
         </NavigationSection1>
@@ -140,7 +140,7 @@ function Step4(props) {
         </p>
         <div onClick={addInstruction} style={{ margin: "0 auto" }}>
           <AddCircleOutlineTwoToneIcon
-            cgit
+            cgit="true"
             style={{ fontSize: 40, color: "#0AB38A" }}
           />
         </div>

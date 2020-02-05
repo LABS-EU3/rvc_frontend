@@ -53,14 +53,14 @@ function Step4(props) {
             <Fab 
           style={{background: "none", "box-shadow": "none", "outline": 'none'}}
               >
-               <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+               <ArrowBackIcon cgit="true" style={{ fontSize: 40, color: 'white' }} />
             </Fab>
           </Link>
           <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
             <Fab 
           style={{background: "none", "box-shadow": "none", "outline": 'none'}}
               >
-              <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+              <CheckIcon cgit="true" style={{ fontSize: 40, color: 'white', background:'transparent' }} />
             </Fab>
         </button>
         </NavigationSection1>
@@ -91,7 +91,7 @@ function Step4(props) {
         onClick={addInstruction}
         style={{"margin" : "0 auto"}}
         >
-        <AddCircleOutlineTwoToneIcon cgit style={{ fontSize: 40, color: '#0AB38A' }} />
+        <AddCircleOutlineTwoToneIcon cgit="true" style={{ fontSize: 40, color: '#0AB38A' }} />
         </div>
       <div>
         {instructionsArray.length
