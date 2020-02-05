@@ -48,7 +48,7 @@ align-items: center;
 }
 
 .carousel .slider-wrapper.axis-horizontal .slider {
-    margin-bottom: 9rem;
+    margin-bottom: 12rem;
 }
 
 .carousel.carousel-slider {
