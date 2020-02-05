@@ -39,8 +39,6 @@ function SeeRecipe({
   displayLikeModal,
   user_id
 }) {
-  
-  const shortDescription = (recipe.description + "").substr(0, 20);
 
   const recipeID = match.params.id.trim();
 
@@ -104,6 +102,8 @@ function SeeRecipe({
         </ImgRecipe>
 
         <DescriptionDiv>
+
+          <DetailsRecipe>
           <ProfilePicture>
             <h1>
               {" "}
@@ -112,12 +112,11 @@ function SeeRecipe({
                 : null || `C`}{" "}
             </h1>
           </ProfilePicture>
-
-          <DetailsRecipe>
             <p className="recipe-title">{recipe.recipe_title || ""}</p>
-            <Popup modal trigger={<p className="recipe-description">{`${shortDescription}...`}</p>}>
+            <p>{recipe.description}</p>
+            {/* <Popup modal trigger={<p className="recipe-description">{recipe.description}</p>}>
               {close => <p close={close}>{recipe.description}</p>}
-            </Popup>
+            </Popup> */}
           </DetailsRecipe>
         </DescriptionDiv>
 

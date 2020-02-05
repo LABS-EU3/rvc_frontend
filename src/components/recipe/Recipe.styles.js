@@ -57,7 +57,7 @@ export const ShareButton = styled.div`
 export const ImgRecipe = styled.div`
   width: 100%;
   height: 372px;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   img {
     width: 100%;
     height: 100%;
@@ -74,9 +74,10 @@ export const DetailsRecipe = styled.div`
   background: rgba(196, 196, 196, 0.12);
   border-radius: 15px;
   text-align: start;
-  padding-left: 2rem;
-  width: 80%;
+  padding: 1rem 2rem;
+  width: 100%;
   font-size: 2rem;
+  
   .recipe-title {
     color: rgba(255,48,100,0.8);
     font-weight: 700;
@@ -88,14 +89,21 @@ export const DetailsRecipe = styled.div`
 
 export const ProfilePicture = styled.div`
   border-radius: 50px;
-  width: 53px;
-  height: 55px;
+  width: 6rem;
+  height: 6rem;
   object-fit: scale-down;
   overflow: hidden;
   border: 2px solid rgba(196, 196, 196, 0.12);
   background-color: #d88524;
+  float: left;
+  margin-right: 1rem;
+  margin-top: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   h1 {
-    margin-top: 12px;
     font-size: 18px;
   }
 `;
