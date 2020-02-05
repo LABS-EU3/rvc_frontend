@@ -4,7 +4,7 @@ import * as dispatchers from "../../../actions/actionCreators";
 
 import axios from "axios";
 
-import imageUpload from "../../../utils/imageUpload";
+// import imageUpload from "../../../utils/imageUpload";
 import foodplaceholder from "../../../images/foodplaceholder.png";
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
@@ -18,9 +18,9 @@ import {
 
 function Step2(props) {
   const [loading, setLoading] = useState(false);
-  const uploadImageToCloud = e => {
-    imageUpload(e, setLoading, setImgUrl);
-  };
+  // const uploadImageToCloud = e => {
+  //   imageUpload(e, setLoading, setImgUrl);
+  // };
   const [imgUrl, setImgUrl] = useState(false);
   const { goForward, addImagesToBody, goBackward } = props;
 
