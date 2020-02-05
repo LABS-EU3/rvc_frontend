@@ -66,16 +66,16 @@ function Step4(props) {
     labelRoot: {
       fontSize: 30,
       color: "white",
-      "&$labelFocused": {
-        color: "white"
-      }
+      // "&$labelFocused": {
+      //   color: "white"
+      // }
     },
     labelRoot2: {
       fontSize: 15,
       color: "white",
-      "&$labelFocused": {
-        color: "white"
-      }
+      // "&$labelFocused": {
+      //   color: "white"
+      // }
     },
     root: {
       display: "flex",
@@ -101,17 +101,17 @@ function Step4(props) {
           >
             <ArrowBackIcon className="back-arrow" onClick={goBack} cgit="true" />
           </Fab>
-          <Fab
+          {/* <Fab
             style={{
               background: "none",
               "boxShadow": "none",
               outline: "none"
             }}
-          >
-            <button type="submit">
+          > */}
+            <button type="submit" style={{border: "none", background: "inherit", outline: "none"}}>
               <CheckIcon className="check-icon" cgit="true" />
             </button>
-          </Fab>
+          {/* </Fab> */}
         </NavigationSection1>
         <Addtitle>
           <h1>Add instruction</h1>
@@ -146,8 +146,8 @@ function Step4(props) {
         </div>
         {instructionsArray.length
           ? instructionsArray.map((ing, i) => (
-              <AddItem>
-                <p key={i}>{ing}</p>
+              <AddItem key={i}>
+                <p>{ing}</p>
                 <button
                   onClick={e => {
                     removeInstruction(e, ing, i);

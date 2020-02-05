@@ -67,9 +67,9 @@ function Step5(props) {
       {recipe.description}
       </p>
       <h2>Ingredients</h2>
-        {recipe_ingredients.map(ingr => <p>{ingr.name}</p>)}
+        {recipe_ingredients.map((ingr, i) => <p key={i}>{ingr.name}</p>)}
       <h2>Instruction</h2>
-        {instructions.map(instr => <p>{instr}</p>)}
+        {instructions.map((instr, i) => <p key={i}>{instr}</p>)}
 
       </PreviewDiv>
     </div>

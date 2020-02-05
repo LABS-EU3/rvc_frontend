@@ -165,8 +165,8 @@ function Step3(props) {
         <div>
           {ingredientsArray.length
             ? ingredientsDisplayArray.map((ing, i) => (
-                <AddItem>
-                  <p key={i}>
+                <AddItem key={i}>
+                  <p>
                     {ing.quantity}{" "}
                     {ing.unit_name === "No Unit" ? "" : ing.unit_name + " of"}{" "}
                     {ing.ingredient_name}

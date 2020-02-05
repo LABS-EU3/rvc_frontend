@@ -112,7 +112,7 @@ function Step1(props) {
                 <ArrowBackIcon cgit="true" style={{ fontSize: 40, color: 'white' }} />
               </Fab>
             </Link>
-          <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
+          <button type='submit' style={{border: "none", background: "inherit", outline: "none"}}>
              {/* <Fab 
               style={{background: "none", "boxShadow": "none", "outline": 'none'}}
               > */}
