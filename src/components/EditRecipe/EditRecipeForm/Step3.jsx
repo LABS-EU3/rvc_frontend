@@ -9,18 +9,13 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Fab from '@material-ui/core/Fab';
 
 import { useParams, Link } from "react-router-dom";
-import { TextField, Select, MenuItem } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import AddCircleOutlineTwoToneIcon from '@material-ui/icons/AddCircleOutlineTwoTone';
 import {
   NavigationSection1,
   Addtitle,
   Section2b,
   IngredientsDiv,
-  IngredientsMainDiv,
-  Title2,
   Section3,
-  Section1,
   AddItem
 } from "../EditRecipe.styles";
 
@@ -29,10 +24,9 @@ const getAlUnitsUrl =  `${process.env.REACT_APP_API_BASE_URL}api/unit`;
 
 function Step3(props) {
   const { goForward, addRecipeIngredientsToBody,
-  editIngredient,
   displayNotificationModal,
  } = props;
- const recipeID = useParams().id.trim()
+//  const recipeID = useParams().id.trim()
  const modalActivator = useParams().block
 
   const [inputState, setInputState] = useState({
