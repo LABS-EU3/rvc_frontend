@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const RecipeTopDiv = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-top: 2rem;
+  padding: 2rem 1rem;
+  padding-bottom: 0;
 `;
 
 export const TopButtonDiv = styled.div`
