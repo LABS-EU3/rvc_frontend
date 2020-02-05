@@ -231,6 +231,7 @@ a:hover {
   columns: 3;
   column-gap: 1px;
   margin-top: 15%;
+  margin-bottom: 10%;
 }
 
 /* .container .box {
