@@ -1,7 +1,10 @@
-import React from "react";
+
+import React, { Component } from 'react';
+import {
+	withRouter
+} from 'react-router-dom'
 import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators";
-import { useHistory, useParams } from 'react-router-dom';
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Fab from '@material-ui/core/Fab';
@@ -25,15 +28,10 @@ function Step5(props) {
     instructions,
     goBackward
   } = props;
-
-  // const recipeID = useParams().id.trim();
-  // console.log(props)
-
-  // // const move = () => {
-  // //   useHistory().push(`/recipe/${recipeID} `);
-  // //  }
+  
   
   const submitRecipe = () => {
+    
     const body = {
       recipe,
       recipe_categories,
@@ -43,7 +41,9 @@ function Step5(props) {
       instructions
     };
     postRecipe(body);
+
   };
+
 
 
   const goBack = e => {
@@ -77,7 +77,7 @@ function Step5(props) {
        <br></br>
       <p className="p-paragraph"> Time : {recipe.time_required} min</p> 
       <p className="p-paragraph"> Budget : {recipe.budget} $</p> 
-      <p className="p-paragraph"> Tag : {recipe_tags} </p>  
+      <p className="p-paragraph"> Difficulty : {recipe.difficulty}/4 </p>  
       <Title>
         Ingredients
       </Title>

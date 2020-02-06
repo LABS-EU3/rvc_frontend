@@ -258,9 +258,9 @@ export const postRecipe = payload => dispatch => {
     });
 };
 
-// export const postRecipe = (payload, history) => dispatch => {
+// export const postRecipe = (redirect, history) => dispatch => {
 //   axiosWithAuth()
-//       .post("api/recipe", payload)
+//       .post("api/recipe", redirect)
 //       .then(res => {
 //         dispatch({ type: types.POST_RECIPE_OK, payload: res.data });
 //       history.push("/recipes");
