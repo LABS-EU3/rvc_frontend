@@ -29,6 +29,17 @@ function Step5(props) {
     goBackward
   } = props;
   
+  // const submitRecipe = () => {
+  //   const body = {
+  //     recipe,
+  //     recipe_categories,
+  //     recipe_tags,
+  //     images,
+  //     recipe_ingredients,
+  //     instructions
+  //   };
+  //   postRecipe(props.history, body);
+  // };
   
   const submitRecipe = () => {
     

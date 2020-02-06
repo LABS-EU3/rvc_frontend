@@ -95,30 +95,11 @@ function Step4(props) {
           <Fab
             style={{
               background: "none",
-<<<<<<< HEAD
-              "box-shadow": "none",
-              outline: "none"
-            }}
-          >
-            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
-          </Fab>
-          <Fab
-            style={{
-              background: "none",
-              "box-shadow": "none",
-              outline: "none"
-            }}
-          >
-            <button type="submit">
-              <CheckIcon className="check-icon" cgit />
-            </button>
-=======
               "boxShadow": "none",
               outline: "none"
             }}
           >
             <ArrowBackIcon className="back-arrow" onClick={goBack} cgit="true" />
->>>>>>> 6b5ad4f9204e2bcb7929ae8d3aa7f50d3ccfac37
           </Fab>
           {/* <Fab
             style={{
@@ -159,23 +140,14 @@ function Step4(props) {
         </p>
         <div onClick={addInstruction} style={{ margin: "0 auto" }}>
           <AddCircleOutlineTwoToneIcon
-<<<<<<< HEAD
-            cgit
-=======
             cgit="true"
->>>>>>> 6b5ad4f9204e2bcb7929ae8d3aa7f50d3ccfac37
             style={{ fontSize: 40, color: "#0AB38A" }}
           />
         </div>
         {instructionsArray.length
           ? instructionsArray.map((ing, i) => (
-<<<<<<< HEAD
-              <AddItem>
-                <p key={i}>{ing}</p>
-=======
               <AddItem key={i}>
                 <p>{ing}</p>
->>>>>>> 6b5ad4f9204e2bcb7929ae8d3aa7f50d3ccfac37
                 <button
                   onClick={e => {
                     removeInstruction(e, ing, i);
