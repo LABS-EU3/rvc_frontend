@@ -211,11 +211,20 @@ a:hover {
 #menu li {
   padding: 10px 0;
   font-size: 22px;
+  font-family: 'Varela Round'
 }
 
-#menu a li:hover {
+#menu  a li:hover {
   background-color: #0ab28a;
-  color: white;
+  color: white ;
+  z-index: 3;
+  /* color: white; */
+}
+#menu li:hover {
+  background-color: white;
+  color: white ;
+  z-index: 3;
+  /* color: white; */
 }
 
 #menuToggle input:checked ~ ul {
