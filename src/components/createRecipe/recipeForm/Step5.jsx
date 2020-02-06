@@ -55,16 +55,16 @@ function Step5(props) {
       <Section1>
         <NavigationSection1>
          <Fab 
-          style={{"background": "none", "box-shadow": "none", "outline": 'none'
+          style={{"background": "none", "boxShadow": "none", "outline": 'none'
           }}
           >
-            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
+            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit="true" />
          </Fab>
           <Fab 
-          style={{"background": "none", "box-shadow": "none", "outline": 'none'
+          style={{"background": "none", "boxShadow": "none", "outline": 'none'
           }}
           >
-            <CheckIcon className="check-icon" cgit onClick={submitRecipe} />
+            <CheckIcon className="check-icon" cgit="true" onClick={submitRecipe} />
           </Fab>
         </NavigationSection1>
         <Addtitle>
@@ -81,18 +81,17 @@ function Step5(props) {
       <Title>
         Ingredients
       </Title>
-        {recipe_ingredients.map(ingr =>  
-        <AddItem> 
-          <p>{ingr.quantity}</p>
-        </AddItem> )}
+      {recipe_ingredients.map((ingr, i) => <p key={i}>{ingr.name}</p>)}
+ 
         <Title>
         Instruction
       </Title>
         {instructions.map(instr => 
         <AddItem> 
           <p>{instr}</p> 
-        </AddItem> )}
-
+        </AddItem> 
+        )}
+ 
       </PreviewDiv>
     </div>
   );

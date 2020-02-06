@@ -61,23 +61,23 @@ function Step2(props) {
           <Fab
             style={{
               background: "none",
-              "box-shadow": "none",
+              "boxShadow": "none",
               outline: "none"
             }}
           >
-            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
+            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit="true" />
           </Fab>
-          <Fab
+          {/* <Fab
             style={{
               background: "none",
-              "box-shadow": "none",
+              "boxShadow": "none",
               outline: "none"
             }}
-          >
-            <button type="submit">
+          > */}
+            <button type="submit" style={{border: "none", background: "inherit", outline: "none"}}>
               <CheckIcon className="check-icon" />
             </button>
-          </Fab>
+          {/* </Fab> */}
         </NavigationSection1>
         <Addtitle>
           <h1>Upload Image</h1>

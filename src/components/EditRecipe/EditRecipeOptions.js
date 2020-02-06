@@ -18,7 +18,7 @@ const recipeID = useParams().id.trim();
           <Section3>
       <NavigationSection1>
             <Link to={`/recipes/${recipeID}`}>
-              <CloseIcon  cgit style={{ fontSize: 40, color: 'white' }} />
+              <CloseIcon  cgit="true" style={{ fontSize: 40, color: 'white' }} />
             </Link>
         </NavigationSection1>
         <Addtitle>

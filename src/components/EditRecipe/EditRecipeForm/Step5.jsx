@@ -45,10 +45,10 @@ function Step5(props){
           <Section1>
       <NavigationSection1>
             <Link to='/profile'>
-              <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+              <ArrowBackIcon cgit="true" style={{ fontSize: 40, color: 'white' }} />
             </Link>
           <button type='submit' onClick={submitRecipe} style={{"border":"none", "background": "inherit", "outline":"none"}}>
-          <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+          <CheckIcon cgit="true" style={{ fontSize: 40, color: 'white', background:'transparent' }} />
         </button>
         </NavigationSection1>
         <Addtitle>

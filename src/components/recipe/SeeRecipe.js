@@ -18,7 +18,7 @@ import {
   RecipeTopDiv,
   TopButtonDiv,
   ForkButton,
-  ShareButton,
+  // ShareButton,
   ImgRecipe,
   DescriptionDiv,
   DetailsRecipe,
@@ -39,8 +39,6 @@ function SeeRecipe({
   displayLikeModal,
   user_id
 }) {
-  
-  const shortDescription = (recipe.description + "").substr(0, 20);
 
   const recipeID = match.params.id.trim();
 
@@ -63,6 +61,11 @@ function SeeRecipe({
     }
   }
 
+  const { time_required, budget, difficulty } = recipe;
+
+  const difficultyColors = ['green', 'orange', 'red'];
+  const difficultyColor = difficultyColors[difficulty - 1];
+
   return (
     <div>
       <RecipeTopDiv>
@@ -73,9 +76,13 @@ function SeeRecipe({
         </div>
 
         <TopButtonDiv>
-          <ShareButton>
+          {/* <ShareButton>
             <h1>Share</h1>
+<<<<<<< HEAD
           </ShareButton>
+=======
+          </ShareButton> */}
+>>>>>>> 6b5ad4f9204e2bcb7929ae8d3aa7f50d3ccfac37
           <ForkButton
             className={localLikeState ? "liked" : "disabled" }
           >
@@ -104,6 +111,8 @@ function SeeRecipe({
         </ImgRecipe>
 
         <DescriptionDiv>
+
+          <DetailsRecipe>
           <ProfilePicture>
             <h1>
               {" "}
@@ -112,12 +121,19 @@ function SeeRecipe({
                 : null || `C`}{" "}
             </h1>
           </ProfilePicture>
-
-          <DetailsRecipe>
             <p className="recipe-title">{recipe.recipe_title || ""}</p>
-            <Popup modal trigger={<p className="recipe-description">{`${shortDescription}...`}</p>}>
+            <p>{recipe.description}</p>
+            {/* <Popup modal trigger={<p className="recipe-description">{recipe.description}</p>}>
               {close => <p close={close}>{recipe.description}</p>}
-            </Popup>
+            </Popup> */}
+            <div className="recipe-info">
+              <span>Time required: {time_required} mins</span>
+              <span>Budget: ${budget}</span>
+              <div className="recipe-difficulty">
+                <span>Difficulty:</span>
+                <div style={{ backgroundColor: difficultyColor }} className="level-recipe"/>
+              </div>
+            </div>
           </DetailsRecipe>
         </DescriptionDiv>
 
