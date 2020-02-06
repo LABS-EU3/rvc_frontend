@@ -27,7 +27,7 @@ function App(props) {
       {page === 2 && <Step2 goForward={goForward} goBackward={goBackward} />}
       {page === 3 && <Step3 goForward={goForward} goBackward={goBackward} />}
       {page === 4 && <Step4 goForward={goForward} goBackward={goBackward} />}
-      {page === 5 && <Step5 goBackward={goBackward} />}
+      {page === 5 && <Step5 goBackward={goBackward} {...props}/>}
       <Footer></Footer>
     </div>
   );

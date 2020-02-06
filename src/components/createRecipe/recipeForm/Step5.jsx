@@ -42,8 +42,9 @@ function Step5(props) {
       recipe_ingredients,
       instructions
     };
-    postRecipe(body);
+    postRecipe(props.history, body);
   };
+  
 
 
   const goBack = e => {
