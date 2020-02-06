@@ -13,7 +13,9 @@ import smallForkIcon from "../../images/small-fork-icon.png";
 import shareIcon from "../../images/small-share-icon.png";
 import optionsIcon from "../../images/small-options-icon.png";
 import forkIcon from "../../images/fork-icon.png";
-
+import forkIconWhite from "../../images/fork-icon-white.png";
+import vector from "../../images/Vector.png";
+import clock from "../../images/clock.png";
 const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id, displayLikeModal }) => {
   // console.log("Recipe.js > recipe: ", recipe);
 
@@ -78,7 +80,13 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id, displayLi
               {}
             }
           >
-            <img id="fork-icon" src={forkIcon} alt="fork-icon"/>
+            <div id="fork-icon-container">
+              <img id="fork-icon" 
+              // src={forkIcon}
+              src={forkIconWhite}
+              // src={vector}
+               alt="fork-icon"/>
+            </div>
           </div>
           <p className="likes"
             style={
@@ -119,8 +127,21 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id, displayLi
           <p>{author + lastLetter}</p>
           <h2>{recipe_title}</h2>
           <div className="recipe-card-tag">
-            <div>
-              <p>{time_required} mins</p>
+            <div style={
+              {
+               width: "15%",
+               height: "auto",
+            }
+            }>
+              <img 
+              style={{
+                maxWidth:"100%",
+                maxHeight:"100%"
+                }} 
+              src={clock} alt='clock'/>
+              </div>
+              <div>
+              <p>{time_required} </p>
             </div>
             <div>
               <p>${budget}</p>
