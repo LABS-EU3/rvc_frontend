@@ -43,7 +43,15 @@ export function ProfileView(props) {
   useEffect(() => {
     getProfile(user_id);
     getUserLikes(user_id)
-  }, [getProfile, getUserLikes, user_id, user_recipes]);
+  }, [getProfile, getUserLikes, user_id]);
+  // Problem: This hook, when conditional on user_likes changing, was stuck in a loop. But how else to make sure the Forked Recipe
+  // and Forks counts (i.e. the profile) update when a recipe is (un)liked?
+  // Tentative solution: Remove user_likes from the above dependency array, and make clicking the recipe container call
+  // getProfile(user_id) at a delay! It's imperfect... but removes the looping!
+
+  const getDelayedProfile = () => {
+    setTimeout(() => getProfile(user_id), 1000);
+  };
 
   useEffect(() => {
     setSanitisedUserRecipes(sanitiseRecipes(user_recipes));
@@ -142,7 +150,7 @@ export function ProfileView(props) {
                 <p>Recipes you create appear here!</p>
               </div>
             ) : (
-              <div className="container">
+              <div className="container" onClick={getDelayedProfile}>
                 {sanitisedUserRecipes.map(recipe => (
                   <Recipe
                     key={recipe.id}
@@ -159,7 +167,7 @@ export function ProfileView(props) {
                   <p>Recipes you 'fork' appear here!</p>
                 </div>
               ) : (
-                <div className="container">
+                <div className="container" onClick={getDelayedProfile}>
                   {sanitisedLikedRecipes.map(recipe => (
                     <Recipe
                       key={recipe.id}
