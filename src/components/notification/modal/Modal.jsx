@@ -6,31 +6,37 @@ import { connect } from "react-redux";
 import * as actionCreators from "../../../actions/actionCreators";
 
 export function Modal(props) {
-  const { isNotification, message, buttonLink, isDisplaying, dismissModal } = props;
+  const { modalType, message, buttonLink, isDisplaying, dismissModal } = props;
   
-  // const { displayNotificationModal, displayErrorModal } = props;
+  // const { displayNotificationModal, displayErrorModal, displayLikeModal } = props;
   // ^For testing purposes!
 
   return (<>
-    <StyledDiv style={{display: isDisplaying ? "inherit" : "none"}}>
-      <div className="modal">
-        <div className="message">
+    <StyledDiv id={`${modalType}-modal-div`}
+      style={{display: isDisplaying ? "inherit" : "none"}}
+    >
+      <div className="modal" id={`${modalType}-modal`}>
+        <div className="message" id={`${modalType}-message`}>
           <p>{message}</p>
         </div>
         <div className="buttons">
           {
-            isNotification
-              ? 
-                <>
-                  <div className="button-div" id="view" onClick={dismissModal}>
-                    <Link to={buttonLink}>VIEW</Link>
-                  </div>
-                  <div className="button-div" id="continue" onClick={dismissModal}>CONTINUE</div>
-                </>
-              :
-                <div className="button-div" id="redirect" onClick={dismissModal}>
-                  <Link to={buttonLink}>REDIRECT</Link>
+            modalType === "notification" ? 
+              <>
+                <div className="button-div" id="view" onClick={dismissModal}>
+                  <Link to={buttonLink}>VIEW</Link>
                 </div>
+                <div className="button-div" id="continue" onClick={dismissModal}>CONTINUE</div>
+              </> :
+            modalType === "like" ?
+              <div className="button-div" id="view" onClick={dismissModal}>
+                <Link to={buttonLink}>VIEW</Link>
+              </div> :
+            modalType === "error" ?
+              <div className="button-div" id="redirect" onClick={dismissModal}>
+                <Link to={buttonLink}>REDIRECT</Link>
+              </div> :
+            <></>
           }
         </div>
       </div>
@@ -38,7 +44,8 @@ export function Modal(props) {
 
     {/* For testing purposes! */}
     {/* <button onClick={() => displayNotificationModal("The thing worked!", "/profile")} style={{position: "absolute", top: "50%"}}>NOTIF</button>
-    <button onClick={() => displayErrorModal("Error: ERRORERRORERROR.")} style={{position: "absolute", top: "55%"}}>ERR</button> */}
+    <button onClick={() => displayLikeModal("Recipe added to cookbook!", "/profile")} style={{position: "absolute", top: "55%"}}>LIKE</button>
+    <button onClick={() => displayErrorModal("Error: ERRORERRORERROR.")} style={{position: "absolute", top: "60%"}}>ERR</button> */}
     </>
   )
 }

@@ -1,3 +1,4 @@
+
 import * as types from "./actionTypes";
 import { Axios, axiosWithAuth } from "../utils/axios";
 
@@ -64,6 +65,46 @@ export const getRecipesById = id => dispatch => {
       dispatch({ type: types.GET_RECIPE_FAILURE, payload: error.message });
     });
 };
+
+const userLikesErrorHandler = (err, dispatch) => {
+  dispatch({ type: types.LIKE_REQUEST_FAILURE, payload: err });
+};
+export const likeRecipe = (user_id, recipe_id) => dispatch => {
+  dispatch({ type: types.LIKE_RECIPE });
+
+  axiosWithAuth()
+    .post("/api/likes", ({ user_id, recipe_id }))
+    .then(res => {
+      dispatch({ type: types.LIKE_RECIPE_SUCCESS, payload: res.data.id });
+      // ^Note: Only need res.data.id, here, as userLikes might as well be an array of recipe ids. :)
+    })
+    .catch(err => userLikesErrorHandler(err, dispatch));
+}
+export const unlikeRecipe = (user_id, recipe_id) => dispatch => {
+  dispatch({ type: types.UNLIKE_RECIPE });
+
+  axiosWithAuth()
+  .delete("/api/likes", {
+    data: { user_id, recipe_id }
+    // ^Note: see https://github.com/axios/axios/issues/736
+  })
+  .then(res => {
+      dispatch({ type: types.UNLIKE_RECIPE_SUCCESS, payload: recipe_id });
+    })
+    .catch(err => userLikesErrorHandler(err, dispatch));
+}
+export const getUserLikes = user_id => dispatch => {
+  dispatch({ type: types.GET_USER_LIKES });
+
+  axiosWithAuth()
+    .get(`/api/likes/${user_id}`)
+    .then(res => {
+      const likedRecipeIds = res.data.map(recipe => recipe.id);
+      dispatch({ type: types.GET_USER_LIKES_SUCCESS, payload: likedRecipeIds });
+    })
+    .catch(err => userLikesErrorHandler(err, dispatch));
+}
+
 // Might not be needed
 export const addIngredient = ingredientData => dispatch => {
   dispatch({ type: types.REQUEST_START });
@@ -217,81 +258,50 @@ export const postRecipe = payload => dispatch => {
     });
 };
 
-export const getProfile = () => dispatch => {
+export const getProfile = user_id => dispatch => {
   dispatch({ type: types.GET_PROFILE });
 
-  const generalError = error => { // For use below!
-    dispatch({ type: types.GET_PROFILE_FAILURE, payload: error});
-  }
-  const getProfileInfo = axiosWithAuth()
-    .get('/api/profile')
-    .then(res => {
-      const payload = res.data;
-      const massagedPayload = {
-        profile_pic: payload.profile_pic,
-        first_name: payload.first_name,
-        last_name: payload.last_name,
-        bio: payload.bio,
-        isFetchingProfile: false,
+  const getProfileInfo = axiosWithAuth().get('/api/profile');
+  const getUserRecipes = axiosWithAuth().get(`/api/recipe/user/${user_id}`);
+  const getUserLikes = axiosWithAuth().get(`api/likes/${user_id}`);
+  const getForkedRecipesCount = axiosWithAuth().get(`api/likes/count/${user_id}`);
+
+  Promise.all([ getProfileInfo, getUserRecipes, getUserLikes, getForkedRecipesCount ])
+    .then(responses => {
+      const profileInfoPayload = { ...responses[0].data };
+      dispatch({ type: types.GET_PROFILE_INFO_SUCCESS, payload: profileInfoPayload });
+
+      const user_recipes = [ ...responses[1].data ];
+      const userRecipesPayload = {
+        user_recipes,
+        recipe_count: user_recipes.length,
       }
+      dispatch({ type: types.GET_USER_RECIPES_SUCCESS, payload: userRecipesPayload });
 
-      dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload});
-    })
-    .catch(generalError);
-
-  const getUserRecipes = axiosWithAuth()
-    .get('/api/profile/recipes') // **subject to change!**
-    .then(res => {
-      const payload = res.data; // an array of recipe objects
-      const massagedPayload = {
-        user_recipes: payload,
-        recipe_count: payload.length,
-        isFetchingUserRecipes: false,
+      const user_likes = [ ...responses[2].data ];
+      const userLikesPayload = {
+        user_likes,
+        recipes_liked_count: user_likes.length,
       }
+      dispatch({ type: types.GET_LIKED_RECIPES_SUCCESS, payload: userLikesPayload });
 
-      dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload});
+      const forked_recipes_count = responses[3].data.likes;
+      dispatch({ type: types.GET_FORKED_RECIPES_COUNT_SUCCESS, payload: forked_recipes_count });
     })
-    .catch(generalError);
-
-
-  const getUserLikes = axiosWithAuth()
-    .get('api/profile/liked') // **subject to change!**
-    .then(res => {
-      const payload = res.data; // an array of recipe objects
-      const massagedPayload = {
-        liked_recipes: payload,
-        recipes_forked_count: payload.length,
-        isFetchingUserLikes: false,
-      }
-
-      dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload });
-    })
-    .catch(generalError);
-
-  const getForkedRecipesCount = axiosWithAuth()
-    .get('api/profile/forked') // **subject to change!**
-    .then(res => {
-      const payload = res.data; // an integer
-      const massagedPayload = {
-        forked_recipes_count: payload,
-        isFetchingForkedRecipesCount: false,
-      }
-
-      dispatch({ type: types.GET_PROFILE_SUCCESS, payload: massagedPayload });
-    })
-    .catch(generalError);
-
-  Promise.all([getProfileInfo, getUserRecipes, getUserLikes, getForkedRecipesCount])
-    .then(res => {
-      console.log(res.data);
-    })
-    .catch(generalError);
+    .catch(error => {
+      dispatch({ type: types.GET_PROFILE_FAILURE, payload: error});
+    });
 }
 
 // for Modal:
 export const displayNotificationModal = (message, buttonLink) => dispatch => {
-  const payload = ({ message, buttonLink });
-  dispatch({ type: types.DISPLAY_NOTIFICATION_MODAL, payload });
+  dispatch({ type: types.DISPLAY_NOTIFICATION_MODAL, payload: ({ message, buttonLink })});
+}
+
+export const displayLikeModal = (message, buttonLink) => dispatch => {
+  dispatch({ type: types.DISPLAY_LIKE_MODAL, payload: ({ message, buttonLink })});
+
+  setTimeout(() => dispatch({ type: types.DISMISS_MODAL }), 3001);
 }
 
 export const displayErrorModal = message => dispatch => {
@@ -301,3 +311,106 @@ export const displayErrorModal = message => dispatch => {
 export const dismissModal = () => dispatch => {
   dispatch({ type: types.DISMISS_MODAL });
 }
+
+//edit
+
+export const editRecipe = (id, payload) => dispatch => { 
+  dispatch({ type: types.EDIT_RECIPE})
+
+  axiosWithAuth()
+  .put(`api/recipe/${id}`, payload)
+  .then(res =>  { dispatch({ 
+    type: types.EDIT_RECIPE_OK, payload: res.data
+  })})
+  .catch(error => {
+    console.dir(error);
+    dispatch({ type: types.EDIT_RECIPE_FAIL, payload: error });
+  });
+}
+
+export const cloneRecipe = (id, cloneData) => dispatch => { 
+  axiosWithAuth()
+  .post(`api/recipe/${id}`, cloneData) 
+  .then(res => { dispatch({
+    type: types.POST_RECIPE_OK})
+  })
+  .catch(error => { 
+    console.dir(error);
+    dispatch({ type: types.POST_RECIPE_FAIL})
+  })
+}
+
+export const editIngredient = (id, ingredient) => dispatch => { 
+  dispatch({ type: types.EDIT_INGREDIENT})
+  axiosWithAuth()
+  .put(`api/recipe/${id}/ingredient`, ingredient)
+  .then(res => { dispatch({ 
+    type: types.EDIT_INGREDIENT_OK, payload: res.data
+  })})
+  .catch(error => { 
+    dispatch({ type: types.EDIT_INGREDIENT_FAIL, payload: error})
+  })
+}
+
+export const addNewIngredient = (id, newIngredient) => dispatch => { 
+  dispatch({ type: types.POST_INGREDIENT})
+  axiosWithAuth()
+  .post(`api/recipe/${id}/ingredient`, newIngredient)
+  .then(res => { dispatch({ 
+    type: types.POST_INGREDIENT_OK, payload: res.data
+  })})
+  .catch(error => { 
+    dispatch({ type: types.POST_INGREDIENT_FAIL })
+  })
+}
+export const editImage = (id , image) => dispatch => { 
+  dispatch({ type: types.EDIT_IMAGE})
+  axiosWithAuth()
+  .post(`api/recipe/${id}/image`, image)
+  .then(res => { dispatch({
+    type: types.EDIT_IMAGE_OK, payload:res.data.url
+  })})
+  .catch(error => { 
+    console.dir(error);
+    dispatch({ type: types.EDIT_IMAGE_FAIL, payload: error})
+  })
+}
+
+export const editCategory = (id, category) => dispatch => { 
+  dispatch({ type: types.EDIT_CATEGORY})
+  axiosWithAuth()
+  .put(`api/category/${id}`, category)
+  .then(res => { dispatch({ 
+    type: types.EDIT_CATEGORY_OK, payload: res.data
+  })})
+  .catch(error => { 
+    console.dir(error);
+    dispatch({ type: types.EDIT_CATEGORY_FAIL, payload:error})
+  })
+}
+export const editTag = (id, tag) => dispatch => { 
+  dispatch({ type: types.EDIT_TAG})
+  axiosWithAuth()
+  .put(`api/tag/${id}`, tag)
+  .then(res => { dispatch({ 
+    type: types.EDIT_TAG_OK, payload: res.data
+  })})
+  .catch(error => { 
+    console.dir(error);
+    dispatch({ type: types.EDIT_TAG_FAIL, payload:error})
+  })
+}
+
+export const editInstruction = (id, instruction) => dispatch => {
+  dispatch({ type: types.EDIT_INSTRUCTION})
+  axiosWithAuth()
+  .put( `api/instruction/${id}`, instruction)
+  .then(res => { dispatch({ 
+    type: types.EDIT_INSTRUCTION_OK, payload: res.data
+  })})
+  .catch(error => { 
+    console.dir(error);
+    dispatch({ type: types.EDIT_INSTRUCTION_FAIL, payload: error})
+  })
+}
+

@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators";
-
 import DropDown from "../../dropDown/DropDown";
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import Fab from '@material-ui/core/Fab';
-
+import Fab from "@material-ui/core/Fab";
 import AddCircleOutlineTwoToneIcon from "@material-ui/icons/AddCircleOutlineTwoTone";
 import {
   NavigationSection1,
@@ -19,13 +17,10 @@ import {
   AddItem
 } from "./FormStyled.styles";
 
-const getAllIngredientsUrl = `${process.env.REACT_APP_API_BASE_URL}api/ingredient`;
-const getAlUnitsUrl = `${process.env.REACT_APP_API_BASE_URL}api/unit`;
-
-
 function Step3(props) {
   const { goForward, goBackward, addRecipeIngredientsToBody } = props;
-
+  const [ingredientsError, setIngredientsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [inputState, setInputState] = useState({
     unit_id: "",
     unit_name: "",
@@ -33,6 +28,13 @@ function Step3(props) {
     ingredient_id: "",
     ingredient_name: ""
   });
+
+  const getAllIngredientsUrl = `${process.env.REACT_APP_API_BASE_URL}api/ingredient`;
+  const getAllUnitsUrl = `${process.env.REACT_APP_API_BASE_URL}api/unit`;
+
+  const goBack = e => {
+    goBackward();
+  };
 
   const [cleanState, setCleanState] = useState({
     unit_id: "",
@@ -70,26 +72,54 @@ function Step3(props) {
   const addIngredient = e => {
     e.preventDefault();
     setIngredientsArray([...ingredientsArray, cleanState]);
-    setIngredientsDisplayArray([...ingredientsDisplayArray, inputState]);
+    if (
+      inputState.unit_name &&
+      inputState.quantity &&
+      inputState.ingredient_name
+    ) {
+      setIngredientsDisplayArray([...ingredientsDisplayArray, inputState]);
+    } else {
+      let errorMsg = "";
+      setIngredientsError(true);
+
+      if (!inputState.unit_name) errorMsg = "Select a unit type!";
+      if (!inputState.quantity) errorMsg = "Enter ingredient quantity!";
+      if (!inputState.ingredient_name) errorMsg = "Select a ingredient name!";
+      setErrorMessage(errorMsg);
+      setTimeout(() => {
+        setIngredientsError(false);
+      }, 2000);
+    }
   };
 
-  const goBack = e => {
-    goBackward();
+  const removeIngredients = (e, ing, i) => {
+    e.preventDefault();
+    setIngredientsDisplayArray(
+      ingredientsDisplayArray.filter(ingredient => ingredient !== ing)
+    );
   };
 
   return (
     <form onSubmit={onSubmit}>
       <Section3>
         <NavigationSection1>
-        <Fab 
-          style={{background: "none", "box-shadow": "none", "outline": 'none'}}
-        >
-           <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
-        </Fab>
-        <Fab 
-          style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+          <Fab
+            style={{
+              background: "none",
+              "boxShadow": "none",
+              outline: "none"
+            }}
           >
-           <CheckIcon className="check-icon" onClick={goForward} cgit />
+            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit="true" />
+          </Fab>
+          <Fab
+            style={{
+              background: "none",
+              "boxShadow": "none",
+              outline: "none"
+            }}
+          >
+            <CheckIcon className="check-icon" onClick={goForward} cgit="true" />
           </Fab>
         </NavigationSection1>
         <Addtitle>
@@ -104,8 +134,9 @@ function Step3(props) {
           <IngredientsDiv>
             <DropDown
               className="dropdown"
-              listUrl={getAlUnitsUrl}
+              listUrl={getAllUnitsUrl}
               name="unit_id"
+              name2="unit"
               inputHandler={inputHandler}
             />
           </IngredientsDiv>
@@ -114,28 +145,39 @@ function Step3(props) {
             <DropDown
               listUrl={getAllIngredientsUrl}
               name="ingredient_id"
+              name2="ingredient"
               inputHandler={inputHandler}
             />
           </IngredientsDiv>
         </IngredientsWrapper>
         <br></br>
-        <div onClick={addIngredient} style={{ margin: "0 auto" }}>
-        <Fab 
-          style={{"background": "none", "box-shadow": "none", "outline": 'none'}}
-          >
-            <AddCircleOutlineTwoToneIcon
-            cgit
-            style={{ fontSize: 40, color: "#0AB38A" }}
-          />
-          </Fab>
-        </div>
+        {ingredientsError && (
+          <p className="warning-paragraph">{errorMessage}</p>
+        )}
+        <p className="description-paragraph">
+          click on the plus button to add your ingredients!
+        </p>
+        <AddCircleOutlineTwoToneIcon
+          // cgit="true"
+          style={{ margin: "0 auto", fontSize: 40, color: "#0AB38A" }}
+          onClick={addIngredient}
+        />
         <div>
           {ingredientsArray.length
             ? ingredientsDisplayArray.map((ing, i) => (
-                <AddItem>
-                  <p key={i}>
-                    {ing.quantity} {ing.unit_name} of {ing.ingredient_name}
+                <AddItem key={i}>
+                  <p>
+                    {ing.quantity}{" "}
+                    {ing.unit_name === "No Unit" ? "" : ing.unit_name + " of"}{" "}
+                    {ing.ingredient_name}
                   </p>
+                  <button
+                    onClick={e => {
+                      removeIngredients(e, ing, i);
+                    }}
+                  >
+                    X
+                  </button>
                 </AddItem>
               ))
             : null}

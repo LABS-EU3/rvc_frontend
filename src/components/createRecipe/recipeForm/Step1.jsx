@@ -16,18 +16,6 @@ import {
   Title,
 } from "./FormStyled.styles";
 
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//     display: 'flex',
-//     flexWrap: 'wrap',
-//   },
-//   textField: {
-//     marginLeft: theme.spacing(1),
-//     marginRight: theme.spacing(1),
-//     color: 'white'
-//     // font-size: 18px
-//   },
-// }));
 
 const getAllCategoiresUrl = `${process.env.REACT_APP_API_BASE_URL}api/category`;
 const getAllTagsUrl = `${process.env.REACT_APP_API_BASE_URL}api/tag`;
@@ -87,16 +75,16 @@ function Step1(props) {
     labelRoot: {
       fontSize: 30,
       color: "white",
-      "&$labelFocused": {
-        color: "white"
-      }
+      // "&$labelFocused": {
+      //   color: "white"
+      // }
     },
     labelRoot2: {
       fontSize: 15,
       color: "white",
-      "&$labelFocused": {
-        color: "white"
-      }
+      // "&$labelFocused": {
+      //   color: "white"
+      // }
     },
     root: {
       display: 'flex',
@@ -119,40 +107,41 @@ function Step1(props) {
       <NavigationSection1>
             <Link to='/profile'>
              <Fab 
-              style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+              style={{background: "none", "boxShadow": "none", "outline": 'none'}}
               >
-                <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+                <ArrowBackIcon cgit="true" style={{ fontSize: 40, color: 'white' }} />
               </Fab>
             </Link>
-          <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
-             <Fab 
-              style={{background: "none", "box-shadow": "none", "outline": 'none'}}
-              >
-                <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
-              </Fab>
+          <button type='submit' style={{border: "none", background: "inherit", outline: "none"}}>
+             {/* <Fab 
+              style={{background: "none", "boxShadow": "none", "outline": 'none'}}
+              > */}
+                <CheckIcon cgit="true" style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+              {/* </Fab> */}
         </button>
         </NavigationSection1>
         <Addtitle>
       <TextField
-      id="standard-full-width"
-      style={{ color: "white" }}
-      type="text"
-      onChange={inputHandler}
-      value={inputState.title}
-      name="title"
-      placeholder="title"
-      required
-      fullWidth
-      margin="normal"
-      InputProps={{ classes: { root: classes.inputRoot } }}
-      className={classes.textField}
-      InputLabelProps={{
-        shrink: true,
-        classes: {
-          root: classes.labelRoot,
-          focused: classes.labelFocused
+        id="standard-full-width"
+        style={{ color: "white" }}
+        type="text"
+        onChange={inputHandler}
+        value={inputState.title}
+        name="title"
+        placeholder="Enter a recipe name"
+        required
+        fullWidth
+        margin="normal"
+        InputProps={{ classes: { root: classes.inputRoot } }}
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+          classes: {
+            root: classes.labelRoot,
+            // focused: classes.labelFocused
+          }
         }
-      }}
+      }
         
       />
       <br></br>
@@ -163,6 +152,7 @@ function Step1(props) {
       <DropDown
         listUrl={getAllCategoiresUrl}
         name="recipe_categories"
+        name2="category"
         inputHandler={inputHandler}
         />
       <Title htmlFor="recipeCategoryInput">Description:</Title>
@@ -173,17 +163,17 @@ function Step1(props) {
         onChange={inputHandler}
         value={inputState.description}
         name="description"
-        placeholder="description"
+        placeholder="Give a short description of your recipe"
         fullWidth
         InputProps={{ classes: { root: classes.inputRoot2 } }}
         InputLabelProps={{
           shrink: true,
           classes: {
             root: classes.labelRoot,
-            focused: classes.labelFocused
+            // focused: classes.labelFocused
             }
-            }}
-          />
+        }}
+      />
       <br></br>
       <Title htmlFor="recipeCategoryInput">Time required:</Title>
       <TextField
@@ -191,7 +181,7 @@ function Step1(props) {
             onChange={inputHandler}
             value={inputState.time_required}
             name="time_required"
-            placeholder="time_required"
+            placeholder="e.g 2mins"
             min='1'
             max='1000'
             required
@@ -201,7 +191,7 @@ function Step1(props) {
                 shrink: true,
                 classes: {
                   root: classes.labelRoot,
-                  focused: classes.labelFocused
+                  // focused: classes.labelFocused
                 }
               }}
             />
@@ -237,7 +227,7 @@ function Step1(props) {
             shrink: true,
             classes: {
               root: classes.labelRoot,
-              focused: classes.labelFocused
+              // focused: classes.labelFocused
               }
               }}
         required
@@ -268,6 +258,7 @@ function Step1(props) {
         <DropDown
           listUrl={getAllTagsUrl}
           name="recipe_tags"
+          name2="tag"
           inputHandler={inputHandler}
           className="category"
           type="text"

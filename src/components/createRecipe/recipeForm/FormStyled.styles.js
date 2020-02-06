@@ -366,7 +366,48 @@ h1 {
   font-size: 1.4rem;
   color: #c4c4c4;
 }
+.warning-paragraph {
+  font-size: 1.4rem;
+  color: red;
+}
 `
+
+export const PreviewDiv = styled.div `
+display: flex;
+flex-direction: column;
+margin-top:10%;
+margin-left:2%;
+margin-right:2%;
+.preview-image {
+  width: 100%;
+  max-width: 100%;
+  max-height: 397px;
+  background: rgba(10, 178, 138, 0.21);
+  display:flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: space-between;
+  margin-top: 3.5rem;
+
+  .img {
+    max-height: 397px;
+    width: 100%;
+  }
+}
+.h1 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 38px;
+  margin-bottom:10px;
+}
+.description-paragraph {
+  font-size: 1.4rem;
+  color: #c4c4c4;
+}
+`
+
+
 
 export const ExportImg = styled.div `
 width: 100%;
@@ -410,7 +451,7 @@ border: 0;
 height: 4.5rem;
 margin-top:2%;
 display: flex;
-align-content:flex-start;
+justify-content: space-between;
 background: rgba(10, 179, 138, 0.08);
 border-radius: 2px;
 box-sizing: content-box;
@@ -421,7 +462,13 @@ input {
     font-size: 20px;
     padding-top: 6px;
     padding-left: 2rem;
-  }`
+  }
+  button {
+    outline: none;
+    background: transparent;
+    border: 0;
+  }
+  `
 
   export const IngredientsDiv1 =styled.div`
   
@@ -450,6 +497,7 @@ input {
   `
   export const IngredientsWrapper =styled.div`
     display:flex;
+    justify-content: center;
   `
 
   
