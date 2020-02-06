@@ -1,6 +1,10 @@
 
 import * as types from "./actionTypes";
 import { Axios, axiosWithAuth } from "../utils/axios";
+import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
+
+// import { browserHistory } from 'react-router';
 
 export const register = (credentials, history) => dispatch => {
   dispatch({ type: types.REQUEST_START });
@@ -251,6 +255,7 @@ export const postRecipe = payload => dispatch => {
     .post("api/recipe", payload)
     .then(res => {
       dispatch({ type: types.POST_RECIPE_OK, payload: res.data });
+ 
     })
     .catch(error => {
       console.dir(error);
