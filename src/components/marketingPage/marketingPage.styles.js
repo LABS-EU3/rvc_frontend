@@ -2,7 +2,7 @@ import styles from 'styled-components';
 
 export const StyledDiv = styles.div`
 .header {
-    margin-top: 9rem;
+    margin-top: 6rem;
     font-size: 3.8rem;
 }
 display: flex;
@@ -17,7 +17,7 @@ align-items: center;
 
     background: #FFF9F5;
     // transform: rotate(-5deg);
-    margin: 5rem 0;
+    margin: 4rem 0 5rem 0;
     display: flex;
     flex-direction: column;
     .banner-image {
