@@ -246,30 +246,30 @@ export const addInstructionsToBody = instructions => dispatch => {
   });
 };
 
-// export const postRecipe = payload => dispatch => {
-//   axiosWithAuth()
-//     .post("api/recipe", payload)
-//     .then(res => {
-//       dispatch({ type: types.POST_RECIPE_OK, payload: res.data });
-//     })
-//     .catch(error => {
-//       console.dir(error);
-//       dispatch({ type: types.POST_RECIPE_FAIL, payload: error });
-//     });
-// };
-
-export const postRecipe = (payload, history) => dispatch => {
+export const postRecipe = payload => dispatch => {
   axiosWithAuth()
-      .post("api/recipe", payload)
-      .then(res => {
-        dispatch({ type: types.POST_RECIPE_OK, payload: res.data });
-      history.push("/recipes");
-      })
-      .catch(error => {
-        console.dir(error);
-        dispatch({ type: types.POST_RECIPE_FAIL, payload: error });
-      });
-  };
+    .post("api/recipe", payload)
+    .then(res => {
+      dispatch({ type: types.POST_RECIPE_OK, payload: res.data });
+    })
+    .catch(error => {
+      console.dir(error);
+      dispatch({ type: types.POST_RECIPE_FAIL, payload: error });
+    });
+};
+
+// export const postRecipe = (payload, history) => dispatch => {
+//   axiosWithAuth()
+//       .post("api/recipe", payload)
+//       .then(res => {
+//         dispatch({ type: types.POST_RECIPE_OK, payload: res.data });
+//       history.push("/recipes");
+//       })
+//       .catch(error => {
+//         console.dir(error);
+//         dispatch({ type: types.POST_RECIPE_FAIL, payload: error });
+//       });
+//   };
 
 export const getProfile = user_id => dispatch => {
   dispatch({ type: types.GET_PROFILE });

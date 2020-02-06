@@ -42,9 +42,8 @@ function Step5(props) {
       recipe_ingredients,
       instructions
     };
-    postRecipe(props.history, body);
+    postRecipe(body);
   };
-  
 
 
   const goBack = e => {
@@ -74,15 +73,17 @@ function Step5(props) {
       </Section1>
       <PreviewDiv>
       <img src={images[0]} className="preview-image" alt="preview of newly created recipe"/>
-      <p>
-      {recipe.description}
-      </p>
+      <p className="description-paragraph">{recipe.description} </p>
+       <br></br>
+      <p className="p-paragraph"> Time : {recipe.time_required} min</p> 
+      <p className="p-paragraph"> Budget : {recipe.budget} $</p> 
+      <p className="p-paragraph"> Tag : {recipe_tags} </p>  
       <Title>
         Ingredients
       </Title>
         {recipe_ingredients.map(ingr =>  
         <AddItem> 
-          <p>{ingr.name}</p>
+          <p>{ingr.quantity}</p>
         </AddItem> )}
         <Title>
         Instruction

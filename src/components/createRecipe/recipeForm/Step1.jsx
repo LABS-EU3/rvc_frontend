@@ -232,27 +232,6 @@ function Step1(props) {
         required
           />
       <br></br>
-      {/* <input
-        type="text"
-        onChange={inputHandler}
-        value={inputState.user_id}
-        name="user_id"
-        placeholder="user_id"
-        disabled
-        /> */}
-      <br></br>
-      <br></br>
-      {/* <Title>Options:</Title>
-          <SwitchDiv>
-            <div>
-            <p>Private</p><br></br>
-          <p>The private option hides your recipe from other users</p>
-          </div>
-            <label class="switch">
-              <input type="checkbox" name="options" value="Private" />
-              <span class="slider round"></span>
-            </label>
-          </SwitchDiv> */}
       <Title>Add Tags</Title>
         <DropDown
           listUrl={getAllTagsUrl}
