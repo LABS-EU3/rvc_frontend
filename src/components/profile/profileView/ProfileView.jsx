@@ -44,9 +44,9 @@ export function ProfileView(props) {
     getProfile(user_id);
     getUserLikes(user_id)
   }, [getProfile, getUserLikes, user_id]);
-  // Problem: This hook, when conditional on user_likes changing, was stuck in a loop. But how else to make sure the Forked Recipe
+  // Problem: This hook, when conditional on user_recipes changing, was stuck in a loop. But how else to make sure the Forked Recipe
   // and Forks counts (i.e. the profile) update when a recipe is (un)liked?
-  // Tentative solution: Remove user_likes from the above dependency array, and make clicking the recipe container call
+  // Tentative solution: Remove user_recipes from the above dependency array, and make clicking the recipe container call
   // getProfile(user_id) at a delay! It's imperfect... but removes the looping!
 
   const getDelayedProfile = () => {
