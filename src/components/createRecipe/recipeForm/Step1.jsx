@@ -75,16 +75,16 @@ function Step1(props) {
     labelRoot: {
       fontSize: 30,
       color: "white",
-      "&$labelFocused": {
-        color: "white"
-      }
+      // "&$labelFocused": {
+      //   color: "white"
+      // }
     },
     labelRoot2: {
       fontSize: 15,
       color: "white",
-      "&$labelFocused": {
-        color: "white"
-      }
+      // "&$labelFocused": {
+      //   color: "white"
+      // }
     },
     root: {
       display: 'flex',
@@ -107,40 +107,41 @@ function Step1(props) {
       <NavigationSection1>
             <Link to='/profile'>
              <Fab 
-              style={{background: "none", "box-shadow": "none", "outline": 'none'}}
+              style={{background: "none", "boxShadow": "none", "outline": 'none'}}
               >
-                <ArrowBackIcon cgit style={{ fontSize: 40, color: 'white' }} />
+                <ArrowBackIcon cgit="true" style={{ fontSize: 40, color: 'white' }} />
               </Fab>
             </Link>
-          <button type='submit' style={{"border":"none", "background": "inherit", "outline":"none"}}>
-             <Fab 
-              style={{background: "none", "box-shadow": "none", "outline": 'none'}}
-              >
-                <CheckIcon cgit style={{ fontSize: 40, color: 'white', background:'transparent' }} />
-              </Fab>
+          <button type='submit' style={{border: "none", background: "inherit", outline: "none"}}>
+             {/* <Fab 
+              style={{background: "none", "boxShadow": "none", "outline": 'none'}}
+              > */}
+                <CheckIcon cgit="true" style={{ fontSize: 40, color: 'white', background:'transparent' }} />
+              {/* </Fab> */}
         </button>
         </NavigationSection1>
         <Addtitle>
       <TextField
-      id="standard-full-width"
-      style={{ color: "white" }}
-      type="text"
-      onChange={inputHandler}
-      value={inputState.title}
-      name="title"
-      placeholder="Enter a recipe name"
-      required
-      fullWidth
-      margin="normal"
-      InputProps={{ classes: { root: classes.inputRoot } }}
-      className={classes.textField}
-      InputLabelProps={{
-        shrink: true,
-        classes: {
-          root: classes.labelRoot,
-          focused: classes.labelFocused
+        id="standard-full-width"
+        style={{ color: "white" }}
+        type="text"
+        onChange={inputHandler}
+        value={inputState.title}
+        name="title"
+        placeholder="Enter a recipe name"
+        required
+        fullWidth
+        margin="normal"
+        InputProps={{ classes: { root: classes.inputRoot } }}
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+          classes: {
+            root: classes.labelRoot,
+            // focused: classes.labelFocused
+          }
         }
-      }}
+      }
         
       />
       <br></br>
@@ -169,10 +170,10 @@ function Step1(props) {
           shrink: true,
           classes: {
             root: classes.labelRoot,
-            focused: classes.labelFocused
+            // focused: classes.labelFocused
             }
-            }}
-          />
+        }}
+      />
       <br></br>
       <Title htmlFor="recipeCategoryInput">Time required:</Title>
       <TextField
@@ -190,7 +191,7 @@ function Step1(props) {
                 shrink: true,
                 classes: {
                   root: classes.labelRoot,
-                  focused: classes.labelFocused
+                  // focused: classes.labelFocused
                 }
               }}
             />
@@ -226,7 +227,7 @@ function Step1(props) {
             shrink: true,
             classes: {
               root: classes.labelRoot,
-              focused: classes.labelFocused
+              // focused: classes.labelFocused
               }
               }}
         required

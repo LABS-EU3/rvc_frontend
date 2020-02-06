@@ -137,6 +137,7 @@ export const Banner = styled.div`
   left: 0;
   right: 0;
   width: 100%;
+  height: 6rem;
   display: flex;
   flex-direction: flex-end;
   background-color: #0AB38A;
@@ -148,4 +149,5 @@ export const Banner = styled.div`
   justify-content: center;
   align-items:center;
   letter-spacing: 2px; 
+  z-index: 3;
 `;

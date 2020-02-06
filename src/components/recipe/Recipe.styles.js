@@ -3,12 +3,13 @@ import styled from "styled-components";
 export const RecipeTopDiv = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-top: 2rem;
+  padding: 2rem 1rem;
+  padding-bottom: 0;
 `;
 
 export const TopButtonDiv = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   width: 300px;
   text-align: center;
   font-size: 16px;
@@ -24,6 +25,7 @@ export const ForkButton = styled.div`
   height: 35px;
   background: rgba(255, 48, 100, 0.8);
   border-radius: 5px;
+  margin-right: 1rem;
 
   &.liked {
     color: white;
@@ -55,7 +57,7 @@ export const ShareButton = styled.div`
 export const ImgRecipe = styled.div`
   width: 100%;
   height: 372px;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   img {
     width: 100%;
     height: 100%;
@@ -72,9 +74,10 @@ export const DetailsRecipe = styled.div`
   background: rgba(196, 196, 196, 0.12);
   border-radius: 15px;
   text-align: start;
-  padding-left: 2rem;
-  width: 80%;
+  padding: 1rem 2rem;
+  width: 100%;
   font-size: 2rem;
+  
   .recipe-title {
     color: rgba(255,48,100,0.8);
     font-weight: 700;
@@ -82,18 +85,44 @@ export const DetailsRecipe = styled.div`
   .recipe-description {
     font-size: large;
   }
+
+  .recipe-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+
+    .recipe-difficulty {
+      display: flex;
+      align-items: flex-end;
+
+      div { 
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        margin-left: 1rem;
+      }
+    }
+  }
 `;
 
 export const ProfilePicture = styled.div`
   border-radius: 50px;
-  width: 53px;
-  height: 55px;
+  width: 6rem;
+  height: 6rem;
   object-fit: scale-down;
   overflow: hidden;
   border: 2px solid rgba(196, 196, 196, 0.12);
   background-color: #d88524;
+  float: left;
+  margin-right: 1rem;
+  margin-top: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   h1 {
-    margin-top: 12px;
     font-size: 18px;
   }
 `;
@@ -128,7 +157,6 @@ export const StyledRecipe = styled.div`
   break-inside: avoid;
   width: 100%;
   padding: 10px;
-  
   
   .recipe-img-box {
     width: 100%;
@@ -167,10 +195,10 @@ export const StyledRecipe = styled.div`
         height: 3rem;
         border-radius: 50%;
         outline: none;
+
         &:nth-of-type(n + 2) {
           width: 2.5rem;
           height: 2.5rem;
-          /* border: 2px solid green; */
           background: #0ab28a;
           padding: 0.5rem;
           margin-top: 2rem;

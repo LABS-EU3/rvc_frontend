@@ -10,8 +10,8 @@ import {
 } from "./Recipe.styles";
 
 import smallForkIcon from "../../images/small-fork-icon.png";
-import shareIcon from "../../images/small-share-icon.png";
-import optionsIcon from "../../images/small-options-icon.png";
+// import shareIcon from "../../images/small-share-icon.png";
+// import optionsIcon from "../../images/small-options-icon.png";
 import forkIcon from "../../images/fork-icon.png";
 
 const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id, displayLikeModal }) => {
@@ -93,12 +93,12 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id, displayLi
           >
             {localLikeCount}
           </p>
-          <div className="card-button" id="options-button" style={buttonsShowing? {} : {display: "none"}}>
+          {/* <div className="card-button" id="options-button" style={buttonsShowing? {} : {display: "none"}}>
             <img id="fork-icon" src={optionsIcon} alt="fork-icon"/>
           </div>
           <div className="card-button" id="share-button" style={buttonsShowing? {} : {display: "none"}}>
             <img id="fork-icon" src={shareIcon} alt="fork-icon"/>
-          </div>
+          </div> */}
           <div className="card-button"
             id="small-fork-button"
             onClick={toggleRecipeLike}
