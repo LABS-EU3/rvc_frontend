@@ -1,23 +1,55 @@
 import styles from 'styled-components';
 
+export const MainDiv = styles.div`
+background:#0AB28A;
+`
+
 export const StyledDiv = styles.div`
+.menu-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    align-content: flex-end;
+    background:#0AB28A;
+    margin-top: 0rem;
+    padding: 2rem;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size:15px;
+}
+
+.subMenu {
+    display:flex;
+    justify-content:space-between;
+    margin-right: 5px;
+    font-size: 10px;
+}
+
+.text1 {
+    margin-right: 15px;
+    font-size: 8px;  
+}
+
 .header {
     margin-top: 9rem;
-    font-size: 3.8rem;
+    font-size: 36px;
+    line-height: 45px;
+    background:#0AB28A;
 }
 display: flex;
 flex-direction: column; 
 align-items: center;
-
+background:#0AB28A;
 .banner-image-section {
     // height: 40rem;
-    width: 400px;
+    width: 100%;
     // width: 80%
     margin: auto;
-
-    background: #FFF9F5;
+    background:#0AB28A;
     // transform: rotate(-5deg);
-    margin: 5rem 0;
+    margin: 1rem 0;
     display: flex;
     flex-direction: column;
     .banner-image {
@@ -134,13 +166,13 @@ section {
 footer {
     width: 100%
     text-align: left;
-    padding: 4rem 0 0 1rem;
+    padding: 2rem 0 0 1rem;
     background: rgba(10, 179, 138, 0.08);
     font-size: 1.6rem;
     p {
         font-size: 1.6rem;
-        margin-top: 5rem;
-        margin-bottom: 0;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
         text-align: center;
     }
 }

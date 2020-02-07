@@ -1,7 +1,7 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import { StyledDiv } from "./marketingPage.styles";
+import { StyledDiv, } from "./marketingPage.styles";
 import dish1 from "../../../src/images/dish1.jpg";
 import dish2 from "../../../src/images/dish2.jpg";
 import dish3 from "../../../src/images/dish3.jpg";
@@ -15,26 +15,22 @@ import { Link } from "react-router-dom";
 export default function MarketingPage() {
   return (
     <div>
+      <StyledDiv> 
       <div className="menu-container">
-        <nav role="navigation">
-          <div id="menuToggle">
-            <input type="checkbox" />
-            <span></span>
-            <span></span>
-            <span></span>
-            <ul id="menu">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/register">Get Started</Link>
-              </li>
-            </ul>
+        <div className="logo">
+         <h1>FORKBOOK</h1>
+        </div>        
+        <div className="subMenu">
+          <div className="text1"> 
+            <h1>Recipes</h1>
           </div>
-        </nav>
+          <div className="text1">
+            <h1> Sign in</h1>
+          </div>
+        </div>
       </div>
-      <StyledDiv>
-        <h1 className="header">Find Real recipes</h1>
+        <h1 className="header">Find real recipes and create your own cookbook</h1>
+
         <div className="banner-image-section">
           <Carousel
             stopOnHover={false}
@@ -70,9 +66,9 @@ export default function MarketingPage() {
             <button>Start Here</button>
           </Link>
         </div>
-        <div className="section-heading">
+        {/* <div className="section-heading">
           <h1>A faster way to manage your recipes</h1>
-        </div>
+        </div> */}
         <section className="recipe-steps">
           <article className="explore">
             <h2>
@@ -88,10 +84,10 @@ export default function MarketingPage() {
           </article>
           <article className="explore">
             <h2>
-              INNOVATE{" "}
               <div className="number-images">
                 <img alt="number pic" src={two} />
-              </div>
+              </div>{" "}
+              SAVE 
             </h2>
             <p>
               Save - or FORK IT as we like to say - the recipe you like in your
@@ -113,10 +109,6 @@ export default function MarketingPage() {
         </section>
 
         <footer>
-          <h3>About</h3>
-          <h3>Team</h3>
-          <h3>Contact</h3>
-
           <p>Terms & conditions | Privacy Policy</p>
         </footer>
       </StyledDiv>
