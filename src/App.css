@@ -211,7 +211,8 @@ a:hover {
 #menu li {
   padding: 10px 0;
   font-size: 22px;
-  font-family: 'Varela Round'
+  font-family: 'Varela Round';
+  font-size: 4rem;
 }
 
 #menu  a li:hover {
