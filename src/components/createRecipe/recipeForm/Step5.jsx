@@ -25,7 +25,6 @@ function Step5(props) {
     displayNotificationModal,
     displayErrorModal,
     data, // From newlyAddedRecipe
-    error // From newlyAddedRecipe
   } = props;
 
   const submitRecipe = () => {
@@ -41,7 +40,6 @@ function Step5(props) {
   };
 
   useEffect(() => {
-    console.log(data);
     if (data.id) {
       displayNotificationModal("Recipe successfully created!", `/recipes/${data.id}`, true);
     } else {
