@@ -215,7 +215,7 @@ export const StyledRecipe = styled.div`
       /* margin-top: 2vh; */
       .recipe-card-tag {
         display: flex;
-        flex-wrap: wrap;
+        // flex-wrap: wrap;
         justify-content: space-between;
         align-items: baseline; 
         // margin-right: 45px;

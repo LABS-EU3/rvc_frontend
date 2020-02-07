@@ -146,30 +146,17 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id, displayLi
           <p>{author + lastLetter}</p>
           <h2>{recipe_title}</h2>
           <div className="recipe-card-tag">
-            <div style={
-              {
-               width: "15%",
-               height: "auto",
-            }
-            }>
-              <img 
-              style={{
-                maxWidth:"100%",
-                maxHeight:"100%"
-                }} 
-              src={clock} alt='clock'/>
-              </div>
-              <div>
-              <p style={{fontWeight: 'bold'}}>{time_required} </p>
-            </div>
-            <div>
-              <p style={{fontWeight: 'bold'}}>${budget}</p>
-            </div>
-            <div>
-              <p style={{ backgroundColor: difficultyColor }} className="level-recipe">
-                {difficulty}
-              </p>
-            </div>
+            <div>   
+              <p style={{fontWeight: 'bold'}}>{time_required}mins</p>
+          </div>
+          <div>
+            <p style={{fontWeight: 'bold'}}>${budget}</p>
+          </div>
+          <div>
+            <p style={{ backgroundColor: difficultyColor }} className="level-recipe">
+              {difficulty}
+            </p>
+          </div>
           </div>
         </div>
       </Link>
