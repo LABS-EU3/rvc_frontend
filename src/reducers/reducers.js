@@ -532,7 +532,7 @@ export function newRecipeReducer(state = initialBody, action) {
 }
 
 const initialNewlyAddedRecipe = {
-  data: [],
+  data: {},
   error: ""
 };
 

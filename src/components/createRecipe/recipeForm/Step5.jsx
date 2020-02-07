@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators";
 
@@ -21,7 +21,9 @@ function Step5(props) {
     images,
     recipe_ingredients,
     instructions,
-    goBackward
+    goBackward,
+    displayNotificationModal,
+    data // From newlyAddedRecipe
   } = props;
 
   const submitRecipe = () => {
@@ -35,6 +37,12 @@ function Step5(props) {
     };
     postRecipe(body);
   };
+
+  useEffect(() => {
+    if (data.id) {
+      displayNotificationModal("Recipe successfully created!", `/recipes/${data.id}`)
+    }
+  }, [data, displayNotificationModal]);
 
   const goBack = e => {
     goBackward();
@@ -77,4 +85,7 @@ function Step5(props) {
 }
 
 
-export default connect(state => state.newRecipe, dispatchers)(Step5);
+export default connect(state => ({
+  ...state.newRecipe,
+  ...state.newlyAddedRecipe,
+}), dispatchers)(Step5);

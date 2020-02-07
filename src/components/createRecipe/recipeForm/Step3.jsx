@@ -64,7 +64,6 @@ function Step3(props) {
   };
 
   const onSubmit = e => {
-    debugger
     e.preventDefault();
     addRecipeIngredientsToBody(ingredientsArray);
     goForward(e);

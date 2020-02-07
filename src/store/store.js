@@ -10,6 +10,7 @@ const monsterReducer = combineReducers({
   editIngredient: reducers.editIngredientReducer,
   editInstruction: reducers.editInstructionReducer,
   newRecipe : reducers.newRecipeReducer,
+  newlyAddedRecipe : reducers.newlyAddedRecipe,
   onboard : reducers.onBoardingReducer,
   recipes : reducers.recipeViewReducer,
   singleRecipe: reducers.singleRecipeReducer,
