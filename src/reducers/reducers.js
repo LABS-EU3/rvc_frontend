@@ -756,9 +756,8 @@ export function modalReducer(state = initialModalState, action) {
     case types.DISPLAY_ERROR_MODAL:
       return {
         modalType: "error",
-        message: action.payload,
-        buttonLink: "/login",
-        isDisplaying: true
+        isDisplaying: true,
+        ...action.payload
       };
     case types.DISMISS_MODAL:
       return initialModalState;

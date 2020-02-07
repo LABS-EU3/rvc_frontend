@@ -23,7 +23,9 @@ function Step5(props) {
     instructions,
     goBackward,
     displayNotificationModal,
-    data // From newlyAddedRecipe
+    displayErrorModal,
+    data, // From newlyAddedRecipe
+    error // From newlyAddedRecipe
   } = props;
 
   const submitRecipe = () => {
@@ -39,10 +41,13 @@ function Step5(props) {
   };
 
   useEffect(() => {
+    console.log(data);
     if (data.id) {
       displayNotificationModal("Recipe successfully created!", `/recipes/${data.id}`, true);
+    } else {
+      displayErrorModal("There was a problem creating the recipe. Please try again.", "/profile");
     }
-  }, [data, displayNotificationModal]);
+  }, [data, displayErrorModal, displayNotificationModal]);
 
   const goBack = e => {
     goBackward();
