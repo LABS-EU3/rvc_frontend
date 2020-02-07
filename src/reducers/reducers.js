@@ -532,7 +532,7 @@ export function newRecipeReducer(state = initialBody, action) {
 }
 
 const initialNewlyAddedRecipe = {
-  data: [],
+  data: {},
   error: ""
 };
 
@@ -736,7 +736,8 @@ const initialModalState = {
   modalType: "notification",
   message: "",
   buttonLink: "/login",
-  isDisplaying: false
+  isDisplaying: false,
+  displayContinue: false
 };
 export function modalReducer(state = initialModalState, action) {
   switch (action.type) {
@@ -755,9 +756,8 @@ export function modalReducer(state = initialModalState, action) {
     case types.DISPLAY_ERROR_MODAL:
       return {
         modalType: "error",
-        message: action.payload,
-        buttonLink: "/login",
-        isDisplaying: true
+        isDisplaying: true,
+        ...action.payload
       };
     case types.DISMISS_MODAL:
       return initialModalState;

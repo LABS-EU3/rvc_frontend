@@ -294,18 +294,18 @@ export const getProfile = user_id => dispatch => {
 }
 
 // for Modal:
-export const displayNotificationModal = (message, buttonLink) => dispatch => {
-  dispatch({ type: types.DISPLAY_NOTIFICATION_MODAL, payload: ({ message, buttonLink })});
+export const displayNotificationModal = (message, buttonLink, disableContinue = false) => dispatch => {
+  dispatch({ type: types.DISPLAY_NOTIFICATION_MODAL, payload: ({ message, buttonLink, disableContinue }) });
 }
 
 export const displayLikeModal = (message, buttonLink) => dispatch => {
-  dispatch({ type: types.DISPLAY_LIKE_MODAL, payload: ({ message, buttonLink })});
+  dispatch({ type: types.DISPLAY_LIKE_MODAL, payload: ({ message, buttonLink }) });
 
   setTimeout(() => dispatch({ type: types.DISMISS_MODAL }), 3001);
 }
 
-export const displayErrorModal = message => dispatch => {
-  dispatch({ type: types.DISPLAY_ERROR_MODAL, payload: message });
+export const displayErrorModal = (message, buttonLink) => dispatch => {
+  dispatch({ type: types.DISPLAY_ERROR_MODAL, payload: ({ message, buttonLink }) });
 }
 
 export const dismissModal = () => dispatch => {
