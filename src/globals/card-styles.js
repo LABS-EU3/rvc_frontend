@@ -35,7 +35,7 @@ align-items: center;
 `
 
 export const CardDiv = styled.div`
-background-color: white;
-margin-top: 15%;
-height: 100%; 
-`
+  background-color: white;
+  margin-top: 6%;
+  height: 100%; 
+`;

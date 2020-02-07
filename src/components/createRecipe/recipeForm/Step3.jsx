@@ -106,16 +106,16 @@ function Step3(props) {
           <Fab
             style={{
               background: "none",
-              "box-shadow": "none",
+              "boxShadow": "none",
               outline: "none"
             }}
           >
-            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit />
+            <ArrowBackIcon className="back-arrow" onClick={goBack} cgit="true" />
           </Fab>
           <Fab
             style={{
               background: "none",
-              "box-shadow": "none",
+              "boxShadow": "none",
               outline: "none"
             }}
           >
@@ -158,15 +158,15 @@ function Step3(props) {
           click on the plus button to add your ingredients!
         </p>
         <AddCircleOutlineTwoToneIcon
-          // cgit
+          // cgit="true"
           style={{ margin: "0 auto", fontSize: 40, color: "#0AB38A" }}
           onClick={addIngredient}
         />
         <div>
           {ingredientsArray.length
             ? ingredientsDisplayArray.map((ing, i) => (
-                <AddItem>
-                  <p key={i}>
+                <AddItem key={i}>
+                  <p>
                     {ing.quantity}{" "}
                     {ing.unit_name === "No Unit" ? "" : ing.unit_name + " of"}{" "}
                     {ing.ingredient_name}
