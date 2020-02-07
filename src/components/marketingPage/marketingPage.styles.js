@@ -33,10 +33,15 @@ export const StyledDiv = styles.div`
 }
 
 .header {
+<<<<<<< HEAD
     margin-top: 9rem;
     font-size: 36px;
     line-height: 45px;
     background:#0AB28A;
+=======
+    margin-top: 6rem;
+    font-size: 3.8rem;
+>>>>>>> 2cda90e3761eff61a5c04f711d8d8f75c92bd331
 }
 display: flex;
 flex-direction: column; 
