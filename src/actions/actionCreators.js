@@ -1,6 +1,10 @@
 
 import * as types from "./actionTypes";
 import { Axios, axiosWithAuth } from "../utils/axios";
+import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
+
+// import { browserHistory } from 'react-router';
 
 export const register = (credentials, history) => dispatch => {
   dispatch({ type: types.REQUEST_START });
@@ -251,12 +255,26 @@ export const postRecipe = payload => dispatch => {
     .post("api/recipe", payload)
     .then(res => {
       dispatch({ type: types.POST_RECIPE_OK, payload: res.data });
+ 
     })
     .catch(error => {
       console.dir(error);
       dispatch({ type: types.POST_RECIPE_FAIL, payload: error });
     });
 };
+
+// export const postRecipe = (redirect, history) => dispatch => {
+//   axiosWithAuth()
+//       .post("api/recipe", redirect)
+//       .then(res => {
+//         dispatch({ type: types.POST_RECIPE_OK, payload: res.data });
+//       history.push("/recipes");
+//       })
+//       .catch(error => {
+//         console.dir(error);
+//         dispatch({ type: types.POST_RECIPE_FAIL, payload: error });
+//       });
+//   };
 
 export const getProfile = user_id => dispatch => {
   dispatch({ type: types.GET_PROFILE });

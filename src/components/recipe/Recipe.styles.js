@@ -9,7 +9,11 @@ export const RecipeTopDiv = styled.div`
 
 export const TopButtonDiv = styled.div`
   display: flex;
+<<<<<<< HEAD
+  justify-content: space-evenly;
+=======
   justify-content: flex-end;
+>>>>>>> 6b5ad4f9204e2bcb7929ae8d3aa7f50d3ccfac37
   width: 300px;
   text-align: center;
   font-size: 16px;

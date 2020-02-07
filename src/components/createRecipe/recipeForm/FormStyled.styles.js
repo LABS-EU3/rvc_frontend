@@ -387,7 +387,7 @@ margin-right:2%;
   flex-direction: column;
   align-items: center; 
   justify-content: space-between;
-  margin-top: 3.5rem;
+  margin-top: -2.5rem;
 
   .img {
     max-height: 397px;
@@ -402,8 +402,18 @@ margin-right:2%;
   margin-bottom:10px;
 }
 .description-paragraph {
-  font-size: 1.4rem;
-  color: #c4c4c4;
+  font-size: 2rem;
+  text-align: left;
+  margin-top: 1.2rem;
+  font-weight: 300;
+  line-height: 43px;
+}
+}
+
+.p-paragraph {
+  text-align: left;
+  line-height: 43px;
+  font-size: 1.5rem;
 }
 `
 

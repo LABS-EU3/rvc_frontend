@@ -1,7 +1,10 @@
-import React from "react";
+
+import React, { Component } from 'react';
+import {
+	withRouter
+} from 'react-router-dom'
 import { connect } from "react-redux";
 import * as dispatchers from "../../../actions/actionCreators";
-
 import CheckIcon from "@material-ui/icons/Check";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Fab from '@material-ui/core/Fab';
@@ -9,7 +12,9 @@ import {
   Section1,
   NavigationSection1,
   Addtitle,
-  PreviewDiv
+  PreviewDiv,
+  AddItem,
+  Title 
 } from "./FormStyled.styles";
 
 function Step5(props) {
@@ -23,8 +28,21 @@ function Step5(props) {
     instructions,
     goBackward
   } = props;
-
+  
+  // const submitRecipe = () => {
+  //   const body = {
+  //     recipe,
+  //     recipe_categories,
+  //     recipe_tags,
+  //     images,
+  //     recipe_ingredients,
+  //     instructions
+  //   };
+  //   postRecipe(props.history, body);
+  // };
+  
   const submitRecipe = () => {
+    
     const body = {
       recipe,
       recipe_categories,
@@ -34,7 +52,10 @@ function Step5(props) {
       instructions
     };
     postRecipe(body);
+
   };
+
+
 
   const goBack = e => {
     goBackward();
@@ -63,14 +84,25 @@ function Step5(props) {
       </Section1>
       <PreviewDiv>
       <img src={images[0]} className="preview-image" alt="preview of newly created recipe"/>
-      <p>
-      {recipe.description}
-      </p>
-      <h2>Ingredients</h2>
-        {recipe_ingredients.map((ingr, i) => <p key={i}>{ingr.name}</p>)}
-      <h2>Instruction</h2>
-        {instructions.map((instr, i) => <p key={i}>{instr}</p>)}
-
+      <p className="description-paragraph">{recipe.description} </p>
+       <br></br>
+      <p className="p-paragraph"> Time : {recipe.time_required} min</p> 
+      <p className="p-paragraph"> Budget : {recipe.budget} $</p> 
+      <p className="p-paragraph"> Difficulty : {recipe.difficulty}/4 </p>  
+      <Title>
+        Ingredients
+      </Title>
+      {recipe_ingredients.map((ingr, i) => <p key={i}>{ingr.name}</p>)}
+ 
+        <Title>
+        Instruction
+      </Title>
+        {instructions.map(instr => 
+        <AddItem> 
+          <p>{instr}</p> 
+        </AddItem> 
+        )}
+ 
       </PreviewDiv>
     </div>
   );
