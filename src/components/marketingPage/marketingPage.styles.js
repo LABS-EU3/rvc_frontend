@@ -146,7 +146,7 @@ background:#0AB28A;
 
 section {
     margin: 3rem 0 0   0;
-    background-color: #FFF9F5;
+    background-color: white;
     article {
         padding-top: 5rem;
         h2 {
