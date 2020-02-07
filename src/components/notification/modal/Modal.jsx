@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import * as actionCreators from "../../../actions/actionCreators";
 
 export function Modal(props) {
-  const { modalType, message, buttonLink, isDisplaying, dismissModal } = props;
+  const { modalType, message, buttonLink, disableContinue, isDisplaying, dismissModal } = props;
   
   // const { displayNotificationModal, displayErrorModal, displayLikeModal } = props;
   // ^For testing purposes!
@@ -26,7 +26,11 @@ export function Modal(props) {
                 <div className="button-div" id="view" onClick={dismissModal}>
                   <Link to={buttonLink}>VIEW</Link>
                 </div>
-                <div className="button-div" id="continue" onClick={dismissModal}>CONTINUE</div>
+                {
+                  disableContinue ?
+                  null :
+                  <div className="button-div" id="continue" onClick={dismissModal}>CONTINUE</div>
+                }
               </> :
             modalType === "like" ?
               <div className="button-div" id="view" onClick={dismissModal}>

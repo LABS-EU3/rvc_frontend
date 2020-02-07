@@ -294,8 +294,8 @@ export const getProfile = user_id => dispatch => {
 }
 
 // for Modal:
-export const displayNotificationModal = (message, buttonLink) => dispatch => {
-  dispatch({ type: types.DISPLAY_NOTIFICATION_MODAL, payload: ({ message, buttonLink })});
+export const displayNotificationModal = (message, buttonLink, disableContinue = false) => dispatch => {
+  dispatch({ type: types.DISPLAY_NOTIFICATION_MODAL, payload: ({ message, buttonLink, disableContinue })});
 }
 
 export const displayLikeModal = (message, buttonLink) => dispatch => {

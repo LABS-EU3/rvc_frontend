@@ -736,7 +736,8 @@ const initialModalState = {
   modalType: "notification",
   message: "",
   buttonLink: "/login",
-  isDisplaying: false
+  isDisplaying: false,
+  displayContinue: false
 };
 export function modalReducer(state = initialModalState, action) {
   switch (action.type) {

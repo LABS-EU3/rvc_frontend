@@ -40,7 +40,7 @@ function Step5(props) {
 
   useEffect(() => {
     if (data.id) {
-      displayNotificationModal("Recipe successfully created!", `/recipes/${data.id}`)
+      displayNotificationModal("Recipe successfully created!", `/recipes/${data.id}`, true);
     }
   }, [data, displayNotificationModal]);
 
