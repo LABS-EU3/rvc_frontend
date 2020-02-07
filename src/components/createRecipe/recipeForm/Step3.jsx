@@ -119,7 +119,7 @@ function Step3(props) {
               outline: "none"
             }}
           >
-            <CheckIcon className="check-icon" onClick={goForward} cgit="true" />
+            <CheckIcon className="check-icon" onClick={onSubmit} cgit="true" />
           </Fab>
         </NavigationSection1>
         <Addtitle>
