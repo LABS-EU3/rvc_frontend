@@ -2,7 +2,7 @@
 ## Recipe Version Control
  This is the Frontend code for the ForkBook application, you can find the latest deployed project at https://forkbook.co
 
-### frontend can be found at https://zen-shaw-f09c20.netlify.com/register
+
  
 ## Team
 |                                       [James Eneh](https://github.com/erozonachi)                                        |                                       [Carnun Marcus-Page](https://github.com/CarnunMP)                                        |                                       [Chinedu Nwume](https://github.com/chineducn)                                        |                                       [Samuel Mpere Annor](https://github.com/mpereannor)                                        |                                       [Kiyani Bamba](https://github.com/KiyaniBamba)                                        |
