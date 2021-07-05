@@ -13,7 +13,9 @@ import smallForkIcon from "../../images/small-fork-icon.png";
 // import shareIcon from "../../images/small-share-icon.png";
 // import optionsIcon from "../../images/small-options-icon.png";
 import forkIcon from "../../images/fork-icon.png";
-
+import forkIconWhite from "../../images/fork-icon-white.png";
+import vector from "../../images/Vector.png";
+import clock from "../../images/clock.png";
 const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id, displayLikeModal }) => {
   // console.log("Recipe.js > recipe: ", recipe);
 
@@ -27,8 +29,11 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id, displayLi
     imageUrl,
     likes
   } = recipe;
+  const moonlitAsteroid =  "#0f2027";
+  const redLights = "#b92b27";
+  const greenHouse = "#59C173";
 
-  const difficultyColors = ['green', 'orange', 'red'];
+  const difficultyColors = [greenHouse, 'orange', redLights, moonlitAsteroid];
   const difficultyColor = difficultyColors[difficulty - 1]; // Note: _difficulty_ is either 1, 2, or 3.
   
   const lastLetter = author.substr(-1) === "s" ? "'" : "'s";
@@ -78,17 +83,39 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id, displayLi
               {}
             }
           >
-            <img id="fork-icon" src={forkIcon} alt="fork-icon"/>
+            <div id="fork-icon-container" style={{
+                 "z-index": "-1"
+            }}>
+              <img id="fork-icon" 
+              src={forkIconWhite}
+               alt="fork-icon"/>
+            </div>
           </div>
+          <div id="shadow"></div>
           <p className="likes"
+
             style={
               userLike && buttonsShowing ?
-                {background: "white", color: "#FF3064"} :
+                {
+                  background: "white",
+                   color: "#FF3064"
+                  } :
               userLike && !buttonsShowing ?
-                {background: "#FF3064", color: "white"} :
+                {
+                  background: "#FF3064",
+                  color: "white"
+                } :
               !userLike && buttonsShowing ?
-                {background: "white", color: "#0ab28a"} :
-              {background: "#0ab28a", color: "white"}
+                {
+                  // background: "white",
+                   color: "#0ab28a"
+                  } :
+              {
+                // background: "#0ab28a",
+                 color: "white",
+                 "z-index": "1"
+
+                }
             }
           >
             {localLikeCount}
@@ -119,17 +146,17 @@ const Recipe = ({ recipe, userLike, likeRecipe, unlikeRecipe, user_id, displayLi
           <p>{author + lastLetter}</p>
           <h2>{recipe_title}</h2>
           <div className="recipe-card-tag">
-            <div>
-              <p>{time_required} mins</p>
-            </div>
-            <div>
-              <p>${budget}</p>
-            </div>
-            <div>
-              <p style={{ backgroundColor: difficultyColor }} className="level-recipe">
-                {difficulty}
-              </p>
-            </div>
+            <div>   
+              <p style={{fontWeight: 'bold'}}>{time_required}mins</p>
+          </div>
+          <div>
+            <p style={{fontWeight: 'bold'}}>${budget}</p>
+          </div>
+          <div>
+            <p style={{ backgroundColor: difficultyColor }} className="level-recipe">
+              {difficulty}
+            </p>
+          </div>
           </div>
         </div>
       </Link>

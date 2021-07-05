@@ -149,5 +149,6 @@ export const Banner = styled.div`
   justify-content: center;
   align-items:center;
   letter-spacing: 2px; 
+  font-family: Varela Round;
   z-index: 3;
 `;

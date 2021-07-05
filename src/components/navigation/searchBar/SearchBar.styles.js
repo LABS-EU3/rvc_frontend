@@ -21,6 +21,8 @@ input {
   top: 18px;
   background: #FFFFFF;
   border-radius: 8px;
+  color: black;
+  font-weight: bold;
 }
 
 .menu-container {
@@ -34,5 +36,6 @@ input::placeholder{
   font-weight: 350;
   font-size: 18px;
   line-height: 24px;
+  color: 'gray'
 }
 `

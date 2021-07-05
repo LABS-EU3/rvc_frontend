@@ -211,14 +211,20 @@ export const StyledRecipe = styled.div`
         }
       }
       .likes {
-        width: 1rem;
-        height: 1rem;
-        font-weight:bold;
-        display: flex;
-        justify-content: center;
+        // position: absolute;
+        // top: 1%;
+        right: 80%:
+
+        width: 4rem;
+        // height: 1rem;
+        font-weight:600;
+        font-size: 2rem;
+        // display: flex;
+        // display: none;
+        justify-content: flex-start;
         align-items: center;
-        border-radius: 50%;
-        padding: 0.7rem;
+        // border-radius: 50%;
+        // padding: 0.7rem;
       }
     }
   }
@@ -230,19 +236,24 @@ export const StyledRecipe = styled.div`
       border-top-left-radius: 0;
       border-top-right-radius: 0;
       text-align: start;
-      padding: 2vh;
+      padding: 1vh;
+      // display: flex;
+      // flex-direcition: column
+
       /* margin-top: 2vh; */
       .recipe-card-tag {
         display: flex;
+        // flex-wrap: wrap;
         justify-content: space-between;
+        align-items: baseline; 
         // margin-right: 45px;
         .level-recipe {
           color: transparent;
           border: 1px solid;
           border-radius: 50%;
-          width: 18px;
-          height: 18px;
-          background-color: red;
+          width: 22px;
+          height: 22px;
+          background-color: #b92b27;
         }
         p {
           margin: 5px 0 0;
