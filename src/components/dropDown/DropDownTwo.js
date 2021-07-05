@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from 'styled-components';
 import axios from "axios";
-import { Select } from '@material-ui/core';
 
-const Selector = styles.select`
+const Select = styles.select`
  height: 40px;
  margin-bottom: 1rem;
  background-color: white;
