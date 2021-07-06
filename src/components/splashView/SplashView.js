@@ -1,7 +1,7 @@
 import React from 'react';
 
 import logo_image from '../../globals/design-elements/logo_white.png';
-import { SplashViewDiv } from './SplashView.styles'
+import { SplashViewDiv } from './Splash.styles'
 
 function SplashView (){
     return (
