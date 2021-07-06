@@ -18,6 +18,7 @@ import EditRecipeOptions from "./components/EditRecipe/EditRecipeOptions"
 import EditRecipe from './components/EditRecipe/EditRecipe'
 
 import "./App.css";
+import MarketingPage from "./components/marketingPage/MarketingPage";
 
 function App(props) {
   const { isDisplaying, modalType  } = props;
@@ -38,6 +39,7 @@ function App(props) {
       <Route exact path="/" component={RecipeView} />
       <Route path="/login" component={FormikLoginForm} />
       <Route path="/register" component={FormikRegisterForm} />
+      <Route path="/welcome" component={MarketingPage} />
 
       <Route path="/recipes" exact component={RecipeView} />
       <Route path="/recipes/:id" render={props => <SeeRecipe {...props} />} />
